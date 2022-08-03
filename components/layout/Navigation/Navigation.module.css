@@ -1,0 +1,36 @@
+
+.wrapper {
+    display: grid;
+    background-color: red;
+    width: 100%;
+    height: 10vh;
+    grid-template-columns:  1fr 50% 1fr
+}
+
+.searchContainer {
+    background-color: blue;
+}
+
+.menuContainer {
+    background-color: pink;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.infoContainer {
+    background-color: yellow;
+}
+
+.menuContainer ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns:  repeat(5, 1fr);
+    grid-column-gap: 10px;
+}
+
+.menuContainer li {
+    background-color: aquamarine;
+    border: 1px solid #eaeaea;
+}
