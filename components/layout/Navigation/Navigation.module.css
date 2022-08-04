@@ -1,26 +1,17 @@
 
 .wrapper {
     display: grid;
-    background-color: red;
     width: 100%;
     height: 10vh;
-    grid-template-columns:  1fr 50% 1fr
+    grid-template-columns:  1fr 50% 1fr;
+    border-bottom: 1px solid #797979;
 }
 
-.searchContainer {
-    background-color: blue;
-}
 
 .menuContainer {
-    background-color: pink;
     display: grid;
     justify-items: center;
     align-items: center;
-
-}
-
-.infoContainer {
-    background-color: yellow;
 }
 
 .menuContainer ul {
@@ -31,6 +22,54 @@
 }
 
 .menuContainer li {
-    background-color: aquamarine;
     border: 1px solid #eaeaea;
+    text-transform: uppercase;
 }
+
+.searchContainer {
+    position: relative;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.infoContainer {
+    position: relative;
+    display: grid;
+}
+
+.infoIcons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+    justify-content: start;
+    align-items: center;
+    width: 10%;
+}
+
+.infoIcons img {
+    width: 100%;
+    height: 100%;
+}
+
+.accountIcon {
+    width: 100%;
+}
+
+.cartIcon {
+    width: 100%;
+    margin-left: 20px;
+} 

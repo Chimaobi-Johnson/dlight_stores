@@ -1,23 +1,34 @@
 import * as styles from './Navigation.module.css';
 
+
 const Navigation = props => {
 
     return (
         <header className={styles.wrapper}>
             <div className={styles.searchContainer}>
-
+                <div className={styles.image}>
+                    <img src="/icons/search.png" alt="_search" />
+                </div>
             </div>
             <div className={styles.menuContainer}>
                 <ul>
                     <li>Shop</li>
                     <li>Care Guide</li>
-                    <li>DLIGHT STORES</li>
+                    <li style={{ fontWeight: 'bold' }}>DLIGHT STORES</li>
                     <li>Blog</li>
                     <li>Reviews</li>
                 </ul>
             </div>
             <div className={styles.infoContainer}>
-
+               <div className={styles.infoIcons}>
+                    <div className={styles.accountIcon}>
+                        <img src="/icons/user.png" alt="account" />
+                    </div>
+                    <div className={styles.cartIcon}>
+                        <img src="/icons/shopping-cart.png" alt="cart" />
+                    </div>
+                    
+                </div>
             </div>
         </header>
     )
