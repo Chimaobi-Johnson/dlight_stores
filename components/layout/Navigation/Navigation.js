@@ -1,3 +1,4 @@
+import ExtendedMenu from './ExtendedMenu/ExtendedMenu';
 import * as styles from './Navigation.module.css';
 
 
@@ -5,6 +6,7 @@ const Navigation = props => {
 
     return (
         <header className={styles.wrapper}>
+            <ExtendedMenu />
             <div className={styles.searchContainer}>
                 <div className={styles.image}>
                     <img src="/icons/search.png" alt="_search" />

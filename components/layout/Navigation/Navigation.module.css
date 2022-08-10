@@ -5,6 +5,7 @@
     height: 10vh;
     grid-template-columns:  1fr 50% 1fr;
     border-bottom: 1px solid #797979;
+    position: relative;
 }
 
 
@@ -24,6 +25,7 @@
 .menuContainer li {
     border: 1px solid #eaeaea;
     text-transform: uppercase;
+    position: relative;
 }
 
 .searchContainer {
