@@ -10,8 +10,12 @@
   },
   "dependencies": {
     "next": "12.2.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "react-slick": "^0.29.0",
+    "react-swipe": "^6.0.4",
+    "slick-carousel": "^1.8.1",
+    "swipe-js-iso": "^2.1.5"
   },
   "devDependencies": {
     "eslint": "8.20.0",

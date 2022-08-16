@@ -6,7 +6,7 @@ const Navigation = props => {
 
     return (
         <header className={styles.wrapper}>
-            <ExtendedMenu />
+            {/* <ExtendedMenu /> */}
             <div className={styles.searchContainer}>
                 <div className={styles.image}>
                     <img src="/icons/search.png" alt="_search" />

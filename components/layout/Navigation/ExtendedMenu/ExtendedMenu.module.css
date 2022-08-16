@@ -1,6 +1,5 @@
 .wrapper {
     display: grid;
-    background-color: yellow;
     grid-template-columns: repeat(2, 1fr);
     max-height: 60vh;
     position: absolute;
@@ -12,21 +11,49 @@
 }
 
 .menuItems {
-    background-color: blueviolet;
     height: 100%;
     width: 100%;
 }
 
+.menuItems ul {
+    margin-left: 200px;
+    margin-top: 50px;
+    list-style: none;
+}
+
+.menuItems ul li {
+    padding: 5px 25px 5px 10px;
+    margin: 15px 0px;
+    font-weight: bold;
+    width: fit-content;
+    /* border-top-left-radius: 15px; */
+    /* border-bottom-right-radius: 15px; */
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.menuItems ul li:hover {
+    /* border-bottom: 3px solid #000; */
+    background-color: #c3c3c35c;
+}
+
 .highlightedItems {
-    background-color: aqua;
     height: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 6rem;
+    padding: 6rem;
 }
 
 .imageContainer img {
     width: 100%;
     height: 100%;
+}
+
+.itemOneContainer {
+    margin-right: 10px;
+}
+
+.itemTwoContainer {
+    margin-left: 10px;
 }
