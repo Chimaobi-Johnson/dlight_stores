@@ -1,0 +1,71 @@
+.container {
+    height: 80vh;
+    position: relative;
+}
+
+.imageContainer {
+    height: 100%;
+}
+
+.imageContainer img {
+    height: 100%;
+    width: 100%;
+}
+
+.backgroundContent {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+}
+
+.contentContainer {
+    position: absolute;
+    top: 30%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    z-index: 40;
+    width: 46%;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.contentContainer h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+.contentContainer h3 {
+    font-weight: 300;
+    margin-bottom: 2rem;;
+}
+
+/* .firstWord {
+    background-color: rgb(71 73 74);
+    padding: 0 10px;
+} */
+
+.contentContainerLeft {
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 40;
+    width: 46%;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.contentContainerLeft h1 {
+    font-size: 4rem;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(19, 19, 19, 0.562);
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
