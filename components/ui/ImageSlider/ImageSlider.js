@@ -35,10 +35,9 @@ const ImageSlider = (props) => {
       return () => clearInterval(slideInterval); // clean up function, starts counter afresh after the next slide
     }, [currentSlide]);
 
-    const autoScroll = true;
+    const autoScroll = false;
     let slideInterval;
-    let intervalTime = 9000; 
-
+    let intervalTime = 10000; 
 
     const nextSlide = () => {
       setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
@@ -51,120 +50,47 @@ const ImageSlider = (props) => {
       slideInterval = setInterval(nextSlide, intervalTime);
     }
 
-    // bar is the width
-
   return (
     <div className={styles.wrapper}>
-      {sliderData.map((slide, index) => {
+      <div className={styles.container}>
+        {sliderData.map((slide, index) => {
 
-        return (
-        <div key={index} className={currentSlide === index ? styles.currentSlide : styles.slide}>
+          return (
+          <div key={index} className={currentSlide === index ? styles.currentSlide : styles.slide}>
 
-              {index === currentSlide && (
-                  <div className={styles.slideImage} style={{
-                    backgroundImage:
-                      `linear-gradient(to right, #ffffff49, #0000009c), url(${slide.image})`,
-                    backgroundSize: "cover",
-                    backgroundPositionY: "30%",
-                    backgroundRepeat: "no-repeat",
-                    }}>
-                    <div className={styles.contentContainer}>
-                      <h1>{slide.title}</h1>
-                      <h3>{slide.subText}</h3>
-                      <Button>{slide.buttonText}</Button>
+                {index === currentSlide && (
+                    <div className={styles.slideImage} style={{
+                      backgroundImage:
+                        `linear-gradient(to right, #ffffff49, #0000009c), url(${slide.image})`,
+                      backgroundSize: "cover",
+                      backgroundPositionY: "30%",
+                      backgroundRepeat: "no-repeat",
+                      }}>
+                      <div className={styles.contentContainer}>
+                        <h1>{slide.title}</h1>
+                        <h3>{slide.subText}</h3>
+                        <Button>{slide.buttonText}</Button>
+                      </div>
                     </div>
-                  </div>
-              )}
-        </div>)
-      })}
-             <div className={styles.buttonContainer}>
-              <div onClick={() => prevSlide()} className={styles.btnLeft}>
-                <img src="/icons/prev.png" alt="P" />
-              </div>
-              <div onClick={() => nextSlide()} className={styles.btnRight}>
-                <img src="/icons/next.png" alt="N" />
-              </div>
-            </div>
-    </div>
-    // <Slider {...settings}>
-    //   <div className={styles.container}>
-    //     <div
-    //       className={styles.backgroundContent}
-    //       style={{
-    //         backgroundImage:
-    //           `linear-gradient(to right, #ffffff49, #0000009c), url(${landingImages.slide1})`,
-    //         backgroundSize: "cover",
-    //         backgroundPositionY: "30%",
-    //         backgroundRepeat: "no-repeat",
-    //       }}
-    //     >
-    //       <div className={styles.contentContainer}>
-    //         <h1><span className={styles.firstWord}>HUNDREDS</span> OF HOUSEHOLD ITEMS</h1>
-    //         <h3>beauitful artifacts</h3>
-    //         <Button>Shop now</Button>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    //   <div className={styles.container}>
-    //     <div
-    //       className={styles.backgroundContent}
-    //       style={{
-    //         backgroundImage:
-    //           `linear-gradient(to right, #ffffff49, #0000009c), url(${landingImages.slide3})`,
-    //         backgroundSize: "cover",
-    //         backgroundPositionY: "30%",
-    //         backgroundRepeat: "no-repeat",
-    //       }}
-    //     >
-    //       <div className={styles.contentContainer}>
-    //         <h1>HUNDREDS OF HOUSEHOLD ITEMS</h1>
-    //         <h3>beauitful artifacts</h3>
-    //         <Button>Shop now</Button>
-    //       </div>
-    //     </div>
-    //   </div>
-
-
-    //   <div className={styles.container}>
-    //     <div
-    //       className={styles.backgroundContent}
-    //       style={{
-    //         backgroundImage:
-    //           `linear-gradient(to left, #ffffff49, #0000009c), url(${landingImages.slide4})`,
-    //         backgroundSize: "cover",
-    //         backgroundPositionY: "30%",
-    //         backgroundRepeat: "no-repeat",
-    //       }}
-    //     >
-    //       <div className={styles.contentContainerLeft}>
-    //         <h1>HUNDREDS OF HOUSEHOLD ITEMS</h1>
-    //         <h3>beauitful artifacts</h3>
-    //         <Button>Shop now</Button>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    //   <div className={styles.container}>
-    //     <div
-    //       className={styles.backgroundContent}
-    //       style={{
-    //         backgroundImage:
-    //           `linear-gradient(to right, #ffffff49, #0000009c), url(${landingImages.slide5})`,
-    //         backgroundSize: "cover",
-    //         backgroundPositionY: "30%",
-    //         backgroundRepeat: "no-repeat",
-    //       }}
-    //     >
-    //       <div className={styles.contentContainer}>
-    //         <h1>HUNDREDS OF HOUSEHOLD ITEMS</h1>
-    //         <h3>beauitful artifacts</h3>
-    //         <Button>Shop now</Button>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    // </Slider>
+                )}
+          </div>
+          )
+        })}
+             
+      
+          {/* <div className={styles.autoBar}>
+            <div className={styles.fillBar} style={{ width: intervalTime }}></div>
+          </div> */}
+         </div>
+         <div className={styles.buttonContainer}>
+                <div onClick={() => prevSlide()} className={styles.btnLeft}>
+                  <img src="/icons/prev.png" alt="P" />
+                </div>
+                <div onClick={() => nextSlide()} className={styles.btnRight}>
+                  <img src="/icons/next.png" alt="N" />
+                </div>
+         </div>
+      </div>
   );
 };
 

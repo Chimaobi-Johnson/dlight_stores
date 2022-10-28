@@ -1,5 +1,9 @@
 .wrapper {
+    position: relative;
+}
+.container {
     height: 80vh;
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -35,10 +39,9 @@
 .contentContainer {
     position: absolute;
     top: 50%;
-    left: 85%;
-    transform: translate(-50%, -50%);
+    right: 2%;
     z-index: 40;
-    width: 46%;
+    width: 40%;
     color: #ffffff;
     text-transform: uppercase;
     opacity: 0;
@@ -55,7 +58,7 @@
     }
     100% {
         visibility: visible;
-        top: 30%;
+        top: 10%;
         opacity: 1;
     }
 }
@@ -94,6 +97,30 @@
     font-size: 4rem;
 }
 
+@media (max-width: 700px) {
+    .contentContainer {
+        top: 60%;
+        left: 2%;
+        width: 80%;
+    }
+    .contentContainer h1 {
+        font-size: 3.5rem;
+    }
+
+    @keyframes slide-up {
+        0% {
+            opacity: 0;
+            visibility: visible;
+            top: 60%;
+        }
+        100% {
+            visibility: visible;
+            top: 30%;
+            opacity: 1;
+        }
+    }
+}
+
 .overlay {
     height: 100%;
     width: 100%;
@@ -103,6 +130,22 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.autoBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    border-top: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+}
+
+.fillBar {
+    background-color: #ffffff;
+    height: 100%;
+    width: 50%;
 }
 
 .buttonContainer {
