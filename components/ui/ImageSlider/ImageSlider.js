@@ -6,20 +6,11 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "./ImageSlider.module.css";
 import Button from "../Button/Button";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { sliderData } from "../../../data/sliderData";
 
 const ImageSlider = (props) => {
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    // autoplay: true,
-    autoplaySpeed: 3000,
-  };
 
   const landingImages = {
     slide1: "/site/landing-pic1.png",
@@ -30,41 +21,52 @@ const ImageSlider = (props) => {
     slide6: "/site/landing-gift2.png",
   };
 
-    const [ currentSlide, setCurrentSlide ] = useState(1);
+    const [ currentSlide, setCurrentSlide ] = useState(0);
+    const slideLength = sliderData.length;
 
+    useEffect(() => {
+      setCurrentSlide(0);
+    }, [])
+
+    const nextSlide = () => {
+      setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
+    }
+    const prevSlide = () => {
+      setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
+    }
 
   return (
     <div className={styles.wrapper}>
       {sliderData.map((slide, index) => {
-        console.log(index);
-
-        // currentSlide = 
 
         return (
-        <div key={index} className={currentSlide === index ? styles.currentSlide : slide} style={{
-              backgroundImage:
-                `linear-gradient(to right, #ffffff49, #0000009c), url(${slide.image})`,
-              backgroundSize: "cover",
-              backgroundPositionY: "30%",
-              backgroundRepeat: "no-repeat",
-            }}>
+        <div key={index} className={currentSlide === index ? styles.currentSlide : styles.slide}>
 
-            <div className={styles.contentContainer}>
-              <h1>{slide.title}</h1>
-              <h3>{slide.subText}</h3>
-              <Button>{slide.buttonText}</Button>
-            </div>
-
-            <div className={styles.buttonContainer}>
-              <div className={styles.btnLeft}>
+              {index === currentSlide && (
+                  <div className={styles.slideImage} style={{
+                    backgroundImage:
+                      `linear-gradient(to right, #ffffff49, #0000009c), url(${slide.image})`,
+                    backgroundSize: "cover",
+                    backgroundPositionY: "30%",
+                    backgroundRepeat: "no-repeat",
+                    }}>
+                    <div className={styles.contentContainer}>
+                      <h1>{slide.title}</h1>
+                      <h3>{slide.subText}</h3>
+                      <Button>{slide.buttonText}</Button>
+                    </div>
+                  </div>
+              )}
+        </div>)
+      })}
+             <div className={styles.buttonContainer}>
+              <div onClick={() => prevSlide()} className={styles.btnLeft}>
                 <img src="/icons/prev.png" alt="P" />
               </div>
-              <div className={styles.btnRight}>
+              <div onClick={() => nextSlide()} className={styles.btnRight}>
                 <img src="/icons/next.png" alt="N" />
               </div>
             </div>
-        </div>)
-      })}
     </div>
     // <Slider {...settings}>
     //   <div className={styles.container}>
