@@ -26,7 +26,19 @@ const ImageSlider = (props) => {
 
     useEffect(() => {
       setCurrentSlide(0);
-    }, [])
+    }, []);
+
+    useEffect(() => {
+      if(autoScroll) {
+        auto();
+      }
+      return () => clearInterval(slideInterval); // clean up function, starts counter afresh after the next slide
+    }, [currentSlide]);
+
+    const autoScroll = true;
+    let slideInterval;
+    let intervalTime = 9000; 
+
 
     const nextSlide = () => {
       setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
@@ -34,6 +46,12 @@ const ImageSlider = (props) => {
     const prevSlide = () => {
       setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
     }
+
+    function auto() {
+      slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    // bar is the width
 
   return (
     <div className={styles.wrapper}>

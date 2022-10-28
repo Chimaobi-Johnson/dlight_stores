@@ -49,12 +49,14 @@
 
 @keyframes slide-up {
     0% {
+        opacity: 0;
         visibility: visible;
         top: 50%;
     }
     100% {
         visibility: visible;
         top: 30%;
+        opacity: 1;
     }
 }
 
