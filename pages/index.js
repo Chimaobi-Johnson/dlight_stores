@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.wrapper}>
       <Navigation />
       <ImageSlider />
-      {/* <Categories /> */}
+      <Categories />
     </div>
   )
 }

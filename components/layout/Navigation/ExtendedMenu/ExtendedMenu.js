@@ -1,10 +1,35 @@
+import { useEffect } from 'react';
 import styles from './ExtendedMenu.module.css';
 
 const ExtendedMenu = props => {
 
+    
+
+    useEffect(() => {
+
+        displayExtendedMenu(props.activate);
+        
+    }, [props.activate])
+
+    const displayExtendedMenu = (activate) => {
+        const wrapper = document.getElementById('wrapper');
+        const menuItems = document.getElementById('menuItems');
+        const highlightedItems = document.getElementById('highlightedItems');
+
+        if(activate) {
+            wrapper.style.maxHeight = '60vh';
+            menuItems.style.display = 'block';
+            highlightedItems.style.display = 'grid';
+        } else {
+            wrapper.style.maxHeight = '0';
+            menuItems.style.display = 'none';
+            highlightedItems.style.display = 'none';
+        }
+    }
+
     return (
-        <div className={styles.wrapper}>
-            <div className={styles.menuItems}>
+        <div id='wrapper' onMouseLeave={() => displayExtendedMenu(false)} className={styles.wrapper}>
+            <div id='menuItems' className={styles.menuItems}>
                 <ul>
                     <li>All items</li>
                     <li>menu item 1</li>
@@ -14,7 +39,7 @@ const ExtendedMenu = props => {
                     <li>menu item 5</li>
                 </ul>
             </div>
-            <div className={styles.highlightedItems}>
+            <div id="highlightedItems" className={styles.highlightedItems}>
                 <div className={styles.itemOneContainer}>
                     <div className={styles.imageContainer}>
                         <img src="products/20210304_191601.jpg" alt="" />

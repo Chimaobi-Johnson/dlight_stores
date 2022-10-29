@@ -1,18 +1,37 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-height: 60vh;
+    max-height: 0;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translate(-50%, 0%);
     width: 100%;
     z-index: 500;
+    background: linear-gradient(to left, #ffffff, #ffffff);
+    transition: all 1s ease;
 }
 
 .menuItems {
     height: 100%;
     width: 100%;
+    transition: all 1s ease;
+    display: none;
+    animation: display 1.2s ease .5s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+@keyframes display {
+    0% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .menuItems ul {
@@ -40,9 +59,24 @@
 .highlightedItems {
     height: 100%;
     width: 100%;
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 6rem;
+    display: none;
+    animation: render 1.2s ease .8s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    transition: all 1s ease;
+}
+
+@keyframes render {
+    0% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .imageContainer img {
