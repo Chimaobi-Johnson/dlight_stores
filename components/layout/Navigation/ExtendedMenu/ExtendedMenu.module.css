@@ -43,7 +43,6 @@
 .menuItems ul li {
     padding: 5px 25px 5px 10px;
     margin: 15px 0px;
-    font-weight: bold;
     width: fit-content;
     /* border-top-left-radius: 15px; */
     /* border-bottom-right-radius: 15px; */
@@ -51,9 +50,16 @@
     transition: all .3s;
 }
 
-.menuItems ul li:hover {
-    /* border-bottom: 3px solid #000; */
-    background-color: #c3c3c35c;
+.menuItems ul li:not(:first-child):hover {
+    transform: translateX(8%);
+}
+
+.menuItems ul li:first-child:hover {
+    border-left: 1.5px solid #000000;
+}
+
+.menuItems ul li:first-child {
+    font-weight: bold;
 }
 
 .highlightedItems {
