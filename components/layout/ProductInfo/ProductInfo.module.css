@@ -1,0 +1,119 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    display: grid;
+    height: 60vh;
+    grid-template-columns: repeat(3, 1fr);
+    /* overflow-x: scroll; */
+    /* overflow-x: hidden; */
+}
+
+.slide {
+    display: grid;
+    /* width: 100vw; */
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 2s ease;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.currentSlide {
+    /* width: 100vw; */
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition: all 2s ease;
+    opacity: 1;
+}
+/* 
+.slide > .productText {
+    opacity: 0;
+}
+
+.currentSlide > .productText {
+    opacity: 1;
+} */
+
+.productText {
+    padding: 6rem;
+    transition: all 1s ease-out;
+}
+
+.productText h2 {
+    text-transform: uppercase;
+}
+
+.mediaContainer {
+    width: 35rem;
+    height: 30rem;
+}
+
+.mediaContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+.arrowContainer {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    top: 40%;
+    opacity: 0;
+    transition: all .5s ease-in;
+}
+
+.arrowLeft {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    border-radius: 100%;
+    padding: .8rem;
+    left: 2%;
+    transition: box-shadow .3s ease-in;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.arrowLeft:hover {
+    box-shadow: 1px 2px 2px 2px #eaeaea;
+}
+
+.arrowLeft img {
+    width: 100%;
+    height: 100%;
+}
+
+.arrowRight {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    border-radius: 100%;
+    padding: .8rem;
+    right: 2%;
+    cursor: pointer;
+    transition: box-shadow .3s ease-in;
+    opacity: 1;
+}
+
+.arrowRight:hover {
+    box-shadow: 1px 2px 2px 2px #eaeaea;
+}
+
+.arrowRight img {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper:hover > .arrowContainer {
+    opacity: 1;
+}

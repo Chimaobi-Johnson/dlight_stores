@@ -47,4 +47,19 @@ const products = [
     }
 ]
 
+export const productInfoData = [
+    {
+        title: 'Effective Grinder for Weddings',
+        subText: 'Lorem ipsum dolor sit amet, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        buttonText: 'Learn More'
+    },
+    {
+        title: 'Hundreds of Household Items',
+        subText: 'ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident',
+        image: '/products/plastic-cups.png',
+        buttonText: 'Learn More Now'
+    }
+] 
+
 export { categories, products }
