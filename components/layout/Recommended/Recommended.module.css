@@ -1,0 +1,34 @@
+.wrapper {
+    width: 80%;
+    margin: 8rem auto;
+}
+
+.wrapper h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.wrapper button {
+    margin-left: 40%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.buttonContainer {
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.buttonContainer div {
+    margin: 0 auto; 
+}
+
+.boxContainer img {
+    width: 100%;
+    height: 250px;
+}

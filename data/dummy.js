@@ -62,4 +62,68 @@ export const productInfoData = [
     }
 ] 
 
+
+export const recommendedProducts = [
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    },
+    {
+        title: 'consectetur adipiscing elit',
+        price: 'N9,000',
+        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+    }
+] 
+
 export { categories, products }
