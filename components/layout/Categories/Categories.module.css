@@ -14,14 +14,20 @@
     background-color: rgb(58, 255, 41);
 }
 
-.box1 {
+.box0 {
     grid-column: span 2;
 }
 
-.box6 { 
-    grid-column-start: span 2;
+.box5 {
+    grid-column: span 2;
 }
 
-.box4 {
-    /* grid-column: span 2; */
-}
+/* .content:first-child {
+    grid-column: span 2;
+} */
+
+/* .content:nth-child(6) { 
+    grid-column-start: span 2;
+} */
+
+
