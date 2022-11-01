@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Categories from '../components/layout/Categories/Categories'
+import Footer from '../components/layout/Footer/Footer'
 import Navigation from '../components/layout/Navigation/Navigation'
 import ProductInfo from '../components/layout/ProductInfo/ProductInfo'
 import Recommended from '../components/layout/Recommended/Recommended'
@@ -18,6 +19,7 @@ export default function Home() {
       <Recommended />
       <Categories />
       <ProductInfo />
+      <Footer />
     </div>
   )
 }
