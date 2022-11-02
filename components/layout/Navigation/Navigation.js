@@ -27,7 +27,7 @@ const Navigation = (props) => {
             Shop
           </li>
           <li>Care Guide</li>
-          <li style={{ fontWeight: "bold" }}>DLIGHT STORES</li>
+          <li className={styles.logo}><img src="/logo/logo-dark-text.png" alt="" /></li>
           <li>Blog</li>
           <li>Reviews</li>
         </ul>

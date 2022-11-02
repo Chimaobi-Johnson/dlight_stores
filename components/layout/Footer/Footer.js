@@ -8,7 +8,7 @@ const Footer = props => {
             <div className={styles.footerTop}>
                 <div className={styles.box1}>
                     <div className={styles.logoContainer}>
-                        <img src='/logo/pexels-magda-ehlers-1337380.jpg' />
+                        <img src='/logo/delight-dark-text.png' />
                     </div>
                     <p>Think marketing for grow and development</p>
                 </div>
@@ -29,7 +29,11 @@ const Footer = props => {
                 <div className={styles.box3}>
                     <h3>Follow us</h3>
                     <div className={styles.socialLinks}>
-
+                        <ul>
+                            <li><img src="/icons/facebook-block.png" alt="" /></li>
+                            <li><img src="/icons/instagram-block.png" alt="" /></li>
+                            <li><img src="/icons/whatsapp-block.png" alt="" /></li>
+                        </ul>
                     </div>
                 </div>
                 <div className={styles.box4}>

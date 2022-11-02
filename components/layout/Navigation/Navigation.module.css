@@ -6,6 +6,7 @@
     grid-template-columns:  1fr 50% 1fr;
     border-bottom: 1px solid #797979;
     position: relative;
+
 }
 
 
@@ -18,25 +19,41 @@
 .menuContainer ul {
     list-style: none;
     display: grid;
-    grid-template-columns:  repeat(5, 1fr);
-    grid-column-gap: 10px;
+    height: 100%;
+    align-items: start;
+    grid-template-columns:  1fr 1fr 30% 1fr 1fr;
 }
 
+
 .menuContainer li {
-    border: 1px solid #eaeaea;
+    /* border: 1px solid #eaeaea; */
     text-transform: uppercase;
     position: relative;
     cursor: pointer;
+}
+
+.menuContainer li:not(:nth-child(3)) {
+    padding-top: 2.5rem;
 }
 
 .searchContainer {
     position: relative;
 }
 
+.logo {
+    width: 100%;
+    padding: 1.5rem 3rem 1rem 2rem;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+
 
 .image {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 5%;
@@ -54,7 +71,7 @@
 
 .infoIcons {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
