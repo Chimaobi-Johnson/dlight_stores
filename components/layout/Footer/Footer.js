@@ -8,9 +8,9 @@ const Footer = props => {
             <div className={styles.footerTop}>
                 <div className={styles.box1}>
                     <div className={styles.logoContainer}>
-                        <img src='/logo/delight-dark-text.png' />
+                        <img src='/logo/logo-light-text.png' />
                     </div>
-                    <p>Think marketing for grow and development</p>
+                    {/* <p>Think marketing for grow and development</p> */}
                 </div>
                 <div className={styles.box2}>
                     <h3>Quick Access</h3>

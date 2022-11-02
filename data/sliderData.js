@@ -2,20 +2,20 @@
 export const sliderData = [
     {
         title: 'Hundreds of Household Items',
-        subText: 'Beautiful Artifacts',
-        image: '/site/landing-pic1.png',
-        buttonText: 'Shop Now'
-    },
-    {
-        title: 'Hundreds of Household Items',
-        subText: 'Beautiful Artifacts',
-        image: '/site/landing-bedspread.png',
-        buttonText: 'Shop Now'
-    },
-    {
-        title: 'Hundreds of Household Items',
-        subText: 'Beautiful Artifacts',
+        subText: 'Bedspreads | Duvets | Pillow covers',
         image: '/site/landing-bedspread2.png',
+        buttonText: 'Shop Now'
+    },
+    {
+        title: 'Hundreds of Household Items',
+        subText: 'Beautiful Sets',
+        image: '/site/plate-colored.png',
+        buttonText: 'Shop Now'
+    },
+    {
+        title: 'Hundreds of Household Items',
+        subText: 'Towels | racks | baskets',
+        image: '/site/landing-basket.png',
         buttonText: 'Shop Now'
     }
 ] 

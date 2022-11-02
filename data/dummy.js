@@ -2,27 +2,27 @@
 const categories = [
     {
         title: 'Kitchen Items',
-        image: '/site/landing-pic1.png',
+        image: '/site/kitchenwares.png',
     },
     {
-        title: 'Gift Packaging',
-        image: '/site/sample1.jpg',
+        title: 'Souviners',
+        image: '/site/souviners.png',
     },
     {
         title: 'Bedsheets and Duvets',
-        image: '/site/landing-bedspread2.png',
+        image: '/site/landing-bedspread.png',
     },
     {
-        title: 'Sourviners',
-        image: '/site/landing-pic1.png',
+        title: 'Bathroom Items',
+        image: '/site/landing-basket.png',
     },
     {
         title: 'Car Accessories',
-        image: '/site/sample3.jpg',
+        image: '/site/phone-holder.png',
     },
     {
-        title: 'Wedding Gifts',
-        image: '/site/sample4.jpg',
+        title: 'Others',
+        image: '/site/others.png',
     }
 ] 
 
@@ -51,13 +51,13 @@ export const productInfoData = [
     {
         title: 'Effective Grinder for Weddings',
         subText: 'Lorem ipsum dolor sit amet, incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/towel-colored.png',
         buttonText: 'Learn More'
     },
     {
         title: 'Hundreds of Household Items',
         subText: 'ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident',
-        image: '/products/plastic-cups.png',
+        image: '/products/cuttingboard.png',
         buttonText: 'Learn More Now'
     }
 ] 
