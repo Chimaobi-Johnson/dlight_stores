@@ -7,13 +7,13 @@ export const sliderData = [
         buttonText: 'Shop Now'
     },
     {
-        title: 'Hundreds of Household Items',
+        title: 'Hundreds of Items for Souvenirs',
         subText: 'Beautiful Sets',
         image: '/site/plate-colored.png',
         buttonText: 'Shop Now'
     },
     {
-        title: 'Hundreds of Household Items',
+        title: 'Hundreds of Gift Items',
         subText: 'Towels | racks | baskets',
         image: '/site/landing-basket.png',
         buttonText: 'Shop Now'

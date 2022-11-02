@@ -67,62 +67,62 @@ export const recommendedProducts = [
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/colored-plates.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/towel-colored.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/hose.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/towel-white.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/cuttingboard.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/coffee-cup.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/knives.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/others.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/pot.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/colored-plates.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/squeezer.png',
     },
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/pexels-valeria-ushakova-3094227.jpg',
+        image: '/products/hose.png',
     }
 ] 
 
