@@ -14,7 +14,8 @@ const Navigation = (props) => {
       <ExtendedMenu activate={active} />
       <div className={styles.searchContainer}>
         <div className={styles.image}>
-          <img src="/icons/search.png" alt="_search" />
+          <img className={styles.searchIcon} src="/icons/search.png" alt="_search" />
+          <img className={styles.barIcon} src="/icons/bars.png" alt="_option" />
         </div>
       </div>
       <div className={styles.menuContainer}>
