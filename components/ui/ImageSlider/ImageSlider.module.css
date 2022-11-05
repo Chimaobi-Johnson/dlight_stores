@@ -115,30 +115,6 @@
     font-size: 4rem;
 }
 
-@media (max-width: 700px) {
-    .contentContainer {
-        top: 60%;
-        left: 2%;
-        width: 80%;
-    }
-    .contentContainer h1 {
-        font-size: 3.5rem;
-    }
-
-    @keyframes slide-up {
-        0% {
-            opacity: 0;
-            visibility: visible;
-            top: 60%;
-        }
-        100% {
-            visibility: visible;
-            top: 30%;
-            opacity: 1;
-        }
-    }
-}
-
 .overlay {
     height: 100%;
     width: 100%;
@@ -207,4 +183,37 @@
 .btnRight:hover, .btnLeft:hover {
     transform: scale(1.1);
     box-shadow: 3px 4px 4px #dddddd;
+}
+
+
+@media (max-width: 700px) {
+    .container {
+        height: 65vh;
+    }
+
+    .contentContainer {
+        top: 60%;
+        left: 2%;
+        width: 80%;
+    }
+    .contentContainer h1 {
+        font-size: 2.8rem;
+    }
+    .contentContainer h3 {
+        font-weight: 400;
+        color: #f5f5f5;
+    }
+    @keyframes slide-up {
+        0% {
+            opacity: 0;
+            visibility: visible;
+            top: 60%;
+        }
+        100% {
+            visibility: visible;
+            top: 30%;
+            opacity: 1;
+        }
+    }
+    
 }

@@ -117,3 +117,33 @@
 .wrapper:hover > .arrowContainer {
     opacity: 1;
 }
+
+
+@media (max-width: 700px) {
+    .wrapper {
+        overflow: hidden;
+        font-size: .81rem;
+    }
+
+    .slide {
+        display: grid;
+        /* width: 100vw; */
+        width: 100%;
+        grid-template-columns: 1fr;
+        margin-top: 5rem;
+    }
+
+    .currentSlide {
+        /* width: 100vw; */
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 8rem;
+
+    }
+
+    .productText {
+        padding: 1rem;
+        padding-right: 5rem;
+    }
+}

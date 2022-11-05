@@ -92,3 +92,25 @@
 .terms {
     padding-left: 1rem;
 }
+
+@media (max-width: 700px) {
+
+    .footerTop {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1rem;
+
+    }
+
+    .box3 {
+        border-top: 1px solid #535353;
+    }
+
+    .box4 {
+        padding-left: 2rem;
+        border-left: none;
+        border-top: 1px solid #535353;
+
+    }
+    
+}
