@@ -63,6 +63,24 @@
     }
 }
 
+.contentContainer h3 {
+    opacity: 0;
+    animation: display-subtext .8s ease 2s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+@keyframes display-subtext {
+    0% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
 .currentSlide .contentContainer {
     opacity: 1;
 }

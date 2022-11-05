@@ -11,8 +11,8 @@ const Categories = props => {
                 <h2>MAKE SOMEONE HAPPY WITH A GIFT</h2>
             </div>
             <div className={styles.content}>
-                {categories.length !== 0 ? categories.map(category => {
-                    return <div style={{
+                {categories.length !== 0 ? categories.map((category, index) => {
+                    return <div key={index} style={{
                         backgroundImage:
                           `linear-gradient(to right, #ffffff49, #0000009c), url(${category.image})`,
                         backgroundSize: "cover",

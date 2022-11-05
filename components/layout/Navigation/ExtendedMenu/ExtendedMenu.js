@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import Image from 'next/image';
+
 import styles from './ExtendedMenu.module.css';
 
 const ExtendedMenu = props => {
@@ -42,13 +44,13 @@ const ExtendedMenu = props => {
             <div id="highlightedItems" className={styles.highlightedItems}>
                 <div className={styles.itemOneContainer}>
                     <div className={styles.imageContainer}>
-                        <img src="products/20210304_191601.jpg" alt="" />
+                        <Image width={250} height={200} src="/products/others.png" alt="" />
                     </div>
                     <h6>Variety Packs</h6>
                 </div>
                 <div className={styles.itemTwoContainer}>
                 <div className={styles.imageContainer}>
-                        <img src="products/20210415_084559.jpg" alt="" />
+                        <Image width={250} height={200} src="/products/souviners.png" alt="" />
                     </div>
                     <h6>E-Gift Cards</h6>
                 </div>

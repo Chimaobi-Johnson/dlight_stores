@@ -102,7 +102,7 @@ export const recommendedProducts = [
     {
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
-        image: '/products/others.png',
+        image: '/products/pot.png',
     },
     {
         title: 'consectetur adipiscing elit',

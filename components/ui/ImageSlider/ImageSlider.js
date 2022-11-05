@@ -1,4 +1,6 @@
 import styles from "./ImageSlider.module.css";
+import Image from 'next/image';
+
 import Button from "../Button/Button";
 
 import { useState, useEffect } from "react";
@@ -32,7 +34,7 @@ const ImageSlider = (props) => {
         auto();
       }
       return () => clearInterval(slideInterval); // clean up function, starts counter afresh after the next slide
-    }, [currentSlide]);
+    });
 
     const autoScroll = true;
     let slideInterval;
@@ -83,10 +85,10 @@ const ImageSlider = (props) => {
          </div>
          <div className={styles.buttonContainer}>
                 <div onClick={() => prevSlide()} className={styles.btnLeft}>
-                  <img src="/icons/prev.png" alt="P" />
+                  <Image width={100} height={100} src="/icons/prev.png" alt="P" />
                 </div>
                 <div onClick={() => nextSlide()} className={styles.btnRight}>
-                  <img src="/icons/next.png" alt="N" />
+                  <Image width={100} height={100} src="/icons/next.png" alt="N" />
                 </div>
          </div>
       </div>

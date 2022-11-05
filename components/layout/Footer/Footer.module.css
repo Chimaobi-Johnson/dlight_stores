@@ -16,10 +16,10 @@
     height: 100%;
 }
 
-.logoContainer img {
+/* .logoContainer img {
     width: 80%;
     height: 50%;
-}
+} */
 
 .box1 {
     /* background-color: green; */
@@ -65,10 +65,10 @@
     height: 19px;
 }
 
-.socialLinks ul li img {
+/* .socialLinks ul li img {
     width: 100%;
     height: 100%;
-}
+} */
 
 .footerTop h3 {
     text-transform: uppercase;

@@ -1,4 +1,5 @@
 import Button from "../../ui/Button/Button";
+import Image from "next/image";
 
 import { useState, useEffect } from "react";
 import { productInfoData } from "../../../data/dummy";
@@ -42,7 +43,7 @@ const ProductInfo = (props) => {
               </div>
               <div className={styles.media}>
                 <div className={styles.mediaContainer}>
-                  <img src={el.image} alt="" />
+                  <Image width={450} height={400} src={el.image} alt="" />
                 </div>
               </div>
             </>
@@ -55,10 +56,10 @@ const ProductInfo = (props) => {
       ) : (
         <div className={styles.arrowContainer}>
           <div className={styles.arrowLeft} onClick={() => prevSlide()}>
-            <img src="/icons/prev.png" alt="P" />
+            <Image width={100} height={100} src="/icons/prev.png" alt="P" />
           </div>
           <div className={styles.arrowRight} onClick={() => nextSlide()}>
-            <img src="/icons/next.png" alt="N" />
+            <Image width={100} height={100} src="/icons/next.png" alt="N" />
           </div>
         </div>
       )}

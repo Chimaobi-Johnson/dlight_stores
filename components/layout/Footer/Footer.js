@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 import styles from './Footer.module.css';
 
@@ -8,7 +9,7 @@ const Footer = props => {
             <div className={styles.footerTop}>
                 <div className={styles.box1}>
                     <div className={styles.logoContainer}>
-                        <img src='/logo/logo-light-text.png' />
+                        <Image width={150} height={50} alt="" src='/logo/logo-light-text.png' />
                     </div>
                     {/* <p>Think marketing for grow and development</p> */}
                 </div>
@@ -30,9 +31,9 @@ const Footer = props => {
                     <h3>Follow us</h3>
                     <div className={styles.socialLinks}>
                         <ul>
-                            <li><img src="/icons/facebook-block.png" alt="" /></li>
-                            <li><img src="/icons/instagram-block.png" alt="" /></li>
-                            <li><img src="/icons/whatsapp-block.png" alt="" /></li>
+                            <li><Image width={100} height={100} src="/icons/facebook-block.png" alt="" /></li>
+                            <li><Image width={100} height={100} src="/icons/instagram-block.png" alt="" /></li>
+                            <li><Image width={100} height={100} src="/icons/whatsapp-block.png" alt="" /></li>
                         </ul>
                     </div>
                 </div>

@@ -18,7 +18,7 @@
     }
 
     .logo {
-        padding: .5rem !important;
+        padding: .8rem 1.5rem !important;
         grid-column: span 4;
         height: 65%;
         padding-top: 1rem !important;
@@ -101,30 +101,31 @@
     height: 100%;
 }
 
-.image > .barIcon {
-    display: none;
+.barIcon {
+    display: none !important;
 }
 
-.image > .searchIcon {
-    display: block;
+.searchIcon {
+    display: block !important;
 }
 
 @media (max-width: 700px) {
-    .image > .barIcon {
-        display: block;
+    .barIcon {
+        display: block !important;
     }
 
-    .image > .searchIcon {
-        display: none;
+    .searchIcon {
+        display: none !important;
     }
 
     .image {
         position: absolute;
-        top: 38%;
+        top: 17%;
         left: 25%;
         transform: translate(-50%, -50%);
         width: 40%;
     }
+
 }
 
 .infoContainer {
@@ -161,7 +162,7 @@
 @media (max-width: 700px) {
 
     .infoIcons {
-        top: 40%;
+        top: 35%;
         left: 40%;
         width: 50%;
     }

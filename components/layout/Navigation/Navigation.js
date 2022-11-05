@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ExtendedMenu from "./ExtendedMenu/ExtendedMenu";
+import Image from "next/image";
+
 import * as styles from "./Navigation.module.css";
 
 const Navigation = (props) => {
@@ -14,8 +16,8 @@ const Navigation = (props) => {
       <ExtendedMenu activate={active} />
       <div className={styles.searchContainer}>
         <div className={styles.image}>
-          <img className={styles.searchIcon} src="/icons/search.png" alt="_search" />
-          <img className={styles.barIcon} src="/icons/bars.png" alt="_option" />
+          <Image width={100} height={100} className={styles.searchIcon} src="/icons/search.png" alt="_search" />
+          <Image width={100} height={100} className={styles.barIcon} src="/icons/bars.png" alt="_option" />
         </div>
       </div>
       <div className={styles.menuContainer}>
@@ -28,7 +30,7 @@ const Navigation = (props) => {
             Shop
           </li>
           <li>Care Guide</li>
-          <li className={styles.logo}><img src="/logo/logo-dark-text.png" alt="" /></li>
+          <li className={styles.logo}><Image width={300} height={100} src="/logo/logo-dark-text.png" alt="" /></li>
           <li>Blog</li>
           <li>Reviews</li>
         </ul>
@@ -36,10 +38,10 @@ const Navigation = (props) => {
       <div className={styles.infoContainer}>
         <div className={styles.infoIcons}>
           <div className={styles.accountIcon}>
-            <img src="/icons/user.png" alt="account" />
+            <Image width={100} height={100} src="/icons/user.png" alt="account" />
           </div>
           <div className={styles.cartIcon}>
-            <img src="/icons/shopping-cart.png" alt="cart" />
+            <Image width={100} height={100} src="/icons/shopping-cart.png" alt="cart" />
           </div>
         </div>
       </div>
