@@ -27,19 +27,19 @@ const categories = [
 ] 
 
 const products = [
-    {
+    {   id: 1,
         title: 'Hundreds of Household Items',
         subText: 'Beautiful Artifacts',
         image: '/site/landing-pic1.png',
         buttonText: 'Shop Now'
     },
-    {
+    {   id: 2,
         title: 'Hundreds of Household Items',
         subText: 'Beautiful Artifacts',
         image: '/site/landing-bedspread.png',
         buttonText: 'Shop Now'
     },
-    {
+    {   id: 3,
         title: 'Hundreds of Household Items',
         subText: 'Beautiful Artifacts',
         image: '/site/landing-bedspread2.png',

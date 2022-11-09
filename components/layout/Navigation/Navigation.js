@@ -11,6 +11,10 @@ const Navigation = (props) => {
     setActive(!active);
   };
 
+  const extendMenuIcon = {
+    marginLeft: '2px',
+  }
+
   return (
     <header className={styles.wrapper}>
       <ExtendedMenu activate={active} />
@@ -28,6 +32,7 @@ const Navigation = (props) => {
             onClick={initExtendedMenu}
           >
             Shop
+            <Image width={10} height={10} style={extendMenuIcon} src="/icons/next.png" alt="_show" />
           </li>
           <li>Care Guide</li>
           <li className={styles.logo}><Image width={300} height={100} src="/logo/logo-dark-text.png" alt="" /></li>

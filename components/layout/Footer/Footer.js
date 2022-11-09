@@ -44,7 +44,7 @@ const Footer = props => {
             </div>
             <div className={styles.footerBottom}>
                 <div className={styles.copyright}>
-                    <p>&copy; Delight Stores | Powered by MarvTech </p>
+                    <p>&copy; Delight Stores | Powered by Delight Stores </p>
                 </div>
                 {/* <div className={styles.terms}><p>Terms and Conditions</p></div> */}
             </div>

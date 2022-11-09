@@ -159,6 +159,10 @@
     margin-left: 20px;
 } 
 
+.shop {
+    position: relative;
+}
+
 @media (max-width: 700px) {
 
     .infoIcons {

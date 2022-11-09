@@ -1,24 +1,25 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Categories from '../components/layout/Categories/Categories'
-import Footer from '../components/layout/Footer/Footer'
-import Navigation from '../components/layout/Navigation/Navigation'
-import ProductInfo from '../components/layout/ProductInfo/ProductInfo'
-import Recommended from '../components/layout/Recommended/Recommended'
-import ImageSlider from '../components/ui/ImageSlider/ImageSlider'
+import BasicLayout from "../components/layout/BasicLayout/BasicLayout";
+import Categories from "../components/Home/Categories/Categories";
+import ProductInfo from "../components/Home/ProductInfo/ProductInfo";
+import Recommended from "../components/Home/Recommended/Recommended";
+import ImageSlider from "../components/ui/ImageSlider/ImageSlider";
 
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
-
   return (
-    <div className={styles.wrapper}>
-      <Navigation />
+    <BasicLayout
+      metaData={{
+        title: "Home | Delight Stores",
+        description: "Everything household",
+        keywords:
+          "gift items, online store, wedding gifts, souvenirs, household items",
+      }}
+    >
       <ImageSlider />
       <Recommended />
       <Categories />
       <ProductInfo />
-      <Footer />
-    </div>
-  )
+    </BasicLayout>
+  );
 }
