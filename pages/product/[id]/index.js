@@ -9,7 +9,7 @@ const Product = () => {
   const product = recommendedProducts.find(item => item.id == id ? item : '')
 
   return (
-    <BasicLayout metaData={{ title: product.title }}>
+    <BasicLayout metaData={{ title: product.title ? product.title : 'Product' }}>
       <h2>THIS IS THE SINGLE PRODUCT PAGE {id} </h2>
       <ProductDetails />
     </BasicLayout>
