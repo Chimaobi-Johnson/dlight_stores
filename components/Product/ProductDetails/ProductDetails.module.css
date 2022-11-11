@@ -36,7 +36,7 @@
 
 
 .contentContainer {
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 /* .imageAnimation {
@@ -64,6 +64,47 @@
 .contentContainer {
     padding: 1rem;
 }
+
 .header {
     text-transform: uppercase;
+}
+
+.price {
+    /* font-weight: bold; */
+    font-size: 1.8rem;
+}
+
+.size {
+    width: 45%;
+}
+
+.size ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem 0;
+    padding-left: 0;
+}
+
+.size ul li {
+    border: 1px solid black;
+    width: fit-content;
+    padding: .5rem .8rem;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.size ul li:hover {
+    background-color: black;
+    color: white;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+.quantity {
+    width: 60px;
+    margin-top: 1.5rem;
 }

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Button from '../../ui/Button/Button';
+import Input from '../../ui/Input/Input';
 import styles from './ProductDetails.module.css';
 
 
@@ -13,6 +14,10 @@ const ProductDetails = props => {
 
     const changeImageHandler = (index) => {
         setCurrentImage(index);
+    }
+
+    const selectSize = () => {
+        
     }
 
     return (
@@ -40,10 +45,17 @@ const ProductDetails = props => {
                     <p>N {price}</p>
                 </div>
                 <div className={styles.size}>
-                    <h1>null</h1>
+                    <h4>Select size</h4>
+                    <ul>
+                        <li onClick={() => selectSize()}>SM</li>
+                        <li onClick={() => selectSize()} className={styles.active}>MD</li>
+                        <li onClick={() => selectSize()}>LG</li>
+                        <li onClick={() => selectSize()}>XL</li>
+                        <li onClick={() => selectSize()}>XXL</li>
+                    </ul>
                 </div>
                 <div className={styles.quantity}>
-                    <h1>null</h1>
+                    <Input type="number" defaultValue={0} label="Quantity" />
                 </div>
                 <div className={styles.availability}>
                     <h1>null</h1>

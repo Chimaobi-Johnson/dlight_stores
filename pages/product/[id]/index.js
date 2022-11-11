@@ -17,7 +17,6 @@ const Product = () => {
 //   metaData={{ title: product ? product.title : 'Product' }}
   return (
     <BasicLayout>
-      <h2>THIS IS THE SINGLE PRODUCT PAGE {id} </h2>
       <ProductDetails product={product ? product : dummyProduct} />
     </BasicLayout>
   );
