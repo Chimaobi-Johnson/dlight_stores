@@ -64,62 +64,62 @@ export const productInfoData = [
 
 
 export const recommendedProducts = [
-    {
+    {   id: 7,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/colored-plates.png',
     },
-    {
+    {   id: 9,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/towel-colored.png',
     },
-    {
+    {   id: 8,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/hose.png',
     },
-    {
+    {   id: 10,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/towel-white.png',
     },
-    {
+    {   id: 1,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/cuttingboard.png',
     },
-    {
+    {   id: 0,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/coffee-cup.png',
     },
-    {
+    {   id: 2,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/knives.png',
     },
-    {
+    {   id: 3,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/pot.png',
     },
-    {
+    {   id: 6,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/pot.png',
     },
-    {
+    {   id: 5,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/colored-plates.png',
     },
-    {
+    {   id: 4,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/squeezer.png',
     },
-    {
+    {   id: 11,
         title: 'consectetur adipiscing elit',
         price: 'N9,000',
         image: '/products/hose.png',

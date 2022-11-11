@@ -3,6 +3,7 @@ import ExtendedMenu from "./ExtendedMenu/ExtendedMenu";
 import Image from "next/image";
 
 import * as styles from "./Navigation.module.css";
+import Link from "next/link";
 
 const Navigation = (props) => {
   const [active, setActive] = useState(false);
@@ -35,7 +36,7 @@ const Navigation = (props) => {
             <Image width={10} height={10} style={extendMenuIcon} src="/icons/next.png" alt="_show" />
           </li>
           <li>Care Guide</li>
-          <li className={styles.logo}><Image width={300} height={100} src="/logo/logo-dark-text.png" alt="" /></li>
+          <li className={styles.logo}><Link href="/"><Image width={300} height={100} src="/logo/logo-dark-text.png" alt="" /></Link></li>
           <li>Blog</li>
           <li>Reviews</li>
         </ul>

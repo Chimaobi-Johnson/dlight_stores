@@ -9,18 +9,6 @@ import { sliderData } from "../../../data/sliderData";
 
 const ImageSlider = (props) => {
 
-  const landingImages = {
-    slide1: "/site/landing-pic1.png",
-    slide2: "/site/landing-bedspread.png",
-    slide3: "/site/landing-bedspread2.png",
-    slide4: "/site/landing-gift1.png",
-    slide5: "/site/landing-pots.png",
-    slide6: "/site/landing-gift2.png",
-    slide7: "/site/sample1.jpg",
-    slide8: "/site/sample2.jpg",
-    slide9: "/site/sample3.jpg",
-    slide10: "/site/sample4.jpg",
-  };
 
     const [ currentSlide, setCurrentSlide ] = useState(0);
     const slideLength = sliderData.length;

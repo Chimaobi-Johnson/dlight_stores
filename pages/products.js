@@ -1,4 +1,4 @@
-import Lists from '../components/Home/Lists/Lists'
+import Lists from '../components/layout/Lists/Lists'
 import SidebarLayout from '../components/layout/SidebarLayout/SidebarLayout'
 import { recommendedProducts } from '../data/dummy'
 import styles from '../styles/Home.module.css'

@@ -5,6 +5,7 @@ import styles from "./SidebarLayout.module.css";
 const SidebarLayout = (props) => {
   return (
     <BasicLayout metaData={props.metaData}>
+        <div className={styles.headerContainer}>
             <div
                 className={styles.header}
                 style={{
@@ -16,6 +17,7 @@ const SidebarLayout = (props) => {
             >
                 <h1>Best sellers</h1>
             </div>
+        </div>
             {props.children}
     </BasicLayout>
   );
