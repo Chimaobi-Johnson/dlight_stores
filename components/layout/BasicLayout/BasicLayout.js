@@ -9,9 +9,9 @@ const BasicLayout = (props) => {
   return (
     <div className={styles.wrapper}>
       <Meta
-        title={meta.title}
-        description={meta.description ? meta.description : 'Souviner and Household items'}
-        keywords={meta.keywords ? meta.keywords : 'Souviners, gift items, household, household items, delight stores'}
+        title={meta ? meta.title : 'Delight stores'}
+        description={meta ? meta.description : 'Souviner and Household items'}
+        keywords={meta ? meta.keywords : 'Souviners, gift items, household, household items, delight stores'}
       />
       <Navigation />
       <div className={styles.contentContainer}>
