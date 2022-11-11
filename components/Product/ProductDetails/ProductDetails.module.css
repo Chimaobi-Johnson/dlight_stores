@@ -108,3 +108,12 @@
     width: 60px;
     margin-top: 1.5rem;
 }
+
+.availability {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+}
+
+.availability p {
+    padding-left: 3px;
+}

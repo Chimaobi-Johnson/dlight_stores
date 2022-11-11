@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
+import goodTick from '../../../public/svg/good_green.svg';
+
 import styles from './ProductDetails.module.css';
 
 
@@ -58,7 +60,8 @@ const ProductDetails = props => {
                     <Input type="number" defaultValue={0} label="Quantity" />
                 </div>
                 <div className={styles.availability}>
-                    <h1>null</h1>
+                    <Image width={20} height={20} src={goodTick} alt="" />
+                    <p>In stock, ready to ship</p>
                 </div>
                 <Button>Add to cart</Button>
                 <Button>Add to Wishlist</Button>
