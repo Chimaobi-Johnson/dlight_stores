@@ -7,8 +7,8 @@ const Sidebar = props => {
     return (
         <div className={styles.wrapper}>
             <ul>
-                {categories.length !== 0 ? categories.map(category => {
-                    return <li>{category.title}</li>
+                {categories.length !== 0 ? categories.map((category, index) => {
+                    return <li key={index}>{category.title}</li>
                 }) : ''}
             </ul>
         </div>

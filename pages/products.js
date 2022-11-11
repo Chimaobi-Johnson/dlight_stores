@@ -11,7 +11,7 @@ export default function Products () {
       description: "Everything household",
       keywords: "gift items, online store, wedding gifts, souvenirs, household items"
     }}>
-     <Lists list={recommendedProducts} /> 
+     <Lists list={recommendedProducts} listName="product" /> 
     </SidebarLayout>
   )
 }
