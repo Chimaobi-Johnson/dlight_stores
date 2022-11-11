@@ -1,19 +1,17 @@
-import Meta from '../components/layout/Meta/Meta'
-import Footer from '../components/layout/Footer/Footer'
-import Navigation from '../components/layout/Navigation/Navigation'
-
+import Lists from '../components/Home/Lists/Lists'
+import SidebarLayout from '../components/layout/SidebarLayout/SidebarLayout'
+import { recommendedProducts } from '../data/dummy'
 import styles from '../styles/Home.module.css'
-import BasicLayout from '../components/layout/BasicLayout/BasicLayout'
 
 export default function Products () {
 
   return (
-    <BasicLayout metaData={{
+    <SidebarLayout metaData={{
       title: "Products | Delight Stores",
       description: "Everything household",
       keywords: "gift items, online store, wedding gifts, souvenirs, household items"
     }}>
-     <h2>Products</h2>  
-    </BasicLayout>
+     <Lists list={recommendedProducts} /> 
+    </SidebarLayout>
   )
 }

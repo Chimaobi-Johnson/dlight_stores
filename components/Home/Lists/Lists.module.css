@@ -1,0 +1,22 @@
+.wrapper {
+    margin: auto 8rem;
+}
+
+.contentContainer {
+    display: grid;
+    width: 100%;
+    gap: 2rem 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: end;
+}
+
+.sidebar {
+    border-bottom: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    margin-right: 5rem;
+}
+
+.item {
+    height: 300px;
+}
+

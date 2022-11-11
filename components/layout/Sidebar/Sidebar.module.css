@@ -1,0 +1,21 @@
+.wrapper {
+    padding: 2rem 0;
+}
+
+.wrapper ul {
+    list-style: none;
+    font-weight: 500;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.wrapper ul li {
+    padding: 1rem 0;
+    transition: transform .3s;
+    cursor: pointer;
+}
+
+.wrapper ul li:hover {
+    font-weight: bold;
+    transform: translateX(3px);
+}
