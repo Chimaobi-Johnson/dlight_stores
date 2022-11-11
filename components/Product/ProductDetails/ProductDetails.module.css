@@ -58,3 +58,12 @@
     opacity: 1;
 }
 } */
+
+/* CONTENT SECTION */
+
+.contentContainer {
+    padding: 1rem;
+}
+.header {
+    text-transform: uppercase;
+}

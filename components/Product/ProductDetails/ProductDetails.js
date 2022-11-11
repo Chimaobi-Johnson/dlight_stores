@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import Button from '../../ui/Button/Button';
 import styles from './ProductDetails.module.css';
 
 
@@ -20,7 +21,7 @@ const ProductDetails = props => {
                 <div className={styles.zoomImageWrapper}>
                     {images.map((image, index) => {
                         return (
-                            <div onClick={(id) => changeImageHandler(index)} className={styles.image1}>
+                            <div key={index} onClick={(id) => changeImageHandler(index)} className={styles.image1}>
                                 <Image src={image} layout="fill" alt='' />
                             </div>
                         )
@@ -34,6 +35,34 @@ const ProductDetails = props => {
             <div className={styles.contentContainer}>
                 <div className={styles.header}>
                     <h1>{title}</h1>
+                </div>
+                <div className={styles.price}>
+                    <p>N {price}</p>
+                </div>
+                <div className={styles.size}>
+                    <h1>null</h1>
+                </div>
+                <div className={styles.quantity}>
+                    <h1>null</h1>
+                </div>
+                <div className={styles.availability}>
+                    <h1>null</h1>
+                </div>
+                <Button>Add to cart</Button>
+                <Button>Add to Wishlist</Button>
+                <div className={styles.description}>
+
+                </div>
+                <div className={styles.otherInfo}>
+                    <div className={styles.shippingInfo}>
+                        <h3>Shipping Information</h3>
+                        <p>
+                            All plants are shipped bare-root with the exception of House Plants and Plant Club Subscription Boxes. 
+                            House plants and succulents will ship from separate locations and may arrive at different times. Orders ship Monday-Friday each week. 
+                            Please allow 1-3 business days for your order to be processed. We ship within the USA and its outlying territories ONLY. 
+                            Read our full policy here.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
