@@ -15,7 +15,7 @@ const RelatedItems = props => {
                 <div className={styles.itemsContainer}>
                     {relatedPosts.map((post, index) => {
                         return (
-                            <div className={styles.item}>
+                            <div key={index} className={styles.item}>
                                 <div className={styles.imageWrapper}>
                                     <Image width={320} height={300} src={post.image} alt="" />
                                 </div>

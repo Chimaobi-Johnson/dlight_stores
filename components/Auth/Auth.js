@@ -16,7 +16,7 @@ const Auth = props => {
                         <Input type="email" placeholder="Email" label="Email" />
                         <Input type="password" placeholder="Password" label="Password" />
                         <Button variant="secondary">SIGN IN</Button>
-                        <p>Don't have an account? <Link href="/auth/register">Create account</Link></p>
+                        <p>Don&apos;t have an account? <Link href="/auth/register">Create account</Link></p>
                         <span>Forgot password? <Link href="/auth/register">Click here</Link></span>
                     </>
                 ) : (
