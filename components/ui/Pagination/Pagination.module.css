@@ -1,0 +1,36 @@
+.wrapper {
+    width: 100%;
+    height: 40vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    color: #eaeaea;
+}
+
+.navigateLeft h2 {
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    transition: transform 1s;
+    cursor: pointer;
+}
+
+.navigateRight h2 {
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    transition: transform 1s;
+    cursor: pointer;
+}
+
+.navigateRight h2:hover {
+    transform: translateY(-5px);
+    border-bottom: 2px solid white;
+}
+
+.navigateLeft h2:hover {
+    transform: translateY(-5px);
+    border-bottom: 2px solid white;
+}

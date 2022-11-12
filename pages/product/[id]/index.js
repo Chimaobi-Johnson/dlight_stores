@@ -4,6 +4,7 @@ import { recommendedProducts } from "../../../data/dummy";
 import BasicLayout from "../../../components/layout/BasicLayout/BasicLayout";
 import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
 import RelatedItems from "../../../components/layout/RelatedItems/RelatedItems";
+import Pagination from "../../../components/ui/Pagination/Pagination";
 
 const Product = () => {
   const router = useRouter();
@@ -21,6 +22,7 @@ const Product = () => {
       <ProductDetails product={product ? product : dummyProduct} />
       <QuickInfo />
       <RelatedItems />
+      <Pagination />
     </BasicLayout>
   );
 };
