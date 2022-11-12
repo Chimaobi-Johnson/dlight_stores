@@ -3,6 +3,7 @@ import ProductDetails from "../../../components/Product/ProductDetails/ProductDe
 import { recommendedProducts } from "../../../data/dummy";
 import BasicLayout from "../../../components/layout/BasicLayout/BasicLayout";
 import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
+import RelatedItems from "../../../components/layout/RelatedItems/RelatedItems";
 
 const Product = () => {
   const router = useRouter();
@@ -19,6 +20,7 @@ const Product = () => {
     <BasicLayout>
       <ProductDetails product={product ? product : dummyProduct} />
       <QuickInfo />
+      <RelatedItems />
     </BasicLayout>
   );
 };

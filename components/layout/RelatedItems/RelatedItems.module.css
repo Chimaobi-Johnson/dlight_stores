@@ -1,0 +1,20 @@
+.wrapper {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.wrapper h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.itemsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 2rem;
+}
+
+/* .imageWrapper {
+    height: 100px;
+    width: 100px;
+} */

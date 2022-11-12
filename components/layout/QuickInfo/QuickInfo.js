@@ -17,10 +17,10 @@ const QuickInfo = props => {
                 <span>Free tip</span>
                 <h2>the ultimate care guide</h2>
                 <p>
-                Nulla dignissim lacinia erat non malesuada. 
-                Donec efficitur dolor felis. Sed blandit est sem, 
-                eu dictum metus porta vel.
-                Pellentesque et nulla et mi semper
+                    Nulla dignissim lacinia erat non malesuada. 
+                    Donec efficitur dolor felis. Sed blandit est sem, 
+                    eu dictum metus porta vel.
+                    Pellentesque et nulla et mi semper
                 </p>
                 <Button variant="secondary">Learn more</Button>
             </div>
