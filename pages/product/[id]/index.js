@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import ProductDetails from "../../../components/Product/ProductDetails/ProductDetails";
 import { recommendedProducts } from "../../../data/dummy";
 import BasicLayout from "../../../components/layout/BasicLayout/BasicLayout";
+import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
 
 const Product = () => {
   const router = useRouter();
@@ -13,11 +14,11 @@ const Product = () => {
     image: '/products/pot.png',
     description: 'Hallelujah'
   }
-  console.log(product)
 //   metaData={{ title: product ? product.title : 'Product' }}
   return (
     <BasicLayout>
       <ProductDetails product={product ? product : dummyProduct} />
+      <QuickInfo />
     </BasicLayout>
   );
 };

@@ -1,14 +1,23 @@
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
+const Button = (props) => {
+  const { variant } = props;
 
-const Button = props => {
-    return (
-        <div className={styles.primary}>
-            <div className={styles.borderTopLeft}></div>
-            <p>{props.children}</p>
-            <div className={styles.borderBottomRight}></div>
-        </div>
-    )
-}
+  return (
+    <div
+      className={
+        variant === "primary"
+          ? styles.primary
+          : variant === "secondary"
+          ? styles.secondary
+          : styles.primary
+      }
+    >
+      <div className={variant === "primary" ? styles.borderTopLeft : '' }></div>
+      <p>{props.children}</p>
+      <div className={variant === "primary" ? styles.borderBottomRight : '' }></div>
+    </div>
+  );
+};
 
-export default Button
+export default Button;

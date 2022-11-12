@@ -63,6 +63,7 @@
 
 .contentContainer {
     padding: 1rem;
+    overflow-y: hidden;
 }
 
 .header {
@@ -109,6 +110,18 @@
     margin-top: 1.5rem;
 }
 
+.buttonContainer {
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: start;
+    margin: 1rem 0;
+}
+
+.buttonContainer div p {
+    padding: 0 15px;
+}
+
 .availability {
     display: grid;
     grid-template-columns: 20px 1fr;
@@ -116,4 +129,8 @@
 
 .availability p {
     padding-left: 3px;
+}
+
+.description {
+    line-height: .8cm;
 }

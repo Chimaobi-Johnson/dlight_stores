@@ -63,10 +63,40 @@ const ProductDetails = props => {
                     <Image width={20} height={20} src={goodTick} alt="" />
                     <p>In stock, ready to ship</p>
                 </div>
-                <Button>Add to cart</Button>
-                <Button>Add to Wishlist</Button>
+                <div className={styles.buttonContainer}>
+                    <Button variant="secondary">Add to cart</Button>
+                    <Button variant="secondary">Add to Wishlist</Button>
+                </div>
                 <div className={styles.description}>
-
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Proin consequat urna nec nisi vehicula fermentum. 
+                    Fusce consectetur ante nec velit tristique, 
+                    vitae dictum dui facilisis. Lorem ipsum dolor sit amet, 
+                    consectetur adipiscing elit. Class aptent taciti sociosqu 
+                    ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    Vivamus nec odio nec ipsum vestibulum iaculis ut eu libero. Maecenas 
+                    consectetur accumsan tellus a vulputate. Donec et sem sit amet mi sodales 
+                    pretium. Ut fermentum, metus in vulputate aliquam, magna risus facilisis est,
+                    <h4>Requirements</h4>
+                    <ul>
+                        <li>
+                           odio nec ipsum vestibulum iaculis
+                        </li>
+                        <li>
+                           ec ipsum vestibulum
+                        </li>
+                        <li>
+                           vitae dictum dui facilisis
+                        </li>
+                        <li>
+                           Fusce consectetur ante nec
+                        </li>
+                    </ul>
+                     eu blandit sem velit vitae ante. Sed quis nisl mauris. Nam sodales dignissim
+                      nibh vel placerat. Duis eu sem et enim pellentesque porttitor. 
+                    Nulla luctus urna quis enim fermentum hendrerit.
+                    </p>
                 </div>
                 <div className={styles.otherInfo}>
                     <div className={styles.shippingInfo}>

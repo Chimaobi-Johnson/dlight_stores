@@ -1,0 +1,29 @@
+.wrapper {
+    margin: 5rem 0;
+    height: 60vh;
+    width: 100%;
+    position: relative;
+}
+
+.contentContainer {
+    height: 80%;
+    width: 25%;
+    background-color: white;
+    position: absolute;
+    left: 3%;
+    top: 10%;
+    padding: 2rem;
+}
+
+.contentContainer span {
+    font-size: .8rem;
+}
+
+.contentContainer h2 {
+    text-transform: uppercase;
+}
+
+.contentContainer p {
+    line-height: .8cm;
+    margin-bottom: 3rem;
+}
