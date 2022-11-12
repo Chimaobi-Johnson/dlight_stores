@@ -44,7 +44,7 @@ const Navigation = (props) => {
       <div className={styles.infoContainer}>
         <div className={styles.infoIcons}>
           <div className={styles.accountIcon}>
-            <Image width={100} height={100} src="/icons/user.png" alt="account" />
+            <Link href="/auth/login"><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
           </div>
           <div className={styles.cartIcon}>
             <Image width={100} height={100} src="/icons/shopping-cart.png" alt="cart" />

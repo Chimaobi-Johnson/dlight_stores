@@ -1,0 +1,19 @@
+.contentContainer {
+    width: 30%;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.contentContainer h1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contentContainer input {
+    margin-bottom: 1rem;
+}
+
+.contentContainer span {
+    font-size: .8rem;
+}
