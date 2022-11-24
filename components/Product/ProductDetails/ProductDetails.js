@@ -10,7 +10,7 @@ import styles from './ProductDetails.module.css';
 
 const ProductDetails = props => {
 
-    const { title, image, images, price } = props.product;
+    const { title, images, price } = props.product;
 
     const [currentImage, setCurrentImage] = useState(0);
 

@@ -14,6 +14,7 @@ const Product = () => {
     id: 23,
     title: 'Dummy title',
     image: '/products/pot.png',
+    images: ['/products/pot.png'],
     description: 'Hallelujah'
   }
 //   metaData={{ title: product ? product.title : 'Product' }}
