@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
+
 const render = (status) => {
   return <h1>{status}</h1>;
 };
@@ -32,7 +33,7 @@ const GoogleMap = () => {
   // [START maps_react_map_component_app_return]
   return (
     <div style={{ display: "flex", height: "100%" }}>
-      <Wrapper apiKey={"AIzaSyBA4nd5u6cbOVHEY05loEEWCnAq9Lqq0I0"} render={render}>
+      <Wrapper apiKey={process.env.GOOGLE_MAP_API} render={render}>
         <Map
           center={center}
           onClick={onClick}
