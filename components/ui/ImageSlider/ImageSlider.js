@@ -24,7 +24,7 @@ const ImageSlider = (props) => {
       return () => clearInterval(slideInterval); // clean up function, starts counter afresh after the next slide
     });
 
-    const autoScroll = true;
+    const autoScroll = false;
     let slideInterval;
     let intervalTime = 7000; 
 
@@ -58,7 +58,7 @@ const ImageSlider = (props) => {
                       <div className={styles.contentContainer}>
                         <h1>{slide.title}</h1>
                         <h3>{slide.subText}</h3>
-                        <Button>{slide.buttonText}</Button>
+                        <Button variant='secondary'>{slide.buttonText}</Button>
                       </div>
                     </div>
                 )}

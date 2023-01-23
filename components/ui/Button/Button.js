@@ -13,9 +13,9 @@ const Button = (props) => {
           : styles.primary
       }
     >
-      <div className={variant === "primary" ? styles.borderTopLeft : '' }></div>
+      <div className={variant === "secondary" ? styles.borderTopLeft : '' }></div>
       <p>{props.children}</p>
-      <div className={variant === "primary" ? styles.borderBottomRight : '' }></div>
+      <div className={variant === "secondary" ? styles.borderBottomRight : '' }></div>
     </div>
   );
 };
