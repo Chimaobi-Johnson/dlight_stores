@@ -105,15 +105,28 @@
 
     }
 
+    .box1 {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .mapContainer {
+        width: 100%;
+    }
+
+    .box2 {
+        text-align: left;
+        padding-left: 0;
+    }
+
     .box3 {
         border-top: 1px solid #535353;
     }
 
     .box4 {
-        padding-left: 2rem;
         border-left: none;
         border-top: 1px solid #535353;
-
+        padding-left: 0;
     }
     
 }
