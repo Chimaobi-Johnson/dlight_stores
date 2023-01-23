@@ -38,8 +38,8 @@
     left: 0;
     width: 30%;
     height: 50%;
-    border-top: 1px solid #eaeaea;
-    border-left: 1px solid #eaeaea;
+    border-top: 1px solid #6ef12d;
+    border-left: 1px solid #6ef12d;
     animation: grow .5s ease-in 1s;
     animation-fill-mode: forwards;
     visibility: hidden;
@@ -64,8 +64,8 @@
     right: 0;
     width: 30%;
     height: 50%;
-    border-bottom: 1px solid #eaeaea;
-    border-right: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaf12d;
+    border-right: 1px solid #eaf12d;
     animation: grow .5s ease-in 1.4s;
     animation-fill-mode: forwards;
     visibility: hidden;

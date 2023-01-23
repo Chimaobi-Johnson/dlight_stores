@@ -6,6 +6,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
+    letter-spacing: 4px;
 }
 
 .slide {
@@ -48,6 +49,10 @@
     animation: slide-up 1.2s ease .8s;
     animation-fill-mode: forwards;
     visibility: hidden;
+}
+
+.contentContainer h1 {
+    font-weight: 800;
 }
 
 @keyframes slide-up {
