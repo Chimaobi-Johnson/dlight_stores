@@ -98,6 +98,10 @@
 
 @media (max-width: 700px) {
 
+    .wrapper {
+        font-size: .8rem;
+    }
+
     .footerTop {
         display: grid;
         grid-template-columns: 1fr;
@@ -108,6 +112,10 @@
     .box1 {
         padding-left: 0;
         margin-left: 0;
+    }
+
+    .box2 ul {
+        padding-left: 0;
     }
 
     .mapContainer {

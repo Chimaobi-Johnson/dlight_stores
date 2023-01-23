@@ -123,6 +123,7 @@
     .wrapper {
         overflow: hidden;
         font-size: .81rem;
+        min-height: 80vh;
     }
 
     .slide {
@@ -130,7 +131,7 @@
         /* width: 100vw; */
         width: 100%;
         grid-template-columns: 1fr;
-        margin-top: 5rem;
+        margin-top: 2rem;
     }
 
     .currentSlide {
@@ -138,12 +139,18 @@
         width: 100%;
         display: grid;
         grid-template-columns: 1fr;
-        margin-top: 8rem;
+        margin-top: 2rem;
 
+    }
+
+    .mediaContainer {
+        width: 100%;
+        margin-top: 1rem;
     }
 
     .productText {
         padding: 1rem;
-        padding-right: 5rem;
+        width: 100vw
     }
+
 }
