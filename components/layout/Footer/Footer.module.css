@@ -9,27 +9,29 @@
 .footerTop {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    padding: 5rem 0;
+    padding: 2rem 0;
 }
 
-.logoContainer {
-    width: 100%;
+.mapContainer {
+    width: 90%;
     height: 100%;
+    background-color: rgb(28, 0, 128);
 }
-
-/* .logoContainer img {
-    width: 80%;
-    height: 50%;
-} */
 
 .box1 {
-    /* background-color: green; */
-    padding-left: 1rem;
-    padding-top: 25%;
+    height: 25rem;
+    margin-left: 1rem;
+    grid-column: span 2;
 }
 
+.box1 p {
+    color: #ffffff;
+    margin: 2rem 0rem;
+}
+
+
 .box2 {
-    grid-column: span 2;
+    /* grid-column: span 2; */
     padding-right: 1rem;
     text-align: right;
     /* border-right: 1px solid #535353; */
