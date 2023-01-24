@@ -21,3 +21,21 @@
     cursor: pointer;
 }
 
+@media (max-width: 700px) {
+
+    .wrapper {
+        margin: auto 1rem;
+    }
+
+    .sidebar {
+        grid-column: span 4;
+        border-right: 0;
+        margin-right: 0;
+    }
+
+    .contentContainer {
+        /* gap: 2rem 1rem; */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
