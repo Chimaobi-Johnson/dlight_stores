@@ -16,13 +16,17 @@ const Navigation = (props) => {
     marginLeft: '2px',
   }
 
+  const initMobileMenu = () => {
+    console.log("yess")
+  }
+
   return (
     <header className={styles.wrapper}>
       <ExtendedMenu activate={active} />
       <div className={styles.searchContainer}>
         <div className={styles.image}>
           <Image width={100} height={100} className={styles.searchIcon} src="/icons/search.png" alt="_search" />
-          <Image width={100} height={100} className={styles.barIcon} src="/icons/bars.png" alt="_option" />
+          <Image onClick={initMobileMenu} width={100} height={100} className={styles.barIcon} src="/icons/bars.png" alt="_option" />
         </div>
       </div>
       <div className={styles.menuContainer}>
