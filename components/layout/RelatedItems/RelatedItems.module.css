@@ -18,3 +18,14 @@
     height: 100px;
     width: 100px;
 } */
+
+
+@media (max-width: 700px) {
+
+    .wrapper {
+        width: 100%;
+        margin: 3rem auto;
+        padding: 0 1rem;
+    }
+
+}

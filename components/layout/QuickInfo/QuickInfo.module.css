@@ -27,3 +27,18 @@
     line-height: .8cm;
     margin-bottom: 3rem;
 }
+
+
+@media (max-width: 700px) {
+
+    .contentContainer {
+        width: 80%;
+        background-color: white;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2rem;
+    }
+
+}

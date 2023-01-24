@@ -108,3 +108,25 @@
 .description {
     line-height: .8cm;
 }
+
+@media (max-width: 700px) {
+    .wrapper {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .imageContainer {
+        min-height: 60vh;
+    }
+    
+    .imageWrapper {
+        margin-left: 1rem;
+        margin-top: 1rem;
+        height: 60%;
+    }
+
+    .buttonContainer {
+        width: 80%;
+    }
+    
+}
