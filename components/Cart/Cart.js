@@ -8,7 +8,7 @@ const Cart = props => {
         <div className={styles.wrapper}>
             <div className={styles.cartContainer}>
                 <div className={styles.header}>
-                    <h1>Your Cart</h1>
+                    <h3>Your Cart</h3>
                     <span>close</span>
                 </div>
                 <div className={styles.itemsContainer}>
