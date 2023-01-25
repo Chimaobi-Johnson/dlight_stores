@@ -5,6 +5,7 @@ import Input from '../../ui/Input/Input';
 import goodTick from '../../../public/svg/good_green.svg';
 
 import styles from './ProductDetails.module.css';
+import Cart from '../../Cart/Cart';
 
 
 
@@ -24,6 +25,8 @@ const ProductDetails = props => {
 
     return (
         <div className={styles.wrapper}>
+
+            <Cart />
             <div className={styles.imageContainer}>
                 <div className={styles.zoomImageWrapper}>
                     {images.map((image, index) => {
