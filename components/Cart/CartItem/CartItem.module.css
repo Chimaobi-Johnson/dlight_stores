@@ -1,0 +1,34 @@
+.inputContainer {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    width: 7.5rem;
+    border: 1px solid #000000;
+    align-items: center;
+    justify-items: center;
+    border-radius: 2px;
+}
+
+.input_label {
+    display: none;
+}
+
+.inputContainer input {
+    height: 110%;
+    width: 100%;
+    align-items: center;
+    border: none;
+    border-right: 1px solid #eaeaea;
+}
+
+.increaseBtn, .decreaseBtn {
+    width: 100%;
+    height: 100%;
+}
+
+.increaseBtn {
+    border-left: 1px solid #6d6d6d;
+}
+
+.decreaseBtn {
+    border-right: 1px solid #6d6d6d;
+}
