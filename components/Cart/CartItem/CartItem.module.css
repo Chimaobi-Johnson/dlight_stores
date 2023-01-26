@@ -6,18 +6,20 @@
     align-items: center;
     justify-items: center;
     border-radius: 2px;
-}
-
-.input_label {
-    display: none;
+    height: 2rem;
 }
 
 .inputContainer input {
-    height: 110%;
+    height: 100%;
     width: 100%;
     align-items: center;
     border: none;
     border-right: 1px solid #eaeaea;
+    border-radius: 0;
+}
+
+.inputContainer input {
+    border: none;
 }
 
 .increaseBtn, .decreaseBtn {

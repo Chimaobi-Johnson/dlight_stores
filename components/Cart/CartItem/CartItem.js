@@ -11,7 +11,7 @@ const CartItem = (props) => {
         <div className={styles.inputWrapper}>
           <div className={styles.inputContainer}>
             <div className={styles.decreaseBtn}>-</div>
-            <Input type="text" defaultValue={0} />
+            <input type="text" defaultValue={0} />
             <div className={styles.increaseBtn}>+</div>
           </div>
         </div>
