@@ -14,6 +14,12 @@ const Cart = props => {
                 <div className={styles.itemsContainer}>
                     <CartItem />
                 </div>
+                <div className={styles.recommended}>
+                    
+                </div>
+                <div className={styles.subTotalContainer}>
+                    
+                </div>
             </div>
         </div>
     )
