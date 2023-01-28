@@ -26,3 +26,7 @@
    text-align: center;
    text-transform: uppercase;
 }
+
+.subTotalContainer {
+    background-color: yellow;
+}

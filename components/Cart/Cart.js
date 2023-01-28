@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Button from '../ui/Button/Button';
 import * as styles from './Cart.module.css';
 import CartItem from './CartItem/CartItem';
 
@@ -15,10 +17,12 @@ const Cart = props => {
                     <CartItem />
                 </div>
                 <div className={styles.recommended}>
-                    
+
                 </div>
                 <div className={styles.subTotalContainer}>
-                    
+                    <h4>Sub Total</h4>
+                    <Button variant='primary'>Checkout</Button>
+                    <Link href='/'>Continue shopping</Link>
                 </div>
             </div>
         </div>
