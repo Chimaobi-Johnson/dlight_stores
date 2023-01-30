@@ -7,7 +7,7 @@ const Search = props => {
         <div className={styles.wrapper}>
             <p>Delight stores</p>
             <div className={styles.inputWrapper}>
-                <input type="search" value="" />
+                <input placeholder="Search..." type="search" value="" />
             </div>
         </div>
     )
