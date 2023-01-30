@@ -6,6 +6,7 @@ import goodTick from '../../../public/svg/good_green.svg';
 
 import styles from './ProductDetails.module.css';
 import Cart from '../../Cart/Cart';
+import Search from '../../ui/Search/Search';
 
 
 
@@ -25,8 +26,8 @@ const ProductDetails = props => {
 
     return (
         <div className={styles.wrapper}>
-
-            <Cart />
+            <Search />
+            {/* <Cart /> */}
             <div className={styles.imageContainer}>
                 <div className={styles.zoomImageWrapper}>
                     {images.map((image, index) => {
