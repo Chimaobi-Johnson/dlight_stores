@@ -5,7 +5,16 @@ import React from 'react';
 
 
 class MyApp extends App {
-    static async getInitialProps({ component, ctx }) {
-        // const appProps
+    static async getInitialProps({ Component, ctx }) {
+        const appProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
+    
+        console.log(appProps);
+        return {
+            appProps: appProps
+        }
+    }
+
+    render() {
+
     }
 }
