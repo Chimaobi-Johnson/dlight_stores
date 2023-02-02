@@ -2,7 +2,9 @@ import BlogDetails from "../../components/Blog/BlogDetails"
 
 
 const Posts = () => {
-    <BlogDetails />
+    return (
+        <BlogDetails />
+    )
 }
 
 export default Posts

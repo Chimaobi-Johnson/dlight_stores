@@ -1,5 +1,4 @@
-import React from 'react';
-
+import * as styles from './BlogDetails.module.css';
 
 
 const BlogDetails = () => {
