@@ -26,7 +26,7 @@ const ProductDetails = props => {
 
     return (
         <div className={styles.wrapper}>
-            <Search />
+            {/* <Search /> */}
             {/* <Cart /> */}
             <div className={styles.imageContainer}>
                 <div className={styles.zoomImageWrapper}>
