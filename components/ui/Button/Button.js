@@ -12,6 +12,7 @@ const Button = (props) => {
           ? styles.secondary
           : styles.primary
       }
+      {...props}
     >
       <div className={variant === "secondary" ? styles.borderTopLeft : '' }></div>
       <p>{props.children}</p>

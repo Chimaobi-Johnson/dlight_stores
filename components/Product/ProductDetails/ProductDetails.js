@@ -33,7 +33,7 @@ const ProductDetails = props => {
 
     const initCartHandler = () => {
         console.log('dispatched')
-        dispatch(initCart)
+        dispatch(initCart())
     }
 
     return (
