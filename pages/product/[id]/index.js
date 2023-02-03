@@ -28,4 +28,33 @@ const Product = () => {
   );
 };
 
+export async function getStaticPaths() {
+
+  return {
+    fallback: false,
+    paths: [
+      {
+        params: {
+          id: ''
+        }
+      }
+    ]
+  }
+
+}
+
+export async function getStaticProps(context) {
+
+  const productId = context.params.id;
+
+  return {
+    props: {
+      products: null,
+      categories: null
+    },
+    revalidate: 1
+  }
+
+}
+
 export default Product;

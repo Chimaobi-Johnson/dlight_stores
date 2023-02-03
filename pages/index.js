@@ -6,7 +6,7 @@ import ImageSlider from "../components/ui/ImageSlider/ImageSlider";
 
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+function Home(props) {
   return (
     <BasicLayout
       metaData={{
@@ -23,3 +23,17 @@ export default function Home() {
     </BasicLayout>
   );
 }
+
+export async function getStaticProps() {
+
+  return {
+    props: {
+      products: null,
+      categories: null
+    },
+    revalidate: 1
+  }
+
+}
+
+export default Home
