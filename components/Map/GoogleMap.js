@@ -58,7 +58,6 @@ const Map = ({ onClick, onIdle, children, style, ...options }) => {
 
   React.useEffect(() => {
     if (ref.current && !map) {
-        console.log(window)
       setMap(new window.google.maps.Map(ref.current, {}));
     }
   }, [ref, map]);

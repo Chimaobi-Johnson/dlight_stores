@@ -7,12 +7,19 @@ import goodTick from '../../../public/svg/good_green.svg';
 import styles from './ProductDetails.module.css';
 import Cart from '../../Cart/Cart';
 import Search from '../../ui/Search/Search';
+import { useDispatch, useSelector } from 'react-redux';
+import { initCart } from '../../../store/actions/app';
 
 
 
 const ProductDetails = props => {
 
     const { title, images, price } = props.product;
+
+    const dispatch = useDispatch();
+    const appData = useSelector(data => data)
+    console.log(appData)
+    
 
     const [currentImage, setCurrentImage] = useState(0);
 
@@ -22,6 +29,11 @@ const ProductDetails = props => {
 
     const selectSize = () => {
         
+    }
+
+    const initCartHandler = () => {
+        console.log('dispatched')
+        dispatch(initCart)
     }
 
     return (
@@ -68,7 +80,7 @@ const ProductDetails = props => {
                     <p>In stock, ready to ship</p>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <Button variant="secondary">Add to cart</Button>
+                    <Button onClick={initCartHandler} variant="secondary">Add to cart</Button>
                     <Button variant="secondary">Add to Wishlist</Button>
                 </div>
                 <div className={styles.description}>
@@ -81,7 +93,7 @@ const ProductDetails = props => {
                     ad litora torquent per conubia nostra, per inceptos himenaeos. 
                     Vivamus nec odio nec ipsum vestibulum iaculis ut eu libero. Maecenas 
                     consectetur accumsan tellus a vulputate. Donec et sem sit amet mi sodales 
-                    pretium. Ut fermentum, metus in vulputate aliquam, magna risus facilisis est,
+                    pretium. Ut fermentum, metus in vulputate aliquam, magna risus facilisis est,</p>
                     <h4>Requirements</h4>
                     <ul>
                         <li>
@@ -97,7 +109,7 @@ const ProductDetails = props => {
                            Fusce consectetur ante nec
                         </li>
                     </ul>
-                     eu blandit sem velit vitae ante. Sed quis nisl mauris. Nam sodales dignissim
+                     <p>eu blandit sem velit vitae ante. Sed quis nisl mauris. Nam sodales dignissim
                       nibh vel placerat. Duis eu sem et enim pellentesque porttitor. 
                     Nulla luctus urna quis enim fermentum hendrerit.
                     </p>
