@@ -9,7 +9,9 @@ import axios from 'axios';
 import styles from "../styles/Home.module.css";
 
 function Home(props) {
-  // console.log(props)
+
+  const { products, categories } = props;
+
   return (
     <BasicLayout
       metaData={{
@@ -20,8 +22,8 @@ function Home(props) {
       }}
     >
       <ImageSlider />
-      <Recommended />
-      <Categories />
+      <Recommended data={products} />
+      <Categories data={categories} />
       <ProductInfo />
     </BasicLayout>
   );
@@ -29,19 +31,13 @@ function Home(props) {
 
 export async function getStaticProps() {
 
-  let products = null;
-  axios.get(process.env.BACKEND_URL + '/products')
-  .then(products => {
-    console.log(products)
-    products = products
-  }).catch(err => {
-    console.log(err)
-  })
+ const response = await axios.get(process.env.BACKEND_URL + '/products')
+ const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
 
   return {
     props: {
-      products: products,
-      categories: null
+      products: response.data.products,
+      categories: response2.data.categories
     },
     revalidate: 1
   }

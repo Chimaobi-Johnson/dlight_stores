@@ -7,15 +7,19 @@ import Link from 'next/link';
 
 const Recommended = props => {
 
+    const { data } = props
+
+    console.log(data)
+
     return (
         <div className={styles.wrapper}>
             {recommendedProducts.length !== 0 ? <h1>Recommended Products</h1> : ''}
             <div className={styles.container}>
-                {recommendedProducts.length !== 0 ? recommendedProducts.map((product, index) => {
+                {data.length !== 0 ? data.map((product, index) => {
                     return (
                         <Link key={index} href="/product/[id]" as={`/product/${product.id}`}>
                             <div className={styles.boxContainer}>
-                                <Image width={150} height={150} src={product.image} alt="" />
+                                <Image width={150} height={150} src="https://res.cloudinary.com/jerq.jpg" alt="" />
                                 <h3>{product.title}</h3>
                                 <p>from {product.price}</p>
                             </div>
