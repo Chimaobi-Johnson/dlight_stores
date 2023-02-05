@@ -1,4 +1,3 @@
-import { recommendedProducts } from '../../../data/dummy';
 import Button from '../../ui/Button/Button';
 import Image from 'next/image';
 
@@ -9,11 +8,9 @@ const Recommended = props => {
 
     const { data } = props
 
-    console.log(data)
-
     return (
         <div className={styles.wrapper}>
-            {recommendedProducts.length !== 0 ? <h1>Recommended Products</h1> : ''}
+            {data.length !== 0 ? <h1>Recommended Products</h1> : ''}
             <div className={styles.container}>
                 {data.length !== 0 ? data.map((product, index) => {
                     return (

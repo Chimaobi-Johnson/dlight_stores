@@ -1,9 +1,11 @@
-import { categories } from '../../../data/dummy';
-
 import styles from './Categories.module.css';
 
 
 const Categories = props => {
+
+    const { data } = props
+
+    console.log(data)
 
     return (
         <div className={styles.wrapper}>
@@ -11,15 +13,15 @@ const Categories = props => {
                 <h2>MAKE SOMEONE HAPPY WITH A GIFT</h2>
             </div>
             <div className={styles.content}>
-                {categories.length !== 0 ? categories.map((category, index) => {
+                {data.length !== 0 ? data.map((category, index) => {
                     return <div key={index} style={{
                         backgroundImage:
-                          `linear-gradient(to right, #ffffff49, #0000009c), url(${category.image})`,
+                          `linear-gradient(to right, #ffffff49, #0000009c), url(${category.imageUrl})`,
                         backgroundSize: "cover",
                         backgroundPositionY: "30%",
                         backgroundRepeat: "no-repeat",
                         }}>
-                            <h2 className={styles.categoryTitle}>{category.title} <div className={styles.underline}></div></h2>
+                            <h2 className={styles.categoryTitle}>{category.name} <div className={styles.underline}></div></h2>
                            
                         </div>
                 }) : ''}
