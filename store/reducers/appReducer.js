@@ -23,7 +23,7 @@ export const updateAppData = (state = initialState, action) => {
       const cartArr = [...state.cart.cartItems] 
       if(cartArr.length !== 0) {
         cartArr.map(item => {
-          if(item.id === action.payload.productId) {
+          if(item.productId === action.payload.productId) {
             return
           } 
           cartArr.push(action.payload)
