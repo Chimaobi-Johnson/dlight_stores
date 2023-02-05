@@ -19,9 +19,11 @@ const Recommended = props => {
                     return (
                         <Link key={index} href="/product/[id]" as={`/product/${product.id}`}>
                             <div className={styles.boxContainer}>
-                                <Image width={150} height={150} src="https://res.cloudinary.com/jerq.jpg" alt="" />
+                                 <div className={styles.productImageContainer}>
+                                    <Image layout='fill' src={product.imagesUrl[0]} alt="" />
+                                 </div>
                                 <h3>{product.title}</h3>
-                                <p>from {product.price}</p>
+                                <p>from {product.price} naira</p>
                             </div>
                         </Link>
                     )
