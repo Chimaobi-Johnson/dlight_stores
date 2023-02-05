@@ -33,14 +33,23 @@
 
 .boxContainer {
     margin-top: 2rem;
+    min-height: 318px;
 }
 
-.boxContainer:hover > h3 {
+.boxContainer:hover > .productDetails > h3 {
     color: #4e4002;
 }
 
-.boxContainer img {
-    /* transform: translateX(-10%); */
+.productDetails {
+    display: flex;
+    min-height: 118px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.boxContainer p {
+    padding: 0; 
+    margin: 0;
 }
 
 .productImageContainer {
@@ -51,6 +60,7 @@
 
 .price {
     font-weight: bold;
+    color: #a35b02;
 }
 
 @media (max-width: 700px) {

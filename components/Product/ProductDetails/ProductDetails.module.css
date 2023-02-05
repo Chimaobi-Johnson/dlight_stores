@@ -11,6 +11,7 @@
     grid-template-columns: 15% 1fr;
     gap: 1rem;
     align-items: start;
+    margin-top: 2rem;
 }
 
 .image1 {

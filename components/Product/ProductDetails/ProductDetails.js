@@ -95,7 +95,7 @@ const ProductDetails = (props) => {
         </div>
         <div className={styles.availability}>
           <Image width={20} height={20} src={goodTick} alt="" />
-          <p>In stock, ready to ship</p>
+          <p>In stock, {deliveryStatus === 'ready' ? 'ready to ship' : 'available for pickup'}</p>
         </div>
         <div className={styles.buttonContainer}>
           <Button onClick={initCartHandler} variant="secondary">
@@ -104,29 +104,7 @@ const ProductDetails = (props) => {
           <Button variant="secondary">Add to Wishlist</Button>
         </div>
         <div className={styles.description}>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-            consequat urna nec nisi vehicula fermentum. Fusce consectetur ante
-            nec velit tristique, vitae dictum dui facilisis. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu
-            ad litora torquent per conubia nostra, per inceptos himenaeos.
-            Vivamus nec odio nec ipsum vestibulum iaculis ut eu libero. Maecenas
-            consectetur accumsan tellus a vulputate. Donec et sem sit amet mi
-            sodales pretium. Ut fermentum, metus in vulputate aliquam, magna
-            risus facilisis est,
-          </p>
-          <h4>Requirements</h4>
-          <ul>
-            <li>odio nec ipsum vestibulum iaculis</li>
-            <li>ec ipsum vestibulum</li>
-            <li>vitae dictum dui facilisis</li>
-            <li>Fusce consectetur ante nec</li>
-          </ul>
-          <p>
-            eu blandit sem velit vitae ante. Sed quis nisl mauris. Nam sodales
-            dignissim nibh vel placerat. Duis eu sem et enim pellentesque
-            porttitor. Nulla luctus urna quis enim fermentum hendrerit.
-          </p>
+          <p>{description}</p>
         </div>
         <div className={styles.otherInfo}>
           <div className={styles.shippingInfo}>

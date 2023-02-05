@@ -6,18 +6,19 @@ import Link from 'next/link';
 
 
 const Lists = props => {
+
     return (
         <div className={styles.wrapper}>
             <div className={styles.contentContainer}>
                 <div className={styles.sidebar}>
-                    <Sidebar />
+                    <Sidebar categories={props.categories} />
                 </div>
                 {props.list.length !== 0 ? props.list.map((item, index) => {
                     return (
-                        <Link key={index} href={"/product/[id]"} as={`/product/${item.id}`}>
+                        <Link key={index} href={"/product/[id]"} as={`/product/${item._id}`}>
                             <div className={styles.item}>
-                                <Image src={item.image} alt="" width="230px" height="200px" />
-                                <h4>{item.title}</h4>
+                                <Image src={item.imagesUrl[0]} alt="" width="230px" height="200px" />
+                                <h4>{item.name}</h4>
                                 <p>from {item.price}</p>
                             </div>
                         </Link>
