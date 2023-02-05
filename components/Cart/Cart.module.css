@@ -108,3 +108,8 @@
 .subTotalContainer {
     background-color: yellow;
 }
+
+.subTotalContainer h1 {
+    margin-bottom: 5px;
+}
+

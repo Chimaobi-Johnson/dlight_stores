@@ -15,7 +15,7 @@ export const updateAppData = (state = initialState, action) => {
         ...state,
         cart: {
           ...state.cart,
-          init: state.cart.init === 'reveal' ? 'hide' : 'reveal',
+          init: state.cart.init === 'reveal' ? 'hide' :'',
         },
       };
       return newState;
