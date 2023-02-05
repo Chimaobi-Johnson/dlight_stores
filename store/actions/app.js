@@ -1,10 +1,16 @@
-import { INIT_CART } from "../actionTypes"
+import { ADD_TO_CART, INIT_CART } from "../actionTypes"
 
 
 
 export const initCart = () => (dispatch) => {
-    console.log(dispatch)
     dispatch({
-        type: INIT_CART,
+        type: INIT_CART
+    })
+}
+
+export const addToCart = (cartDetails) => (dispatch) => {
+    dispatch({
+        type: ADD_TO_CART,
+        payload: cartDetails
     })
 }

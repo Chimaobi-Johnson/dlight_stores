@@ -8,10 +8,11 @@ import styles from "./ProductDetails.module.css";
 import Cart from "../../Cart/Cart";
 import Search from "../../ui/Search/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { initCart } from "../../../store/actions/app";
+import { initCart, addToCart } from "../../../store/actions/app";
 
 const ProductDetails = (props) => {
   const {
+    _id,
     name,
     imagesUrl,
     price,
@@ -29,16 +30,29 @@ const ProductDetails = (props) => {
   const changeImageHandler = (index) => {
     setCurrentImage(index);
   };
-
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   const [isActive, setActive] = useState(false)
 
   const selectSize = (size) => {
     setActive(!isActive)
+    setSelectedSize(size)
   };
 
-  const initCartHandler = () => {
-    dispatch(initCart());
+  const selectQuantity = (e) => {
+    setQuantity(e.target.value)
+  }
+
+  const addItemToCart = () => {
+    const cartDetails = {
+        productId: _id,
+        size: selectedSize,
+        quantity: quantity,
+        user: null
+    }
+    // dispatch(initCart());
+    dispatch(addToCart(cartDetails));
   };
 
   return (
@@ -90,14 +104,14 @@ const ProductDetails = (props) => {
           )}
         </div>
         <div className={styles.quantity}>
-          <Input type="number" defaultValue={0} label="Quantity" />
+          <Input type="number" defaultValue={1} onChange={(event) => selectQuantity(e)} label="Quantity" />
         </div>
         <div className={styles.availability}>
           <Image width={20} height={20} src={goodTick} alt="" />
           <p>In stock, {deliveryStatus === 'ready' ? 'ready to ship' : 'available for pickup'}</p>
         </div>
         <div className={styles.buttonContainer}>
-          <Button onClick={initCartHandler} variant="secondary">
+          <Button onClick={addItemToCart} variant="secondary">
             Add to cart
           </Button>
           <Button variant="secondary">Add to Wishlist</Button>
