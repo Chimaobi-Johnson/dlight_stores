@@ -19,8 +19,8 @@ const Recommended = props => {
                                  <div className={styles.productImageContainer}>
                                     <Image layout='fill' src={product.imagesUrl[0]} alt="" />
                                  </div>
-                                <h3>{product.title}</h3>
-                                <p>from {product.price} naira</p>
+                                <h3>{product.name}</h3>
+                                <p>from <span className={styles.price}>{product.price} naira</span></p>
                             </div>
                         </Link>
                     )
