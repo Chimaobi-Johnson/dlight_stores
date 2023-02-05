@@ -44,7 +44,6 @@ const ProductDetails = (props) => {
   return (
     <div className={styles.wrapper}>
       {/* <Search /> */}
-      {/* <Cart /> */}
       <div className={styles.imageContainer}>
         <div className={styles.zoomImageWrapper}>
           {imagesUrl.map((image, index) => {

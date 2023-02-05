@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 import styles from "./BasicLayout.module.css";
 import Meta from "../Meta/Meta";
 import MobileMenu from "../Navigation/MobileMenu/MobileMenu";
+import Cart from "../../Cart/Cart";
 
 const BasicLayout = (props) => {
     const { meta } = props;
@@ -15,6 +16,7 @@ const BasicLayout = (props) => {
         keywords={meta ? meta.keywords : 'Souviners, gift items, household, household items, delight stores'}
       />
       {/* <MobileMenu /> */}
+      <Cart />
       <Navigation />
       <div className={styles.contentContainer}>
        {props.children}

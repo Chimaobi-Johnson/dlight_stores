@@ -6,6 +6,48 @@
     top: 0;
     left: 0;
     z-index: 80;
+    animation: reveal 1s ease 0s;
+}
+
+@keyframes reveal {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.closeCart {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: #0000008a;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    animation: hide 1s ease 0s;
+    visibility: hidden;
+}
+
+
+@keyframes hide {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+
+.closeCart > .cartContainer {
+    animation: slide-right 1s ease 0s;
+    animation-fill-mode: backwards;
 }
 
 .cartContainer {
@@ -15,6 +57,36 @@
     background-color: #ffffff;
     top: 0;
     right: 0;
+    animation: slide-left 1s ease 0s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+
+.contentContainer h1 {
+    font-weight: 800;
+}
+
+@keyframes slide-left {
+    0% {
+        visibility: hidden;
+        transform: translateX(100%);
+    }
+    100% {
+        visibility: visible;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        visibility: visible;
+        transform: translateX(0);
+    }
+    100% {
+        visibility: hidden;
+        transform: translateX(100%);
+    }
 }
 
 .header {
