@@ -14,7 +14,7 @@ const Recommended = props => {
             <div className={styles.container}>
                 {data.length !== 0 ? data.map((product, index) => {
                     return (
-                        <Link key={index} href="/product/[id]" as={`/product/${product.id}`}>
+                        <Link key={index} href="/product/[id]" as={`/product/${product._id}`}>
                             <div className={styles.boxContainer}>
                                  <div className={styles.productImageContainer}>
                                     <Image layout='fill' src={product.imagesUrl[0]} alt="" />

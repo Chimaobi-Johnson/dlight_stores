@@ -5,22 +5,21 @@ import BasicLayout from "../../../components/layout/BasicLayout/BasicLayout";
 import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
 import RelatedItems from "../../../components/layout/RelatedItems/RelatedItems";
 import Pagination from "../../../components/ui/Pagination/Pagination";
+import axios from 'axios';
 
-const Product = () => {
+const Product = (props) => {
   const router = useRouter();
-  const { id } = router.query;
-  const product = recommendedProducts.find(item => item.id == id ? item : '')
-  const dummyProduct = {
-    id: 23,
-    title: 'Dummy title',
-    image: '/products/pot.png',
-    images: ['/products/pot.png'],
-    description: 'Hallelujah'
-  }
-//   metaData={{ title: product ? product.title : 'Product' }}
+
+  const { product, category } = props.products;
+
+  console.log(product)
+
+  // const { id } = router.query;
+
+  const metaData={ title: product ? product.name : null }
   return (
-    <BasicLayout>
-      <ProductDetails product={product ? product : dummyProduct} />
+    <BasicLayout meta={metaData}>
+      <ProductDetails product={product ? product : null} />
       <QuickInfo />
       <RelatedItems />
       <Pagination />
@@ -30,15 +29,11 @@ const Product = () => {
 
 export async function getStaticPaths() {
 
+  const response = await axios.get(process.env.BACKEND_URL + '/products/ids');
+
   return {
     fallback: false,
-    paths: [
-      {
-        params: {
-          id: ''
-        }
-      }
-    ]
+    paths: response.data.ids.map(product => ({ params: { id: product._id }}))
   }
 
 }
@@ -47,10 +42,11 @@ export async function getStaticProps(context) {
 
   const productId = context.params.id;
 
+  const response = await axios.get(process.env.BACKEND_URL + '/product/?id=' + productId)
+
   return {
     props: {
-      products: null,
-      categories: null
+      products: response.data,
     },
     revalidate: 1
   }

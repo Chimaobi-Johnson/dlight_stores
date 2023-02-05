@@ -30,7 +30,8 @@
 .imageWrapper {
     position: relative;
     width: 100%;
-    height: 60%;
+    height: 450px;
+    margin-top: 1rem;
 }
 
 /* CONTENT SECTION */
@@ -67,6 +68,7 @@
     padding: .5rem .8rem;
     transition: all .5s;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .size ul li:hover {

@@ -6,7 +6,7 @@ import Meta from "../Meta/Meta";
 import MobileMenu from "../Navigation/MobileMenu/MobileMenu";
 
 const BasicLayout = (props) => {
-    const meta = props.metaData;
+    const { meta } = props;
   return (
     <div className={styles.wrapper}>
       <Meta
