@@ -4,6 +4,19 @@ body {
   margin: 0;
   font-family: 'Tajawal', sans-serif;
 }
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgb(252, 195, 120); 
+}
+
 a {
   color: inherit;
   text-decoration: none;

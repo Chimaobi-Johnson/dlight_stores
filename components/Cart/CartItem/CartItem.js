@@ -8,7 +8,7 @@ const CartItem = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
-       <Image width={100} height={100} src={sampleImage} alt="" />
+       <Image width={80} height={70} src={sampleImage} alt="" />
       </div>
       <div className={styles.contentContainer}>
         <h4 className={styles.heading4}>Awesome pots for cooking</h4>
@@ -22,7 +22,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles.close}>
-        <Image width={10} height={10} src="/icons/close-icon.png" alt="_search" />
+        <Image style={{ cursor: 'pointer' }} width={10} height={10} src="/icons/close-icon.png" alt="_search" />
         <p>N2500</p>
       </div>
     </div>

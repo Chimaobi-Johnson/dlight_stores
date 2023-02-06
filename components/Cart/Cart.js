@@ -5,6 +5,7 @@ import { initCart } from "../../store/actions/app";
 import Button from "../ui/Button/Button";
 import * as styles from "./Cart.module.css";
 import CartItem from "./CartItem/CartItem";
+import CartRecommend from "./CartRecommend/CartRecommend";
 
 const Cart = (props) => {
   const cart = useSelector((data) => data.app.cart);
@@ -36,8 +37,12 @@ const Cart = (props) => {
         </div>
         <div className={styles.itemsContainer}>
           <CartItem />
+          <CartItem />
+          <CartItem />
         </div>
-        <div className={styles.recommended}></div>
+        <div className={styles.recommended}>
+            <CartRecommend />
+        </div>
         <div className={styles.subTotalContainer}>
           <h4>Sub Total</h4>
           <Button variant="primary">Checkout</Button>

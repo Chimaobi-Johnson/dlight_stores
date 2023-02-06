@@ -124,6 +124,9 @@ const ProductDetails = (props) => {
 
       <div className={styles.descriptionContainer}>
         <div className={styles.description}>
+            {description !== '' ? 
+            (<h3>About this item</h3>) : null
+            }
             <p>{description}</p>
         </div>
             <div className={styles.otherInfo}>
