@@ -63,6 +63,7 @@
     background-color: #ffffff;
     top: 0;
     right: 0;
+    padding: 0 1rem;
     animation: slide-left 1s ease 0s;
     animation-fill-mode: forwards;
     visibility: hidden;
@@ -100,7 +101,6 @@
    display: grid;
    grid-template-columns: 9fr 1fr;
    align-items: center;
-   padding: 0 1rem;
    text-align: center;
    text-transform: uppercase;
 }
@@ -111,5 +111,9 @@
 
 .subTotalContainer h1 {
     margin-bottom: 5px;
+}
+
+.closeIcon {
+    text-align: right;
 }
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { initCart } from "../../store/actions/app";
 import Button from "../ui/Button/Button";
@@ -29,7 +30,9 @@ const Cart = (props) => {
       <div className={styles.cartContainer}>
         <div className={styles.header}>
           <h3>Your Cart</h3>
-          <span onClick={initCartHandler}>close</span>
+          <div className={styles.closeIcon}>
+              <Image onClick={initCartHandler} width={15} height={15} src="/icons/close-icon.png" alt="_search" />
+          </div>
         </div>
         <div className={styles.itemsContainer}>
           <CartItem />

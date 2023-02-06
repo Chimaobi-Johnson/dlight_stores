@@ -12,7 +12,7 @@ const CartItem = (props) => {
       </div>
       <div className={styles.contentContainer}>
         <h4 className={styles.heading4}>Awesome pots for cooking</h4>
-        <span>2.5/6 Packs</span>
+        <span>2.5/6 Pieces</span>
         <div className={styles.inputWrapper}>
           <div className={styles.inputContainer}>
             <div className={styles.decreaseBtn}>-</div>
@@ -22,7 +22,8 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles.close}>
-        <span>close</span>
+        <Image width={10} height={10} src="/icons/close-icon.png" alt="_search" />
+        <p>N2500</p>
       </div>
     </div>
   );

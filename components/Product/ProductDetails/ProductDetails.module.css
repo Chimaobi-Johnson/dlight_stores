@@ -36,7 +36,7 @@
 /* CONTENT SECTION */
 
 .contentContainer {
-    padding: 1rem;
+    padding-left: 2rem;
     overflow-y: hidden;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .zoomImageWrapper {
-    margin-top: 1.6rem;
+    margin-top: 3rem;
 }
 
 .price p {
@@ -134,11 +134,12 @@
 }
 
 .description {
-    margin-left: 8rem;
+    margin-left: 7.4rem;
 }
 
 .description p {
     margin-top: 3rem;
+    padding-right: 2rem;
 }
 
 .otherInfo {
