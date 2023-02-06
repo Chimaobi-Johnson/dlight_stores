@@ -1,8 +1,4 @@
 .wrapper {
-   display: none; 
-}
-
-.openCart {
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -10,7 +6,6 @@
     top: 0;
     left: 0;
     z-index: 80;
-    display: block;
     animation: reveal 1s ease 0s;
 }
 

@@ -2,7 +2,7 @@ import { ADD_TO_CART, INIT_CART } from "../actionTypes";
 
 const initialState = {
   cart: {
-    init: '', //reveal, hide, ''
+    init: false,
     cartItems: []
   },
 };
@@ -15,7 +15,7 @@ export const updateAppData = (state = initialState, action) => {
         ...state,
         cart: {
           ...state.cart,
-          init: state.cart.init === 'reveal' ? 'hide' :'',
+          init: !state.cart.init
         },
       };
       return newState;
@@ -40,7 +40,7 @@ export const updateAppData = (state = initialState, action) => {
         ...state,
         cart: {
           ...state.cart,
-          init: 'reveal',
+          init: true,
           cartItems: cartArr,
         },
       };

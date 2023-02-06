@@ -20,11 +20,9 @@ const Cart = (props) => {
   return (
     <div
       className={
-        cart.init === "reveal"
-          ? styles.openCart
-          : cart.init === "hide"
-          ? styles.closeCart
-          : styles.wrapper
+        cart.init
+          ? styles.wrapper
+          : styles.closeCart
       }
     >
       <div className={styles.cartContainer}>
