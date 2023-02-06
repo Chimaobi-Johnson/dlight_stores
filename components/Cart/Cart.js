@@ -8,9 +8,8 @@ import CartItem from "./CartItem/CartItem";
 import CartRecommend from "./CartRecommend/CartRecommend";
 
 const Cart = (props) => {
-  const cart = useSelector((data) => data.app.cart);
 
-  console.log(cart);
+  const cart = useSelector((data) => data.app.cart);
 
   const dispatch = useDispatch();
 
@@ -36,12 +35,11 @@ const Cart = (props) => {
           </div>
         </div>
         <div className={styles.itemsContainer}>
-          <CartItem />
-          <CartItem />
-          <CartItem />
-          {/* <CartItem />
-          <CartItem />
-          <CartItem /> */}
+            {cart.cartItems.length !== 0 ? cart.cartItems.map(item => {
+                return <CartItem item={item} />
+            }) : 
+            'No item in cart'
+            }
         </div>
         <div className={styles.recommended}>
             <p className={styles.recommendedText}>we highly recommended adding a heat pack on houseplant orders this time of year</p>

@@ -47,11 +47,13 @@ const ProductDetails = (props) => {
   const addItemToCart = () => {
     const cartDetails = {
         productId: _id,
+        name: name,
+        price: price,
+        imageUrl: imagesUrl[0],
         size: selectedSize,
         quantity: quantity,
         user: null
     }
-    // dispatch(initCart());
     dispatch(addToCart(cartDetails));
   };
 

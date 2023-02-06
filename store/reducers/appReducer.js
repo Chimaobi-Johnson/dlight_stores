@@ -21,15 +21,19 @@ export const updateAppData = (state = initialState, action) => {
       return newState;
     case ADD_TO_CART:
       const cartArr = [...state.cart.cartItems] 
-      if(cartArr.length !== 0) {
+      if(cartArr.length === 0) {
+        cartArr.push(action.payload)
+      } else {
         cartArr.map(item => {
           if(item.productId === action.payload.productId) {
+            console.log('exists')
             return
-          } 
-          cartArr.push(action.payload)
-        })
-      } else {
-        cartArr.push(action.payload)
+          } else {
+            console.log('pushing')
+
+            cartArr.push(action.payload)
+          }
+      })
       }
       newState = {
         ...state,
