@@ -137,3 +137,8 @@
     background: #c5c4c1; 
 }
 
+.recommendedText {
+    padding: 1rem;
+    background-color: #eaeaea;
+    margin: 0;
+}
