@@ -39,6 +39,9 @@ const Cart = (props) => {
           <CartItem />
           <CartItem />
           <CartItem />
+          {/* <CartItem />
+          <CartItem />
+          <CartItem /> */}
         </div>
         <div className={styles.recommended}>
             <p className={styles.recommendedText}>we highly recommended adding a heat pack on houseplant orders this time of year</p>
