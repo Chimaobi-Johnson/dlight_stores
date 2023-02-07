@@ -22,7 +22,6 @@ const Product = (props) => {
       <ProductDetails product={product ? product : null} />
       <QuickInfo />
       <RelatedItems />
-      <Pagination />
     </BasicLayout>
   );
 };

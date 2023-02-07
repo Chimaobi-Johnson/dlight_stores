@@ -9,6 +9,7 @@ import Cart from "../../Cart/Cart";
 import Search from "../../ui/Search/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { initCart, addToCart } from "../../../store/actions/app";
+import Pagination from "../../ui/Pagination/Pagination";
 
 const ProductDetails = (props) => {
   const {
@@ -146,7 +147,7 @@ const ProductDetails = (props) => {
                 </div>
             </div>
         </div>
-
+      <Pagination />
     </div>
   );
 };
