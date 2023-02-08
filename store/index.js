@@ -1,30 +1,31 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { persistReducer } from 'redux-persist'
+import storageSession from 'reduxjs-toolkit-persist/lib/storage/session'
 import storage from 'redux-persist/lib/storage'
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
 import AppData from './reducers/appReducer';
-import { createWrapper } from "next-redux-wrapper"
 
-const middleware = [thunk]
 
 const rootPersistConfig = {
   key: 'root',
-  storage,
+  storage: storageSession
 }
 
 const appPersistConfig = {
   key: 'app',
-  storage: storage,
+  storage: storageSession,
   whitelist: ['product']
 
 }
 
+const rootReducer = combineReducers({
+  app: persistReducer(appPersistConfig, AppData)
+})
+
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
+
+
 const store= configureStore({
-  reducer: {
-    app: AppData
-  }
+  reducer: persistedReducer
 })
 
 export default store 
