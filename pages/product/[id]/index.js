@@ -12,8 +12,6 @@ const Product = (props) => {
 
   const { product, category } = props.products;
 
-  console.log(product)
-
   // const { id } = router.query;
 
   const metaData={ title: product ? product.name : null }
@@ -22,11 +20,12 @@ const Product = (props) => {
       <ProductDetails product={product ? product : null} />
       <QuickInfo />
       <RelatedItems />
+      <Pagination />
     </BasicLayout>
   );
 };
 
-export async function getStaticPaths() {
+export async function getStaticPaths(context) {
 
   const response = await axios.get(process.env.BACKEND_URL + '/products/ids');
 

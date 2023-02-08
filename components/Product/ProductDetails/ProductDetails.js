@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../ui/Button/Button";
 import Input from "../../ui/Input/Input";
 import goodTick from "../../../public/svg/good_green.svg";
@@ -11,7 +11,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { initCart, addToCart } from "../../../store/actions/app";
 import Pagination from "../../ui/Pagination/Pagination";
 
+
 const ProductDetails = (props) => {
+
   const {
     _id,
     name,
@@ -147,7 +149,7 @@ const ProductDetails = (props) => {
                 </div>
             </div>
         </div>
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 };
