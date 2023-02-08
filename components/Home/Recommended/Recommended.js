@@ -3,10 +3,18 @@ import Image from 'next/image';
 
 import styles from './Recommended.module.css';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { updateSingleProductPagination } from '../../../store/actions/app';
 
 const Recommended = props => {
 
     const { data } = props
+
+    const dispatch = useDispatch()
+
+    const updatePagination = (prevData, nextData) => {
+        dispatch(updateSingleProductPagination(prevData, nextData));
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -15,7 +23,7 @@ const Recommended = props => {
                 {data.length !== 0 ? data.map((product, index) => {
                     return (
                         <Link key={index} href="/product/[id]" as={`/product/${product._id}`}>
-                            <div className={styles.boxContainer}>
+                            <div onClick={(prev, next) => updatePagination(data[index - 1], data[index + 1])}  className={styles.boxContainer}>
                                  <div className={styles.productImageContainer}>
                                     <Image layout='fill' src={product.imagesUrl[0]} alt="" />
                                  </div>

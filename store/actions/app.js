@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INIT_CART } from "../actionTypes"
+import { ADD_TO_CART, INIT_CART, UPDATE_SINGLE_PRODUCT_PAGINATION } from "../actionTypes"
 
 
 
@@ -12,5 +12,16 @@ export const addToCart = (cartDetails) => (dispatch) => {
     dispatch({
         type: ADD_TO_CART,
         payload: cartDetails
+    })
+}
+
+export const updateSingleProductPagination = (prevData, nextData) => (dispatch) => {
+    console.log(prevData, nextData)
+    dispatch({
+        type: UPDATE_SINGLE_PRODUCT_PAGINATION,
+        payload: {
+            prevData: prevData,
+            nextData: nextData
+        }
     })
 }

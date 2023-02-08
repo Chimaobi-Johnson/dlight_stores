@@ -1,10 +1,17 @@
-import { ADD_TO_CART, INIT_CART } from "../actionTypes";
+import { ADD_TO_CART, INIT_CART, UPDATE_SINGLE_PRODUCT_PAGINATION } from "../actionTypes";
 
 const initialState = {
   cart: {
     init: false,
     cartItems: []
   },
+  product: {
+    pagination: {
+        nextData: null,
+        prevData: null
+      }
+  },
+  products: null
 };
 
 export const updateAppData = (state = initialState, action) => {
@@ -42,6 +49,20 @@ export const updateAppData = (state = initialState, action) => {
           ...state.cart,
           init: true,
           cartItems: cartArr,
+        },
+      };
+      return newState;
+    case UPDATE_SINGLE_PRODUCT_PAGINATION:
+      console.log(action.payload)
+      newState = {
+        ...state,
+        product: {
+          ...state.product,
+          pagination: {
+            ...state.product.pagination,
+            nextData: action.payload.nextData,
+            prevData: action.payload.prevData
+          },
         },
       };
       return newState;
