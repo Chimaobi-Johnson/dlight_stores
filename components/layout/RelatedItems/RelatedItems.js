@@ -63,7 +63,10 @@ const RelatedItems = props => {
                                     </div>
                                     <div className={styles.itemDetails}>
                                         <h4>{product.name}</h4>
-                                        <p>N {product.price}</p> 
+                                        <div className={styles.priceContent}>
+                                             <p>N {product.price}</p> 
+                                            {/* <div className={styles.colorEffect}></div> */}
+                                        </div>
                                     </div>
                                    
                                 </div>

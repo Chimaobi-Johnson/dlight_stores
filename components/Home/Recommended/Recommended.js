@@ -17,7 +17,7 @@ const Recommended = props => {
     }
 
     return (
-        <div className={styles.wrapper}>
+        <div id="recommended" className={styles.wrapper}>
             {data.length !== 0 ? <h1>Recommended Products</h1> : ''}
             <div className={styles.container}>
                 {data.length !== 0 ? data.map((product, index) => {

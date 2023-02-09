@@ -33,12 +33,11 @@ const ExtendedMenu = props => {
         <div id='wrapper' onMouseLeave={() => displayExtendedMenu(false)} className={styles.wrapper}>
             <div id='menuItems' className={styles.menuItems}>
                 <ul>
-                    <li>All items</li>
-                    <li>menu item 1</li>
-                    <li>menu item 2</li>
-                    <li>menu item 3</li>
-                    <li>menu item 4</li>
-                    <li>menu item 5</li>
+                    <li>Quick links</li>
+                    <li>Products</li>
+                    <li>About Us</li>
+                    <li>Shipping Information</li>
+                    <li>Contact Us</li>
                 </ul>
             </div>
             <div id="highlightedItems" className={styles.highlightedItems}>

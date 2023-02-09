@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 import { useState, useEffect } from "react";
 
 import { sliderData } from "../../../data/sliderData";
+import Link from "next/link";
 
 const ImageSlider = (props) => {
 
@@ -58,7 +59,9 @@ const ImageSlider = (props) => {
                       <div className={styles.contentContainer}>
                         <h1>{slide.title}</h1>
                         <h3>{slide.subText}</h3>
-                        <Button variant='secondary'>{slide.buttonText}</Button>
+                        <Link href="#recommended">
+                          <Button variant='secondary'>{slide.buttonText}</Button>
+                        </Link>
                       </div>
                     </div>
                 )}
