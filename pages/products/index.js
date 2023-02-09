@@ -1,11 +1,10 @@
-import Lists from '../components/layout/Lists/Lists'
-import SidebarLayout from '../components/layout/SidebarLayout/SidebarLayout'
+import Lists from '../../components/layout/Lists/Lists'
+import SidebarLayout from '../../components/layout/SidebarLayout/SidebarLayout'
 
 import axios from 'axios'
 
-import styles from '../styles/Home.module.css'
 import { useDispatch } from 'react-redux';
-import { storeProducts } from '../store/actions/products';
+import { storeProducts } from '../../store/actions/products';
 
 export default function Products (props) {
 

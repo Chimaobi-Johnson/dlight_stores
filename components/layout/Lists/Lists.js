@@ -15,7 +15,7 @@ const Lists = props => {
         <div className={styles.wrapper}>
             <div className={styles.contentContainer}>
                 <div className={styles.sidebar}>
-                    <Sidebar categories={props.categories} />
+                    <Sidebar currentCategory={props.currentCategory} categories={props.categories} />
                 </div>
                 {props.list.length !== 0 ? props.list.map((item, index) => {
                     return (
