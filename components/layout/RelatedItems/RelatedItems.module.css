@@ -12,12 +12,31 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0 2rem;
+    cursor: pointer;
+    min-height: 400px;
 }
 
-/* .imageWrapper {
-    height: 100px;
-    width: 100px;
-} */
+.itemDetails p {
+    color: #2c5a69;
+    font-weight: bold;
+    margin: 0;
+}
+
+.itemDetails h4 {
+    margin-bottom: 0;
+}
+
+.itemDetails {
+    display: flex;
+    min-height: 118px;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+}
+
+.imageWrapper {
+    height: 260px
+}
 
 
 @media (max-width: 700px) {

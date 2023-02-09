@@ -61,8 +61,11 @@ const RelatedItems = props => {
                                     <div className={styles.imageWrapper}>
                                         <Image width={320} height={300} src={product.imagesUrl[0]} alt="" />
                                     </div>
-                                    <h4>{product.name}</h4>
-                                    <p>N {product.price}</p>
+                                    <div className={styles.itemDetails}>
+                                        <h4>{product.name}</h4>
+                                        <p>N {product.price}</p> 
+                                    </div>
+                                   
                                 </div>
                             </Link>
                         )
