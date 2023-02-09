@@ -11,7 +11,11 @@ import { useSelector } from "react-redux";
 const Product = (props) => {
   const { product, category } = props.products;
 
-  const currentIndex = useSelector(data => data.app.product.currentIndex)
+  const currentIndex = useSelector(data => data.products.product.currentIndex);
+
+  const products = useSelector(data => data.products.products);
+
+
 
   const metaData={ title: product ? product.name : null }
   return (
@@ -19,7 +23,7 @@ const Product = (props) => {
       <ProductDetails product={product ? product : null} />
       <QuickInfo />
       <RelatedItems />
-      <Pagination />
+      <Pagination products={products} currentIndex={currentIndex}  />
     </BasicLayout>
   );
 };

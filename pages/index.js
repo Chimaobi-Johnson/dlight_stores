@@ -3,14 +3,22 @@ import Categories from "../components/Home/Categories/Categories";
 import ProductInfo from "../components/Home/ProductInfo/ProductInfo";
 import Recommended from "../components/Home/Recommended/Recommended";
 import ImageSlider from "../components/ui/ImageSlider/ImageSlider";
-
+import React, { useEffect } from "react";
 import axios from 'axios';
 
 import styles from "../styles/Home.module.css";
+import { useDispatch } from "react-redux";
+import { storeProducts } from "../store/actions/products";
 
 function Home(props) {
 
   const { products, categories } = props;
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(storeProducts(products))
+  }, [products])
 
   return (
     <BasicLayout

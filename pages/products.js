@@ -5,13 +5,11 @@ import axios from 'axios'
 
 import styles from '../styles/Home.module.css'
 import { useDispatch } from 'react-redux';
+import { storeProducts } from '../store/actions/products';
 
 export default function Products (props) {
 
   const { products, categories } = props;
-
-  const dispatch = useDispatch()
-  // dispatch()
 
   return (
     <SidebarLayout metaData={{

@@ -1,11 +1,25 @@
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Pagination.module.css';
+import { useDispatch } from 'react-redux';
+import { updateSingleProductPagination } from '../../../store/actions/products';
+import { current } from '@reduxjs/toolkit';
 
 
 const Pagination = props => {
 
-    const { prevData, nextData } = props.data
+    const { products, currentIndex } = props
 
+    const dispatch = useDispatch();
+    const [ nextData, setNextData ] = useState(null)
+    const [ prevData, setPrevData ] = useState(null)
+
+    useEffect(() => {
+        setNextData(products[currentIndex + 1])
+        setPrevData(products[currentIndex - 1])
+    }, [products, currentIndex])
+
+    
     return (
         <div className={styles.wrapper}>
             {prevData !== null || undefined ? (
@@ -17,7 +31,7 @@ const Pagination = props => {
                     backgroundRepeat: "no-repeat",
                     }}>
                     <Link href={'/product/' + prevData._id}>
-                        <h2>Back to {prevData.name}</h2>
+                        <h2 onClick={(i) => dispatch(updateSingleProductPagination(currentIndex - 1))}>Back to {prevData.name}</h2>
                     </Link>
                 </div>
             ) : (
@@ -43,7 +57,7 @@ const Pagination = props => {
                 backgroundRepeat: "no-repeat",
                 }}>
                 <Link href={'/product/' + nextData._id}>
-                 <h2>Next: {nextData.name}</h2>
+                 <h2 onClick={(i) => dispatch(updateSingleProductPagination(currentIndex + 1))}>Next: {nextData.name}</h2>
                 </Link>
             </div>
             ) : (

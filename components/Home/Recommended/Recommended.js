@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from './Recommended.module.css';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
-import { updateSingleProductPagination } from '../../../store/actions/app';
+import { updateSingleProductPagination } from '../../../store/actions/products';
 
 const Recommended = props => {
 
