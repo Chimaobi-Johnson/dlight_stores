@@ -19,10 +19,13 @@ const Pagination = props => {
         setPrevData(products[currentIndex - 1])
     }, [products, currentIndex])
 
+    console.log(prevData)
+    console.log(nextData)
+
     
     return (
         <div className={styles.wrapper}>
-            {prevData !== null || undefined ? (
+            {prevData ? (
                 <div className={styles.navigateLeft} style={{
                     backgroundImage:
                         `linear-gradient(to bottom, #ffffff49, #000000d9), url(${prevData.imagesUrl[0]})`,
@@ -48,7 +51,7 @@ const Pagination = props => {
             </div>
             )}
 
-            {nextData !== null || undefined ? (
+            {nextData ? (
             <div className={styles.navigateRight} style={{
                 backgroundImage:
                     `linear-gradient(to bottom, #ffffff49, #000000d9), url(${nextData.imagesUrl[0]})`,
