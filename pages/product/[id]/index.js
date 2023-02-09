@@ -22,7 +22,7 @@ const Product = (props) => {
     <BasicLayout meta={metaData}>
       <ProductDetails product={product ? product : null} />
       <QuickInfo />
-      <RelatedItems />
+      <RelatedItems product={product} category={category} />
       <Pagination products={products} currentIndex={currentIndex}  />
     </BasicLayout>
   );
