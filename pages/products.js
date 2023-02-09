@@ -9,8 +9,6 @@ export default function Products (props) {
 
   const { products, categories } = props;
 
-  console.log(props)
-
   return (
     <SidebarLayout metaData={{
       title: "Products | Delight Stores",

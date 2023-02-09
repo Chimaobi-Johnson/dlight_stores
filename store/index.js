@@ -1,53 +1,93 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { persistReducer } from 'redux-persist'
-import storageSession from 'reduxjs-toolkit-persist/lib/storage/session'
-import storage from 'redux-persist/lib/storage'
+import { persistStore, persistReducer } from 'redux-persist'
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import AppData from './reducers/appReducer';
+import thunk from 'redux-thunk';
 
 
-const rootPersistConfig = {
+const createNoopStorage = () => {
+  return {
+    getItem(_key) {
+      return Promise.resolve(null);
+    },
+    setItem(_key, value) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key) {
+      return Promise.resolve();
+    },
+  }
+}
+
+const storage = 
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
+
+
+const persistConfig = {
   key: 'root',
-  storage: storageSession
+  storage,
 }
 
-const appPersistConfig = {
-  key: 'app',
-  storage: storageSession,
-  whitelist: ['product']
+const persistedReducer = persistReducer(persistConfig, AppData)
 
-}
-
-const rootReducer = combineReducers({
-  app: persistReducer(appPersistConfig, AppData)
+const store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: [thunk]
 })
 
-const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
+const persistor = persistStore(store)
 
+export { store, persistor };
 
-const store= configureStore({
-  reducer: persistedReducer
-})
+// const rootPersistConfig = {
+//   key: 'root',
+//   storage: storage
+// }
 
-export default store 
-
-
+// const appPersistConfig = {
+//   key: 'app',
+//   storage: storage,
+//   blacklist: ['product']
+// }
 
 // const rootReducer = combineReducers({
-//   app: persistReducer(appPersistConfig, AppData)
+//   app: persistReducer(rootPersistConfig, AppData)
 // })
 
-// // const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
+// const persistedReducer = persistReducer(appPersistConfig, rootReducer)
 
-// const composeEnhancers =
-//   typeof window === 'object' &&
-//   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
-//     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
 
-// const enhancer = composeEnhancers(applyMiddleware(...middleware));
+// const store = configureStore({
+//   reducer: persistedReducer,
+//   devTools: process.env.NODE_ENV !== 'production',
+//   middleware: [thunk]
+// })
 
-// const makeStore = () => createStore(rootReducer, enhancer)
+// const persistedStore = persistStore(store)
 
-// export const wrapper = createWrapper(makeStore)
-// // export default persistReducer(rootPersistConfig, rootReducer)
+// export default persistedStore
+
+
+
+// // const rootReducer = combineReducers({
+// //   app: persistReducer(appPersistConfig, AppData)
+// // })
+
+// // // const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
+
+// // const composeEnhancers =
+// //   typeof window === 'object' &&
+// //   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+// //     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+
+// // const enhancer = composeEnhancers(applyMiddleware(...middleware));
+
+// // const makeStore = () => createStore(rootReducer, enhancer)
+
+// // export const wrapper = createWrapper(makeStore)
+// // // export default persistReducer(rootPersistConfig, rootReducer)
 
 

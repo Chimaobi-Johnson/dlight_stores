@@ -20,7 +20,7 @@ const Navigation = (props) => {
   }
 
   const initMobileMenu = () => {
-    console.log("yess")
+    // console.log("yess")
   }
 
   const initCartHandler = () => {

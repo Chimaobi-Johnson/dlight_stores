@@ -5,8 +5,6 @@ const Categories = props => {
 
     const { data } = props
 
-    console.log(data)
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.heading}>

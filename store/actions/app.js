@@ -16,7 +16,6 @@ export const addToCart = (cartDetails) => (dispatch) => {
 }
 
 export const updateSingleProductPagination = (prevData, nextData) => (dispatch) => {
-    console.log(prevData, nextData)
     dispatch({
         type: UPDATE_SINGLE_PRODUCT_PAGINATION,
         payload: {

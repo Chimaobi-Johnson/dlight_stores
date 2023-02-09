@@ -23,7 +23,7 @@ const GoogleMap = () => {
   };
 
   const onIdle = (m) => {
-    console.log("onIdle");
+    // console.log("onIdle");
     setZoom(m.getZoom());
     setCenter(m.getCenter().toJSON());
   };

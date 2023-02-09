@@ -7,7 +7,6 @@ import styles from './RelatedItems.module.css';
 const RelatedItems = props => {
     
     const relatedPosts = recommendedProducts.slice(1, 5);
-    console.log(relatedPosts)
     
     return (
             <div className={styles.wrapper}>

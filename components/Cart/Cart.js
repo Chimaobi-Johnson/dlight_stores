@@ -9,7 +9,9 @@ import CartRecommend from "./CartRecommend/CartRecommend";
 
 const Cart = (props) => {
 
-  const cart = useSelector((data) => data.app.cart);
+  const cart = useSelector(data => data.cart);
+
+  console.log(cart)
 
   const dispatch = useDispatch();
 

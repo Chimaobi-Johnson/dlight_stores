@@ -53,7 +53,6 @@ export const updateAppData = (state = initialState, action) => {
       };
       return newState;
     case UPDATE_SINGLE_PRODUCT_PAGINATION:
-      console.log(action.payload)
       newState = {
         ...state,
         product: {

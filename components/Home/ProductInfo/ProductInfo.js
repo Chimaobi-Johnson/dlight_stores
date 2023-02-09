@@ -14,8 +14,6 @@ const ProductInfo = (props) => {
     setCurrentSlide(0);
   }, []);
 
-  console.log(currentSlide);
-
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
   };
