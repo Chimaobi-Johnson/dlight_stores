@@ -25,12 +25,24 @@ const storage =
     : createNoopStorage();
 
 
-const persistConfig = {
+const rootPersistConfig = {
   key: 'root',
   storage,
+  blacklist: ['app']
 }
 
-const persistedReducer = persistReducer(persistConfig, AppData)
+const appPersistConfig = {
+  key: 'app',
+  storage,
+  blacklist: ['cartInit']
+}
+
+const rootReducer = combineReducers({
+  app: persistReducer(appPersistConfig, AppData)
+})
+
+
+const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
 
 const store = configureStore({
   reducer: persistedReducer,

@@ -9,9 +9,8 @@ import CartRecommend from "./CartRecommend/CartRecommend";
 
 const Cart = (props) => {
 
-  const cart = useSelector(data => data.cart);
-
-  console.log(cart)
+  const cartItems = useSelector(data => data.app.cart.cartItems);
+  const cartInit = useSelector(data => data.app.cartInit);
 
   const dispatch = useDispatch();
 
@@ -22,7 +21,7 @@ const Cart = (props) => {
   return (
     <div
       className={
-        cart.init
+        cartInit
           ? styles.wrapper
           : styles.closeCart
       }
@@ -35,7 +34,7 @@ const Cart = (props) => {
           </div>
         </div>
         <div className={styles.itemsContainer}>
-            {cart.cartItems.length !== 0 ? cart.cartItems.map(item => {
+            {cartItems.length !== 0 ? cartItems.map(item => {
                 return <CartItem item={item} />
             }) : 
             'No item in cart'
