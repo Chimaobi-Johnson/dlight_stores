@@ -6,13 +6,12 @@ import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
 import RelatedItems from "../../../components/layout/RelatedItems/RelatedItems";
 import Pagination from "../../../components/ui/Pagination/Pagination";
 import axios from 'axios';
+import { useSelector } from "react-redux";
 
 const Product = (props) => {
-  const router = useRouter();
-
   const { product, category } = props.products;
 
-  // const { id } = router.query;
+  const currentIndex = useSelector(data => data.app.product.currentIndex)
 
   const metaData={ title: product ? product.name : null }
   return (

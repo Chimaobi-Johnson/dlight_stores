@@ -4,10 +4,14 @@ import SidebarLayout from '../components/layout/SidebarLayout/SidebarLayout'
 import axios from 'axios'
 
 import styles from '../styles/Home.module.css'
+import { useDispatch } from 'react-redux';
 
 export default function Products (props) {
 
   const { products, categories } = props;
+
+  const dispatch = useDispatch()
+  // dispatch()
 
   return (
     <SidebarLayout metaData={{

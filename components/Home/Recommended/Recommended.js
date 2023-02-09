@@ -12,8 +12,8 @@ const Recommended = props => {
 
     const dispatch = useDispatch()
 
-    const updatePagination = (prevData, nextData) => {
-        dispatch(updateSingleProductPagination(prevData, nextData));
+    const updatePagination = (index) => {
+        dispatch(updateSingleProductPagination(index));
     }
 
     return (
@@ -23,7 +23,7 @@ const Recommended = props => {
                 {data.length !== 0 ? data.map((product, index) => {
                     return (
                         <Link key={index} href="/product/[id]" as={`/product/${product._id}`}>
-                            <div onClick={(prev, next) => updatePagination(data[index - 1], data[index + 1])}  className={styles.boxContainer}>
+                            <div onClick={(i) => updatePagination(index)}  className={styles.boxContainer}>
                                  <div className={styles.productImageContainer}>
                                     <Image layout='fill' src={product.imagesUrl[0]} alt="" />
                                  </div>
