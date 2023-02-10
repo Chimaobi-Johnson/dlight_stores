@@ -12,7 +12,8 @@ const AboutPage = (props) => {
         </div>
       </div>
       <div className={styles.contentContainer}>
-        <div className={styles.textContainer}>
+        <div className={styles.textWrapper}>
+          <div className={styles.textContainer}>
           <h4>About Dlight Stores</h4>
           <p>
             adipisci velit, sed quia non numquam eius modi tempora incidunt ut
@@ -22,8 +23,11 @@ const AboutPage = (props) => {
             vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
             molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
             nulla pariatur
+            
           </p>
         </div>
+        </div>
+
       </div>
     </div>
   );
