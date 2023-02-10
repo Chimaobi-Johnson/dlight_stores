@@ -46,7 +46,7 @@ const Navigation = (props) => {
             Shop
             <Image width={10} height={10} style={extendMenuIcon} src="/icons/next.png" alt="_show" />
           </li>
-          <li>Care Guide</li>
+          <Link href={'/about'}><li>About Us </li></Link>
           <li className={styles.logo}><Link href="/"><Image width={300} height={100} src="/logo/logo-dark-text.png" alt="" /></Link></li>
           <li>Blog</li>
           <li>Reviews</li>
