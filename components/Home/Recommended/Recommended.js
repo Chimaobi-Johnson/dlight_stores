@@ -10,6 +10,8 @@ const Recommended = props => {
 
     const { data } = props
 
+    const limitedData = data.slice(0, 12)
+
     const dispatch = useDispatch()
 
     const updatePagination = (index) => {
@@ -18,9 +20,9 @@ const Recommended = props => {
 
     return (
         <div id="recommended" className={styles.wrapper}>
-            {data.length !== 0 ? <h1>Recommended Products</h1> : ''}
+            {limitedData.length !== 0 ? <h1>Recommended Products</h1> : ''}
             <div className={styles.container}>
-                {data.length !== 0 ? data.map((product, index) => {
+                {limitedData.length !== 0 ? limitedData.map((product, index) => {
                     return (
                         <Link key={index} href="/product/[id]" as={`/product/${product._id}`}>
                             <div onClick={(i) => updatePagination(index)}  className={styles.boxContainer}>
