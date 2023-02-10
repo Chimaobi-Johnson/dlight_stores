@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 100vh;
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.imageBackground {
+    width: 80%;
+    height: 60%;
+    position: absolute;
+    top: 20%;
+    right: 0;
+    border: 1px solid rgb(227 126 22);
+    padding: 5rem;
+}
+
+.imageWrapper {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contentContainer {
+    position: relative;
+    background-color: #ffffff;
+}
+
+.textContainer {
+    position: absolute;
+    background-color: #ffffff;
+    z-index: 2;
+    top: 0%;
+    left: -10%;
+    padding: 2rem;
+    font-size: 1.5rem;
+    margin: 4rem 10rem 6rem 0;
+    box-shadow: 4px -1px 22px 6px #adadad21
+}
+
+.textContainer h4 {
+    margin-top: 0.5rem;
+}

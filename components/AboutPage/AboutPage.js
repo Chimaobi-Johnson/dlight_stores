@@ -5,8 +5,10 @@ const AboutPage = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.imageContainer}>
-        <div className={styles.imageWrapper}>
-          <Image src="/site/uju.jpg" alt="_image" layout="fill" />
+        <div className={styles.imageBackground}>
+          <div className={styles.imageWrapper}>
+            <Image src="/site/uju2.jpg" alt="_image" layout="fill" />
+          </div>
         </div>
       </div>
       <div className={styles.contentContainer}>
