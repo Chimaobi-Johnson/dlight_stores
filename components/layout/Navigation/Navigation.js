@@ -4,12 +4,14 @@ import Image from "next/image";
 
 import * as styles from "./Navigation.module.css";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { initCart } from "../../../store/actions/app";
 
 const Navigation = (props) => {
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
+
+  const cart = useSelector(data => data.app.cart.cartItems)
 
   const initExtendedMenu = () => {
     setActive(!active);
@@ -58,9 +60,12 @@ const Navigation = (props) => {
             <Link href="/auth/login"><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
           </div>
           <div onClick={initCartHandler} className={styles.cartIcon}>
-            <div className={styles.cartCounter}>
-              <span>1</span>
-            </div>
+            {!cart || cart.length === 0 ? null : (
+              <div className={styles.cartCounter}>
+                <span>{cart.length}</span>
+              </div>
+            )}
+      
             <Image width={100} height={100} src="/icons/shopping-cart.png" alt="cart" />
           </div>
         </div>
