@@ -58,6 +58,9 @@ const Navigation = (props) => {
             <Link href="/auth/login"><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
           </div>
           <div onClick={initCartHandler} className={styles.cartIcon}>
+            <div className={styles.cartCounter}>
+              <span>1</span>
+            </div>
             <Image width={100} height={100} src="/icons/shopping-cart.png" alt="cart" />
           </div>
         </div>

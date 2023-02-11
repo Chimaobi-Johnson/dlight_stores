@@ -154,7 +154,24 @@
     width: 100%;
     margin-left: 20px;
     cursor: pointer;
+    position: relative;
 } 
+
+.cartCounter {
+    position: absolute;
+    background-color: rgb(199, 2, 2);
+    top: -50%;
+    right: -60%;
+    z-index: 1;
+    border-radius: 100%;
+}
+
+.cartCounter span {
+    padding: .4rem .6rem;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+}
 
 .shop {
     position: relative;
