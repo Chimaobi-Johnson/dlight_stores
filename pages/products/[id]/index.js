@@ -8,8 +8,6 @@ import SidebarLayout from "../../../components/layout/SidebarLayout/SidebarLayou
 const FilteredProducts = (props) => {
   const { products, categories, categoryId } = props;
 
-  console.log(products)
-
   return (
     <SidebarLayout metaData={{
         title: "Products | Delight Stores",

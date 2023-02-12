@@ -34,8 +34,8 @@ const Cart = (props) => {
           </div>
         </div>
         <div className={styles.itemsContainer}>
-            {cartItems.length !== 0 ? cartItems.map(item => {
-                return <CartItem item={item} />
+            {cartItems.length !== 0 ? cartItems.map((item, index) => {
+                return <CartItem key={index} item={item} />
             }) : 
             'No item in cart'
             }

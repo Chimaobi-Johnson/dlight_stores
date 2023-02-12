@@ -20,11 +20,9 @@ const RelatedItems = props => {
         // algorithm to generate related products using same category grouping
         const relatedProducts = [];
         function checkCategory(item) {
-            console.log(category)
             return item.category === category._id && item._id !== product._id 
         } 
         const sameCatArr = products.filter(checkCategory)
-        console.log(sameCatArr)
         
         if(sameCatArr.length === 4) {
             setRelatedProducts(sameCatArr)
@@ -56,8 +54,8 @@ const RelatedItems = props => {
                 <div className={styles.itemsContainer}>
                     {relatedProducts ? relatedProducts.map((product, index) => {
                         return (
-                            <Link href={'/product/' + product._id}>
-                                <div key={index} className={styles.item}>
+                            <Link key={index} href={'/product/' + product._id}>
+                                <div className={styles.item}>
                                     <div className={styles.imageWrapper}>
                                         <Image width={320} height={300} src={product.imagesUrl[0]} alt="" />
                                     </div>
