@@ -9,6 +9,7 @@ import axios from 'axios';
 import { useSelector } from "react-redux";
 
 const Product = (props) => {
+  
   const { product, category } = props.products;
 
   const currentIndex = useSelector(data => data.products.product.currentIndex);

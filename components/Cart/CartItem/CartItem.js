@@ -3,10 +3,14 @@ import Input from "../../ui/Input/Input";
 import sampleImage from '../../../public/products/plastic-cups.png';
 
 import * as styles from "./CartItem.module.css";
+import { useDispatch } from "react-redux";
+import { removeCartItem } from "../../../store/actions/app";
 
 const CartItem = (props) => {
 
-  const { name, price, quantity, size, imageUrl } = props.item;
+  const { productId, name, price, quantity, size, imageUrl } = props.item;
+
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.wrapper}>
@@ -24,7 +28,7 @@ const CartItem = (props) => {
           </div>
         </div>
       </div>
-      <div className={styles.close}>
+      <div onClick={(id) => dispatch(removeCartItem(productId))} className={styles.close}>
         <Image style={{ cursor: 'pointer' }} width={10} height={10} src="/icons/close-icon.png" alt="_search" />
         <p>N{price}</p>
       </div>
