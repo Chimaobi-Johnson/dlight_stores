@@ -13,6 +13,7 @@ const Input = (props) => {
         defaultValue={defaultValue}
         type={type}
         placeholder={placeholder}
+        {...props}
       />
     </div>
   );
