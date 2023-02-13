@@ -17,3 +17,13 @@
 .contentContainer span {
     font-size: .8rem;
 }
+
+@media (max-width: 700px) {
+
+    .contentContainer {
+        width: 90%;
+        margin: 2rem auto;
+        padding: 0;
+    }
+
+}

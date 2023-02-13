@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import AppData from './reducers/appReducer';
 import ProductData from './reducers/productsReducer';
+import UserData from './reducers/userReducer';
 
 import thunk from 'redux-thunk';
 
@@ -46,7 +47,8 @@ const productsPersistConfig = {
 
 const rootReducer = combineReducers({
   app: persistReducer(appPersistConfig, AppData),
-  products: persistReducer(productsPersistConfig, ProductData)
+  products: persistReducer(productsPersistConfig, ProductData),
+  user: UserData
 })
 
 

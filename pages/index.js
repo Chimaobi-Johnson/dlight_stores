@@ -14,10 +14,29 @@ function Home(props) {
 
   const { products, categories } = props;
 
+
   const dispatch = useDispatch()
 
   useEffect(() => {
+
+    const getUser = () => {
+      axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+      .then(data => {
+        console.log(data)
+        if(!data.data.user) {
+          console.log('user not found')
+          return
+        }
+        dispatch(storeLoggedInUser(data.data.user))
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+
     dispatch(storeProducts(products))
+    getUser()
+
   }, [products])
 
   return (
@@ -37,15 +56,17 @@ function Home(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+
 
  const response = await axios.get(process.env.BACKEND_URL + '/products')
  const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
 
+
   return {
     props: {
       products: response.data.products,
-      categories: response2.data.categories
+      categories: response2.data.categories,
     },
     revalidate: 1
   }
