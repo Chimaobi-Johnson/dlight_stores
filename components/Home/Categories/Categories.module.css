@@ -86,3 +86,21 @@
         font-size: 1.2rem;
     }
 }
+
+@media (max-width: 800px) and (min-width: 701px) {
+
+    .heading {
+        font-size: 1rem;
+    }
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;
+        margin: 0 auto;
+        grid-auto-rows: 300px;
+        grid-gap: 1rem;
+    }
+    
+    
+}

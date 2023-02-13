@@ -155,3 +155,16 @@
     }
 
 }
+
+
+@media (max-width: 1024px) and (min-width: 701px) {
+
+    .productText {
+        padding: 0;
+    }
+
+    .mediaContainer {
+        width: 20rem;
+    }
+    
+}
