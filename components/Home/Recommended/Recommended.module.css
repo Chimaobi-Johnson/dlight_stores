@@ -118,3 +118,19 @@
     }
     
 }
+
+
+@media (max-width: 800px) and (min-width: 701px) {
+
+    .container {
+        gap: 1rem;
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .wrapper {
+        width: 90%;
+        margin: 4rem auto;
+    }
+    
+}
