@@ -6,6 +6,7 @@ import * as styles from "./Navigation.module.css";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { initCart } from "../../../store/actions/app";
+import MobileMenu from "./MobileMenu/MobileMenu";
 
 const Navigation = (props) => {
   const [active, setActive] = useState(false);
@@ -32,6 +33,7 @@ const Navigation = (props) => {
   return (
     <header className={styles.wrapper}>
       <ExtendedMenu activate={active} />
+      <MobileMenu />
       <div className={styles.searchContainer}>
         <div className={styles.image}>
           <Image width={100} height={100} className={styles.searchIcon} src="/icons/search.png" alt="_search" />

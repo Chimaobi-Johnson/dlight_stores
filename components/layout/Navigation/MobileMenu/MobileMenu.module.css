@@ -6,4 +6,24 @@
     z-index: 100;
     top: 0;
     left: 0;
+    box-shadow: 2px 2px 14px 8px #c7c2c270;;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 2fr 4fr 1fr;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+}
+
+
+.menuItem {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.menuItem li {
+    /* border-bottom: 1px solid rgba(6, 54, 0, 0.712); */
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
 }
