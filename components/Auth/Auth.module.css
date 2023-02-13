@@ -27,3 +27,13 @@
     }
 
 }
+
+@media (max-width: 1024px) and (min-width: 701px) {
+
+    .contentContainer {
+        width: 50%;
+        margin: 2rem auto;
+        padding: 0;
+    }
+
+}

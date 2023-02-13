@@ -146,3 +146,20 @@
     background-color: #eaeaea;
     margin: 0;
 }
+
+
+@media (max-width: 700px) {
+
+    .cartContainer {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 1024px) and (min-width: 701px) {
+
+    .cartContainer {
+        width: 40%;
+    }
+
+}
