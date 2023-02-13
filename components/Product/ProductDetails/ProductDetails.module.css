@@ -73,9 +73,7 @@
 
 .size ul {
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem 0;
+    display: flex;
     padding-left: 0;
 }
 
@@ -86,6 +84,7 @@
     transition: all .5s;
     cursor: pointer;
     text-transform: uppercase;
+    margin-right: 1rem;
 }
 
 .size ul li:hover {
@@ -150,23 +149,124 @@
 }
 
 @media (max-width: 700px) {
+
     .wrapper {
         width: 100%;
+        margin: 0 auto;
+        min-height: 100vh;
+    }
+
+    .imageWrapper {
+        width: 100%;
+        height: 50vh;
+        margin-top: 0;
+        order: 0;
+    }
+
+    .zoomImageWrapper {
+        order: 1;
+        margin-top: 0;
+        width: 60%;
+        margin: 0 auto;
+        display: grid;
+        gap: .3rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contentContainer {
+        padding-left: 1rem;
+    }
+
+    .header {
+        font-size: .8rem;
+        line-height: 1cm;
+    }
+
+    .image1 {
+        width: 81px;
+        height: 70px;
+        margin: 0 auto;
+    }
+
+    .topContainer {
         grid-template-columns: 1fr;
     }
 
     .imageContainer {
-        min-height: 60vh;
+        grid-template-columns: 1fr;
+        margin-top: 0;
     }
-    
-    .imageWrapper {
-        margin-left: 1rem;
-        margin-top: 1rem;
-        height: 60%;
+
+    .descriptionContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .description {
+        padding-top: 0;
+        margin-left: 0;
+        padding-left: 1rem;
+    }
+
+    .otherInfo {
+        padding: 1rem;
     }
 
     .buttonContainer {
-        width: 80%;
+        width: 70%;
+    }
+    
+    
+}
+
+
+
+@media (max-width: 1024px) and (min-width: 701px) {
+
+    .wrapper {
+        width: 100%;
+        margin: 0 1rem;
+        min-height: 100vh;
+    }
+
+    .imageContainer {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .imageWrapper {
+        width: 100%;
+        height: 45vh;
+        margin-top: 0;
+        order: 0;
+    }
+
+    .zoomImageWrapper {
+        order: 1;
+        margin-top: 0;
+        width: 60%;
+        /* margin: 0 auto; */
+        display: grid;
+        gap: .3rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .header {
+        font-size: .9rem;
+        line-height: 1cm;
+    }
+
+    .description {
+        padding-top: 0;
+        margin-left: 0;
+        padding-left: 1rem;
+    }
+
+    .otherInfo {
+        padding: 1rem;
+    }
+
+    .buttonContainer {
+        width: 70%;
     }
     
 }

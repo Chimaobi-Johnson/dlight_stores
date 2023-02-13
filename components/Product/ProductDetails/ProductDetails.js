@@ -60,6 +60,8 @@ const ProductDetails = (props) => {
     dispatch(addToCart(cartDetails));
   };
 
+  console.log(sizes)
+
   return (
     <div className={styles.wrapper}>
       {/* <Search /> */}
