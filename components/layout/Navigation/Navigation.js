@@ -5,7 +5,7 @@ import Image from "next/image";
 import * as styles from "./Navigation.module.css";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { initCart } from "../../../store/actions/app";
+import { initCart, initMobileMenu } from "../../../store/actions/app";
 import MobileMenu from "./MobileMenu/MobileMenu";
 
 const Navigation = (props) => {
@@ -22,9 +22,7 @@ const Navigation = (props) => {
     marginLeft: '2px',
   }
 
-  const initMobileMenu = () => {
-    // console.log("yess")
-  }
+
 
   const initCartHandler = () => {
     dispatch(initCart())
@@ -37,7 +35,7 @@ const Navigation = (props) => {
       <div className={styles.searchContainer}>
         <div className={styles.image}>
           <Image width={100} height={100} className={styles.searchIcon} src="/icons/search.png" alt="_search" />
-          <Image onClick={initMobileMenu} width={100} height={100} className={styles.barIcon} src="/icons/bars.png" alt="_option" />
+          <Image onClick={() => dispatch(initMobileMenu())} width={100} height={100} className={styles.barIcon} src="/icons/bars.png" alt="_option" />
         </div>
       </div>
       <div className={styles.menuContainer}>

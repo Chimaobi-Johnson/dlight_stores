@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INIT_CART, REMOVE_CART_ITEM } from "../actionTypes"
+import { ADD_TO_CART, INIT_CART, INIT_MOBILE_MENU, REMOVE_CART_ITEM } from "../actionTypes"
 
 
 
@@ -21,3 +21,11 @@ export const removeCartItem = (productId) => (dispatch) => {
         payload: productId
     })
 }
+
+export const initMobileMenu = () => (dispatch) => {
+    dispatch({
+        type: INIT_MOBILE_MENU
+    })
+}
+
+
