@@ -35,4 +35,10 @@
     font-size: 2rem;
 }
 
+@media (max-width: 700px) {
+    .header h1 {
+        font-size: 1rem;
+    }
+}
+
 

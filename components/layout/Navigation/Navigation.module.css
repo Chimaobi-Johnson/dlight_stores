@@ -184,6 +184,14 @@
         left: 40%;
         width: 50%;
     }
+
+    .cartCounter span {
+        padding: .5rem .6rem;
+        font-size: 12px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
 }
 
 

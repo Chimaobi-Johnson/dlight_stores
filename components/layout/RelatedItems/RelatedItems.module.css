@@ -67,4 +67,20 @@
         padding: 0 1rem;
     }
 
+    .imageWrapper {
+        height: 170px
+    }    
+
+    .itemsContainer {
+        /* display: grid; */
+        grid-template-columns: repeat(2, 1fr);
+        /* gap: 0 2rem;
+        cursor: pointer;
+        min-height: 400px; */
+    }
+
+    .item {
+        margin-bottom: 3rem;
+    }
+
 }
