@@ -37,7 +37,7 @@ const rootPersistConfig = {
 const appPersistConfig = {
   key: 'app',
   storage,
-  blacklist: ['cartInit', 'mobileMenuInit']
+  blacklist: ['cartInit', 'mobileMenuInit', 'searchBarInit']
 }
 
 const productsPersistConfig = {
