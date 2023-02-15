@@ -14,20 +14,15 @@ const AboutPage = (props) => {
       <div className={styles.contentContainer}>
         <div className={styles.textWrapper}>
           <div className={styles.textContainer}>
-          <h4>About Dlight Stores</h4>
-          <p>
-            adipisci velit, sed quia non numquam eius modi tempora incidunt ut
-            labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
-            minima veniam, quis nostrum exercitationem ullam corporis suscipit
-            laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-            vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-            molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
-            nulla pariatur
-            
-          </p>
+            <h4>About Dlight Stores</h4>
+            <p>
+              Hi 😃 My name is Chibuike Obianuju Ifeoma I am the face behind
+              Dlight homeware stores. We sell lovely Sourviners for weddings,
+              birthday🎊 parties and for corporate events. We also sell quality
+              and affordable household, kitchen and gift items🎁
+            </p>
+          </div>
         </div>
-        </div>
-
       </div>
     </div>
   );
