@@ -1,11 +1,18 @@
-import { ADD_TO_CART, INIT_CART, INIT_MOBILE_MENU, REMOVE_CART_ITEM } from "../actionTypes";
+import {
+  ADD_TO_CART,
+  INIT_CART,
+  INIT_MOBILE_MENU,
+  INIT_SEARCH_BAR,
+  REMOVE_CART_ITEM,
+} from "../actionTypes";
 
 const initialState = {
   cartInit: false,
   cart: {
     cartItems: [],
   },
-  mobileMenuInit: false
+  mobileMenuInit: false,
+  searchBarInit: false,
 };
 
 export const updateAppData = (state = initialState, action) => {
@@ -48,7 +55,7 @@ export const updateAppData = (state = initialState, action) => {
         return newCartArr.productId === action.payload;
       }
       const currentIndex = newCartArr.findIndex(checkCart);
-      newCartArr.splice(currentIndex, 1)
+      newCartArr.splice(currentIndex, 1);
 
       newState = {
         ...state,
@@ -59,12 +66,18 @@ export const updateAppData = (state = initialState, action) => {
         },
       };
       return newState;
-      case INIT_MOBILE_MENU:
-        newState = {
-          ...state,
-          mobileMenuInit: !state.mobileMenuInit,
-        };
-        return newState;
+    case INIT_MOBILE_MENU:
+      newState = {
+        ...state,
+        mobileMenuInit: !state.mobileMenuInit,
+      };
+      return newState;
+    case INIT_SEARCH_BAR:
+      newState = {
+        ...state,
+        searchBarInit: !state.searchBarInit,
+      };
+      return newState;
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INIT_CART, INIT_MOBILE_MENU, REMOVE_CART_ITEM } from "../actionTypes"
+import { ADD_TO_CART, INIT_CART, INIT_MOBILE_MENU, INIT_SEARCH_BAR, REMOVE_CART_ITEM } from "../actionTypes"
 
 
 
@@ -28,4 +28,9 @@ export const initMobileMenu = () => (dispatch) => {
     })
 }
 
+export const initSearchBar = () => (dispatch) => {
+    dispatch({
+        type: INIT_SEARCH_BAR
+    })
+}
 
