@@ -56,22 +56,6 @@ const Auth = props => {
     }
 
     // REGISTER
-    const [inputData, setInputData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-    })
-
-    const changeTextHandler = (inputText, e) => {
-        setInputData(prevState => {
-            return {
-                ...prevState,
-                [inputText]: e.target.value
-            }
-        })
-    }
 
     const registerUser = async (data) => {
         console.log(data)
@@ -121,16 +105,13 @@ const Auth = props => {
                     </>
                 ) : (
                     <>
-                     <form onSubmit={handleSubmit(registerUser)}>
                         <h1>Create account</h1>
-                        <Input type="text" {...register("firstName", { required: true })} value={inputData.firstName} onChange={(e) => changeTextHandler('firstName', e)} placeholder="First Name" label="First Name" />
-                        <Input type="text" value={inputData.lastName} onChange={(e) => changeTextHandler('lastName', e)} placeholder="Last Name" label="Last Name" />
-                        <Input type="email" value={inputData.email} onChange={(e) => changeTextHandler('email', e)} placeholder="Email" label="Email" />
-                        <Input type="password" value={inputData.password} onChange={(e) => changeTextHandler('password', e)} placeholder="Password" label="Password" />
-                        <Input type="password" value={inputData.confirmPassword} onChange={(e) => changeTextHandler('confirmPassword', e)} placeholder="Confirm Password" label="Confirm Password" />
-                        <input type="submit" />
-                        {/* <Button type='submit' onSubmit={handleSubmit(registerUser)} variant="secondary">SIGN UP</Button> */}
-                    </form>
+                        <Input type="text" register={register} placeholder="First Name" label="First Name" required />
+                        <Input type="text" register={register} placeholder="Last Name" label="Last Name" required />
+                        <Input type="email" register={register} placeholder="Email" label="Email" required />
+                        <Input type="password" register={register} placeholder="Password" label="Password" required minLength={8} />
+                        <Input type="password" register={register} placeholder="Confirm Password" label="Confirm Password" required />
+                        <Button onClick={handleSubmit(registerUser)} variant="secondary">SIGN UP</Button>
                         <p>Already have an account? <Link href="/auth/login">login here</Link></p>
                     </>
                 )}

@@ -1,7 +1,8 @@
+import { useForm } from "react-hook-form";
+
 import styles from "./Input.module.css";
 
-const Input = (props) => {
-  const { type, placeholder, label, defaultValue } = props;
+const Input = ({label, register, required, minLength, ...props }) => {
 
   return (
     <div className={styles.wrapper}>
@@ -10,9 +11,7 @@ const Input = (props) => {
       </div>
       <input
         className={styles.input}
-        defaultValue={defaultValue}
-        type={type}
-        placeholder={placeholder}
+        {...register(label, { required, minLength: minLength })}
         {...props}
       />
     </div>
