@@ -58,36 +58,25 @@ const Auth = props => {
     // REGISTER
 
     const registerUser = async (data) => {
-        console.log(data)
-        // if(inputData.password !== inputData.confirmPassword) {
-        //     alert('Password does not match')
-        //     return
-        // }
-        // const formData = new FormData()
-        // formData.append('firstName', inputData.firstName)
-        // formData.append('lastName', inputData.lastName)
-        // formData.append('email', inputData.email)
-        // formData.append('password', inputData.password)
+        if(data.password !== data.confirmPassword) {
+            alert('Password does not match')
+            return
+        }
+        const formData = new FormData()
+        formData.append('firstName', data.firstName)
+        formData.append('lastName', data.lastName)
+        formData.append('email', data.email)
+        formData.append('password', data.password)
 
-        // const result = await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/register', formData);
-        // if(result.status === 200 || result.status === 201 ) {
-        //     alert('User created successfully')
-        //     setInputData(prevState => {
-        //         return {
-        //             ...prevState,
-        //             firstName: '',
-        //             lastName: '',
-        //             email: '',
-        //             password: '',
-        //             confirmPassword: ''
-        //         }
-        //     })
-        //     window.location.pathname = '/'
+        const result = await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/register', formData);
+        if(result.status === 200 || result.status === 201 ) {
+            alert('User created successfully')
+            window.location.pathname = '/'
 
-        // } else {
-        //     alert('Error')
-        //     console.log(result)
-        // }
+        } else {
+            alert('Error')
+            console.log(result)
+        }
     }
     
 
@@ -110,6 +99,7 @@ const Auth = props => {
                         <Input type="text" register={register} placeholder="Last Name" label="Last Name" required />
                         <Input type="email" register={register} placeholder="Email" label="Email" required />
                         <Input type="password" register={register} placeholder="Password" label="Password" required minLength={8} />
+                        <span style={{ marginBottom: '1rem', display: 'block' }}>Password must not be less than 8 characters</span>
                         <Input type="password" register={register} placeholder="Confirm Password" label="Confirm Password" required />
                         <Button onClick={handleSubmit(registerUser)} variant="secondary">SIGN UP</Button>
                         <p>Already have an account? <Link href="/auth/login">login here</Link></p>
