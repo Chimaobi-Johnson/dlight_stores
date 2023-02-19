@@ -1,5 +1,6 @@
 import Button from "../../ui/Button/Button";
 import Image from "next/image";
+import truncate from "truncate";
 
 import { useState, useEffect } from "react";
 import { productInfoData } from "../../../data/dummy";
@@ -36,7 +37,7 @@ const ProductInfo = (props) => {
             <>
               <div className={styles.productText}>
                 <h2>{el.title}</h2>
-                <p>{el.subText}</p>
+                <p>{truncate(el.subText, 500)}</p>
                 <Button>{el.buttonText}</Button>
               </div>
               <div className={styles.media}>

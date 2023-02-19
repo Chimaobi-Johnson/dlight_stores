@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 import styles from './Recommended.module.css';
 import Link from 'next/link';
+import truncate from 'truncate';
+
 import { useDispatch } from 'react-redux';
 import { updateSingleProductPagination } from '../../../store/actions/products';
 
@@ -30,7 +32,7 @@ const Recommended = props => {
                                     <Image layout='fill' src={product.imagesUrl[0]} alt="" />
                                  </div>
                                  <div className={styles.productDetails}>
-                                    <h3>{product.name}</h3>
+                                    <h3>{truncate(product.name, 60)}</h3>
                                     <p>from <span className={styles.price}>{product.price} naira</span></p>
                                  </div>
                             </div>

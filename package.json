@@ -28,7 +28,8 @@
     "redux-thunk": "^2.4.2",
     "reduxjs-toolkit-persist": "^7.2.1",
     "slick-carousel": "^1.8.1",
-    "swipe-js-iso": "^2.1.5"
+    "swipe-js-iso": "^2.1.5",
+    "truncate": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "8.20.0",
