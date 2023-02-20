@@ -11,7 +11,7 @@ const Input = ({label, register, required, minLength, ...props }) => {
       </div>
       <input
         className={styles.input}
-        {...register(label, { required, minLength: minLength })}
+        // {...register(label, { required, minLength: minLength })}
         {...props}
       />
     </div>
