@@ -36,7 +36,7 @@ const Navigation = (props) => {
       <Search />
       <div className={styles.searchContainer}>
         <div className={styles.image}>
-          <Image onClick={() => dispatch(initSearchBar())} width={100} height={100} className={styles.searchIcon} src="/icons/search.png" alt="_search" />
+          {/* <Image onClick={() => dispatch(initSearchBar())} width={100} height={100} className={styles.searchIcon} src="/icons/search.png" alt="_search" /> */}
           <Image onClick={() => dispatch(initMobileMenu())} width={100} height={100} className={styles.barIcon} src="/icons/bars.png" alt="_option" />
         </div>
       </div>
