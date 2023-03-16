@@ -10,6 +10,7 @@ import Search from "../../ui/Search/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { initCart, addToCart } from "../../../store/actions/app";
 import Pagination from "../../ui/Pagination/Pagination";
+import Link from "next/link";
 
 
 const ProductDetails = (props) => {
@@ -25,10 +26,16 @@ const ProductDetails = (props) => {
     deliveryStatus,
   } = props.product;
 
+  useEffect(() => {
+    setCurrentPrice(price)
+  }, [price])
+
   const dispatch = useDispatch();
   const appData = useSelector((data) => data);
 
   const [currentImage, setCurrentImage] = useState(0);
+  const [currentPrice, setCurrentPrice] = useState(0)
+  const [availability, setAvailability] = useState('In-stock')
 
   const changeImageHandler = (index) => {
     setCurrentImage(index);
@@ -36,12 +43,23 @@ const ProductDetails = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
 
+
   const [isActive, setActive] = useState(false)
 
   const selectSize = (size) => {
     setActive(!isActive)
     setSelectedSize(size)
+    updatePrice(size.price)
+    updateStatus(size.availability)
   };
+
+  const updatePrice = (input) => {
+    input ? setCurrentPrice(input) : setCurrentPrice(price)
+  }
+
+  const updateStatus = (input) => {
+    input ? setAvailability(input) : setAvailability('In-stock')
+  }
 
   const selectQuantity = (e) => {
     setQuantity(e.target.value)
@@ -60,7 +78,6 @@ const ProductDetails = (props) => {
     dispatch(addToCart(cartDetails));
   };
 
-  console.log(sizes)
 
   return (
     <div className={styles.wrapper}>
@@ -90,7 +107,7 @@ const ProductDetails = (props) => {
                 <span className={styles.subheading}>{subheading}</span>
                 </div>
                 <div className={styles.price}>
-                    <p>N {price}</p>
+                    <p>N {currentPrice}</p>
                 </div>
                 <div className={styles.size}>
                 {sizes.length === 0 || sizes[0] === "" ? null : (
@@ -104,11 +121,12 @@ const ProductDetails = (props) => {
                             onClick={(s) => selectSize(size)}
                             className={isActive ? styles.active : null}
                             >
-                            {size}
+                               {size.name}                        
                             </li>
                         );
                         })}
                     </ul>
+                    <span>{availability}</span>
                     </>
                 )}
                 </div>

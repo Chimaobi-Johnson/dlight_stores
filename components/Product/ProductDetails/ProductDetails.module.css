@@ -92,10 +92,21 @@
     color: white;
 }
 
-.active {
+.size ul li a:active {
     background-color: black;
     color: white;
 }
+
+.size ul li:focus {
+    background-color: black;
+    color: white;
+}
+
+
+/* .active {
+    background-color: black;
+    color: white;
+} */
 
 .quantity {
     width: 60px;
