@@ -27,6 +27,9 @@ const ProductDetails = (props) => {
   } = props.product;
 
   useEffect(() => {
+    if(sizes.length !== 0) {
+      setSelectedSize(sizes[0])
+    }
     setCurrentPrice(price)
   }, [price])
 
@@ -44,10 +47,7 @@ const ProductDetails = (props) => {
   const [selectedSize, setSelectedSize] = useState(null);
 
 
-  const [isActive, setActive] = useState(false)
-
   const selectSize = (size) => {
-    setActive(!isActive)
     setSelectedSize(size)
     updatePrice(size.price)
     updateStatus(size.availability)
@@ -119,7 +119,7 @@ const ProductDetails = (props) => {
                             <li
                             key={index + Math.random() * 100}
                             onClick={(s) => selectSize(size)}
-                            className={isActive ? styles.active : null}
+                            className={selectedSize === size ? styles.active : null}
                             >
                                {size.name}                        
                             </li>
