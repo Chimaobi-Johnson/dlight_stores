@@ -66,10 +66,11 @@ const ProductDetails = (props) => {
   }
 
   const addItemToCart = () => {
+    const newPrice = quantity * price;
     const cartDetails = {
         productId: _id,
         name: name,
-        price: price,
+        price: newPrice,
         imageUrl: imagesUrl[0],
         size: selectedSize,
         quantity: quantity,
@@ -131,7 +132,7 @@ const ProductDetails = (props) => {
                 )}
                 </div>
                 <div className={styles.quantity}>
-                    <Input type="number" defaultValue={1} onChange={(event) => selectQuantity(e)} label="Quantity" />
+                    <Input type="number" value={quantity} onChange={(e) => selectQuantity(e)} label="Quantity" />
                 </div>
                 <div className={styles.availability}>
                     <Image width={20} height={20} src={goodTick} alt="" />

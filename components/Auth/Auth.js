@@ -62,6 +62,7 @@ const Auth = props => {
             alert('Password does not match')
             return
         }
+        console.log(data)
         const formData = new FormData()
         formData.append('firstName', data.firstName)
         formData.append('lastName', data.lastName)
@@ -95,12 +96,12 @@ const Auth = props => {
                 ) : (
                     <>
                         <h1>Create account</h1>
-                        <Input type="text" register={register} placeholder="First Name" label="First Name" required />
-                        <Input type="text" register={register} placeholder="Last Name" label="Last Name" required />
-                        <Input type="email" register={register} placeholder="Email" label="Email" required />
-                        <Input type="password" register={register} placeholder="Password" label="Password" required minLength={8} />
+                        <Input type="text" controlled register={register} placeholder="First Name" inputName="firstName" label="First Name" required />
+                        <Input type="text" controlled register={register} placeholder="Last Name" inputName="lastName" label="Last Name" required />
+                        <Input type="email" controlled register={register} placeholder="Email" inputName="email" label="Email" required />
+                        <Input type="password" controlled register={register} placeholder="Password" inputName="password" label="Password" required minLength={8} />
                         <span style={{ marginBottom: '1rem', display: 'block' }}>Password must not be less than 8 characters</span>
-                        <Input type="password" register={register} placeholder="Confirm Password" label="Confirm Password" required />
+                        <Input type="password" controlled register={register} placeholder="Confirm Password" inputName="confirmPassword" label="Confirm Password" required />
                         <Button onClick={handleSubmit(registerUser)} variant="secondary">SIGN UP</Button>
                         <p>Already have an account? <Link href="/auth/login">login here</Link></p>
                     </>

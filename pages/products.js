@@ -9,6 +9,8 @@ import { storeProducts } from '../store/actions/products';
 
 export default function Products (props) {
 
+  console.log(props)
+
   const { products, categories } = props;
 
   return (
@@ -27,11 +29,13 @@ export async function getStaticProps() {
 
   const response = await axios.get(process.env.BACKEND_URL + '/products')
   const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
- 
+  const response3 = await axios.get(process.env.BACKEND_URL + '/current_user ')
+
    return {
      props: {
        products: response.data.products,
-       categories: response2.data.categories
+       categories: response2.data.categories,
+       user:  response3.data
      },
      revalidate: 1
    }
