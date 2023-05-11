@@ -1,7 +1,6 @@
 .wrapper {
     height: 100%;
     width: 100%;
-    background-color: black;
     position: relative;
 }
 .contentContainer {
@@ -23,4 +22,30 @@
     color: antiquewhite;
     margin: 0;
     padding-top: 5.5px;
+}
+
+.detailsBoxContainer {
+    position: absolute;
+    background-color: #ffffff;
+    top: 100%;
+    left: 50%;
+    transform: translate(0%, 18%);
+    z-index: 50;
+    padding: 0 1rem;
+    box-shadow: 2px 0px 10px 0px #8b8b8b85;
+}
+
+.detailsBoxContainer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detailsBoxContainer ul li {
+    margin-bottom: 1rem;
+}
+
+.detailsBoxContainer h3 {
+    width: max-content;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: .5rem;
 }
