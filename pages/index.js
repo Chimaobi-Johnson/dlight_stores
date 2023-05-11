@@ -9,11 +9,14 @@ import axios from 'axios';
 import styles from "../styles/Home.module.css";
 import { useDispatch } from "react-redux";
 import { storeProducts } from "../store/actions/products";
+import { storeLoggedInUser } from "../store/actions/user";
+import { useSelector } from "react-redux";
 
 function Home(props) {
 
   const { products, categories } = props;
 
+  const loggedUser =  useSelector(data => data.user)
 
   const dispatch = useDispatch()
 
@@ -46,6 +49,7 @@ function Home(props) {
 
   return (
     <BasicLayout
+      user={loggedUser}
       metaData={{
         title: "Home | Delight Stores",
         description: "Everything household",

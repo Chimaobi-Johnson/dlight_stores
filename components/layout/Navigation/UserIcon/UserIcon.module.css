@@ -1,0 +1,26 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: relative;
+}
+.contentContainer {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -58%);
+    width: 40px;
+    height: 40px;
+    background-color: #585858;
+    border-radius: 100%;
+    border: 2px solid #eaeaea85;
+}
+
+.contentContainer h4 {
+    font-weight: light;
+    text-transform: uppercase;
+    text-align: center;
+    color: antiquewhite;
+    margin: 0;
+    padding-top: 5.5px;
+}

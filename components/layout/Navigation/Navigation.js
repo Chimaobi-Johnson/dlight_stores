@@ -8,55 +8,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { initCart, initMobileMenu, initSearchBar } from "../../../store/actions/app";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import Search from "../../ui/Search/Search";
+import { isEmpty } from "../../../utils/helperFunctions";
 import axios from "axios";
+import UserIcon from "./UserIcon/UserIcon";
 
 const Navigation = (props) => {
+  const { user } = props 
+
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
 
   const cart = useSelector(data => data.app.cart.cartItems)
-  
-  useEffect(() => {
-    const getUser = () => {
-      console.log('HEader Request :)');
-
-    //   fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/api/current_user', {
-    //    credentials: "include"
-    //   }) 
-    //    .then(data => {
-
-    //   if(!data.data.user) {
-    //     console.log('user not found')
-    //     window.location.pathname = '/auth/login';
-    //   }
-    //   console.log(data)
-    //   dispatch(storeLoggedInUser(data.data.user))
-    // })
-    // .catch(err => {
-    //   console.log(err)
-    // })
-
-
-      const instance = axios.create({
-        withCredentials: true
-      });
-      instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
-      .then(data => {
-         console.log(data)
-        if(!data.data.user) {
-          console.log('user not found')
-          // window.location.pathname = '/auth/login';
-        }
-     
-        dispatch(storeLoggedInUser(data.data.user))
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    }
-
-    getUser()
-  }, [])
 
   const initExtendedMenu = () => {
     setActive(!active);
@@ -102,7 +64,9 @@ const Navigation = (props) => {
       <div className={styles.infoContainer}>
         <div className={styles.infoIcons}>
           <div className={styles.accountIcon}>
-            <Link href="/auth/login"><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
+            {isEmpty(user) ? (
+              <Link href="/auth/login"><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
+            ): <UserIcon firstName={user.firstName} lastName={user.lastName} />}
           </div>
           <div onClick={initCartHandler} className={styles.cartIcon}>
             {!cart || cart.length === 0 ? null : (

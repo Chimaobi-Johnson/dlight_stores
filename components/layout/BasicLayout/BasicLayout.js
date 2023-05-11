@@ -7,7 +7,7 @@ import MobileMenu from "../Navigation/MobileMenu/MobileMenu";
 import Cart from "../../Cart/Cart";
 
 const BasicLayout = (props) => {
-    const { meta } = props;
+    const { meta, user } = props;
   return (
     <div className={styles.wrapper}>
       <Meta
@@ -17,7 +17,7 @@ const BasicLayout = (props) => {
       />
       {/* <MobileMenu /> */}
       <Cart />
-      <Navigation />
+      <Navigation user={user} />
       <div className={styles.contentContainer}>
        {props.children}
       </div>
