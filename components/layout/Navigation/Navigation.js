@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExtendedMenu from "./ExtendedMenu/ExtendedMenu";
 import Image from "next/image";
 
@@ -8,12 +8,55 @@ import { useDispatch, useSelector } from "react-redux";
 import { initCart, initMobileMenu, initSearchBar } from "../../../store/actions/app";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import Search from "../../ui/Search/Search";
+import axios from "axios";
 
 const Navigation = (props) => {
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
 
   const cart = useSelector(data => data.app.cart.cartItems)
+  
+  useEffect(() => {
+    const getUser = () => {
+      console.log('HEader Request :)');
+
+    //   fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/api/current_user', {
+    //    credentials: "include"
+    //   }) 
+    //    .then(data => {
+
+    //   if(!data.data.user) {
+    //     console.log('user not found')
+    //     window.location.pathname = '/auth/login';
+    //   }
+    //   console.log(data)
+    //   dispatch(storeLoggedInUser(data.data.user))
+    // })
+    // .catch(err => {
+    //   console.log(err)
+    // })
+
+
+      const instance = axios.create({
+        withCredentials: true
+      });
+      instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+      .then(data => {
+         console.log(data)
+        if(!data.data.user) {
+          console.log('user not found')
+          // window.location.pathname = '/auth/login';
+        }
+     
+        dispatch(storeLoggedInUser(data.data.user))
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+
+    getUser()
+  }, [])
 
   const initExtendedMenu = () => {
     setActive(!active);

@@ -1,5 +1,6 @@
 import Lists from '../components/layout/Lists/Lists'
 import SidebarLayout from '../components/layout/SidebarLayout/SidebarLayout'
+// import { cookies } from 'next/headers';
 
 import axios from 'axios'
 
@@ -26,18 +27,15 @@ export default function Products (props) {
 
 
 export async function getStaticProps() {
-
   const response = await axios.get(process.env.BACKEND_URL + '/products')
   const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
-  const response3 = await axios.get(process.env.BACKEND_URL + '/current_user ')
-
+  
    return {
      props: {
        products: response.data.products,
        categories: response2.data.categories,
-       user:  response3.data
      },
      revalidate: 1
-   }
+     }
  
  }

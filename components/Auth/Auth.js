@@ -32,7 +32,9 @@ const Auth = props => {
         axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/login', customData).then(data => {
             console.log(data)
             if(data.status === 200) {
-           localStorage.setItem('dlight_frontend_userId', data.data.user._id);
+        //    localStorage.setItem('dlight_frontend_userId', data.data.user._id);
+            localStorage.setItem('dlight_expiryDate', expiryDate.toISOString());
+
 
           // set one hour expiration time
           const remainingMilliseconds = 60 * 60 * 1000;

@@ -20,13 +20,18 @@ function Home(props) {
   useEffect(() => {
 
     const getUser = () => {
-      axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+  
+      const instance = axios.create({
+        withCredentials: true
+      });
+      instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
       .then(data => {
-        console.log(data)
+         console.log(data)
         if(!data.data.user) {
           console.log('user not found')
-          return
+          window.location.pathname = '/auth/login';
         }
+     
         dispatch(storeLoggedInUser(data.data.user))
       })
       .catch(err => {
@@ -56,7 +61,7 @@ function Home(props) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
 
 
  const response = await axios.get(process.env.BACKEND_URL + '/products')
