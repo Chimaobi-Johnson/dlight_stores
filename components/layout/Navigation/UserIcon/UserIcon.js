@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { logoutHandler } from "../../../../utils/helperFunctions";
 
 import * as styles from "./UserIcon.module.css";
 
@@ -23,6 +24,8 @@ const UserIcon = (props) => {
     }
   };
 
+
+
   return (
     <div className={styles.wrapper} onClick={() => displayDetailsBox()}>
       <div className={styles.contentContainer}>
@@ -35,8 +38,8 @@ const UserIcon = (props) => {
             <Link href="#">
               <li>Account Details</li>
             </Link>
-            <Link href="/log-out">
-              <li>Log out</li>
+            <Link href='#'>
+              <li onClick={logoutHandler}>Log out</li>
             </Link>
           </ul>
         </div>

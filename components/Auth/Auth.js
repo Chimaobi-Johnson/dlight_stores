@@ -11,7 +11,7 @@ import styles from './Auth.module.css';
 
 const Auth = props => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
 
     const fromUrl = '' // get page user came from
@@ -29,20 +29,22 @@ const Auth = props => {
             email: email,
             password: password
         }
-        axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/login', customData).then(data => {
+        const instance = axios.create({
+            withCredentials: true
+          });
+        instance.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/login', customData).then(data => {
             console.log(data)
             if(data.status === 200) {
-        //    localStorage.setItem('dlight_frontend_userId', data.data.user._id);
-            localStorage.setItem('dlight_expiryDate', expiryDate.toISOString());
+                localStorage.setItem('dlight_userId', data.data.user._id);
 
-
-          // set one hour expiration time
+                          // set one hour expiration time
           const remainingMilliseconds = 60 * 60 * 1000;
           const expiryDate = new Date(
             new Date().getTime() + remainingMilliseconds
           );
-          localStorage.setItem('dlight_frontend_expiryDate', expiryDate.toISOString());
-        //   window.location.pathname = '/'
+            localStorage.setItem('dlight_expiryDate', expiryDate.toISOString());
+
+          window.location.pathname = '/'
           }
         }).catch(err => {
             console.log(err)
@@ -64,7 +66,6 @@ const Auth = props => {
             alert('Password does not match')
             return
         }
-        console.log(data)
         const formData = new FormData()
         formData.append('firstName', data.firstName)
         formData.append('lastName', data.lastName)

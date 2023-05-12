@@ -31,11 +31,12 @@ function Home(props) {
       .then(data => {
          console.log(data)
         if(!data.data.user) {
-          console.log('user not found')
-          window.location.pathname = '/auth/login';
+          // clear redux state
+          dispatch(storeLoggedInUser({}))
+        } else {
+          dispatch(storeLoggedInUser(data.data.user))
         }
      
-        dispatch(storeLoggedInUser(data.data.user))
       })
       .catch(err => {
         console.log(err)
