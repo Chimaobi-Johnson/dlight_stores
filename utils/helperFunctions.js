@@ -22,22 +22,3 @@ export function logoutHandler() {
     })
   }
 
-export function addCartItemsToLoggedUserCart (items) {
-
-    //check if item exists
-    currentCart = [{productId: 'sdsd'}]
-
-    const newArray = [];
-
-    items.map(item => {
-        newArray.push(currentCart.filter(checkProductId))
-        function checkProductId(productId) {
-            return productId === item
-        }
-    })
-
-
-
-    items.filter
-
-}

@@ -9,8 +9,9 @@ import axios from 'axios';
 import styles from "../styles/Home.module.css";
 import { useDispatch } from "react-redux";
 import { storeProducts } from "../store/actions/products";
-import { storeLoggedInUser } from "../store/actions/user";
+import { storeLoggedInUser, updateUserCart } from "../store/actions/user";
 import { useSelector } from "react-redux";
+import { addCartItemsToLoggedUserCart, isEmpty } from "../utils/helperFunctions";
 
 function Home(props) {
 
@@ -19,6 +20,8 @@ function Home(props) {
   const loggedUser =  useSelector(data => data.user)
 
   const dispatch = useDispatch()
+
+  const localCartItems = useSelector(data => data.app.cart.cartItems);
 
   useEffect(() => {
 
@@ -47,6 +50,12 @@ function Home(props) {
     getUser()
 
   }, [products])
+
+  useEffect(() => {
+    if(!isEmpty(loggedUser)) {
+      dispatch(updateUserCart(localCartItems, loggedUser.cart.items))
+    } 
+  }, [loggedUser])
 
   return (
     <BasicLayout
