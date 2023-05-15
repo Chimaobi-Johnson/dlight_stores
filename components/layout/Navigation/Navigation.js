@@ -15,8 +15,6 @@ import UserIcon from "./UserIcon/UserIcon";
 const Navigation = (props) => {
   const { user } = props 
 
-  console.log(user)
-
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
 

@@ -11,11 +11,13 @@ import { useDispatch } from "react-redux";
 import { storeProducts } from "../store/actions/products";
 import { storeLoggedInUser, updateUserCart } from "../store/actions/user";
 import { useSelector } from "react-redux";
-import { addCartItemsToLoggedUserCart, isEmpty } from "../utils/helperFunctions";
+import { isEmpty } from "../utils/helperFunctions";
 
 function Home(props) {
 
   const { products, categories } = props;
+
+  console.log(props)
 
   const loggedUser =  useSelector(data => data.user)
 
@@ -25,7 +27,13 @@ function Home(props) {
 
   useEffect(() => {
 
+    console.log('hit outside')
+
+
     const getUser = () => {
+
+      console.log('hit')
+
   
       const instance = axios.create({
         withCredentials: true
@@ -49,13 +57,13 @@ function Home(props) {
     dispatch(storeProducts(products))
     getUser()
 
-  }, [products])
+  }, [])
 
-  useEffect(() => {
-    if(!isEmpty(loggedUser)) {
-      dispatch(updateUserCart(localCartItems, loggedUser.cart.items))
-    } 
-  }, [loggedUser])
+  // useEffect(() => {
+  //   if(!isEmpty(loggedUser)) {
+  //     dispatch(updateUserCart(localCartItems, loggedUser.cart.items))
+  //   } 
+  // }, [loggedUser])
 
   return (
     <BasicLayout
@@ -77,15 +85,20 @@ function Home(props) {
 
 export async function getStaticProps() {
 
-
+  const instance = axios.create({
+    withCredentials: true
+  });
+  
  const response = await axios.get(process.env.BACKEND_URL + '/products')
  const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
+ const response3 = await instance.get(process.env.BACKEND_URL + '/current_user ')
 
 
   return {
     props: {
       products: response.data.products,
       categories: response2.data.categories,
+      user: response3.data
     },
     revalidate: 1
   }
