@@ -31,7 +31,7 @@ const storage =
 const rootPersistConfig = {
   key: 'root',
   storage,
-  blacklist: ['app']
+  blacklist: ['user']
 }
 
 const appPersistConfig = {
