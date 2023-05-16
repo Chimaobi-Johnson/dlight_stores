@@ -9,7 +9,7 @@ const userActions = (state = initialState, action) => {
       return action.payload.data;
     case UPDATE_USER_CART:
       //update reducer with modified user obj
-      // return action.payload.data;
+      return action.payload.data;
     case UPDATE_USER_CART_FAIL:
       newState = {
         ...state,

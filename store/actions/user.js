@@ -16,18 +16,24 @@ export const storeLoggedInUser = (data) => async (dispatch) => {
 
 export const updateUserCart =
   (localItems, userCartItems) => async (dispatch) => {
-    if (userCartItems.length === 0) {
+    let counter = 0;
+    let cartArr;
+    if ((userCartItems.length === 0 && localItems.length === 0) || (userCartItems.length === 0)) {
       console.log("emptyusercart");
       const instance = axios.create({
         withCredentials: true,
       });
       const data = await instance.post(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/user/cart/update",
-        localItems
+        {cartItems: JSON.stringify(localItems)}
       );
       if (data.status === 200) {
+        console.log(data)
         dispatch({
           type: UPDATE_USER_CART,
+          payload: {
+            data: data.data.data
+          }
         });
       } else {
         dispatch({
@@ -43,18 +49,32 @@ export const updateUserCart =
           return;
         } else {
           newUserCartArr.push(item);
+          
+          // number of items pushed, if zero it means no new item has been added to cart 
+          // so therefore the local cart gets updated to the server
+          // otherwise the newusercartarr is uploaded
+          counter++ 
         }
 
         function checkProductId(userCartItems) {
           return userCartItems.productId === item.productId;
         }
       });
+      console.log(counter)
+      if(counter > 0) {
+        console.log('not local')
+        cartArr = newUserCartArr
+      } else {
+        console.log('local')
+
+        cartArr = localItems
+      }
       const instance = axios.create({
         withCredentials: true,
       });
       const data = await instance.post(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/user/cart/update",
-        newUserCartArr
+       {cartItems: JSON.stringify(cartArr)}
       );
       if (data.status === 200) {
         console.log(data)

@@ -5,9 +5,54 @@ import styles from "./BasicLayout.module.css";
 import Meta from "../Meta/Meta";
 import MobileMenu from "../Navigation/MobileMenu/MobileMenu";
 import Cart from "../../Cart/Cart";
+import { useDispatch } from "react-redux";
+import { storeProducts } from "../../../store/actions/products";
+import { storeLoggedInUser, updateUserCart } from "../../../store/actions/user";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
+import axios from "axios";
 
 const BasicLayout = (props) => {
-    const { meta, user } = props;
+
+    const { meta } = props;
+
+    const loggedUser =  useSelector(data => data.user)
+
+    const dispatch = useDispatch()
+  
+    const localCartItems = useSelector(data => data.app.cart.cartItems);
+
+    useEffect(() => {
+
+      const getUser = () => {
+  
+        const instance = axios.create({
+          withCredentials: true
+        });
+        instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+        .then(data => {
+          if(!data.data.user) {
+            // clear redux state
+            dispatch(storeLoggedInUser({}))
+            // update local cart
+  
+          } else {
+            dispatch(storeLoggedInUser(data.data.user))
+            // update local cart
+            dispatch(updateUserCart(localCartItems, data.data.user.cart.items))
+          }
+       
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      }
+  
+      getUser()
+  
+    }, [])
+
   return (
     <div className={styles.wrapper}>
       <Meta
@@ -17,7 +62,7 @@ const BasicLayout = (props) => {
       />
       {/* <MobileMenu /> */}
       <Cart />
-      <Navigation user={user} />
+      <Navigation user={loggedUser} />
       <div className={styles.contentContainer}>
        {props.children}
       </div>
