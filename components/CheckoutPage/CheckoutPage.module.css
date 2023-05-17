@@ -8,4 +8,22 @@
     margin: 0 auto;
     min-height: 100vh;
     background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+} 
+
+.itemsWrapper {
+    border: 1px solid #eaeaea;
+    padding: 1rem;
+    border-radius: 5px;
 }
+
+.paymentDetails {
+    padding: 2rem;
+    background-color: #b0c4de91;
+}
+
+.orderSummary {
+    padding: 2rem;
+}
+
