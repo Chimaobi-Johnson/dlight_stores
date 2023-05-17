@@ -83,6 +83,7 @@ export const updateAppData = (state = initialState, action) => {
     case UPDATE_USER_CART:
          // update local cart
     const newCart = [ ...action.payload.data.cart.items ]
+    
     newState = {
           ...state,
           cart: {

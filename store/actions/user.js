@@ -60,7 +60,6 @@ export const updateUserCart =
           return userCartItems.productId === item.productId;
         }
       });
-      console.log(counter)
       if(counter > 0) {
         console.log('not local')
         cartArr = newUserCartArr
