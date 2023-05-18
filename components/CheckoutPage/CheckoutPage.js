@@ -1,9 +1,18 @@
 import * as styles from "./CheckoutPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../Cart/CartItem/CartItem";
+import { useState } from "react";
+import AddressForm from "./AddressForm/AddressForm";
 
 const CheckoutPage = (props) => {
+
   const cartItems = useSelector((data) => data.app.cart.cartItems);
+
+  const [deliveryType, setDeliveryType] = useState(null)
+
+  const changeInputHandler = (e) => {
+    setDeliveryType(e.target.value)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -23,22 +32,27 @@ const CheckoutPage = (props) => {
           <div className={styles.deliveryMethodContainer}>
             <h3>Delivery Type</h3>
             <div>
-              <input type="radio" id="pickup" name="deliveryType" value="pickup" />
+              <input onChange={(e) => changeInputHandler(e)} type="radio" id="pickup" name="deliveryType" value="pickup" />
               <label for="pickup">
                 Pick up - Order and pick up at our store any day you want
               </label>
               <br />
-              <input
+              <input onChange={(e) => changeInputHandler(e)}
                 type="radio"
                 id="delivery"
                 name="deliveryType"
                 value="delivery"
               />
               <label for="delivery">
-                Delivery - Order and pick up at our store any day you want
+                Delivery - (DHL)
               </label>
               <br />
             </div>
+          </div>
+          <div className={styles.addressContainer}>
+                {deliveryType === 'delivery' ? (
+                    <AddressForm />
+                ): null}
           </div>
         </div>
 
@@ -47,7 +61,9 @@ const CheckoutPage = (props) => {
             <h1>Payment Details</h1>
             <p>Provide your payment details to complete your purchase</p>
           </div>
-          <div className={styles.gatewayContainer}></div>
+          <div className={styles.gatewayContainer}>
+         
+          </div>
         </div>
       </div>
     </div>

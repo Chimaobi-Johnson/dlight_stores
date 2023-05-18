@@ -1,0 +1,33 @@
+.wrapper {
+    margin-top: 2rem;
+    animation: displayForm 1.2s ease 0s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    transition: all 1s ease;
+    opacity: 0;
+}
+
+@keyframes displayForm {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.info {
+    color: #9b1717;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.formContainer {
+    padding-right: 1rem;
+}
+
+.additionalInfo {
+    margin-top: 1rem;
+}
