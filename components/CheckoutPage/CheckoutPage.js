@@ -33,7 +33,7 @@ const CheckoutPage = (props) => {
             <h3>Delivery Type</h3>
             <div>
               <input onChange={(e) => changeInputHandler(e)} type="radio" id="pickup" name="deliveryType" value="pickup" />
-              <label for="pickup">
+              <label htmlFor="pickup">
                 Pick up - Order and pick up at our store any day you want
               </label>
               <br />
@@ -43,7 +43,7 @@ const CheckoutPage = (props) => {
                 name="deliveryType"
                 value="delivery"
               />
-              <label for="delivery">
+              <label htmlFor="delivery">
                 Delivery - (DHL)
               </label>
               <br />

@@ -21,7 +21,7 @@ function Home(props) {
   useEffect(() => {
 
     dispatch(storeProducts(products))
-  }, [])
+  }, [dispatch, products])
 
   return (
     <BasicLayout
