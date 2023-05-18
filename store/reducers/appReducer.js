@@ -4,6 +4,7 @@ import {
   INIT_MOBILE_MENU,
   INIT_SEARCH_BAR,
   REMOVE_CART_ITEM,
+  UPDATE_CART_QUANTITY,
   UPDATE_USER_CART,
 } from "../actionTypes";
 
@@ -77,6 +78,24 @@ export const updateAppData = (state = initialState, action) => {
       newState = {
         ...state,
         searchBarInit: !state.searchBarInit,
+      };
+      return newState;
+
+    case UPDATE_CART_QUANTITY:
+      const cartA = [ ...state.cart.cartItems ];
+      cartA.map(item => {
+        if(item.productId === action.payload.productId) {
+          item.quantity = action.payload.qty
+        }
+      })
+
+      newState = {
+        ...state,
+        cartInit: false,
+        cart: {
+          ...state.cart,
+          cartItems: cartA,
+        },
       };
       return newState;
 

@@ -4,7 +4,7 @@ import sampleImage from "../../../public/products/plastic-cups.png";
 
 import * as styles from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
-import { removeCartItem } from "../../../store/actions/app";
+import { removeCartItem, updateItemQty } from "../../../store/actions/app";
 import Button from "../../ui/Button/Button";
 import { useState } from "react";
 
@@ -12,13 +12,23 @@ const CartItem = (props) => {
   const { productId, name, price, quantity, size, imageUrl } = props.item;
 
   const [editingMode, setEditingMode] = useState(false);
+  const [currentQuantity, setCurrentQty] = useState(1)
 
   const setEditing = () => {
     setEditingMode(true)
   }
 
-  const updateItemQty = () => {
+  const updateItemQuantity = () => {
+    dispatch(updateItemQty(productId, currentQuantity))
     setEditingMode(false)
+  }
+
+  const changeQtyHandler = (e) => {
+    if(e.target.value < 1) {
+      setCurrentQty(1)
+    } else {
+      setCurrentQty(e.target.value)
+    }
   }
 
   const dispatch = useDispatch();
@@ -37,16 +47,16 @@ const CartItem = (props) => {
           </div>
           {!editingMode ? (
             <div className={styles.qtyText}>
-              <p>2</p>
+              <p>{quantity}</p>
               <div className={styles.editButton} onClick={setEditing}>edit</div>
             </div>
           ) : (
             <div className={styles.updateWrapper}>
               <div className={styles.inputContainer}>
-                <input type="number" defaultValue={quantity} value={0} />
+                <input type="number" defaultValue={quantity} onChange={(e) => changeQtyHandler(e)} value={currentQuantity} />
               </div>
               <div className={styles.updateContainer}>
-                <span onClick={updateItemQty}>Update</span>
+                <span onClick={updateItemQuantity}>Update</span>
               </div>
             </div>
           )}

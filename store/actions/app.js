@@ -1,4 +1,4 @@
-import { ADD_TO_CART, INIT_CART, INIT_MOBILE_MENU, INIT_SEARCH_BAR, REMOVE_CART_ITEM } from "../actionTypes"
+import { ADD_TO_CART, INIT_CART, INIT_MOBILE_MENU, INIT_SEARCH_BAR, REMOVE_CART_ITEM, UPDATE_CART_QUANTITY } from "../actionTypes"
 
 
 
@@ -34,3 +34,12 @@ export const initSearchBar = () => (dispatch) => {
     })
 }
 
+export const updateItemQty = (productId, qty) => (dispatch) => {
+    dispatch({
+        type: UPDATE_CART_QUANTITY,
+        payload: {
+            productId,
+            qty
+        }
+    })
+}
