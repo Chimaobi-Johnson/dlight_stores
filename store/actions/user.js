@@ -25,7 +25,7 @@ export const updateUserCart =
       });
       const data = await instance.post(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/user/cart/update",
-        {cartItems: JSON.stringify(localItems)}
+        localItems
       );
       if (data.status === 200) {
         console.log(data)
@@ -73,7 +73,7 @@ export const updateUserCart =
       });
       const data = await instance.post(
         process.env.NEXT_PUBLIC_BACKEND_URL + "/user/cart/update",
-       {cartItems: JSON.stringify(cartArr)}
+       cartArr
       );
       if (data.status === 200) {
         console.log(data)
