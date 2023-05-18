@@ -45,7 +45,7 @@ const RelatedItems = props => {
 
     useEffect(() => {
         getRelatedProducts(products, category)
-    }, [])
+    }, [products, category])
 
     
     return (

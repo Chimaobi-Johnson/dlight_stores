@@ -31,7 +31,7 @@ const ProductDetails = (props) => {
       setSelectedSize(sizes[0])
     }
     setCurrentPrice(price)
-  }, [price])
+  }, [sizes, price])
 
   const dispatch = useDispatch();
   const appData = useSelector((data) => data);

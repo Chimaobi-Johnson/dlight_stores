@@ -25,10 +25,6 @@ const Auth = props => {
         let customData = new FormData();
         customData.append('email', email)
         customData.append('password', password)
-        const data = {
-            email: email,
-            password: password
-        }
         const instance = axios.create({
             withCredentials: true
           });
