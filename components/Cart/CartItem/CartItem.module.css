@@ -29,7 +29,7 @@
 
 .quantityContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 3fr;
     width: fit-content;
 }
 
@@ -38,17 +38,18 @@
 }
 
 .qtyText p {
-    margin-left: 0px;
+    margin-left: 10px;
     background-color: #323232;
     color: #e3e3e3;
     padding: 2px 10px;
     border-radius: 5px;
+    width: fit-content;
 }
 
 .editButton {
     position: absolute;
     top: 46%;
-    left: 128%;
+    left: 67%;
     font-size: 14px;
     cursor: pointer;
     display: none;
@@ -70,46 +71,27 @@
     }
 }
 
-
-.inputContainer {
+.updateWrapper {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1fr;
-    width: 7.5rem;
-    border: 1px solid #c1c1c1;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
     align-items: center;
-    border-radius: 2px;
-    height: 2rem;
 }
 
 .inputContainer input {
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    border: none;
-    border-right: 1px solid #eaeaea;
-    border-radius: 0;
+    width: 45px;
+    height: 31px;
 }
 
-.inputContainer input {
-    border: none;
-}
-
-.increaseBtn, .decreaseBtn {
-    width: 100%;
-    height: 100%;
-}
-
-.increaseBtn {
-    border-left: 1px solid #6d6d6d;
-    text-align: center;
+.updateContainer span {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #0079cf;
+    color: #e3e3e3;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.decreaseBtn {
-    border-right: 1px solid #6d6d6d;
-    text-align: center;
-    cursor: pointer;
-}
 
 .close {
     text-align: right;

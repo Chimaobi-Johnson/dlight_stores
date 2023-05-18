@@ -17,6 +17,10 @@ const CartItem = (props) => {
     setEditingMode(true)
   }
 
+  const updateItemQty = () => {
+    setEditingMode(false)
+  }
+
   const dispatch = useDispatch();
 
   return (
@@ -39,10 +43,10 @@ const CartItem = (props) => {
           ) : (
             <div className={styles.updateWrapper}>
               <div className={styles.inputContainer}>
-                <input type="number" value={quantity} />
+                <input type="number" defaultValue={quantity} value={0} />
               </div>
               <div className={styles.updateContainer}>
-                <Button>Update</Button>
+                <span onClick={updateItemQty}>Update</span>
               </div>
             </div>
           )}
