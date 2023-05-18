@@ -46,8 +46,8 @@ const Cart = (props) => {
         </div>
         <div className={styles.subTotalContainer}>
           <h4>Sub Total</h4>
-          <Button variant="primary">Checkout</Button>
-          <Link href="/">Continue shopping</Link>
+          <Link href="/checkout"><Button variant="primary">Checkout</Button></Link>
+          <Link href="#"><span style={{ cursor: 'pointer' }} onClick={initCartHandler}>Continue shopping</span></Link>
         </div>
       </div>
     </div>
