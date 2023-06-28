@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 
 import styles from './ExtendedMenu.module.css';
+import Link from 'next/link';
 
 const ExtendedMenu = props => {
 
@@ -34,7 +35,7 @@ const ExtendedMenu = props => {
             <div id='menuItems' className={styles.menuItems}>
                 <ul>
                     <li>Quick links</li>
-                    <li>Products</li>
+                    <Link href={'/products'}><li>Products</li></Link>
                     <li>About Us</li>
                     <li>Shipping Information</li>
                     <li>Contact Us</li>

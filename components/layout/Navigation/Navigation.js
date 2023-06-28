@@ -52,7 +52,7 @@ const Navigation = (props) => {
             onMouseOver={initExtendedMenu}
             onClick={initExtendedMenu}
           >
-            Shop
+            Shopa
             <Image width={10} height={10} style={extendMenuIcon} src="/icons/next.png" alt="_show" />
           </li>
           <Link href={'/about'}><li>About Us </li></Link>
