@@ -22,17 +22,17 @@ export default function Products (props) {
 }
 
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
 
-  const response = await axios.get(process.env.BACKEND_URL + '/products')
-  const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
+//   const response = await axios.get(process.env.BACKEND_URL + '/products')
+//   const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
  
-   return {
-     props: {
-       products: response.data.products,
-       categories: response2.data.categories
-     },
-     revalidate: 1
-   }
+//    return {
+//      props: {
+//        products: response.data.products,
+//        categories: response2.data.categories
+//      },
+//      revalidate: 1
+//    }
  
- }
+//  }

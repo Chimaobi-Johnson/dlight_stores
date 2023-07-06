@@ -29,30 +29,30 @@ const Product = (props) => {
   );
 };
 
-export async function getStaticPaths(context) {
+// export async function getStaticPaths(context) {
 
-  const response = await axios.get(process.env.BACKEND_URL + '/products/ids');
+//   const response = await axios.get(process.env.BACKEND_URL + '/products/ids');
 
-  return {
-    fallback: false,
-    paths: response.data.ids.map(product => ({ params: { id: product._id }}))
-  }
+//   return {
+//     fallback: false,
+//     paths: response.data.ids.map(product => ({ params: { id: product._id }}))
+//   }
 
-}
+// }
 
-export async function getStaticProps(context) {
+// export async function getStaticProps(context) {
 
-  const productId = context.params.id;
+//   const productId = context.params.id;
 
-  const response = await axios.get(process.env.BACKEND_URL + '/product/?id=' + productId)
+//   const response = await axios.get(process.env.BACKEND_URL + '/product/?id=' + productId)
 
-  return {
-    props: {
-      products: null,
-    },
-    revalidate: 1
-  }
+//   return {
+//     props: {
+//       products: null,
+//     },
+//     revalidate: 1
+//   }
 
-}
+// }
 
 export default Product;
