@@ -30,22 +30,22 @@ export async function getStaticPaths(context) {
 
 }
 
-// export async function getStaticProps(context) {
+export async function getStaticProps(context) {
 
-//   const categoryId = context.params.id;
+  const categoryId = context.params.id;
 
-//   const response = await axios.get(process.env.BACKEND_URL + '/products/?id=' + categoryId)
-//   const response2 = await axios.get(process.env.BACKEND_URL + '/categories')
+  const response = await axios.get(process.env.BACKEND_URL + '/products/?id=' + categoryId)
+  const response2 = await axios.get(process.env.BACKEND_URL + '/categories')
 
-//   return {
-//     props: {
-//       products: response.data.products,
-//       categories: response2.data.categories,
-//       categoryId: categoryId
-//     },
-//     revalidate: 1
-//   }
+  return {
+    props: {
+      products: response.data.products,
+      categories: response2.data.categories,
+      categoryId: categoryId
+    },
+    revalidate: 1
+  }
 
-// }
+}
 
 export default FilteredProducts;
