@@ -29,7 +29,6 @@ const Auth = props => {
             withCredentials: true
           });
         instance.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/login', customData).then(data => {
-            console.log(data)
             if(data.status === 200) {
                 localStorage.setItem('dlight_userId', data.data.user._id);
 
@@ -75,7 +74,6 @@ const Auth = props => {
 
         } else {
             alert('Error')
-            console.log(result)
         }
     }
     

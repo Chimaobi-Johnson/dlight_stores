@@ -10,8 +10,6 @@ import { storeProducts } from '../store/actions/products';
 
 export default function Products (props) {
 
-  console.log(props)
-
   const { products, categories } = props;
 
   return (
@@ -32,7 +30,7 @@ export async function getStaticProps() {
   
    return {
      props: {
-       products: response.data.products,
+       products: null,
        categories: response2.data.categories,
      },
      revalidate: 1

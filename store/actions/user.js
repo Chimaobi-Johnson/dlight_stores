@@ -19,7 +19,6 @@ export const updateUserCart =
     let counter = 0;
     let cartArr;
     if ((userCartItems.length === 0 && localItems.length === 0) || (userCartItems.length === 0)) {
-      console.log("emptyusercart");
       const instance = axios.create({
         withCredentials: true,
       });
@@ -28,7 +27,6 @@ export const updateUserCart =
         localItems
       );
       if (data.status === 200) {
-        console.log(data)
         dispatch({
           type: UPDATE_USER_CART,
           payload: {
@@ -61,11 +59,8 @@ export const updateUserCart =
         }
       });
       if(counter > 0) {
-        console.log('not local')
         cartArr = newUserCartArr
       } else {
-        console.log('local')
-
         cartArr = localItems
       }
       const instance = axios.create({
@@ -76,7 +71,6 @@ export const updateUserCart =
        cartArr
       );
       if (data.status === 200) {
-        console.log(data)
         dispatch({
           type: UPDATE_USER_CART,
           payload: {
