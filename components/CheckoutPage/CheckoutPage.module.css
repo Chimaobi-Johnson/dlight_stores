@@ -27,3 +27,26 @@
     padding: 2rem;
 }
 
+
+
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 700px) {
+
+    .wrapper {
+        padding: 0;
+    }    
+
+    .contentWrapper {
+        width: 100%;
+        grid-template-columns: 1fr;
+    } 
+
+    .addressContainer {
+        width: 100%;
+        height: auto;
+    }
+
+}

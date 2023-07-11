@@ -111,3 +111,28 @@
 .imageContainer {
     margin-top: .5rem;
 }
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+
+@media (max-width: 700px) {
+    .wrapper {
+        /* padding-left: 0; */
+    }
+
+    .contentContainer {
+        padding-left: 10px;
+        font-size: .8rem;
+    }
+
+    .qtyText {
+        font-size: .7rem;
+    }
+}

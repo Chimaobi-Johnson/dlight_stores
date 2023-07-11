@@ -46,8 +46,6 @@ const AddressForm = (props) => {
           <textarea
             id="additionalInfo"
             name="additionalInfo"
-            rows="10"
-            cols="81"
           ></textarea>
         </div>
       </div>

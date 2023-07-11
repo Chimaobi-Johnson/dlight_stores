@@ -25,7 +25,7 @@ const ImageSlider = (props) => {
       return () => clearInterval(slideInterval); // clean up function, starts counter afresh after the next slide
     });
 
-    const autoScroll = false;
+    const autoScroll = true;
     let slideInterval;
     let intervalTime = 7000; 
 
