@@ -7,7 +7,7 @@ export const sliderData = [
         buttonText: 'Shop Now'
     },
     {
-        title: 'Hundreds of Items for Souvenirs',
+        title: 'Hundreds of Souvenir Items',
         subText: 'Beautiful Sets',
         image: '/site/plate-colored.png',
         buttonText: 'Shop Now'

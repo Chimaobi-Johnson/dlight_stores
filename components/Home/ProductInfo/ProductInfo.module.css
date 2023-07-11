@@ -48,8 +48,12 @@
     transition: all 1s ease-out;
 }
 
-.productText h2 {
-    text-transform: uppercase;
+.productText span {
+    padding: 8px;
+    font-size: .8rem;
+    background-color: lightblue;
+    border-top-left-radius: 90%;
+    border-bottom-right-radius: 90%;
 }
 
 .mediaContainer {

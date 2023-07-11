@@ -19,7 +19,6 @@ const ProductInfo = (props) => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
   };
   const prevSlide = () => {
-    lk;
     setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
   };
 
@@ -36,7 +35,8 @@ const ProductInfo = (props) => {
             {/* {index === currentSlide && ( */}
             <>
               <div className={styles.productText}>
-                <h2>{el.title}</h2>
+                <span>{el.type}</span>
+                <h1>{el.title}</h1>
                 <p>{truncate(el.subText, 500)}</p>
                 <Button>{el.buttonText}</Button>
               </div>

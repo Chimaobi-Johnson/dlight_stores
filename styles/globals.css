@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Didact+Gothic&family=Klee+One:wght@400;600&display=swap');
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Tajawal', sans-serif;
+  /* font-family: 'Bacasime Antique', serif; */
+  /* font-family: 'Didact Gothic', sans-serif; */
+  font-family: 'Klee One', cursive;
 }
 
 body::-webkit-scrollbar {
