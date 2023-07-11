@@ -9,121 +9,6 @@
     z-index: 10;
 }
 
-@media (max-width: 700px) {
-    .wrapper {
-        grid-template-columns:  1fr 60% 1fr;
-    }
-    .menuContainer li:not(:nth-child(3)) {
-        display: none;
-    }
-
-    .logo {
-        padding: .8rem 1.5rem !important;
-        grid-column: span 4;
-        height: 65%;
-        padding-top: 1rem !important;
-    }
-}
-
-@media ((min-width: 701px) and (max-with: 1500px)) {
-    .wrapper {
-        grid-template-columns:  1fr 70% 1fr;
-    }
-    .menuContainer li:not(:nth-child(3)) {
-        display: none;
-    }
-
-    .logo {
-        padding: .5rem !important;
-        grid-column: span 4;
-        height: 65%;
-        padding-top: 1rem !important;
-        /* background-color: red; */
-    }
-}
-
-
-.menuContainer {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-
-}
-
-.menuContainer ul {
-    list-style: none;
-    display: grid;
-    height: 100%;
-    align-items: start;
-    grid-template-columns:  1fr 1fr 30% 1fr 1fr;
-}
-
-
-.menuContainer li {
-    /* border: 1px solid #eaeaea; */
-    text-transform: uppercase;
-    position: relative;
-    cursor: pointer;
-}
-
-.menuContainer li:not(:nth-child(3)) {
-    padding-top: 2.5rem;
-}
-
-.searchContainer {
-    position: relative;
-}
-
-.logo {
-    width: 100%;
-    padding: 1.5rem 3rem 1rem 2rem;
-}
-
-.logo img {
-    height: 100%;
-    width: 100%;
-}
-
-
-.image {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 5%;
-}
-
-.image img {
-    width: 100%;
-    height: 100%;
-}
-
-.barIcon {
-    display: none !important;
-}
-
-.searchIcon {
-    display: block !important;
-}
-
-@media (max-width: 700px) {
-    .barIcon {
-        display: block !important;
-    }
-
-    .searchIcon {
-        display: none !important;
-    }
-
-    .image {
-        position: absolute;
-        top: 17%;
-        left: 25%;
-        transform: translate(-50%, -50%);
-        width: 40%;
-    }
-
-}
 
 .infoContainer {
     position: relative;
@@ -179,8 +64,99 @@
     position: relative;
 }
 
-@media (max-width: 700px) {
+.menuContainer {
+    display: grid;
+    justify-items: center;
+    align-items: center;
 
+}
+
+.menuContainer ul {
+    list-style: none;
+    display: grid;
+    height: 100%;
+    align-items: start;
+    grid-template-columns:  1fr 1fr 30% 1fr 1fr;
+}
+
+
+.menuContainer li {
+    /* border: 1px solid #eaeaea; */
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+
+.menuContainer li:not(:nth-child(3)) {
+    padding-top: 2.5rem;
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.logo {
+    width: 100%;
+    padding: 1.5rem 3rem 1rem 2rem;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+
+
+/* .image {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5%;
+} */
+
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.barIcon {
+    display: none !important;
+}
+
+.searchIcon {
+    display: block !important;
+}
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px) {
+    .wrapper {
+        grid-template-columns:  1fr 60% 1fr;
+    }
+    .menuContainer li:not(:nth-child(3)) {
+        display: none;
+    }
+
+    .searchContainer {
+        display: grid;
+        align-items: center;
+        height: inherit;
+    }
+
+    .logo {
+        padding: .8rem 1.5rem !important;
+        grid-column: span 4;
+        height: 65%;
+        padding-top: 1rem !important;
+    }
     .infoIcons {
         top: 35%;
         left: 40%;
@@ -193,8 +169,40 @@
         font-weight: bold;
         color: #ffffff;
     }
+    .barIcon {
+        display: block !important;
+        opacity: 0.4;
+    }
+
+    .searchIcon {
+        display: none !important;
+    }
+
+    .image {
+        width: 30%;
+    }
 
 }
+
+
+
+@media ((min-width: 701px) and (max-with: 1500px)) {
+    .wrapper {
+        grid-template-columns:  1fr 70% 1fr;
+    }
+    .menuContainer li:not(:nth-child(3)) {
+        display: none;
+    }
+
+    .logo {
+        padding: .5rem !important;
+        grid-column: span 4;
+        height: 65%;
+        padding-top: 1rem !important;
+        /* background-color: red; */
+    }
+}
+
 
 
 @media (max-width: 1024px) and (min-width: 701px) {
@@ -203,13 +211,9 @@
         font-size: .8rem;
     }
 
-    .image {
-        position: absolute;
-        top: 69%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 7%;
-    }
+    /* .image {
+     
+    } */
 
     .logo {
         width: 70%;

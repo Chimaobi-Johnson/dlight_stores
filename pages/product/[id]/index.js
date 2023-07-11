@@ -6,17 +6,13 @@ import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
 import RelatedItems from "../../../components/layout/RelatedItems/RelatedItems";
 import Pagination from "../../../components/ui/Pagination/Pagination";
 import axios from 'axios';
-import * as flatted from 'flatted';
 
 import { useSelector } from "react-redux";
 
 const Product = (props) => {
   
-  const parsedProducts = flatted.parse(props.products)
 
-  const {product, category} = parsedProducts;
-
-  console.log(parsedProducts)
+  const { product, category } = props.products;
 
   const currentIndex = useSelector(data => data.products.product.currentIndex);
 
@@ -30,7 +26,7 @@ const Product = (props) => {
       <ProductDetails product={product ? product : null} />
       <QuickInfo />
       <RelatedItems product={product} category={category} />
-      <Pagination products={parsedProducts} currentIndex={currentIndex}  />
+      <Pagination products={products} currentIndex={currentIndex}  />
     </BasicLayout>
   );
 };
@@ -54,7 +50,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      products: flatted.stringify(response.data),
+      products: response.data,
     },
     revalidate: 1
   }

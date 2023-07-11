@@ -10,7 +10,7 @@ const Footer = (props) => {
         <div className={styles.footerTop}>
           <div className={styles.box1}>
             <div className={styles.mapContainer}>
-              <GoogleMap />
+              {/* <GoogleMap /> */}
             </div>
             <p>Visit us at our store in Port Harcourt</p>
           </div>

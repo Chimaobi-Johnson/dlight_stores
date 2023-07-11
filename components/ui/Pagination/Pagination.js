@@ -19,6 +19,7 @@ const Pagination = props => {
         setPrevData(products[currentIndex - 1])
     }, [products, currentIndex])
     
+
     return (
         <div className={styles.wrapper}>
             {prevData ? (
