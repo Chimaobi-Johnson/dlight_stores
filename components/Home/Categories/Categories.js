@@ -7,7 +7,7 @@ const Categories = (props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.heading}>
-        <h2>MAKE SOMEONE HAPPY WITH A GIFT</h2>
+        <h1>MAKE SOMEONE HAPPY WITH A GIFT</h1>
       </div>
       <div className={styles.content}>
         {data.length !== 0
@@ -21,7 +21,7 @@ const Categories = (props) => {
                   <div
                     key={index}
                     style={{
-                      backgroundImage: `linear-gradient(to right, #ffffff49, #0000009c), url(${category.imageUrl})`,
+                      backgroundImage: `linear-gradient(to right, rgb(0 0 0 / 50%), rgb(0 0 0 / 30%)), url(${category.imageUrl})`,
                       backgroundSize: "cover",
                       backgroundPositionY: "30%",
                       backgroundRepeat: "no-repeat",

@@ -96,10 +96,19 @@
     padding-left: 1rem;
 }
 
+
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
 @media (max-width: 700px) {
 
     .wrapper {
-        font-size: .8rem;
+        font-size: .6rem;
     }
 
     .footerTop {
@@ -135,6 +144,11 @@
         border-left: none;
         border-top: 1px solid #535353;
         padding-left: 0;
+    }
+
+    
+    .copyright {
+        font-size: .5rem;
     }
     
 }

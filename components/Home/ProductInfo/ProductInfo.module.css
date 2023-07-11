@@ -123,11 +123,15 @@
 }
 
 
+
+/* MEDIA QUERIES */
+
+
 @media (max-width: 700px) {
     .wrapper {
-        overflow: hidden;
         font-size: .81rem;
         min-height: 80vh;
+        margin-top: 10rem;
     }
 
     .slide {
