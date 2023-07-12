@@ -51,7 +51,7 @@ const BasicLayout = (props) => {
   
       getUser()
   
-    }, [dispatch, localCartItems])
+    }, [])
 
   return (
     <div className={styles.wrapper}>

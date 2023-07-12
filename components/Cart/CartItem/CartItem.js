@@ -1,15 +1,14 @@
 import Image from "next/image";
-import Input from "../../ui/Input/Input";
-import sampleImage from "../../../public/products/plastic-cups.png";
-
 import * as styles from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
 import { removeCartItem, updateItemQty } from "../../../store/actions/app";
-import Button from "../../ui/Button/Button";
 import { useState } from "react";
+
 
 const CartItem = (props) => {
   const { productId, name, price, quantity, size, imageUrl } = props.item;
+
+  const dispatch = useDispatch();
 
   const [editingMode, setEditingMode] = useState(false);
   const [currentQuantity, setCurrentQty] = useState(1)
@@ -31,7 +30,13 @@ const CartItem = (props) => {
     }
   }
 
-  const dispatch = useDispatch();
+  const removeCartItemandUpdate = (prodId) => {
+      // remove item
+      dispatch(removeCartItem(prodId))
+
+      // if user is loggedin, update user cart
+  }
+
 
   return (
     <div className={styles.wrapper}>
@@ -63,7 +68,7 @@ const CartItem = (props) => {
         </div>
       </div>
       <div
-        onClick={(id) => dispatch(removeCartItem(productId))}
+        onClick={(id) => removeCartItemandUpdate(productId)}
         className={styles.close}
       >
         <Image

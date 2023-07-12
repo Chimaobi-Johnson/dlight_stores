@@ -6,16 +6,24 @@ import Button from "../ui/Button/Button";
 import * as styles from "./Cart.module.css";
 import CartItem from "./CartItem/CartItem";
 import CartRecommend from "./CartRecommend/CartRecommend";
+import { isEmpty } from "../../utils/helperFunctions";
+import { updateUserCart } from "../../store/actions/user";
 
 const Cart = (props) => {
 
   const cartItems = useSelector(data => data.app.cart.cartItems);
   const cartInit = useSelector(data => data.app.cartInit);
+  const loggedUser = useSelector(data => data.user);
+
 
   const dispatch = useDispatch();
 
   const initCartHandler = () => {
     dispatch(initCart());
+    // if user is loggedin, update user cart
+    if(!isEmpty(loggedUser)) {
+      dispatch(updateUserCart(cartItems, loggedUser.cart.items))
+    }
   };
 
   return (
