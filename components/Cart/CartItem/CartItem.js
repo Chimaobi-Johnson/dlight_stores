@@ -11,14 +11,16 @@ const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const [editingMode, setEditingMode] = useState(false);
-  const [currentQuantity, setCurrentQty] = useState(1)
+  const [currentQuantity, setCurrentQty] = useState(quantity)
 
   const setEditing = () => {
     setEditingMode(true)
   }
 
   const updateItemQuantity = () => {
-    dispatch(updateItemQty(productId, currentQuantity))
+    const initialPrice = price / quantity;
+    const updatedPrice = initialPrice * currentQuantity;
+    dispatch(updateItemQty(productId, currentQuantity, updatedPrice))
     setEditingMode(false)
   }
 

@@ -95,6 +95,7 @@ export const updateAppData = (state = initialState, action) => {
       cartA.map(item => {
         if(item.productId === action.payload.productId) {
           item.quantity = action.payload.qty
+          item.price = action.payload.updatedPrice
         }
       })
 

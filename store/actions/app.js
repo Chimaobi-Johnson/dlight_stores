@@ -34,12 +34,13 @@ export const initSearchBar = () => (dispatch) => {
     })
 }
 
-export const updateItemQty = (productId, qty) => (dispatch) => {
+export const updateItemQty = (productId, qty, updatedPrice) => (dispatch) => {
     dispatch({
         type: UPDATE_CART_QUANTITY,
         payload: {
             productId,
-            qty
+            qty,
+            updatedPrice
         }
     })
 }
