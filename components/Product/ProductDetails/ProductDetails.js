@@ -34,7 +34,7 @@ const ProductDetails = (props) => {
   }, [sizes, price])
 
   const dispatch = useDispatch();
-  const appData = useSelector((data) => data);
+  // const appData = useSelector((data) => data);
 
   const [currentImage, setCurrentImage] = useState(0);
   const [currentPrice, setCurrentPrice] = useState(0)

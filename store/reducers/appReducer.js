@@ -31,7 +31,7 @@ export const updateAppData = (state = initialState, action) => {
       if (cartArr.length === 0) {
         //push to cart when item is empty
         cartArr.push(action.payload);
-      } else {
+      }  else {
         // check if item exists in cart if not, add new item
         function checkCart(cartArr) {
           return cartArr.productId === action.payload.productId;
@@ -39,6 +39,15 @@ export const updateAppData = (state = initialState, action) => {
         const isInArray = cartArr.some(checkCart);
         if (isInArray === false) {
           cartArr.push(action.payload);
+        } else {
+           // item exists 
+          //  check if price has been updated and update price and qty if true 
+           cartArr.map(el => {
+            if(el.productId === action.payload.productId && el.price !== action.payload.price) {
+              el.price = action.payload.price
+              el.quantity = action.payload.quantity
+            }
+           })
         }
       }
       newState = {
