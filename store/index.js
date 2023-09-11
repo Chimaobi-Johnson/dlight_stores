@@ -31,7 +31,7 @@ const storage =
 const rootPersistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user']
+  blacklist: ['user', 'products']
 }
 
 const appPersistConfig = {
@@ -40,14 +40,14 @@ const appPersistConfig = {
   blacklist: ['cartInit', 'mobileMenuInit', 'searchBarInit']
 }
 
-const productsPersistConfig = {
-  key: 'products',
-  storage,
-}
+// const productsPersistConfig = {
+//   key: 'products',
+//   storage,
+// }
 
 const rootReducer = combineReducers({
   app: persistReducer(appPersistConfig, AppData),
-  products: persistReducer(productsPersistConfig, ProductData),
+  products: ProductData,
   user: UserData
 })
 
