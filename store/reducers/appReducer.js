@@ -33,8 +33,9 @@ export const updateAppData = (state = initialState, action) => {
         cartArr.push(action.payload);
       }  else {
         // check if item exists in cart if not, add new item
+        //if size is not the same, also return true 
         function checkCart(cartArr) {
-          return cartArr.productId === action.payload.productId;
+          return (cartArr.productId === action.payload.productId) && (cartArr.size === action.payload.size)
         }
         const isInArray = cartArr.some(checkCart);
         if (isInArray === false) {

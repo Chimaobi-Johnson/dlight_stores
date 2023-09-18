@@ -19,12 +19,9 @@
     justify-items: center;
 }
 
-.contentContainer span {
-    font-size: .9rem;
-}
-
 .heading4 {
     margin: 0;
+    margin-bottom: .3rem;
 }
 
 .quantityContainer {
@@ -58,6 +55,12 @@
     visibility: hidden;
     transition: all 1s ease;
     opacity: 0;
+}
+
+.sizeColor {
+    font-size: .8rem;
+    padding: .1rem .3rem;
+    border: 1px solid #cfcfcf;
 }
 
 @keyframes displayEditBtn {

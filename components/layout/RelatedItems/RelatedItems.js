@@ -14,24 +14,6 @@ const RelatedItems = props => {
     const { product, category } = props
 
     const products = useSelector(data => data.products.products)
-    console.log(products)
-    // useEffect(() => {
-
-    //     const getProducts = async () => {
-    //         try {
-    //           const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/products')
-    //           if(response.status === 200) {
-    //             dispatch(storeProducts(response.data.products))
-    //           } 
-    //         } catch (error) {
-    //           console.log(error)
-    //         }
-    //       }
-    //       if(!products) {
-    //         getProducts()
-    //     }
-      
-    // }, [products])
 
     const [relatedProducts, setRelatedProducts] = useState(null)
 

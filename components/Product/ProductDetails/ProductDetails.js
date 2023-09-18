@@ -122,7 +122,7 @@ const ProductDetails = (props) => {
                             onClick={(s) => selectSize(size)}
                             className={selectedSize === size ? styles.active : null}
                             >
-                               {size.name}                        
+                               {size}                        
                             </li>
                         );
                         })}

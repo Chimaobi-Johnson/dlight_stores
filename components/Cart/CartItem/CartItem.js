@@ -6,7 +6,7 @@ import { useState } from "react";
 
 
 const CartItem = (props) => {
-  const { productId, name, price, quantity, size, imageUrl } = props.item;
+  const { productId, name, price, color, quantity, size, imageUrl } = props.item;
 
   const dispatch = useDispatch();
 
@@ -39,6 +39,18 @@ const CartItem = (props) => {
       // if user is loggedin, update user cart
   }
 
+  const renderColor = (color) => {
+    return color ? color : ''
+  }
+
+  const renderSize = (size) => {
+    return size ? size : ''
+  }
+
+  const renderSlash = (size, color) => {
+    return size && color ? '/' : ''
+  }
+
 
   return (
     <div className={styles.wrapper}>
@@ -47,7 +59,7 @@ const CartItem = (props) => {
       </div>
       <div className={styles.contentContainer}>
         <h4 className={styles.heading4}>{name}</h4>
-        <span>2.5/6 Pieces</span>
+        <span className={styles.sizeColor}>{renderSize(size) + renderSlash(size, color) + renderColor(color)}</span>
         <div className={styles.quantityContainer}>
           <div className={styles.inputLabel}>
             <p>Qty</p>
