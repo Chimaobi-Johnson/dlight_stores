@@ -11,6 +11,7 @@ import Search from "../../ui/Search/Search";
 import { isEmpty } from "../../../utils/helperFunctions";
 import axios from "axios";
 import UserIcon from "./UserIcon/UserIcon";
+import { storeProducts } from "../../../store/actions/products";
 
 const Navigation = (props) => {
   const { user } = props 
@@ -27,6 +28,22 @@ const Navigation = (props) => {
   const extendMenuIcon = {
     marginLeft: '2px',
   }
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/products')
+        if(response.status === 200) {
+          dispatch(storeProducts(response.data.products))
+        } 
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getProducts()
+
+  }, [])
 
 
 

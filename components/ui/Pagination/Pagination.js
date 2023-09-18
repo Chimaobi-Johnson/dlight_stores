@@ -15,8 +15,10 @@ const Pagination = props => {
     const [ prevData, setPrevData ] = useState(null)
 
     useEffect(() => {
+        if(products) {
         setNextData(products[currentIndex + 1])
         setPrevData(products[currentIndex - 1])
+        }
     }, [products, currentIndex])
     
 

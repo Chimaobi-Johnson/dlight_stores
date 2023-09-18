@@ -31,7 +31,7 @@ const Product = (props) => {
   );
 };
 
-export async function getStaticPaths(context) {
+export async function getStaticPaths() {
 
   const response = await axios.get(process.env.BACKEND_URL + '/products/ids');
 
@@ -47,12 +47,11 @@ export async function getStaticProps(context) {
   const productId = context.params.id;
 
   const response = await axios.get(process.env.BACKEND_URL + '/product/?id=' + productId)
-
   return {
     props: {
       products: response.data,
     },
-    revalidate: 1
+    revalidate: 5
   }
 
 }

@@ -35,7 +35,7 @@ export async function getStaticProps() {
        products: flatted.stringify(response.data.products),
        categories: response2.data.categories
      },
-     revalidate: 1
+     revalidate: 10
    }
  
  }

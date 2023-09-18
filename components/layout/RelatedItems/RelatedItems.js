@@ -4,15 +4,34 @@ import { recommendedProducts } from '../../../data/dummy';
 
 import styles from './RelatedItems.module.css';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
 
 const RelatedItems = props => {
+    const dispatch = useDispatch()
 
     const { product, category } = props
 
     const products = useSelector(data => data.products.products)
+    console.log(products)
+    // useEffect(() => {
+
+    //     const getProducts = async () => {
+    //         try {
+    //           const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/products')
+    //           if(response.status === 200) {
+    //             dispatch(storeProducts(response.data.products))
+    //           } 
+    //         } catch (error) {
+    //           console.log(error)
+    //         }
+    //       }
+    //       if(!products) {
+    //         getProducts()
+    //     }
+      
+    // }, [products])
 
     const [relatedProducts, setRelatedProducts] = useState(null)
 
@@ -44,7 +63,7 @@ const RelatedItems = props => {
     }
 
     useEffect(() => {
-        getRelatedProducts(products, category)
+        products ? getRelatedProducts(products, category) : <h1>Loading...</h1>
     }, [products, category])
 
     
