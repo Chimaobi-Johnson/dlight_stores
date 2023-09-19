@@ -33,7 +33,7 @@ const GoogleMap = () => {
   // [START maps_react_map_component_app_return]
   return (
     <div style={{ display: "flex", height: "100%" }}>
-      <Wrapper apiKey={process.env.GOOGLE_MAP_API} render={render}>
+      <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAP_API} render={render}>
         <Map
           center={center}
           onClick={onClick}
