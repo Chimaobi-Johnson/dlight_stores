@@ -39,7 +39,7 @@ const CartItem = (props) => {
   }
 
   const renderColor = (color) => {
-    return color ? <span style={{ backgroundColor: color }}></span> : ''
+    return color ? <span style={{ backgroundColor: color, display: 'block', width: '15px', height: '15px', marginLeft: '.2rem', borderRadius: '100%' }}></span> : ''
   }
 
   const renderSize = (size) => {
@@ -58,7 +58,7 @@ const CartItem = (props) => {
       </div>
       <div className={styles.contentContainer}>
         <h4 className={styles.heading4}>{name}</h4>
-        <span className={styles.sizeColor}>{renderSize(size) + renderSlash(size, color) + renderColor(color)}</span>
+        <div className={styles.sizeColorContainer}>{renderSize(size)} {renderSlash(size, color)}{renderColor(color)}</div>
         <div className={styles.quantityContainer}>
           <div className={styles.inputLabel}>
             <p>Qty</p>

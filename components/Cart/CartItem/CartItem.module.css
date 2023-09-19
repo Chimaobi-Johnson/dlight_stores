@@ -57,10 +57,13 @@
     opacity: 0;
 }
 
-.sizeColor {
+.sizeColorContainer {
     font-size: .8rem;
     padding: .1rem .3rem;
     border: 1px solid #cfcfcf;
+    width: fit-content;
+    display: flex;
+    align-items: center;
 }
 
 @keyframes displayEditBtn {
