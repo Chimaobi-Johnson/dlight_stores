@@ -25,23 +25,18 @@ const CartRecommend = (props) => {
       }
     };
 
-    // if(props.newRecommendedProduct) {
+    if(props.newRecommendedProduct) {
         getProductsByCategory();
-    // }
+    }
 
   }, [category, props.newRecommendedProduct]);
 
-  if(!product) {
-    return 
-  }
-
-  // if recommended product matches existing product
-    // if(product._id === window.location.pathname.split('/')[2]) {
-    //     return
-    // }
-
-  return (
-    <>
+  const renderComponent = () => {
+    if(!product) {
+        return
+    } else {
+        return (
+            <>
       <p className={styles.recommendedText}>
         {`We highly recommended adding the ${product.name} on orders this time of year!`}
       </p>
@@ -63,6 +58,17 @@ const CartRecommend = (props) => {
         </div>
       </div>
     </>
+        )
+    }
+  }
+
+  // if recommended product matches existing product
+    // if(product._id === window.location.pathname.split('/')[2]) {
+    //     return
+    // }
+
+  return (
+    renderComponent()
   );
 };
 
