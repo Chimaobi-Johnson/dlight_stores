@@ -25,11 +25,9 @@ const CartRecommend = (props) => {
       }
     };
 
-    if(props.newRecommendedProduct) {
-        getProductsByCategory();
-    }
+    getProductsByCategory();
 
-  }, [category, props.newRecommendedProduct]);
+  }, []);
 
   const renderComponent = () => {
     if(!product) {
