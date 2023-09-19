@@ -177,7 +177,7 @@ const ProductDetails = (props) => {
                 <Button onClick={addItemToCart} variant="secondary">
                     Add to cart
                 </Button>
-                <Button variant="secondary">Add to Wishlist</Button>
+                {/* <Button variant="secondary">Add to Wishlist</Button> */}
                 </div>
 
             </div>
