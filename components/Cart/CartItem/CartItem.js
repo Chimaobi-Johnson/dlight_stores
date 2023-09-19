@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const CartItem = (props) => {
   const { productId, name, price, color, quantity, size, imageUrl } = props.item;
-
   const dispatch = useDispatch();
 
   const [editingMode, setEditingMode] = useState(false);
@@ -40,7 +39,7 @@ const CartItem = (props) => {
   }
 
   const renderColor = (color) => {
-    return color ? color : ''
+    return color ? <span style={{ backgroundColor: color }}></span> : ''
   }
 
   const renderSize = (size) => {

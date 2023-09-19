@@ -21,6 +21,7 @@ const ProductDetails = (props) => {
     imagesUrl,
     price,
     sizes,
+    colors,
     subheading,
     description,
     deliveryStatus,
@@ -45,12 +46,18 @@ const ProductDetails = (props) => {
   };
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
-
+  const [selectedColor, setSelectedColor] = useState(null)
 
   const selectSize = (size) => {
     setSelectedSize(size)
     updatePrice(size.price)
     updateStatus(size.availability)
+  };
+
+  const selectColor = (color) => {
+    setSelectedColor(color)
+    updatePrice(color.price)
+    updateStatus(color.availability)
   };
 
   const updatePrice = (input) => {
@@ -74,10 +81,33 @@ const ProductDetails = (props) => {
         imageUrl: imagesUrl[0],
         size: selectedSize,
         quantity: quantity,
+        color: selectedColor,
         user: null
     }
     dispatch(addToCart(cartDetails));
   };
+
+  const renderColors = (colors) => {
+    return colors ? 
+    <>
+      <h4 style={{ marginBottom: '9px'}}>Available colors</h4>
+      <ul className={styles.colorItems}>
+      {
+        colors.map((color, index) => {
+          return <li
+          key={index + Math.random() * 100}
+          onClick={(c) => selectColor(color)}
+          className={selectedColor === color ? styles.currentColor : null}
+          style={{ backgroundColor: color }}>
+          </li>
+        })
+      }
+    </ul>
+    </>
+
+
+    : ''
+  }
 
 
   return (
@@ -131,6 +161,9 @@ const ProductDetails = (props) => {
                     </>
                 )}
                 </div>
+                <div className={styles.colorsContainer}>
+                  {renderColors(colors)}
+                </div>
                 <div className={styles.quantity}>
                     <Input type="number" value={quantity} onChange={(e) => selectQuantity(e)} label="Quantity" />
                 </div>
@@ -159,13 +192,11 @@ const ProductDetails = (props) => {
                 <div className={styles.shippingInfo}>
                     <h3>Shipping Information</h3>
                     <p>
-                    All plants are shipped bare-root with the exception of House
-                    Plants and Plant Club Subscription Boxes. House plants and
-                    succulents will ship from separate locations and may arrive at
-                    different times. Orders ship Monday-Friday each week. Please allow
-                    1-3 business days for your order to be processed. We ship within
-                    the USA and its outlying territories ONLY. Read our full policy
-                    here.
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a 
+                    piece of classical Latin literature from 45 BC, making it over 2000 years old. 
+                    Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked 
+                    up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, 
+                    and going through the cites of the word in classical literature, discovered the undoubtable source
                     </p>
                 </div>
             </div>
