@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import styles from "./Footer.module.css";
 import GoogleMap from "../../Map/GoogleMap";
+import Link from "next/link";
 
 const Footer = (props) => {
 
@@ -12,14 +13,13 @@ const Footer = (props) => {
             <div className={styles.mapContainer}>
               <GoogleMap />
             </div>
-            <p>Visit us at our store in Port Harcourt</p>
           </div>
           <div className={styles.box2}>
             <h3>Quick Access</h3>
             <ul>
-              <li>Home</li>
-              <li>Products</li>
-              <li>About us</li>
+              <Link href={'/'}><li>Home</li></Link>
+              <Link href={'/products'}><li>Products</li></Link>
+              <Link href={'/about'}><li>About us</li></Link>
             </ul>
           </div>
           <div className={styles.box3}>
@@ -56,6 +56,8 @@ const Footer = (props) => {
           <div className={styles.box4}>
             <h3>Call us</h3>
             <p>+234 7754212120</p>
+            <p style={{ fontSize: '.8rem' }}>Visit us at our store in Port Harcourt <br />@ No. 26 Destiny Drive rd, Abuloma, 500101, Port Harcourt, Nigeria</p>
+
           </div>
         </div>
         <div className={styles.footerBottom}>

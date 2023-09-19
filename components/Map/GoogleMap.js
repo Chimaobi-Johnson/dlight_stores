@@ -13,8 +13,8 @@ const GoogleMap = () => {
   const [clicks, setClicks] = React.useState([]);
   const [zoom, setZoom] = React.useState(17); // initial zoom
   const [center, setCenter] = React.useState({
-    lat: 4.834443012823783,
-    lng: 6.999846427555374,
+    lat: 4.787858475674922,
+    lng: 7.035296758620301,
   });
 
   const onClick = (e) => {
@@ -29,7 +29,7 @@ const GoogleMap = () => {
   };
 
   // [END maps_react_map_component_app_state]
- 
+
   // [START maps_react_map_component_app_return]
   return (
     <div style={{ display: "flex", height: "100%" }}>
@@ -41,9 +41,15 @@ const GoogleMap = () => {
           zoom={zoom}
           style={{ flexGrow: "1", height: "100%" }}
         >
-          {clicks.map((latLng, i) => (
+          <Marker
+            position={{
+              lat: 4.787858475674922,
+              lng: 7.035296758620301,
+            }}
+          />
+          {/* {clicks.map((latLng, i) => (
             <Marker key={i} position={latLng} />
-          ))}
+          ))} */}
         </Map>
       </Wrapper>
     </div>
@@ -128,33 +134,32 @@ const Marker = (options) => {
 };
 
 const deepCompareEqualsForMaps = createCustomEqual((deepEqual) => (a, b) => {
-    if (
-      isLatLngLiteral(a) ||
-      a instanceof google.maps.LatLng ||
-      isLatLngLiteral(b) ||
-      b instanceof google.maps.LatLng
-    ) {
-      return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
-    }
-    // TODO extend to other types
-    // use fast-equals for other objects
-    return deepEqual(a, b);
-  });
-  
-  function useDeepCompareMemoize(value) {
-    const ref = React.useRef();
-  
-    if (!deepCompareEqualsForMaps(value, ref.current)) {
-      ref.current = value;
-    }
-    return ref.current;
+  if (
+    isLatLngLiteral(a) ||
+    a instanceof google.maps.LatLng ||
+    isLatLngLiteral(b) ||
+    b instanceof google.maps.LatLng
+  ) {
+    return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
   }
-  
-  function useDeepCompareEffectForMaps(callback, dependencies) {
-    React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
+  // TODO extend to other types
+  // use fast-equals for other objects
+  return deepEqual(a, b);
+});
+
+function useDeepCompareMemoize(value) {
+  const ref = React.useRef();
+
+  if (!deepCompareEqualsForMaps(value, ref.current)) {
+    ref.current = value;
   }
+  return ref.current;
+}
+
+function useDeepCompareEffectForMaps(callback, dependencies) {
+  React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
+}
 
 // [END maps_react_map_marker_component]
 
-export default GoogleMap
-
+export default GoogleMap;
