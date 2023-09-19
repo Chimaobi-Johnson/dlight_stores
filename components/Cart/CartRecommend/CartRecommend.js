@@ -25,9 +25,9 @@ const CartRecommend = (props) => {
       }
     };
 
-    if(props.newRecommendedProduct) {
+    // if(props.newRecommendedProduct) {
         getProductsByCategory();
-    }
+    // }
 
   }, [category, props.newRecommendedProduct]);
 

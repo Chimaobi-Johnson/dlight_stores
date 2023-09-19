@@ -57,8 +57,8 @@ const ProductDetails = (props) => {
 
   const selectColor = (color) => {
     setSelectedColor(color)
-    updatePrice(color.price)
-    updateStatus(color.availability)
+    // updatePrice(color.price)
+    // updateStatus(color.availability)
   };
 
   const updatePrice = (input) => {
