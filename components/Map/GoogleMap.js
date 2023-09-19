@@ -13,10 +13,9 @@ const GoogleMap = () => {
   const [clicks, setClicks] = React.useState([]);
   const [zoom, setZoom] = React.useState(17); // initial zoom
   const [center, setCenter] = React.useState({
-    lat: 4.787858475674922,
-    lng: 7.035296758620301,
+    lat: 4.7876062722163555,
+    lng: 7.035275401580352,
   });
-
   const onClick = (e) => {
     // avoid directly mutating state
     setClicks([...clicks, e.latLng]);
@@ -43,8 +42,8 @@ const GoogleMap = () => {
         >
           <Marker
             position={{
-              lat: 4.787858475674922,
-              lng: 7.035296758620301,
+              lat: 4.7876062722163555,
+              lng: 7.035275401580352,
             }}
           />
           {/* {clicks.map((latLng, i) => (
