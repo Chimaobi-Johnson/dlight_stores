@@ -90,7 +90,7 @@ const ProductDetails = (props) => {
   };
 
   const renderColors = (colors) => {
-    return colors ? 
+    return colors.length !== 0 ? 
     <>
       <h4 style={{ marginBottom: '9px'}}>Available colors</h4>
       <ul className={styles.colorItems}>
