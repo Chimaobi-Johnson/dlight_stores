@@ -25,6 +25,7 @@ const ProductDetails = (props) => {
     subheading,
     description,
     deliveryStatus,
+    category
   } = props.product;
 
   useEffect(() => {
@@ -82,6 +83,7 @@ const ProductDetails = (props) => {
         size: selectedSize,
         quantity: quantity,
         color: selectedColor,
+        category: category,
         user: null
     }
     dispatch(addToCart(cartDetails));

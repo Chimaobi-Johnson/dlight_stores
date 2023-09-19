@@ -8,18 +8,20 @@ import CartItem from "./CartItem/CartItem";
 import CartRecommend from "./CartRecommend/CartRecommend";
 import { isEmpty } from "../../utils/helperFunctions";
 import { updateUserCart } from "../../store/actions/user";
+import { useState } from "react";
 
 const Cart = (props) => {
 
   const cartItems = useSelector(data => data.app.cart.cartItems);
   const cartInit = useSelector(data => data.app.cartInit);
   const loggedUser = useSelector(data => data.user);
-
+  const [newRecommendedProduct, setNewRecommendedProduct] = useState(true)
 
   const dispatch = useDispatch();
 
   const initCartHandler = () => {
     dispatch(initCart());
+    setNewRecommendedProduct(!newRecommendedProduct)
     // if user is loggedin, update user cart
     if(!isEmpty(loggedUser)) {
       dispatch(updateUserCart(cartItems, loggedUser.cart.items))
@@ -45,16 +47,18 @@ const Cart = (props) => {
             {cartItems.length !== 0 ? cartItems.map((item, index) => {
                 return <CartItem key={index} item={item} />
             }) : 
-            'No item in cart'
+            <div style={{ marginLeft: '1rem'}}>No item in cart</div>
             }
         </div>
         <div className={styles.recommended}>
-            <p className={styles.recommendedText}>we highly recommended adding a heat pack on houseplant orders this time of year</p>
-            <CartRecommend />
+            {cartItems.length !== 0 ? <CartRecommend newRecommendedProduct={newRecommendedProduct} cartItem={cartItems[0]} /> : ''}
         </div>
         <div className={styles.subTotalContainer}>
-          <h4>Sub Total</h4>
-          <Link href="/checkout"><Button variant="primary">Checkout</Button></Link>
+        {cartItems.length !== 0 ? 
+          <>
+           <h4>Sub Total</h4>
+           <Link href="/checkout"><Button variant="primary">Checkout</Button></Link>
+          </> : '' }
           <Link href="#"><span style={{ cursor: 'pointer' }} onClick={initCartHandler}>Continue shopping</span></Link>
         </div>
       </div>

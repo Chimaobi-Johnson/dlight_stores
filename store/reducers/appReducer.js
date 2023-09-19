@@ -39,7 +39,7 @@ export const updateAppData = (state = initialState, action) => {
         }
         const isInArray = cartArr.some(checkCart);
         if (isInArray === false) {
-          cartArr.push(action.payload);
+          cartArr.unshift(action.payload);
         } else {
            // item exists 
           //  check if price has been updated and update price and qty if true 
