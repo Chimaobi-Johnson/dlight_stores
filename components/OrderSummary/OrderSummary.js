@@ -58,9 +58,9 @@ const OrderSummary = (props) => {
                         </ul>
                     )}
                     <div className={styles.buttonContainer}>
-                        <Button onClick={initPaymentContainer}>Looks good!</Button>
-                        {/* <Button onClick={closePaymentContainer}>close</Button> */}
-                        <Link href={'/checkout'}><Button>Go back</Button></Link>
+                        <Button variant="secondary" onClick={initPaymentContainer}>Looks good!</Button>
+                        <Button variant="secondary" onClick={closePaymentContainer}>close</Button>
+                        {/* <Link href={'/checkout'}><Button>Go back</Button></Link> */}
 
                     </div>
         

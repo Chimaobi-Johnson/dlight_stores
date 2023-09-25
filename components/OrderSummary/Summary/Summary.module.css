@@ -1,2 +1,7 @@
-
-
+.wrapper h3 {
+    padding: .5rem;
+    background-color: #d2ddec;
+    width: fit-content;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}

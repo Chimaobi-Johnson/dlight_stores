@@ -49,6 +49,14 @@
     grid-template-columns: 1fr 1fr;
     width: fit-content;
 }
+
+.contactInfo h3 {
+    padding: .5rem;
+    background-color: #d2ddec;
+    width: fit-content;
+    border-top-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
   
   @keyframes login-info-slide-down {
     0% {
