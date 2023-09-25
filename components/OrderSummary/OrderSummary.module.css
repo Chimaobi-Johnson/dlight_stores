@@ -34,13 +34,21 @@
       width: 69%;
       transition: opacity 1s;
       transform: translate(-50%, -50%);
-      opacity: 1;
+      opacity: 0;
   }
   
   .orderSummary {
     padding: 2rem;
+    display: grid;
+    transition: all 1s;
+    grid-template-columns: 1fr 1fr;
   }
   
+  .buttonContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+}
   
   @keyframes login-info-slide-down {
     0% {

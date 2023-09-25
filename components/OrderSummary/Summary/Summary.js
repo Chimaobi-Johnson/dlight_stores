@@ -38,7 +38,7 @@ const Summary = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <h3>Please re-check your information</h3>
+      <h3>Final Review</h3>
       <div className={styles.itemsContainer}>
         {items.map((el) => (
           <div className={styles.itemsContainer}>
