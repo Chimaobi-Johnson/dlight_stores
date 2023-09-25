@@ -1,52 +1,99 @@
 .wrapper {
-    background-color: blanchedalmond;
-    padding: 5rem 0;
+  background-color: blanchedalmond;
+  padding: 5rem 0;
+  position: relative;
 }
 
 .contentWrapper {
-    width: 80%;
-    margin: 0 auto;
-    min-height: 100vh;
-    background-color: #ffffff;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-} 
+  width: 80%;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .itemsWrapper {
-    border: 1px solid #eaeaea;
-    padding: 1rem;
-    border-radius: 5px;
+  border: 1px solid #eaeaea;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .paymentDetails {
-    padding: 2rem;
-    background-color: #b0c4de91;
+  padding: 2rem;
+  background-color: #b0c4de91;
 }
 
 .orderSummary {
-    padding: 2rem;
+  padding: 2rem;
 }
 
+.loginContainer {
+  position: absolute;
+  top: 1%;
+  width: 16%;
+  left: 1%;
+  background-color: #0f0f0fde;
+  padding: 0.8rem;
+  color: #ffff;
+  animation: login-info-slide-down 1.2s ease 1.5s;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+}
 
+.loginContainer span {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
 
+.loginContainer span:hover {
+  color: #e96666;
+}
 
+@keyframes login-info-slide-down {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    top: -5%;
+  }
+  100% {
+    visibility: visible;
+    top: 1%;
+    opacity: 1;
+  }
+}
 
+/* @keyframes login-info-slide-up {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        top: 5%;
+        left: 100%;
+    }
+    100% {
+        visibility: visible;
+        top: 5%;
+        left: -10%;
+        opacity: 1;
+    }
+} */
 
 /* MEDIA QUERIES */
 @media (max-width: 700px) {
+  .wrapper {
+    padding: 0;
+  }
 
-    .wrapper {
-        padding: 0;
-    }    
+  .contentWrapper {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
 
-    .contentWrapper {
-        width: 100%;
-        grid-template-columns: 1fr;
-    } 
-
-    .addressContainer {
-        width: 100%;
-        height: auto;
-    }
-
+  .addressContainer {
+    width: 100%;
+    height: auto;
+  }
 }
