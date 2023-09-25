@@ -40,8 +40,8 @@
   animation-fill-mode: forwards;
   visibility: hidden;
 }
-
-.loginContainer span {
+/* #fbffa5 */
+.closeIcon {
   position: absolute;
   top: 2px;
   right: 8px;
@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 
-.loginContainer span:hover {
+.closeIcon:hover {
   color: #e96666;
 }
 

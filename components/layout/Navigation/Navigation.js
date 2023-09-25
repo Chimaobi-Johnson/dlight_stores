@@ -12,9 +12,18 @@ import { isEmpty } from "../../../utils/helperFunctions";
 import axios from "axios";
 import UserIcon from "./UserIcon/UserIcon";
 import { storeProducts } from "../../../store/actions/products";
+import { useRouter } from "next/router";
 
 const Navigation = (props) => {
   const { user } = props 
+
+  const router = useRouter()
+  const currentPage = router.pathname.split('/')[1];
+
+  let linkToLogin = 'auth/login';
+  if(currentPage === 'checkout') {
+    linkToLogin = `auth/login?status=checkout`
+  }
 
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()
@@ -82,7 +91,7 @@ const Navigation = (props) => {
         <div className={styles.infoIcons}>
           <div className={styles.accountIcon}>
             {isEmpty(user) ? (
-              <Link href="/auth/login"><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
+              <Link href={linkToLogin}><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
             ): <UserIcon firstName={user.firstName} lastName={user.lastName} />}
           </div>
           <div onClick={initCartHandler} className={styles.cartIcon}>

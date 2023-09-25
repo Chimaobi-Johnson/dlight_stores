@@ -4,6 +4,7 @@ import CartItem from "../Cart/CartItem/CartItem";
 import { useState } from "react";
 import AddressForm from "./AddressForm/AddressForm";
 import PaystackPage from "./PaystackPage/PaystackPage";
+import Link from "next/link";
 
 const CheckoutPage = (props) => {
   const cartItems = useSelector((data) => data.app.cart.cartItems);
@@ -15,19 +16,25 @@ const CheckoutPage = (props) => {
     setDeliveryType(e.target.value);
   };
 
+  const LoginInfo = () => {
+    return (
+      <div id='loginInfo' className={styles.loginContainer}>
+      <span className={styles.closeIcon} onClick={removeLoginInfo}>close {'(x)'}</span>
+      <h5>
+        You are not logged in, <span style={{ color: '#fbffa5', cursor: 'pointer' }}><Link href={`/auth/login?status=checkout`}>log in</Link></span> or <span style={{ color: '#a5f0ff', cursor: 'pointer' }}><Link href={`/auth/register?status=checkout`}>register</Link></span>  with us for an easier
+        experience
+      </h5>
+    </div>
+    )
+  }
+
   const removeLoginInfo = () => {
     document.getElementById('loginInfo').style.display = 'none'
   }
 
   return (
     <div className={styles.wrapper}>
-      <div id='loginInfo' className={styles.loginContainer}>
-        <span onClick={removeLoginInfo}>close {'(x)'}</span>
-        <h5>
-          You are not logged in, log in or register with us for an easier
-          experience
-        </h5>
-      </div>
+      <LoginInfo />
       <div className={styles.contentWrapper}>
         <div className={styles.orderSummary}>
           <div className={styles.header}>

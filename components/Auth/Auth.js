@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Button from '../ui/Button/Button';
 import Input from '../ui/Input/Input';
 import { useForm } from "react-hook-form";
+import { useRouter } from 'next/router'
+
 
 import axios from 'axios';
 
@@ -10,6 +12,13 @@ import styles from './Auth.module.css';
 
 
 const Auth = props => {
+
+    const router = useRouter()
+    let registerLink = '/auth/register'
+
+    if(router.query.status === 'checkout') {
+        registerLink =`/auth/register?status=checkout`;
+    }
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -38,8 +47,11 @@ const Auth = props => {
             new Date().getTime() + remainingMilliseconds
           );
             localStorage.setItem('dlight_expiryDate', expiryDate.toISOString());
-
-          window.location.pathname = '/'
+          if(router.query.status === 'checkout') {
+            router.push('/checkout')
+          } else {
+            router.push('/')
+          }
           }
         }).catch(err => {
             console.log(err)
@@ -70,7 +82,11 @@ const Auth = props => {
         const result = await axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/register', formData);
         if(result.status === 200 || result.status === 201 ) {
             alert('User created successfully')
-            window.location.pathname = '/'
+            if(router.query.status === 'checkout') {
+                router.push('/checkout')
+              } else {
+                router.push('/')
+              }
 
         } else {
             alert('Error')
@@ -87,7 +103,7 @@ const Auth = props => {
                         <Input type="email" onChange={(e) => changeLoginTextHandler('email', e)} value={email} placeholder="Email" label="Email" />
                         <Input type="password" onChange={(e) => changeLoginTextHandler('password', e)} value={password} placeholder="Password" label="Password" />
                         <Button onClick={loginHandler} variant="secondary">SIGN IN</Button>
-                        <p>Don&apos;t have an account? <Link href="/auth/register">Create account</Link></p>
+                        <p>Don&apos;t have an account? <Link href={registerLink}>Create account</Link></p>
                         <span>Forgot password? <Link href="/auth/forgot-password">Click here</Link></span>
                     </>
                 ) : (
