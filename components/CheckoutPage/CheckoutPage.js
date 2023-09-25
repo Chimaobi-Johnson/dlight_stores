@@ -5,6 +5,7 @@ import { useState } from "react";
 import AddressForm from "./AddressForm/AddressForm";
 import PaystackPage from "./PaystackPage/PaystackPage";
 import Link from "next/link";
+import ShortForm from "./ShortForm/ShortForm";
 
 const CheckoutPage = (props) => {
   const cartItems = useSelector((data) => data.app.cart.cartItems);
@@ -75,19 +76,21 @@ const CheckoutPage = (props) => {
             </div>
           </div>
           <div className={styles.addressContainer}>
-            {deliveryType === "delivery" ? <AddressForm /> : null}
+            {deliveryType === "delivery" ? <AddressForm /> : <ShortForm />}
           </div>
         </div>
 
         <div className={styles.paymentDetails}>
-          <div className={styles.header}>
-            <h1>Payment Details</h1>
-            <p>Provide your payment details to complete your purchase</p>
-            <PaystackPage
-              total={subTotal}
-              cartItems={cartItems}
-              deliveryType={deliveryType}
-            />
+          <div className={styles.paystackContainer}>
+            <div className={styles.header}>
+              <h1>Payment Details</h1>
+              <p>Provide your payment details to complete your purchase</p>
+              <PaystackPage
+                total={subTotal}
+                cartItems={cartItems}
+                deliveryType={deliveryType}
+              />
+            </div>
           </div>
           <div className={styles.gatewayContainer}></div>
         </div>

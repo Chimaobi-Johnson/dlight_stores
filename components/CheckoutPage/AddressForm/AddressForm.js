@@ -1,7 +1,17 @@
+import Button from "../../ui/Button/Button";
 import Input from "../../ui/Input/Input";
+import { useForm } from "react-hook-form";
+
 import * as styles from "./AddressForm.module.css";
 
 const AddressForm = (props) => {
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const submitFormHandler  = async (data) => {
+    console.log(data)
+  }
+
   return (
     <div className={styles.wrapper}>
       <h3>Delivery Address</h3>
@@ -13,6 +23,8 @@ const AddressForm = (props) => {
           inputName="firstName"
           minLength={3}
           required
+          register={register}
+          controlled
         />
         <Input
           type="text"
@@ -20,24 +32,38 @@ const AddressForm = (props) => {
           inputName="lastName"
           minLength={3}
           required
+          register={register}
+          controlled
         />
-        <Input type="email" label="Email" inputName="email" required />
-        <Input type="text" label="Mobile Number" inputName="mobile" required />
+        <Input type="email" label="Email" inputName="email" required
+        controlled
+        register={register} />
+        <Input type="text" label="Mobile Number" inputName="mobile" required
+        controlled
+        register={register} />
         <Input
           type="text"
           label="State"
           inputName="state"
           defaultValue="Rivers"
           disabled
+          register={register}
+          controlled
         />
-        <Input type="text" label="City" inputName="city" required />
+        <Input type="text" label="City" inputName="city" required
+        controlled
+        register={register} />
         <Input
           type="text"
           label="Street/Road Name"
           inputName="streetname"
           required
+          register={register}
+          controlled
         />
-        <Input type="text" label="House No" inputName="houseno" />
+        <Input type="text" label="House No" inputName="houseno"
+        controlled
+        register={register} />
         {/* <label for="additionalInfo">Additional Info</label> */}
         <div className={styles.additionalInfo}>
           <span>
@@ -46,9 +72,12 @@ const AddressForm = (props) => {
           <textarea
             id="additionalInfo"
             name="additionalInfo"
+            {...register('additionalInfo')}
+            controlled
           ></textarea>
         </div>
       </div>
+      <Button onClick={handleSubmit(submitFormHandler)}>Continue</Button>
     </div>
   );
 };

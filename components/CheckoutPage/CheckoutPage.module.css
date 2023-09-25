@@ -22,6 +22,16 @@
 .paymentDetails {
   padding: 2rem;
   background-color: #b0c4de91;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.paystackContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 69%;
+    transform: translate(-50%, -50%);
 }
 
 .orderSummary {
