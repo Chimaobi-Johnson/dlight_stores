@@ -8,7 +8,7 @@ import styles from "./ProductDetails.module.css";
 import Cart from "../../Cart/Cart";
 import Search from "../../ui/Search/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { initCart, addToCart } from "../../../store/actions/app";
+import { initCart, addToCart, updateSubTotal } from "../../../store/actions/app";
 import Pagination from "../../ui/Pagination/Pagination";
 import Link from "next/link";
 
@@ -87,6 +87,7 @@ const ProductDetails = (props) => {
         user: null
     }
     dispatch(addToCart(cartDetails));
+    dispatch(updateSubTotal());
   };
 
   const renderColors = (colors) => {

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import * as styles from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
-import { removeCartItem, updateItemQty } from "../../../store/actions/app";
+import { removeCartItem, updateItemQty, updateSubTotal } from "../../../store/actions/app";
 import { useState } from "react";
 
 
@@ -34,6 +34,7 @@ const CartItem = (props) => {
   const removeCartItemandUpdate = (prodId) => {
       // remove item
       dispatch(removeCartItem(prodId))
+      dispatch(updateSubTotal())
 
       // if user is loggedin, update user cart
   }

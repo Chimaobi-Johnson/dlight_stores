@@ -5,6 +5,7 @@ import {
   INIT_SEARCH_BAR,
   REMOVE_CART_ITEM,
   UPDATE_CART_QUANTITY,
+  UPDATE_SUBTOTAL,
   UPDATE_USER_CART,
 } from "../actionTypes";
 
@@ -12,6 +13,7 @@ const initialState = {
   cartInit: false,
   cart: {
     cartItems: [],
+    subTotal: null,
   },
   mobileMenuInit: false,
   searchBarInit: false,
@@ -122,6 +124,20 @@ export const updateAppData = (state = initialState, action) => {
           },
         };
         return newState;
+    case UPDATE_SUBTOTAL:
+      let total = 0;
+        state.cart.cartItems.map(el => {
+          total = el.price + total
+        })
+      
+        newState = {
+          ...state,
+          cart: {
+            ...state.cart,
+            subTotal: total
+          },
+        };
+        return newState
     default:
       return state;
   }

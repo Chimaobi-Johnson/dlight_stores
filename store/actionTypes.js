@@ -4,6 +4,7 @@ export const INIT_CART = 'INIT_CART';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_CART_ITEM = 'REMOVE_CART_ITEM';
 export const UPDATE_CART_QUANTITY = 'UPDATE_CART_QUANTITY';
+export const UPDATE_SUBTOTAL = 'UPDATE_SUBTOTAL';
 
 // SEARCH
 export const INIT_SEARCH_BAR = 'INITSEARCH_BAR'

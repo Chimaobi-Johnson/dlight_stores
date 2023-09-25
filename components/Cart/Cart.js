@@ -13,6 +13,7 @@ import { useState } from "react";
 const Cart = (props) => {
 
   const cartItems = useSelector(data => data.app.cart.cartItems);
+  const subTotal = useSelector(data => data.app.cart.subTotal);
   const cartInit = useSelector(data => data.app.cartInit);
   const loggedUser = useSelector(data => data.user);
   const [newRecommendedProduct, setNewRecommendedProduct] = useState(true)
@@ -56,7 +57,7 @@ const Cart = (props) => {
         <div className={styles.subTotalContainer}>
         {cartItems.length !== 0 ? 
           <>
-           <h4>Sub Total</h4>
+           <h4>Sub Total: {subTotal}</h4>
            <Link href="/checkout"><Button variant="primary">Checkout</Button></Link>
           </> : '' }
           <Link href="#"><span style={{ cursor: 'pointer' }} onClick={initCartHandler}>Continue shopping</span></Link>
