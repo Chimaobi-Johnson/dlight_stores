@@ -6,6 +6,7 @@ import AddressForm from "./AddressForm/AddressForm";
 import PaystackPage from "./PaystackPage/PaystackPage";
 import Link from "next/link";
 import ShortForm from "./ShortForm/ShortForm";
+import Summary from "./Summary/Summary";
 
 const CheckoutPage = (props) => {
   const cartItems = useSelector((data) => data.app.cart.cartItems);
@@ -33,12 +34,10 @@ const CheckoutPage = (props) => {
     document.getElementById('loginInfo').style.display = 'none'
   }
 
-  return (
-    <div className={styles.wrapper}>
-      <LoginInfo />
-      <div className={styles.contentWrapper}>
-        <div className={styles.orderSummary}>
-          <div className={styles.header}>
+  const OrderDetails = () => {
+    return (
+      <>
+         <div className={styles.header}>
             <h1>Order Summary</h1>
             <p>Review your items and select delivery method</p>
           </div>
@@ -78,6 +77,16 @@ const CheckoutPage = (props) => {
           <div className={styles.addressContainer}>
             {deliveryType === "delivery" ? <AddressForm /> : <ShortForm />}
           </div>
+      </>
+    )
+  }
+
+  return (
+    <div className={styles.wrapper}>
+      <LoginInfo />
+      <div className={styles.contentWrapper}>
+        <div className={styles.orderSummary}>
+            <Summary cartItems={cartItems} />
         </div>
 
         <div className={styles.paymentDetails}>
