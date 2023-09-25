@@ -40,7 +40,7 @@ const Summary = (props) => {
       <h3>Final Review</h3>
       <div className={styles.itemsContainer}>
         {items.map((el) => (
-          <div className={styles.itemsContainer}>
+          <div key={Math.random() * 10} className={styles.itemsContainer}>
             <h2>{el.productName}</h2>
             <h4>
               Total Quantity:{" "}
@@ -51,7 +51,7 @@ const Summary = (props) => {
 
             <ul>
               {el.variants.map((x) => (
-                <li>
+                <li key={Math.random() * 18} >
                   <span>Qty:</span>{x.quantity} <span>Size:</span> {x.size ? x.size : 'N/A'} - {" "}
                   <span>Color:</span>
                     {x.color ? (
