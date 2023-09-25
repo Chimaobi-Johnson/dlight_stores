@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../Cart/CartItem/CartItem";
 import { useState } from "react";
 import AddressForm from "./AddressForm/AddressForm";
+import PaystackPage from "./PaystackPage/PaystackPage";
 
 const CheckoutPage = (props) => {
 
   const cartItems = useSelector((data) => data.app.cart.cartItems);
+  const subTotal = useSelector((data) => data.app.cart.subTotal);
 
   const [deliveryType, setDeliveryType] = useState(null)
 
@@ -29,6 +31,7 @@ const CheckoutPage = (props) => {
                 })
               : "No item in cart"}
           </div>
+          <h2>Total = N{subTotal ? subTotal : 0}</h2>
           <div className={styles.deliveryMethodContainer}>
             <h3>Delivery Type</h3>
             <div>
@@ -60,6 +63,7 @@ const CheckoutPage = (props) => {
           <div className={styles.header}>
             <h1>Payment Details</h1>
             <p>Provide your payment details to complete your purchase</p>
+            <PaystackPage />
           </div>
           <div className={styles.gatewayContainer}>
          
