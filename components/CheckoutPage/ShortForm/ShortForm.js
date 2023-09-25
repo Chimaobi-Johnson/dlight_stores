@@ -3,13 +3,17 @@ import Input from "../../ui/Input/Input";
 import { useForm } from "react-hook-form";
 
 import * as styles from "../AddressForm/AddressForm.module.css";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import { updateDeliveryDetails } from "../../../store/actions/app";
 
 const ShortForm = (props) => {
-
+    const router = useRouter()
     const { register, handleSubmit, formState: { errors } } = useForm();
-
+    const dispatch = useDispatch()
     const submitForm = async (data) => {
-        console.log(data)
+        dispatch(updateDeliveryDetails({...data, deliveryType: props.deliveryType}))
+        router.push('/order-summary')
     }
 
 

@@ -14,7 +14,8 @@ const OrderSummary = (props) => {
         </div>
 
         <div className={styles.paymentDetails}>
-        <div className={styles.paystackContainer}>
+            
+        {/* <div className={styles.paystackContainer}>
             <div className={styles.header}>
               <h1>Payment Details</h1>
               <p>Provide your payment details to complete your purchase</p>
@@ -23,8 +24,7 @@ const OrderSummary = (props) => {
                 cartItems={cartItems}
               />
             </div>
-          </div>
-          <div className={styles.gatewayContainer}></div>
+          </div> */}
         </div>
         </div>
     </div>

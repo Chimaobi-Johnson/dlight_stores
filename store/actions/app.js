@@ -5,6 +5,7 @@ import {
   INIT_SEARCH_BAR,
   REMOVE_CART_ITEM,
   UPDATE_CART_QUANTITY,
+  UPDATE_DELIVERY_DETAILS,
   UPDATE_SUBTOTAL,
 } from "../actionTypes";
 
@@ -56,3 +57,10 @@ export const updateSubTotal  = () => (dispatch) => {
     type: UPDATE_SUBTOTAL,
   });
 };
+
+export const updateDeliveryDetails = (data) => (dispatch) => {
+    dispatch({
+      type: UPDATE_DELIVERY_DETAILS,
+      payload: data
+    });
+  };

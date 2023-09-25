@@ -4,13 +4,15 @@ import { useForm } from "react-hook-form";
 
 import * as styles from "./AddressForm.module.css";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { updateDeliveryDetails } from "../../../store/actions/app";
 
 const AddressForm = (props) => {
   const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm();
-
+  const dispatch = useDispatch()
   const submitFormHandler  = async (data) => {
-    console.log(data)
+    dispatch(updateDeliveryDetails({...data, deliveryType: props.deliveryType}))
     router.push('/order-summary')
   }
 

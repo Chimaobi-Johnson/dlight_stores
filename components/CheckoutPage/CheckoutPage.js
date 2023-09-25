@@ -74,7 +74,7 @@ const CheckoutPage = (props) => {
             </div>
           </div>
           <div className={styles.addressContainer}>
-            {deliveryType === "delivery" ? <AddressForm /> : <ShortForm />}
+            {deliveryType === "delivery" ? <AddressForm deliveryType={deliveryType} /> : <ShortForm deliveryType={deliveryType} />}
           </div>
       </>
     )

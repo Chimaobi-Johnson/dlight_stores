@@ -5,6 +5,7 @@ import {
   INIT_SEARCH_BAR,
   REMOVE_CART_ITEM,
   UPDATE_CART_QUANTITY,
+  UPDATE_DELIVERY_DETAILS,
   UPDATE_SUBTOTAL,
   UPDATE_USER_CART,
 } from "../actionTypes";
@@ -15,6 +16,7 @@ const initialState = {
     cartItems: [],
     subTotal: null,
   },
+  deliveryData: null,
   mobileMenuInit: false,
   searchBarInit: false,
 };
@@ -136,6 +138,12 @@ export const updateAppData = (state = initialState, action) => {
             ...state.cart,
             subTotal: total
           },
+        };
+        return newState
+      case UPDATE_DELIVERY_DETAILS:
+        newState = {
+          ...state,
+          deliveryData: action.payload
         };
         return newState
     default:
