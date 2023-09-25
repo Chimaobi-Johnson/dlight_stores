@@ -6,7 +6,6 @@ import AddressForm from "./AddressForm/AddressForm";
 import PaystackPage from "./PaystackPage/PaystackPage";
 import Link from "next/link";
 import ShortForm from "./ShortForm/ShortForm";
-import Summary from "./Summary/Summary";
 
 const CheckoutPage = (props) => {
   const cartItems = useSelector((data) => data.app.cart.cartItems);
@@ -86,7 +85,7 @@ const CheckoutPage = (props) => {
       <LoginInfo />
       <div className={styles.contentWrapper}>
         <div className={styles.orderSummary}>
-            <Summary cartItems={cartItems} />
+            <OrderDetails />
         </div>
 
         <div className={styles.paymentDetails}>

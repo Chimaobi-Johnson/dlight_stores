@@ -1,0 +1,71 @@
+.wrapper {
+    background-color: blanchedalmond;
+    padding: 5rem 0;
+    position: relative;
+  }
+  
+  .contentWrapper {
+    width: 80%;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .itemsWrapper {
+    border: 1px solid #eaeaea;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  .paymentDetails {
+    padding: 2rem;
+    background-color: #b0c4de91;
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  .paystackContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 69%;
+      transform: translate(-50%, -50%);
+  }
+  
+  .orderSummary {
+    padding: 2rem;
+  }
+  
+  
+  @keyframes login-info-slide-down {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      top: -5%;
+    }
+    100% {
+      visibility: visible;
+      top: 1%;
+      opacity: 1;
+    }
+  }
+  
+
+  @media (max-width: 700px) {
+    .wrapper {
+      padding: 0;
+    }
+  
+    .contentWrapper {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+  
+    .addressContainer {
+      width: 100%;
+      height: auto;
+    }
+  }
+  

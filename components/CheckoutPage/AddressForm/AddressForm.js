@@ -3,13 +3,15 @@ import Input from "../../ui/Input/Input";
 import { useForm } from "react-hook-form";
 
 import * as styles from "./AddressForm.module.css";
+import { useRouter } from "next/router";
 
 const AddressForm = (props) => {
-
+  const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const submitFormHandler  = async (data) => {
     console.log(data)
+    router.push('/order-summary')
   }
 
   return (

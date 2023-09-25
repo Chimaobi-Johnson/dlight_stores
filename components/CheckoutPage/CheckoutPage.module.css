@@ -10,7 +10,7 @@
   min-height: 100vh;
   background-color: #ffffff;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
 }
 
 .itemsWrapper {
