@@ -29,7 +29,7 @@
   
   .paystackContainer {
       position: absolute;
-      top: 50%;
+      top: 40%;
       left: 50%;
       width: 69%;
       transition: opacity 1s;
@@ -42,12 +42,23 @@
     display: grid;
     transition: all 1s;
     grid-template-columns: 1fr 1fr;
+    /* padding-left: 3rem; */
   }
   
   .buttonContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-top: 3rem;
     width: fit-content;
+}
+
+.buttonContainer div:not(:first-child) {
+    background-color: transparent;
+    color: chocolate;
+}
+
+.contactInfo {
+    padding-left: 3rem;
 }
 
 .contactInfo h3 {
@@ -56,6 +67,24 @@
     width: fit-content;
     border-top-left-radius: 100%;
     border-bottom-right-radius: 100%;
+}
+
+.contactInfo ul {
+    list-style: square;
+}
+
+.closeButton {
+    position: absolute;
+    cursor: pointer;
+    top: 2%;
+    right: 4%;
+    padding: .8rem 1.2rem;
+    background-color: rgba(0, 0, 0, 0.527);
+    color: #ffffff;
+    border-radius: 100%;
+    transition: all 1s;;
+    text-transform: uppercase;
+    z-index: 50;
 }
   
   @keyframes login-info-slide-down {

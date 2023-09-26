@@ -4,17 +4,42 @@ import { useForm } from "react-hook-form";
 
 import * as styles from "./AddressForm.module.css";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateDeliveryDetails } from "../../../store/actions/app";
+import { useEffect } from "react";
+import { isEmpty, logoutHandler } from "../../../utils/helperFunctions";
 
 const AddressForm = (props) => {
   const router = useRouter();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, reset, handleSubmit, formState: { errors } } = useForm({ defaultValues });
   const dispatch = useDispatch()
   const submitFormHandler  = async (data) => {
     dispatch(updateDeliveryDetails({...data, deliveryType: props.deliveryType}))
     router.push('/order-summary')
   }
+  const loggedUser = useSelector((data) => data.user);
+
+  const defaultValues = {
+    firstName: loggedUser.firstName,
+    lastName: loggedUser.lastName,
+    email: loggedUser.email,
+    mobile: '',
+    state: 'Rivers',
+    city: '',
+    streetname: '',
+    houseno: '',
+    additionalInfo: ''
+
+  }
+
+
+  useEffect(() => {
+    if(!isEmpty(loggedUser)) {
+      reset(defaultValues);
+    }
+
+  
+  }, [])
 
   return (
     <div className={styles.wrapper}>
@@ -23,7 +48,7 @@ const AddressForm = (props) => {
       <div className={styles.formContainer}>
         <Input
           type="text"
-          label="First Name"
+          label="First Name*"
           inputName="firstName"
           minLength={3}
           required
@@ -32,17 +57,17 @@ const AddressForm = (props) => {
         />
         <Input
           type="text"
-          label="Last Name"
+          label="Last Name*"
           inputName="lastName"
           minLength={3}
           required
           register={register}
           controlled
         />
-        <Input type="email" label="Email" inputName="email" required
+        <Input type="email*" label="Email" inputName="email" required
         controlled
         register={register} />
-        <Input type="text" label="Mobile Number" inputName="mobile" required
+        <Input type="text" label="Mobile Number*" inputName="mobile" required
         controlled
         register={register} />
         <Input
@@ -54,12 +79,12 @@ const AddressForm = (props) => {
           register={register}
           controlled
         />
-        <Input type="text" label="City" inputName="city" required
+        <Input type="text" label="City*" inputName="city" required
         controlled
         register={register} />
         <Input
           type="text"
-          label="Street/Road Name"
+          label="Street/Road Name*"
           inputName="streetname"
           required
           register={register}

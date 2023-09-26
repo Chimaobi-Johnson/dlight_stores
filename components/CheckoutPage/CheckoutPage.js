@@ -6,10 +6,13 @@ import AddressForm from "./AddressForm/AddressForm";
 import PaystackPage from "./PaystackPage/PaystackPage";
 import Link from "next/link";
 import ShortForm from "./ShortForm/ShortForm";
+import { isEmpty } from "../../utils/helperFunctions";
 
 const CheckoutPage = (props) => {
   const cartItems = useSelector((data) => data.app.cart.cartItems);
   const subTotal = useSelector((data) => data.app.cart.subTotal);
+  const loggedUser = useSelector((data) => data.user);
+
 
   const [deliveryType, setDeliveryType] = useState(null);
 
@@ -55,6 +58,7 @@ const CheckoutPage = (props) => {
                 onChange={(e) => changeInputHandler(e)}
                 type="radio"
                 id="pickup"
+                defaultChecked
                 name="deliveryType"
                 value="pickup"
               />
@@ -82,7 +86,9 @@ const CheckoutPage = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      <LoginInfo />
+      {isEmpty(loggedUser) ? (
+       <LoginInfo />
+      ) : ''}
       <div className={styles.contentWrapper}>
         <div className={styles.orderSummary}>
             <OrderDetails />
