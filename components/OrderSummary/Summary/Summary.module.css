@@ -39,12 +39,16 @@
 
 .detailsWrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   padding: 2rem;
   margin-bottom: 1rem;
 }
 
 .imageContainer {
-  background-color: red;
-  position: relative;
+    padding: 1rem;
+    position: relative;
+}
+
+.textContainer ul li {
+    margin-bottom: 5px;
 }

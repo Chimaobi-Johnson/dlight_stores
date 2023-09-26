@@ -94,8 +94,9 @@ const OrderSummary = (props) => {
                 <h1>Payment Details</h1>
                 <p>Provide your payment details to complete your purchase</p>
                 <PaystackPage
-                    total={subTotal}
+                    amount={subTotal * 100}
                     cartItems={cartItems}
+                    deliveryData={deliveryData}
                 />
                 </div>
             </div>

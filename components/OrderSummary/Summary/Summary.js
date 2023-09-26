@@ -36,8 +36,6 @@ const Summary = (props) => {
     setItems(itms);
   };
 
-  console.log(items)
-
   return (
     <div className={styles.wrapper}>
       <h3>Final Review</h3>
@@ -76,6 +74,7 @@ const Summary = (props) => {
                     ) : (
                       "N/A"
                     )}
+                    <span style={{ marginLeft: '.8rem' }}>Price: {x.price} </span>
                     <span style={{ marginLeft: '.8rem' }}>Qty:</span>{x.quantity} 
                   </li>
                 ))}
@@ -84,7 +83,7 @@ const Summary = (props) => {
 
             </div>
             <div className={styles.imageContainer}>
-                <Image layout="fill" src={el.imageUrl} alt="" />
+                <Image width={200} height={200} src={el.imageUrl} alt="" />
             </div>
           </div>
         ))}

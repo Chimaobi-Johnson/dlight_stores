@@ -7,11 +7,13 @@ import axios from "axios";
 
 const PaystackPage = props => {
     const router = useRouter();
+    const { amount, deliveryData } = props;
+    const { email } = deliveryData;
 
     const config = {
         reference: (new Date()).getTime().toString(),
-        email: "user@example.com",
-        amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+        email: email,
+        amount: amount, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
         publicKey: 'pk_test_42b22a74c63b11e8f3671571e83d0431f3932c0c',
     };
     
