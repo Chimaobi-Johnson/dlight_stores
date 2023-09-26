@@ -11,17 +11,10 @@ const OrderSummary = (props) => {
     const subTotal = useSelector((data) => data.app.cart.subTotal);
     const deliveryData = useSelector((data) => data.app.deliveryData);
 
-    const [paymentComponent, setPaymentComponent] = useState(false)
-
-    // useEffect(() => {   
-    //     if(paymentComponent) {
-    //         initPaymentContainer()
-    //     } else {
-    //         // closePaymentContainer()
-    //     }    
-    // }, [paymentComponent])
-
-
+    const qtyArr = cartItems.map(el => Number(el.quantity));
+    const totalQty = qtyArr.reduce(
+        (accumulator, currentValue) => accumulator + currentValue
+      )
     const initPaymentContainer = () => {
         document.getElementById('orderSummary').style.opacity = 0;
         setTimeout(() => {
@@ -58,6 +51,10 @@ const OrderSummary = (props) => {
             <div id='orderSummary' className={styles.orderSummary}>
                 <div className={styles.itemSummary}>
                     <Summary cartItems={cartItems} subTotal={subTotal} />
+                    <div className={styles.totalContainer}>
+
+                        <h1>Total: {subTotal} {`(${totalQty} items)`}</h1>
+                    </div>
                 </div>
                 <div className={styles.contactInfo}>
                         <h3>Contact Details</h3>

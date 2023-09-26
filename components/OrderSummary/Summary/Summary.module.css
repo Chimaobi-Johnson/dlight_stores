@@ -1,37 +1,50 @@
 .wrapper h3 {
-    padding: .5rem;
-    background-color: #d2ddec;
-    width: fit-content;
-    border-top-left-radius: 100%;
-    border-bottom-right-radius: 100%;
+  padding: 0.5rem;
+  background-color: #d2ddec;
+  width: fit-content;
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 100%;
 }
 
 .itemsContainer {
-    font-size: .9rem;
+  font-size: 0.9rem;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.itemsContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.itemsContainer::-webkit-scrollbar-track {
+  background: none;
+}
+
+.itemsContainer::-webkit-scrollbar-thumb {
+  background: #d2ddec;
 }
 
 .itemsContainer div:nth-child(even) {
-    background-color: rgb(243, 243, 243);
+  background-color: rgb(243, 243, 243);
 }
 
 .itemsContainer div:nth-child(odd) {
-    background-color: rgb(243 243 243 / 46%);
+  background-color: rgb(243 243 243 / 46%);
 }
 
 .breakdown {
-    background-color: coral;
-    width: fit-content;
+  background-color: coral;
+  width: fit-content;
 }
 
 .detailsWrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 2rem;
-    margin-bottom: 1rem;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  margin-bottom: 1rem;
 }
 
 .imageContainer {
-    background-color: red;
-    position: relative;
+  background-color: red;
+  position: relative;
 }

@@ -86,6 +86,19 @@
     text-transform: uppercase;
     z-index: 50;
 }
+
+.totalContainer {
+    border-left: 2px solid #a8a8a8;
+    margin-top: 3rem;
+    font-size: 1rem;
+    background-color: #ebebeb;
+    padding: .2rem .8rem;
+}
+
+.totalContainer h1 {
+    padding-left: 1rem;
+    font-weight: bold;
+}
   
   @keyframes login-info-slide-down {
     0% {
