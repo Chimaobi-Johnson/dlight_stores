@@ -5,11 +5,14 @@ import PaystackPage from "../CheckoutPage/PaystackPage/PaystackPage";
 import Button from "../ui/Button/Button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { isEmpty } from "../../utils/helperFunctions";
 
 const OrderSummary = (props) => {
     const cartItems = useSelector((data) => data.app.cart.cartItems);
     const subTotal = useSelector((data) => data.app.cart.subTotal);
     const deliveryData = useSelector((data) => data.app.deliveryData);
+
+    const loggedUser = useSelector((data) => data.user);
 
     const qtyArr = cartItems.map(el => Number(el.quantity));
     const totalQty = qtyArr.reduce(
@@ -97,6 +100,7 @@ const OrderSummary = (props) => {
                     amount={subTotal * 100}
                     cartItems={cartItems}
                     deliveryData={deliveryData}
+                    userId={!isEmpty(loggedUser) ? loggedUser._id : null}
                 />
                 </div>
             </div>

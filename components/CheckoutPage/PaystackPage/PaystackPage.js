@@ -7,7 +7,7 @@ import axios from "axios";
 
 const PaystackPage = props => {
     const router = useRouter();
-    const { amount, deliveryData } = props;
+    const { amount, userId, cartItems, deliveryData } = props;
     const { email } = deliveryData;
 
     const config = {
@@ -20,14 +20,11 @@ const PaystackPage = props => {
     // you can call this function anything
     const onSuccess = (reference) => {
       // Implementation for whatever you want to do with reference and after success call.
-      console.log(reference);
       const data = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-        paymentRef: reference
+        ...deliveryData,
+        products: cartItems,
+        paymentRef: reference,
+        userId: userId ? userId : null
       }
       axios.post(`${NEXT_PUBLIC_BACKEND_URL}/store_payment_details`, data)
       .then(res => {
@@ -38,6 +35,7 @@ const PaystackPage = props => {
         // payment successful but data isnt stored
         // redirect user
         // send email to server with info
+        router.push(`/payment?status=datafail`)
         console.log(err)
       })
     };
