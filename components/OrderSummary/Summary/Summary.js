@@ -83,9 +83,9 @@ const Summary = (props) => {
               </div>
 
             </div>
-            {/* <div className={styles.imageContainer}>
+            <div className={styles.imageContainer}>
                 <Image layout="fill" src={el.imageUrl} alt="" />
-            </div> */}
+            </div>
           </div>
         ))}
       </div>

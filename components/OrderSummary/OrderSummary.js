@@ -23,18 +23,23 @@ const OrderSummary = (props) => {
 
 
     const initPaymentContainer = () => {
-        document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr 1fr';
-        document.getElementById('orderSummary').style.gridTemplateColumns = '1fr';
-
+        document.getElementById('orderSummary').style.opacity = 0;
+        setTimeout(() => {
+            document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr 1fr';
+        }, 1000);
         setTimeout(() => {
             document.getElementById('paystackContainer').style.opacity = 1;
             document.getElementById('closeButtonPaystack').style.opacity = 1;
+             document.getElementById('orderSummary').style.gridTemplateColumns = '1fr';
+             document.getElementById('orderSummary').style.opacity = 1;
 
-        }, 1000);
+        }, 2000);
 
     }
     const closePaymentContainer = () => {
         document.getElementById('paystackContainer').style.opacity = 0;
+        document.getElementById('orderSummary').style.opacity = 0;
+
         setTimeout(() => {
             document.getElementById('contentWrapper2').style.gridTemplateColumns = '10fr 1fr';
 
@@ -42,6 +47,7 @@ const OrderSummary = (props) => {
         setTimeout(() => {
             document.getElementById('orderSummary').style.gridTemplateColumns = '1fr 1fr';
             document.getElementById('closeButtonPaystack').style.opacity = 0;
+            document.getElementById('orderSummary').style.opacity = 1;
 
         }, 2000);
 
