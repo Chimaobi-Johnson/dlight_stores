@@ -28,24 +28,6 @@ const ProductDetails = (props) => {
     category
   } = props.product;
 
-  useEffect(() => {
-    if(sizes.length !== 0) {
-      setSelectedSize(sizes[0])
-    }
-    setCurrentPrice(sizes[0].sizePrice)
-    updateStatus(sizes[0].sizeStock > 0 ? 'in-stock' : 'out of stock')
-
-  }, [sizes, price])
-
-  useEffect(() => {
-    if(colors.length !== 0) {
-      setSelectedColor(colors[0])
-    }
-    console.log(colors[0].colorPrice)
-    updatePrice(Number(currentPrice) + Number(colors[0].colorPrice))
-    updateStatus(colors[0].colorStock > 0 ? 'in-stock' : 'out of stock')
-
-  }, [colors, price])
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -61,6 +43,32 @@ const ProductDetails = (props) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null)
 
+  useEffect(() => {
+    if(sizes.length !== 0) {
+      setSelectedSize(sizes[0])
+    }
+    setCurrentPrice(sizes[0].sizePrice)
+    updateStatus(sizes[0].sizeStock > 0 ? 'in-stock' : 'out of stock')
+
+  }, [sizes])
+
+  useEffect(() => {
+    let newPrice, oldPrice;
+    if(colors.length !== 0) {
+      setSelectedColor(colors[0])
+    }
+    if(selectedSize) {
+      oldPrice = selectedSize.sizePrice
+    } else {
+      oldPrice = price
+    }
+    newPrice = Number(oldPrice) + Number(colors[0].colorPrice)
+    updatePrice(newPrice)
+    updateStatus(colors[0].colorStock > 0 ? 'in-stock' : 'out of stock')
+
+  }, [selectedSize])
+
+
   const selectSize = (size) => {
     setSelectedSize(size)
     updatePrice(size.sizePrice)
@@ -69,7 +77,15 @@ const ProductDetails = (props) => {
 
   const selectColor = (color) => {
     setSelectedColor(color)
-    updatePrice(Number(color.colorPrice) + Number(currentPrice))
+    let oldPrice, newPrice;
+    if(selectedSize) {
+      oldPrice = selectedSize.sizePrice
+    } else {
+      oldPrice = price
+    }
+    newPrice = Number(oldPrice) + Number(color.colorPrice)
+    updatePrice(newPrice)
+
     updateStatus(color.colorStock > 0 ? 'in-stock' : 'out of stock')
   };
 

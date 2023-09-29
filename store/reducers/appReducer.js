@@ -35,24 +35,31 @@ export const updateAppData = (state = initialState, action) => {
       if (cartArr.length === 0) {
         //push to cart when item is empty
         cartArr.push(action.payload);
-      }  else {
+      } else {
         // check if item exists in cart if not, add new item
-        //if size and color is not the same, also return true 
+        //if size and color is not the same, also return true
         function checkCart(cartArr) {
-          return (cartArr.productId === action.payload.productId) && (cartArr.size === action.payload.size) && (cartArr.color === action.payload.color)
+          return (
+            cartArr.productId === action.payload.productId &&
+            (cartArr.size && action.payload.size ? cartArr.size.sizeName === action.payload.size.sizeName : true) &&
+            (cartArr.color && action.payload.color ? cartArr.color.colorCode === action.payload.color.colorCode: true)
+          );
         }
         const isInArray = cartArr.some(checkCart);
         if (isInArray === false) {
           cartArr.unshift(action.payload);
         } else {
-           // item exists 
-          //  check if price has been updated and update price and qty if true 
-           cartArr.map(el => {
-            if(el.productId === action.payload.productId && el.price !== action.payload.price) {
-              el.price = action.payload.price
-              el.quantity = action.payload.quantity
+          // item exists
+          //  check if price has been updated and update price and qty if true
+          cartArr.map((el) => {
+            if (
+              el.productId === action.payload.productId &&
+              el.price !== action.payload.price
+            ) {
+              el.price = action.payload.price;
+              el.quantity = action.payload.quantity;
             }
-           })
+          });
         }
       }
       newState = {
@@ -96,13 +103,18 @@ export const updateAppData = (state = initialState, action) => {
       return newState;
 
     case UPDATE_CART_QUANTITY:
-      const cartA = [ ...state.cart.cartItems ];
-      cartA.map(item => {
-        if(item.productId === action.payload.productId) {
-          item.quantity = action.payload.qty
-          item.price = action.payload.updatedPrice
+      const cartA = [...state.cart.cartItems];
+      console.log(action.payload)
+      cartA.map((item) => {
+        if (
+          item.productId === action.payload.productId &&
+          (item.color && action.payload.color ? item.color.colorCode === action.payload.color.colorCode : true) &&
+          (item.size && action.payload.size ? item.size.sizeName === action.payload.size.sizeName : true)
+        ) {
+          item.quantity = action.payload.qty;
+          item.price = action.payload.updatedPrice;
         }
-      })
+      });
 
       newState = {
         ...state,
@@ -115,37 +127,37 @@ export const updateAppData = (state = initialState, action) => {
       return newState;
 
     case UPDATE_USER_CART:
-         // update local cart
-    const newCart = [ ...action.payload.data.cart.items ]
-    
-    newState = {
-          ...state,
-          cart: {
-            ...state.cart,
-            cartItems: newCart
-          },
-        };
-        return newState;
+      // update local cart
+      const newCart = [...action.payload.data.cart.items];
+
+      newState = {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: newCart,
+        },
+      };
+      return newState;
     case UPDATE_SUBTOTAL:
       let total = 0;
-        state.cart.cartItems.map(el => {
-          total = el.price + total
-        })
-      
-        newState = {
-          ...state,
-          cart: {
-            ...state.cart,
-            subTotal: total
-          },
-        };
-        return newState
-      case UPDATE_DELIVERY_DETAILS:
-        newState = {
-          ...state,
-          deliveryData: action.payload
-        };
-        return newState
+      state.cart.cartItems.map((el) => {
+        total = el.price + total;
+      });
+
+      newState = {
+        ...state,
+        cart: {
+          ...state.cart,
+          subTotal: total,
+        },
+      };
+      return newState;
+    case UPDATE_DELIVERY_DETAILS:
+      newState = {
+        ...state,
+        deliveryData: action.payload,
+      };
+      return newState;
     default:
       return state;
   }
