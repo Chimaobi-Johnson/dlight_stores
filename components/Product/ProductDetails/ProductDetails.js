@@ -32,15 +32,27 @@ const ProductDetails = (props) => {
     if(sizes.length !== 0) {
       setSelectedSize(sizes[0])
     }
-    setCurrentPrice(price)
+    setCurrentPrice(sizes[0].sizePrice)
+    updateStatus(sizes[0].sizeStock > 0 ? 'in-stock' : 'out of stock')
+
   }, [sizes, price])
+
+  useEffect(() => {
+    if(colors.length !== 0) {
+      setSelectedColor(colors[0])
+    }
+    console.log(colors[0].colorPrice)
+    updatePrice(Number(currentPrice) + Number(colors[0].colorPrice))
+    updateStatus(colors[0].colorStock > 0 ? 'in-stock' : 'out of stock')
+
+  }, [colors, price])
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
 
   const [currentImage, setCurrentImage] = useState(0);
-  const [currentPrice, setCurrentPrice] = useState(0)
-  const [availability, setAvailability] = useState('In-stock')
+  const [currentPrice, setCurrentPrice] = useState(price)
+  const [availability, setAvailability] = useState()
 
   const changeImageHandler = (index) => {
     setCurrentImage(index);
@@ -51,14 +63,14 @@ const ProductDetails = (props) => {
 
   const selectSize = (size) => {
     setSelectedSize(size)
-    updatePrice(size.price)
-    updateStatus(size.availability)
+    updatePrice(size.sizePrice)
+    updateStatus(size.sizeStock > 0 ? 'in-stock' : 'out of stock')
   };
 
   const selectColor = (color) => {
     setSelectedColor(color)
-    // updatePrice(color.price)
-    // updateStatus(color.availability)
+    updatePrice(Number(color.colorPrice) + Number(currentPrice))
+    updateStatus(color.colorStock > 0 ? 'in-stock' : 'out of stock')
   };
 
   const updatePrice = (input) => {
@@ -101,7 +113,7 @@ const ProductDetails = (props) => {
           key={index + Math.random() * 100}
           onClick={(c) => selectColor(color)}
           className={selectedColor === color ? styles.currentColor : null}
-          style={{ backgroundColor: color }}>
+          style={{ backgroundColor: color.colorCode }}>
           </li>
         })
       }
@@ -155,7 +167,7 @@ const ProductDetails = (props) => {
                             onClick={(s) => selectSize(size)}
                             className={selectedSize === size ? styles.active : null}
                             >
-                               {size}                        
+                               {size.sizeName}                        
                             </li>
                         );
                         })}

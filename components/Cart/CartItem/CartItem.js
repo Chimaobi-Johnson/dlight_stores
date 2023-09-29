@@ -3,6 +3,7 @@ import * as styles from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
 import { removeCartItem, updateItemQty, updateSubTotal } from "../../../store/actions/app";
 import { useState } from "react";
+import Link from "next/link";
 
 
 const CartItem = (props) => {
@@ -40,11 +41,11 @@ const CartItem = (props) => {
   }
 
   const renderColor = (color) => {
-    return color ? <span style={{ backgroundColor: color, display: 'block', width: '15px', height: '15px', marginLeft: '.2rem', borderRadius: '100%' }}></span> : ''
+    return color ? <span style={{ backgroundColor: color.colorCode, display: 'block', width: '15px', height: '15px', marginLeft: '.2rem', borderRadius: '100%' }}></span> : ''
   }
 
   const renderSize = (size) => {
-    return size ? size : ''
+    return size ? size.sizeName : ''
   }
 
   const renderSlash = (size, color) => {
@@ -58,7 +59,9 @@ const CartItem = (props) => {
         <Image width={80} height={70} src={imageUrl} alt="" />
       </div>
       <div className={styles.contentContainer}>
-        <h4 className={styles.heading4}>{name}</h4>
+        <Link href={'/product/' + productId}>
+         <h4 className={styles.heading4}>{name}</h4>
+        </Link>
         <div className={styles.sizeColorContainer}>{renderSize(size)} {renderSlash(size, color)}{renderColor(color)}</div>
         <div className={styles.quantityContainer}>
           <div className={styles.inputLabel}>
