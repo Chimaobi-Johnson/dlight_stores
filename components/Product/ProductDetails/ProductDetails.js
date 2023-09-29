@@ -62,7 +62,7 @@ const ProductDetails = (props) => {
     } else {
       oldPrice = price
     }
-    newPrice = Number(oldPrice) + Number(colors[0].colorPrice)
+    newPrice = colors[0].colorPriceType === '+' ? Number(oldPrice) + Number(colors[0].colorPrice) : Number(oldPrice) - Number(colors[0].colorPrice)
     updatePrice(newPrice)
     updateStatus(colors[0].colorStock > 0 ? 'in-stock' : 'out of stock')
 
@@ -83,7 +83,7 @@ const ProductDetails = (props) => {
     } else {
       oldPrice = price
     }
-    newPrice = Number(oldPrice) + Number(color.colorPrice)
+    newPrice = color.colorPriceType === '+' ? Number(oldPrice) + Number(color.colorPrice) : Number(oldPrice) - Number(color.colorPrice)
     updatePrice(newPrice)
 
     updateStatus(color.colorStock > 0 ? 'in-stock' : 'out of stock')
