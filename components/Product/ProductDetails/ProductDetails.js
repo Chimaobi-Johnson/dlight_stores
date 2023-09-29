@@ -86,7 +86,7 @@ const ProductDetails = (props) => {
   }
 
   const addItemToCart = () => {
-    const newPrice = quantity * price;
+    const newPrice = quantity * currentPrice;
     const cartDetails = {
         productId: _id,
         name: name,
