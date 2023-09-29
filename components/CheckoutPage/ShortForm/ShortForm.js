@@ -23,8 +23,9 @@ const ShortForm = (props) => {
     const defaultValues = {
       firstName: loggedUser.firstName,
       lastName: loggedUser.lastName,
-      email: loggedUser.email,
+      userEmail: loggedUser.email,
       mobile: '',
+      deliveryType: props.deliveryType
     }
   
   

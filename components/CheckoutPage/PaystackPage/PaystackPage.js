@@ -8,11 +8,11 @@ import axios from "axios";
 const PaystackPage = props => {
     const router = useRouter();
     const { amount, userId, cartItems, deliveryData } = props;
-    const { email } = deliveryData;
+    const { userEmail } = deliveryData;
 
     const config = {
         reference: (new Date()).getTime().toString(),
-        email: email,
+        email: userEmail,
         amount: amount, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
         publicKey: 'pk_test_42b22a74c63b11e8f3671571e83d0431f3932c0c',
     };
@@ -20,15 +20,18 @@ const PaystackPage = props => {
     // you can call this function anything
     const onSuccess = (reference) => {
       // Implementation for whatever you want to do with reference and after success call.
+      // delivery type issue *************
       const data = {
         ...deliveryData,
         products: cartItems,
         paymentRef: reference,
-        userId: userId ? userId : null
+        purchasedBy: userId ? userId : null
       }
-      axios.post(`${NEXT_PUBLIC_BACKEND_URL}/store_payment_details`, data)
+      console.log(data)
+
+      axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/store_payment_details`, data)
       .then(res => {
-        if(res.data === 200) {
+        if(res.status === 200) {
             router.push(`/payment?status=success`)
         }
       }).catch(err => {

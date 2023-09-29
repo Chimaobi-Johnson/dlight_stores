@@ -99,11 +99,6 @@ const CheckoutPage = (props) => {
             <div className={styles.header}>
               <h1>Payment Details</h1>
               <p>Provide your payment details to complete your purchase</p>
-              <PaystackPage
-                total={subTotal}
-                cartItems={cartItems}
-                deliveryType={deliveryType}
-              />
             </div>
           </div>
           <div className={styles.gatewayContainer}></div>

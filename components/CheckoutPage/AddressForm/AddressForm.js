@@ -22,14 +22,14 @@ const AddressForm = (props) => {
   const defaultValues = {
     firstName: loggedUser.firstName,
     lastName: loggedUser.lastName,
-    email: loggedUser.email,
+    userEmail: loggedUser.email,
     mobile: '',
     state: 'Rivers',
     city: '',
     streetname: '',
     houseno: '',
-    additionalInfo: ''
-
+    additionalInfo: '',
+    deliveryType: props.deliveryType
   }
 
 
