@@ -28,6 +28,7 @@ const ProductDetails = (props) => {
     category
   } = props.product;
 
+  console.log(props.product)
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -47,8 +48,8 @@ const ProductDetails = (props) => {
     if(sizes.length !== 0) {
       setSelectedSize(sizes[0])
     }
-    setCurrentPrice(sizes[0].sizePrice)
-    updateStatus(sizes[0].sizeStock > 0 ? 'in-stock' : 'out of stock')
+    // setCurrentPrice(sizes[0].sizePrice)
+    // updateStatus(sizes[0].sizeStock > 0 ? 'in-stock' : 'out of stock')
 
   }, [sizes])
 
@@ -62,6 +63,7 @@ const ProductDetails = (props) => {
     } else {
       oldPrice = price
     }
+    if(colors.length === 0) return
     newPrice = colors[0].colorPriceType === '+' ? Number(oldPrice) + Number(colors[0].colorPrice) : Number(oldPrice) - Number(colors[0].colorPrice)
     updatePrice(newPrice)
     updateStatus(colors[0].colorStock > 0 ? 'in-stock' : 'out of stock')
@@ -94,7 +96,7 @@ const ProductDetails = (props) => {
   }
 
   const updateStatus = (input) => {
-    input ? setAvailability(input) : setAvailability('In-stock')
+    input ? setAvailability(input) : setAvailability('in-stock')
   }
 
   const selectQuantity = (e) => {
@@ -130,6 +132,7 @@ const ProductDetails = (props) => {
           onClick={(c) => selectColor(color)}
           className={selectedColor === color ? styles.currentColor : null}
           style={{ backgroundColor: color.colorCode }}>
+          <span style={{ width: 'max-content', fontWeight: 'bold' }}>{`${color.colorPriceType}N${color.colorPrice}`}</span>
           </li>
         })
       }
@@ -200,12 +203,18 @@ const ProductDetails = (props) => {
                 </div>
                 <div className={styles.availability}>
                     <Image width={20} height={20} src={goodTick} alt="" />
-                <p>In stock, {deliveryStatus === 'ready' ? 'ready to ship' : 'available for pickup'}</p>
+                <p>{deliveryStatus === 'ready' ? 'Ready to ship' : 'Pickup only'}</p>
                 </div>
                 <div className={styles.buttonContainer}>
-                <Button onClick={addItemToCart} variant="secondary">
-                    Add to cart
-                </Button>
+                {availability !== 'in-stock' ? (
+                  <Button onClick={addItemToCart} variant="secondary">
+                      Add to cart
+                  </Button>
+                ) : (
+                  <Button variant="secondary">
+                    Product N/A
+                  </Button>
+                )}
                 {/* <Button variant="secondary">Add to Wishlist</Button> */}
                 </div>
 

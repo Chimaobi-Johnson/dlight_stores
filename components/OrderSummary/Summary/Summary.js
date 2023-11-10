@@ -36,6 +36,8 @@ const Summary = (props) => {
     setItems(itms);
   };
 
+  console.log(items)
+
   return (
     <div className={styles.wrapper}>
       <h3>Final Review</h3>
@@ -56,13 +58,13 @@ const Summary = (props) => {
               <ul>
                 {el.variants.map((x) => (
                   <li key={Math.random() * 18} >
-                    <span>Size:</span> {x.size ? x.size : 'N/A'} - {" "}
+                    <span>Size:</span> {x.size ? x.size.sizeName : 'N/A'} - {" "}
                     <span>Color:</span>
                       {x.color ? (
                       <>
                         <span
                           style={{
-                            backgroundColor: x.color,
+                            backgroundColor: x.color.colorCode,
                             width: "15px",
                             height: "15px",
                             display: "inline-block",

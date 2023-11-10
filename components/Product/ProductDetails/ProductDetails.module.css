@@ -177,12 +177,27 @@
     height: 20px;
     border-radius: 100%;
     margin-right: 9px;
+    position: relative;
+    cursor: pointer;
 }
 
 .colorItems li:hover {
     transform: scale(1.2);
 }
 
+.colorItems li:hover > span {
+    opacity: 1;
+}
+
+.colorItems li span {
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    /* display: block; */
+    font-size: .6rem;
+    transition: opacity .5s;
+    opacity: 0;
+}
 
 @media (max-width: 700px) {
 
