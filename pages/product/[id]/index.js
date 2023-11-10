@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 const Product = (props) => {
   
   const { product } = props.product;
-  console.log(product)
 
   const currentIndex = useSelector(data => data.products.product.currentIndex);
 
@@ -25,7 +24,7 @@ const Product = (props) => {
     <BasicLayout meta={metaData}>
       <ProductDetails product={product ? product[0] : null} />
       <QuickInfo />
-      <RelatedItems product={product[0]} category={product[0].categoryDetails[0]} />
+      <RelatedItems product={product.length !== 0 ? product[0] : []} category={product.length !== 0 ? product[0].categoryDetails[0] : []} />
       <Pagination products={products} currentIndex={currentIndex}  />
     </BasicLayout>
   );
@@ -45,7 +44,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
 
   const productId = context.params.id;
-
   const response = await axios.get(process.env.BACKEND_URL + '/product/?id=' + productId)
   return {
     props: {

@@ -15,8 +15,15 @@ import {
 } from "../../../store/actions/app";
 import Pagination from "../../ui/Pagination/Pagination";
 import Link from "next/link";
+import axios from "axios";
 
 const ProductDetails = (props) => {
+
+  if(!props.product || props.product.length === 0) {
+    return <h1 style={{ textAlign: 'center' }}>Product not found</h1>
+  }
+
+
   const {
     _id,
     name,
@@ -32,8 +39,6 @@ const ProductDetails = (props) => {
     discountDetails,
   } = props.product;
 
-  console.log(discountDetails);
-
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
 
@@ -47,6 +52,24 @@ const ProductDetails = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
+  const [shippingInfo, setShippingInfo] = useState(null);
+  const [loadingContent, setLoadingContent] = useState(false);
+
+
+  // useEffect(() => {
+  //   setLoadingContent(true)
+  //   const instance = axios.create({
+  //     withCredentials: true
+  // });
+  // instance.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/site-content`)
+  //   .then(content => {
+  //     setLoadingContent(false)
+  //     console.log(content)
+  //   }).catch(err => {
+  //     setLoadingContent(false)
+  //     console.log(err)
+  //   })
+  // }, [])
 
   useEffect(() => {
     if (sizes.length !== 0) {
@@ -176,6 +199,8 @@ const ProductDetails = (props) => {
     );
   };
 
+
+
   return (
     <div className={styles.wrapper}>
       {/* <Search /> */}
@@ -262,13 +287,7 @@ const ProductDetails = (props) => {
           <div className={styles.shippingInfo}>
             <h3>Shipping Information</h3>
             <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-              literature, discovered the undoubtable source
+              {loadingContent ? 'Loading shipping information...' : shippingInfo}
             </p>
           </div>
         </div>
