@@ -91,7 +91,7 @@ const Navigation = (props) => {
           <Link href={'/about'}><li>About Us </li></Link>
           <li className={styles.logo}><Link href="/"><Image width={300} height={100} src="/logo/logo-dark-text.png" alt="" /></Link></li>
           <li>Blog</li>
-          <li>Reviews</li>
+          <Link href={'/reviews'}><li>Reviews</li></Link>
         </ul>
       </div>
       <div className={styles.infoContainer}>
