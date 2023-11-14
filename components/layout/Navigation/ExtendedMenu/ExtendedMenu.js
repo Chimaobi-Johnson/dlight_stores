@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 import styles from './ExtendedMenu.module.css';
@@ -6,7 +6,8 @@ import Link from 'next/link';
 
 const ExtendedMenu = props => {
 
-    
+    const { openModal } = props
+
 
     useEffect(() => {
 
@@ -36,9 +37,9 @@ const ExtendedMenu = props => {
                 <ul>
                     <li>Quick links</li>
                     <Link href={'/products'}><li>Products</li></Link>
-                    <li>About Us</li>
-                    <li>Shipping Information</li>
-                    <li>Contact Us</li>
+                    <Link href={'/about'}><li>About Us</li></Link>
+                    <li onClick={openModal}>Shipping Information</li>
+                    <Link href={'#footer'}><li>Contact Us</li></Link>
                 </ul>
             </div>
             <div id="highlightedItems" className={styles.highlightedItems}>

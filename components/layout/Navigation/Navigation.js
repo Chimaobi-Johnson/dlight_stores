@@ -13,6 +13,7 @@ import axios from "axios";
 import UserIcon from "./UserIcon/UserIcon";
 import { storeProducts } from "../../../store/actions/products";
 import { useRouter } from "next/router";
+import Modal from "../../ui/Modal/Modal";
 
 const Navigation = (props) => {
   const { user } = props 
@@ -54,15 +55,21 @@ const Navigation = (props) => {
 
   }, [])
 
-
+  const [modal, setModal] = useState(false)
 
   const initCartHandler = () => {
     dispatch(initCart())
   }
 
+  const openModal = () => {
+    setModal(!modal)
+  }
+
   return (
+    <>
+    <Modal open={modal} openModal={openModal} />
     <header className={styles.wrapper}>
-      <ExtendedMenu activate={active} />
+      <ExtendedMenu openModal={openModal} activate={active} />
       <MobileMenu />
       <Search />
       <div className={styles.searchContainer}>
@@ -106,6 +113,8 @@ const Navigation = (props) => {
         </div>
       </div>
     </header>
+
+    </>
   );
 };
 

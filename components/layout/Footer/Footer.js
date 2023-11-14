@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = (props) => {
 
   return (
-      <div className={styles.wrapper}>
+      <div id="footer" className={styles.wrapper}>
         <div className={styles.footerTop}>
           <div className={styles.box1}>
             <div className={styles.mapContainer}>

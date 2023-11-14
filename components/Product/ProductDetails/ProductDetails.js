@@ -39,6 +39,8 @@ const ProductDetails = (props) => {
     discountDetails,
   } = props.product;
 
+  console.log(props.product)
+
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
 
@@ -165,7 +167,9 @@ const ProductDetails = (props) => {
               >
                 <span
                   style={{ width: "max-content", fontWeight: "bold" }}
-                >{`${color.colorPriceType}N${color.colorPrice}`}</span>
+                >
+                  {color.colorPrice ? `${color.colorPriceType ? color.colorPriceType : '+'} N${color.colorPrice}` : 'free'}
+                </span>
               </li>
             );
           })}
@@ -179,7 +183,7 @@ const ProductDetails = (props) => {
   const renderPrice = () => {
     return (
       <p>
-        {discountDetails[0].active ? (
+        {discountDetails.length !== 0 && discountDetails[0].active ? (
           <span>
             <del
               style={{
@@ -266,7 +270,7 @@ const ProductDetails = (props) => {
             </p>
           </div>
           <div className={styles.buttonContainer}>
-            {availability !== "in-stock" ? (
+            {availability === "in-stock" ? (
               <Button onClick={addItemToCart} variant="secondary">
                 Add to cart
               </Button>
