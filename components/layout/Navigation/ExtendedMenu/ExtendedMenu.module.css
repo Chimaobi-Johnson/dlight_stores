@@ -92,8 +92,10 @@
 
 .itemOneContainer {
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .itemTwoContainer {
     margin-left: 10px;
+    cursor: pointer;
 }
