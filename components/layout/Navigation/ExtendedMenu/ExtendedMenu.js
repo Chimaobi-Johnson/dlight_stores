@@ -18,7 +18,7 @@ const ExtendedMenu = props => {
         const recommended2 = products && products.length !== 0 ? Math.round(Math.random() * products.length) : null
         setValue1(recommended);
         setValue2(recommended2)
-    }, [])
+    }, [products])
 
    
 
