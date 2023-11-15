@@ -19,11 +19,6 @@ import axios from "axios";
 
 const ProductDetails = (props) => {
 
-  if(!props.product || props.product.length === 0) {
-    return <h1 style={{ textAlign: 'center' }}>Product not found</h1>
-  }
-
-
   const {
     _id,
     name,
@@ -39,7 +34,6 @@ const ProductDetails = (props) => {
     discountDetails,
   } = props.product;
 
-  console.log(props.product)
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -203,6 +197,9 @@ const ProductDetails = (props) => {
     );
   };
 
+  if(!props.product || props.product.length === 0) {
+    return <h1 style={{ textAlign: 'center' }}>Product not found</h1>
+  }
 
 
   return (

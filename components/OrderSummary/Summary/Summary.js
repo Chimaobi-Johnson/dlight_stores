@@ -44,7 +44,7 @@ const Summary = (props) => {
       <div className={styles.itemsContainer}>
 
         {items.map((el) => (
-          <div className={styles.detailsWrapper}>
+          <div key={el + Math.random() * 10} className={styles.detailsWrapper}>
             <div key={Math.random() * 10} className={styles.items}>
               <h2>{el.productName}</h2>
               <h4>
