@@ -10,9 +10,17 @@ const ExtendedMenu = props => {
     const { openModal } = props
 
     const products = useSelector(data => data.products.products)
+    const [value1, setValue1] = useState(0)
+    const [value2, setValue2] = useState(0)
 
-    const recommended = products && products.length !== 0 ? Math.round(Math.random() * products.length) : null
-    const recommended2 = products && products.length !== 0 ? Math.round(Math.random() * products.length) : null
+    useEffect(() => {
+        const recommended = products && products.length !== 0 ? Math.round(Math.random() * products.length) : null
+        const recommended2 = products && products.length !== 0 ? Math.round(Math.random() * products.length) : null
+        setValue1(recommended);
+        setValue2(recommended2)
+    }, [])
+
+   
 
     useEffect(() => {
 
@@ -50,20 +58,20 @@ const ExtendedMenu = props => {
             <div id="highlightedItems" className={styles.highlightedItems}>
                 {products && products.length !== 0 ? (
                     <>
-                        <Link href={'/product/' + products[recommended]._id}>
+                        <Link href={'/product/' + products[value1]._id}>
                             <div className={styles.itemOneContainer}>
                                 <div className={styles.imageContainer}>
-                                    <Image width={250} height={200} src={products[recommended].imagesUrl[0]} alt="" />
+                                    <Image width={250} height={200} src={products[value1].imagesUrl[0]} alt="" />
                                 </div>
-                                <h6>{products[recommended].name}</h6>
+                                <h6>{products[value1].name}</h6>
                             </div>
                         </Link>
-                        <Link href={'/product/' + products[recommended]._id}>
+                        <Link href={'/product/' + products[value2]._id}>
                         <div className={styles.itemTwoContainer}>
                         <div className={styles.imageContainer}>
-                                <Image width={250} height={200} src={products[recommended2].imagesUrl[0]} alt="" />
+                                <Image width={250} height={200} src={products[value2].imagesUrl[0]} alt="" />
                             </div>
-                            <h6>{products[recommended2].name}</h6>
+                            <h6>{products[value2].name}</h6>
                         </div>
                         </Link>
                     </>
