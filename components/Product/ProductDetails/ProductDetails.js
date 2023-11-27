@@ -16,16 +16,15 @@ import {
 import Pagination from "../../ui/Pagination/Pagination";
 import Link from "next/link";
 import axios from "axios";
+import ColorList from "../components/ColorList/ColorList";
 
 const ProductDetails = (props) => {
-
   const {
     _id,
     name,
     imagesUrl,
     price,
-    sizes,
-    colors,
+    specifications,
     subheading,
     description,
     deliveryStatus,
@@ -33,7 +32,6 @@ const ProductDetails = (props) => {
     priceSale,
     discountDetails,
   } = props.product;
-
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -45,12 +43,20 @@ const ProductDetails = (props) => {
   const changeImageHandler = (index) => {
     setCurrentImage(index);
   };
+
+  const [currentColorArray, setCurrentColorArray] = useState([]);
+
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [shippingInfo, setShippingInfo] = useState(null);
   const [loadingContent, setLoadingContent] = useState(false);
 
+  const addCurrentColorToArray = (label) => {
+    const size = specifications.sizes.find((el) => el.label === label);
+    setCurrentColorArray(size.colors);
+    setSelectedSize(label);
+  };
 
   // useEffect(() => {
   //   setLoadingContent(true)
@@ -67,55 +73,53 @@ const ProductDetails = (props) => {
   //   })
   // }, [])
 
-  useEffect(() => {
-    if (sizes.length !== 0) {
-      setSelectedSize(sizes[0]);
-    }
-    // setCurrentPrice(sizes[0].sizePrice)
-    // updateStatus(sizes[0].sizeStock > 0 ? 'in-stock' : 'out of stock')
-  }, [sizes]);
+  // useEffect(() => {
+  //   if (sizes.length !== 0) {
+  //     setSelectedSize(sizes[0]);
+  //   }
+  // }, [sizes]);
 
-  useEffect(() => {
-    let newPrice, oldPrice;
-    if (colors.length !== 0) {
-      setSelectedColor(colors[0]);
-    }
-    if (selectedSize) {
-      oldPrice = selectedSize.sizePrice;
-    } else {
-      oldPrice = price;
-    }
-    if (colors.length === 0) return;
-    newPrice =
-      colors[0].colorPriceType === "+"
-        ? Number(oldPrice) + Number(colors[0].colorPrice)
-        : Number(oldPrice) - Number(colors[0].colorPrice);
-    updatePrice(newPrice);
-    updateStatus(colors[0].colorStock > 0 ? "in-stock" : "out of stock");
-  }, [selectedSize]);
+  // useEffect(() => {
+  //   let newPrice, oldPrice;
+  //   if (colors.length !== 0) {
+  //     setSelectedColor(colors[0]);
+  //   }
+  //   if (selectedSize) {
+  //     oldPrice = selectedSize.sizePrice;
+  //   } else {
+  //     oldPrice = price;
+  //   }
+  //   if (colors.length === 0) return;
+  //   newPrice =
+  //     colors[0].colorPriceType === "+"
+  //       ? Number(oldPrice) + Number(colors[0].colorPrice)
+  //       : Number(oldPrice) - Number(colors[0].colorPrice);
+  //   updatePrice(newPrice);
+  //   updateStatus(colors[0].colorStock > 0 ? "in-stock" : "out of stock");
+  // }, [selectedSize]);
 
   const selectSize = (size) => {
-    setSelectedSize(size);
-    updatePrice(size.sizePrice);
-    updateStatus(size.sizeStock > 0 ? "in-stock" : "out of stock");
+    // setSelectedSize(size);
+    // updatePrice(size.sizePrice);
+    // updateStatus(size.sizeStock > 0 ? "in-stock" : "out of stock");
   };
 
-  const selectColor = (color) => {
-    setSelectedColor(color);
-    let oldPrice, newPrice;
-    if (selectedSize) {
-      oldPrice = selectedSize.sizePrice;
-    } else {
-      oldPrice = price;
-    }
-    newPrice =
-      color.colorPriceType === "+"
-        ? Number(oldPrice) + Number(color.colorPrice)
-        : Number(oldPrice) - Number(color.colorPrice);
-    updatePrice(newPrice);
+  // const selectColor = (color) => {
+  //   setSelectedColor(color);
+  //   let oldPrice, newPrice;
+  //   if (selectedSize) {
+  //     oldPrice = selectedSize.sizePrice;
+  //   } else {
+  //     oldPrice = price;
+  //   }
+  //   newPrice =
+  //     color.colorPriceType === "+"
+  //       ? Number(oldPrice) + Number(color.colorPrice)
+  //       : Number(oldPrice) - Number(color.colorPrice);
+  //   updatePrice(newPrice);
 
-    updateStatus(color.colorStock > 0 ? "in-stock" : "out of stock");
-  };
+  //   updateStatus(color.colorStock > 0 ? "in-stock" : "out of stock");
+  // };
 
   const updatePrice = (input) => {
     input ? setCurrentPrice(input) : setCurrentPrice(price);
@@ -146,34 +150,6 @@ const ProductDetails = (props) => {
     dispatch(updateSubTotal());
   };
 
-  const renderColors = (colors) => {
-    return colors.length !== 0 ? (
-      <>
-        <h4 style={{ marginBottom: "9px" }}>Available colors</h4>
-        <ul className={styles.colorItems}>
-          {colors.map((color, index) => {
-            return (
-              <li
-                key={index + Math.random() * 100}
-                onClick={(c) => selectColor(color)}
-                className={selectedColor === color ? styles.currentColor : null}
-                style={{ backgroundColor: color.colorCode }}
-              >
-                <span
-                  style={{ width: "max-content", fontWeight: "bold" }}
-                >
-                  {color.colorPrice ? `${color.colorPriceType ? color.colorPriceType : '+'} N${color.colorPrice}` : 'free'}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
-      </>
-    ) : (
-      ""
-    );
-  };
-
   const renderPrice = () => {
     return (
       <p>
@@ -197,10 +173,57 @@ const ProductDetails = (props) => {
     );
   };
 
-  if(!props.product || props.product.length === 0) {
-    return <h1 style={{ textAlign: 'center' }}>Product not found</h1>
-  }
+  const renderSizes = () => {
+    if (
+      specifications.type === "add-size-and-color" ||
+      specifications.type === "add-size-only"
+    ) {
+      return (
+        <>
+          <h3>Sizes Available</h3>
 
+          <div className={styles.sizeWrapper}>
+            {specifications.sizes.map((size, index) => {
+              return (
+                <div
+                  key={index + Math.random() * 100}
+                  // onClick={(s) => selectSize(size)}
+                  className={
+                    selectedSize === size.label
+                      ? styles.active
+                      : styles.sizeContainer
+                  }
+                >
+                  <h4 onClick={() => addCurrentColorToArray(size.label)}>
+                    {size.label}
+                  </h4>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      );
+    }
+    if (specifications.type === "add-colors-only") {
+      return (
+        <div>
+          <ColorList colors={specifications.colors} />
+        </div>
+      );
+    }
+
+    return <></>;
+  };
+
+  const renderColors = () => (
+    <div className={styles.colorsContainer}>
+      <ColorList colors={currentColorArray} />
+    </div>
+  );
+
+  if (!props.product || props.product.length === 0) {
+    return <h1 style={{ textAlign: "center" }}>Product not found</h1>;
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -230,28 +253,11 @@ const ProductDetails = (props) => {
             <span className={styles.subheading}>{subheading}</span>
           </div>
           <div className={styles.price}>{renderPrice()}</div>
-          <div className={styles.size}>
-            {sizes.length === 0 || sizes[0] === "" ? null : (
-              <>
-                <h4>Select size</h4>
-                <ul>
-                  {sizes.map((size, index) => {
-                    return (
-                      <li
-                        key={index + Math.random() * 100}
-                        onClick={(s) => selectSize(size)}
-                        className={selectedSize === size ? styles.active : null}
-                      >
-                        {size.sizeName}
-                      </li>
-                    );
-                  })}
-                </ul>
-                <span>{availability}</span>
-              </>
-            )}
+          <div className={styles.specifications}>
+            <div>{renderSizes()}</div>
+            <div>{renderColors()}</div>
           </div>
-          <div className={styles.colorsContainer}>{renderColors(colors)}</div>
+          {/* <div className={styles.colorsContainer}>{renderColors(colors)}</div> */}
           <div className={styles.quantity}>
             <Input
               type="number"
@@ -288,7 +294,9 @@ const ProductDetails = (props) => {
           <div className={styles.shippingInfo}>
             <h3>Shipping Information</h3>
             <p>
-              {loadingContent ? 'Loading shipping information...' : shippingInfo}
+              {loadingContent
+                ? "Loading shipping information..."
+                : shippingInfo}
             </p>
           </div>
         </div>

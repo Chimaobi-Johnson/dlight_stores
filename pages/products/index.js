@@ -9,8 +9,6 @@ import { storeProducts } from '../../store/actions/products';
 
 export default function Products (props) {
 
-  const parsedProducts = flatted.parse(props.products)
-
   const { products, categories } = props;
 
   return (
@@ -19,7 +17,7 @@ export default function Products (props) {
       description: "Everything household",
       keywords: "gift items, online store, wedding gifts, souvenirs, household items"
     }}>
-     <Lists categories={categories} list={parsedProducts} listName="product" /> 
+     <Lists categories={categories} list={products} listName="product" /> 
     </SidebarLayout>
   )
 }

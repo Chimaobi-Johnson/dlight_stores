@@ -6,7 +6,6 @@ import Meta from "../Meta/Meta";
 import MobileMenu from "../Navigation/MobileMenu/MobileMenu";
 import Cart from "../../Cart/Cart";
 import { useDispatch } from "react-redux";
-import { storeProducts } from "../../../store/actions/products";
 import { storeLoggedInUser, updateUserCart } from "../../../store/actions/user";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";

@@ -1,0 +1,29 @@
+.wrapper {
+
+}
+
+.wrapper ul {
+    list-style-type: none;
+    display: flex;
+    justify-items: start;
+    padding-left: 0;
+}
+
+.wrapper ul li {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    width: fit-content;
+    justify-items: center;
+    padding: 4px 8px;
+    font-size: .7rem;
+    margin-right: .5rem;
+    text-align: center;
+    border-left: #c5c5c5 1px solid;
+}
+
+.wrapper ul li span {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    display: block;
+}

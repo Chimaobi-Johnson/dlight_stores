@@ -15,11 +15,11 @@ import styles from "../styles/Home.module.css";
 function Home(props) {
 
   const { products, categories } = props;
+  console.log(products)
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-
     dispatch(storeProducts(products))
   }, [dispatch, products])
 

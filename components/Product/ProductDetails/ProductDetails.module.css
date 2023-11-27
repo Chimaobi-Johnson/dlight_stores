@@ -102,10 +102,30 @@
     color: white;
 }
 
+.sizeWrapper {
+    display: flex;
+}
 
-.active {
-    background-color: black;
-    color: white;
+.sizeContainer h4 {
+    font-weight: bold;
+    border: 1px solid black;
+    width: fit-content;
+    font-size: .8rem;
+    padding: .5rem .8rem;
+    margin-right: .8rem;
+    cursor: pointer;
+}
+
+
+.active h4 {
+    background-color: rgb(14, 14, 14);
+    color: rgb(236, 236, 236);
+    font-weight: bold;
+    width: fit-content;
+    font-size: .8rem;
+    padding: .5rem .8rem;
+    margin-right: .8rem;
+    cursor: pointer;
 }
 
 .quantity {
@@ -159,45 +179,9 @@
     height: fit-content;
 }
 
-.colorItems {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-.currentColor {
-    border: 1px solid #000;
-    transform: scale(1.2);
-    cursor: pointer;
-}
 
-.colorItems li {
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    margin-right: 9px;
-    position: relative;
-    cursor: pointer;
-}
 
-.colorItems li:hover {
-    transform: scale(1.2);
-}
-
-.colorItems li:hover > span {
-    opacity: 1;
-}
-
-.colorItems li span {
-    position: absolute;
-    bottom: -100%;
-    left: 50%;
-    /* display: block; */
-    font-size: .6rem;
-    transition: opacity .5s;
-    opacity: 0;
-}
 
 @media (max-width: 700px) {
 
