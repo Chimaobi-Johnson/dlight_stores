@@ -53,14 +53,15 @@ const ProductDetails = (props) => {
   const [loadingContent, setLoadingContent] = useState(false);
 
   const addCurrentColorToArray = (size) => {
-    const size = specifications.sizes.find((el) => el === size);
-    setCurrentColorArray(size.colors);
-    setSelectedSize(size);
+    const sizeArr = specifications.sizes.find((el) => el === size);
+    setCurrentColorArray(sizeArr.colors);
+    setSelectedSize(sizeArr);
+    updatePrice();
   };
 
   const selectColorHandler = (color) => {
-    setSelectedColor(color)
-  }
+    setSelectedColor(color);
+  };
 
   // useEffect(() => {
   //   setLoadingContent(true)
@@ -83,24 +84,38 @@ const ProductDetails = (props) => {
   //   }
   // }, [sizes]);
 
-  // useEffect(() => {
-  //   let newPrice, oldPrice;
-  //   if (colors.length !== 0) {
-  //     setSelectedColor(colors[0]);
-  //   }
-  //   if (selectedSize) {
-  //     oldPrice = selectedSize.sizePrice;
-  //   } else {
-  //     oldPrice = price;
-  //   }
-  //   if (colors.length === 0) return;
-  //   newPrice =
-  //     colors[0].colorPriceType === "+"
-  //       ? Number(oldPrice) + Number(colors[0].colorPrice)
-  //       : Number(oldPrice) - Number(colors[0].colorPrice);
-  //   updatePrice(newPrice);
-  //   updateStatus(colors[0].colorStock > 0 ? "in-stock" : "out of stock");
-  // }, [selectedSize]);
+  useEffect(() => {
+    let newPrice, oldPrice;
+
+    // set default size
+    if (
+      specifications.sizes.length !== 0 &&
+      (specifications.type === "add-size-and-color" ||
+        specifications.type === "add-size-only")
+    ) {
+      setSelectedSize(specifications.sizes[0]);
+      setCurrentColorArray(specifications.sizes[0].colors);
+
+      newPrice =
+        specifications.sizes[0].priceType === "+"
+          ? Number(price) + Number(specifications.sizes[0].price)
+          : Number(price) - Number(specifications.sizes[0].price);
+      updatePrice(newPrice);
+    }
+
+    // if (selectedSize) {
+    //   oldPrice = selectedSize.sizePrice;
+    // } else {
+    //   oldPrice = price;
+    // }
+    // if (colors.length === 0) return;
+    // newPrice =
+    //   colors[0].colorPriceType === "+"
+    //     ? Number(oldPrice) + Number(colors[0].colorPrice)
+    //     : Number(oldPrice) - Number(colors[0].colorPrice);
+    // updatePrice(newPrice);
+    // updateStatus(colors[0].colorStock > 0 ? "in-stock" : "out of stock");
+  }, [specifications]);
 
   const selectSize = (size) => {
     // setSelectedSize(size);
@@ -124,6 +139,12 @@ const ProductDetails = (props) => {
 
   //   updateStatus(color.colorStock > 0 ? "in-stock" : "out of stock");
   // };
+
+  useEffect(() => {
+    if (specifications.type === "add-color-only") {
+      setCurrentColorArray(specifications.colors);
+    }
+  }, [specifications]);
 
   const updatePrice = (input) => {
     input ? setCurrentPrice(input) : setCurrentPrice(price);
@@ -193,9 +214,7 @@ const ProductDetails = (props) => {
                   key={index + Math.random() * 100}
                   // onClick={(s) => selectSize(size)}
                   className={
-                    selectedSize === size
-                      ? styles.active
-                      : styles.sizeContainer
+                    selectedSize === size ? styles.active : styles.sizeContainer
                   }
                 >
                   <h4 onClick={() => addCurrentColorToArray(size)}>
@@ -208,20 +227,17 @@ const ProductDetails = (props) => {
         </>
       );
     }
-    if (specifications.type === "add-colors-only") {
-      return (
-        <div>
-          <ColorList colors={specifications.colors} selectColorHandler={selectColorHandler} selectedColor={selectedColor} />
-        </div>
-      );
-    }
 
     return <></>;
   };
 
   const renderColors = () => (
     <div className={styles.colorsContainer}>
-      <ColorList colors={currentColorArray} selectColorHandler={selectColorHandler} selectedColor={selectedColor} />
+      <ColorList
+        colors={currentColorArray}
+        selectColorHandler={selectColorHandler}
+        selectedColor={selectedColor}
+      />
     </div>
   );
 
