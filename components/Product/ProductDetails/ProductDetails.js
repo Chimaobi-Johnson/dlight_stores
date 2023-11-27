@@ -52,11 +52,15 @@ const ProductDetails = (props) => {
   const [shippingInfo, setShippingInfo] = useState(null);
   const [loadingContent, setLoadingContent] = useState(false);
 
-  const addCurrentColorToArray = (label) => {
-    const size = specifications.sizes.find((el) => el.label === label);
+  const addCurrentColorToArray = (size) => {
+    const size = specifications.sizes.find((el) => el === size);
     setCurrentColorArray(size.colors);
-    setSelectedSize(label);
+    setSelectedSize(size);
   };
+
+  const selectColorHandler = (color) => {
+    setSelectedColor(color)
+  }
 
   // useEffect(() => {
   //   setLoadingContent(true)
@@ -189,12 +193,12 @@ const ProductDetails = (props) => {
                   key={index + Math.random() * 100}
                   // onClick={(s) => selectSize(size)}
                   className={
-                    selectedSize === size.label
+                    selectedSize === size
                       ? styles.active
                       : styles.sizeContainer
                   }
                 >
-                  <h4 onClick={() => addCurrentColorToArray(size.label)}>
+                  <h4 onClick={() => addCurrentColorToArray(size)}>
                     {size.label}
                   </h4>
                 </div>
@@ -207,7 +211,7 @@ const ProductDetails = (props) => {
     if (specifications.type === "add-colors-only") {
       return (
         <div>
-          <ColorList colors={specifications.colors} />
+          <ColorList colors={specifications.colors} selectColorHandler={selectColorHandler} selectedColor={selectedColor} />
         </div>
       );
     }
@@ -217,7 +221,7 @@ const ProductDetails = (props) => {
 
   const renderColors = () => (
     <div className={styles.colorsContainer}>
-      <ColorList colors={currentColorArray} />
+      <ColorList colors={currentColorArray} selectColorHandler={selectColorHandler} selectedColor={selectedColor} />
     </div>
   );
 
