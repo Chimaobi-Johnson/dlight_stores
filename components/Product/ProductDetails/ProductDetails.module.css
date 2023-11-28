@@ -45,19 +45,9 @@
     /* text-transform: uppercase; */
 }
 
-.price {
-    /* font-weight: bold; */
-    font-size: 1.8rem;
-}
 
 .zoomImageWrapper {
     margin-top: 3rem;
-}
-
-.price p {
-    margin: 10px auto;
-    font-weight: bold;
-    color: chocolate;
 }
 
 .topContainer {

@@ -17,6 +17,7 @@ import Pagination from "../../ui/Pagination/Pagination";
 import Link from "next/link";
 import axios from "axios";
 import ColorList from "../components/ColorList/ColorList";
+import Price from "./Components/Price/Price";
 
 const ProductDetails = (props) => {
   const {
@@ -242,29 +243,6 @@ const ProductDetails = (props) => {
     dispatch(updateSubTotal());
   };
 
-  const renderPrice = () => {
-    return (
-      <p>
-        {discountDetails.length !== 0 && discountDetails[0].active ? (
-          <span>
-            <del
-              style={{
-                marginRight: "5px",
-                fontSize: "1.5rem",
-                color: "#5b5b5b9c",
-              }}
-            >
-              N{price}
-            </del>
-            N{currentPrice}
-          </span>
-        ) : (
-          currentPrice
-        )}
-      </p>
-    );
-  };
-
   const renderSizes = () => {
     if (
       specifications.type === "add-size-and-color" ||
@@ -337,7 +315,9 @@ const ProductDetails = (props) => {
             <h1>{name}</h1>
             <span className={styles.subheading}>{subheading}</span>
           </div>
-          <div className={styles.price}>{renderPrice()}</div>
+          <div>
+            <Price discountDetails={discountDetails} price={price} currentPrice={currentPrice} />
+          </div>
           <div className={styles.specifications}>
             <div>{renderSizes()}</div>
             <div>{renderColors()}</div>
