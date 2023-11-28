@@ -30,8 +30,11 @@ const ProductDetails = (props) => {
     deliveryStatus,
     category,
     priceSale,
+    available,
     discountDetails,
   } = props.product;
+
+  console.log(props.product)
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -52,11 +55,21 @@ const ProductDetails = (props) => {
   const [shippingInfo, setShippingInfo] = useState(null);
   const [loadingContent, setLoadingContent] = useState(false);
 
-  const addCurrentColorToArray = (size) => {
-    const sizeArr = specifications.sizes.find((el) => el === size);
-    setCurrentColorArray(sizeArr.colors);
-    setSelectedSize(sizeArr);
-    updatePrice();
+  const selectCurrentSize = (size) => {
+    let oldPrice, newPrice;
+
+    setCurrentColorArray(size.colors);
+    setSelectedSize(size);
+    newPrice =
+      size.priceType === "+"
+        ? Number(price) + Number(size.price)
+        : Number(price) - Number(size.price);
+   
+ 
+        updatePrice(newPrice);
+        updateStatus(size.stock > 0 ? "in-stock" : "out of stock");
+      
+
   };
 
   const selectColorHandler = (color) => {
@@ -83,16 +96,36 @@ const ProductDetails = (props) => {
   //     setSelectedSize(sizes[0]);
   //   }
   // }, [sizes]);
+  useEffect(() => {
+    if (specifications.type === "add-colors-only") {
+      setCurrentColorArray(specifications.colors);
+    }
+  }, [specifications]);
+
+  const updatePrice = (input) => {
+    input ? setCurrentPrice(input) : setCurrentPrice(price);
+  };
+
+  const updateStatus = (input) => {
+    input ? setAvailability(input) : setAvailability("in-stock");
+  };
+
+  const selectQuantity = (e) => {
+    setQuantity(e.target.value);
+  };
+
 
   useEffect(() => {
+    
     let newPrice, oldPrice;
-
+    updatePrice()
     // set default size
     if (
       specifications.sizes.length !== 0 &&
       (specifications.type === "add-size-and-color" ||
         specifications.type === "add-size-only")
     ) {
+
       setSelectedSize(specifications.sizes[0]);
       setCurrentColorArray(specifications.sizes[0].colors);
 
@@ -101,20 +134,22 @@ const ProductDetails = (props) => {
           ? Number(price) + Number(specifications.sizes[0].price)
           : Number(price) - Number(specifications.sizes[0].price);
       updatePrice(newPrice);
+    } else if(specifications.type === "add-colors-only" && specifications.colors.length !== 0) {
+      const newColorsArr = [];
+      newColorsArr.push(specifications.colors[0])
+      setSelectedColor(specifications.colors[0]);
+      setCurrentColorArray(newColorsArr);
+
+      newPrice =
+        specifications.colors[0].priceType === "+"
+          ? Number(price) + Number(specifications.colors[0].price)
+          : Number(price) - Number(specifications.colors[0].price);
+      updatePrice(newPrice);
+    } else {
+      setSelectedColor([]);
+      setCurrentColorArray([]);
     }
 
-    // if (selectedSize) {
-    //   oldPrice = selectedSize.sizePrice;
-    // } else {
-    //   oldPrice = price;
-    // }
-    // if (colors.length === 0) return;
-    // newPrice =
-    //   colors[0].colorPriceType === "+"
-    //     ? Number(oldPrice) + Number(colors[0].colorPrice)
-    //     : Number(oldPrice) - Number(colors[0].colorPrice);
-    // updatePrice(newPrice);
-    // updateStatus(colors[0].colorStock > 0 ? "in-stock" : "out of stock");
   }, [specifications]);
 
   const selectSize = (size) => {
@@ -140,23 +175,7 @@ const ProductDetails = (props) => {
   //   updateStatus(color.colorStock > 0 ? "in-stock" : "out of stock");
   // };
 
-  useEffect(() => {
-    if (specifications.type === "add-color-only") {
-      setCurrentColorArray(specifications.colors);
-    }
-  }, [specifications]);
 
-  const updatePrice = (input) => {
-    input ? setCurrentPrice(input) : setCurrentPrice(price);
-  };
-
-  const updateStatus = (input) => {
-    input ? setAvailability(input) : setAvailability("in-stock");
-  };
-
-  const selectQuantity = (e) => {
-    setQuantity(e.target.value);
-  };
 
   const addItemToCart = () => {
     const newPrice = quantity * currentPrice;
@@ -217,7 +236,7 @@ const ProductDetails = (props) => {
                     selectedSize === size ? styles.active : styles.sizeContainer
                   }
                 >
-                  <h4 onClick={() => addCurrentColorToArray(size)}>
+                  <h4 onClick={() => selectCurrentSize(size)}>
                     {size.label}
                   </h4>
                 </div>

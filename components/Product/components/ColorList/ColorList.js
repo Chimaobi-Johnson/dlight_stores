@@ -2,7 +2,7 @@ import * as styles from "./ColorList.module.css";
 
 const ColorList = (props) => {
   const { colors, selectColorHandler, selectedColor } = props;
-
+console.log(colors)
   return (
     <div className={styles.wrapper}>
         {colors.length !== 0 ? (
