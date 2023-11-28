@@ -34,7 +34,7 @@ const ProductDetails = (props) => {
     discountDetails,
   } = props.product;
 
-  console.log(props.product)
+  console.log(props.product);
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -54,56 +54,67 @@ const ProductDetails = (props) => {
   const [selectedColor, setSelectedColor] = useState(null);
   const [shippingInfo, setShippingInfo] = useState(null);
   const [loadingContent, setLoadingContent] = useState(false);
+  const [mainPrice, setMainPrice] = useState(price);
 
   const selectCurrentSize = (size) => {
-    let oldPrice, newPrice;
+    let newPrice;
 
     setCurrentColorArray(size.colors);
     setSelectedSize(size);
     newPrice =
       size.priceType === "+"
-        ? Number(price) + Number(size.price)
-        : Number(price) - Number(size.price);
-   
- 
-        updatePrice(newPrice);
-        updateStatus(size.stock > 0 ? "in-stock" : "out of stock");
-      
+        ? Number(mainPrice) + Number(size.price)
+        : Number(mainPrice) - Number(size.price);
 
+    updatePrice(newPrice);
+    updateStatus(size.stock > 0 ? "in-stock" : "out of stock");
+  };
+
+  const updateColorPrice = (color, selectedSize) => {
+    let newPrice;
+
+    if(specifications.type === 'add-colors-only') {
+      if (color.priceType === "+") {
+        newPrice =
+          Number(mainPrice) + Number(color.price)
+      } else if (color.priceType === "-") {
+        newPrice = Number(mainPrice) - Number(color.price)
+      } else {
+        newPrice = mainPrice
+      }
+      return newPrice
+    } else {
+      if (color.priceType === "+" && selectedSize.priceType === "+") {
+        newPrice =
+          Number(mainPrice) + Number(color.price) + Number(selectedSize.price);
+      } else if (color.priceType === "+" && selectedSize.priceType === "-") {
+        newPrice =
+          Number(mainPrice) + Number(selectedSize.price) - Number(color.price);
+      } else if (color.priceType === "-" && selectedSize.priceType === "+") {
+        newPrice =
+          Number(mainPrice) + Number(selectedSize.price) - Number(color.price);
+      } else if (color.priceType === "-" && selectedSize.priceType === "-") {
+        newPrice =
+          Number(mainPrice) - Number(selectedSize.price) - Number(color.price);
+      } else {
+        newPrice = mainPrice;
+      }
+      return newPrice;
+    }
+    
   };
 
   const selectColorHandler = (color) => {
+    let oldPrice, newPrice;
+
     setSelectedColor(color);
+    newPrice = updateColorPrice(color, selectedSize);
+    updatePrice(newPrice);
+    updateStatus(color.stock > 0 ? "in-stock" : "out of stock");
   };
 
-  // useEffect(() => {
-  //   setLoadingContent(true)
-  //   const instance = axios.create({
-  //     withCredentials: true
-  // });
-  // instance.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/site-content`)
-  //   .then(content => {
-  //     setLoadingContent(false)
-  //     console.log(content)
-  //   }).catch(err => {
-  //     setLoadingContent(false)
-  //     console.log(err)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   if (sizes.length !== 0) {
-  //     setSelectedSize(sizes[0]);
-  //   }
-  // }, [sizes]);
-  useEffect(() => {
-    if (specifications.type === "add-colors-only") {
-      setCurrentColorArray(specifications.colors);
-    }
-  }, [specifications]);
-
   const updatePrice = (input) => {
-    input ? setCurrentPrice(input) : setCurrentPrice(price);
+    input ? setCurrentPrice(input) : setCurrentPrice(mainPrice);
   };
 
   const updateStatus = (input) => {
@@ -114,43 +125,82 @@ const ProductDetails = (props) => {
     setQuantity(e.target.value);
   };
 
-
   useEffect(() => {
-    
     let newPrice, oldPrice;
-    updatePrice()
-    // set default size
-    if (
-      specifications.sizes.length !== 0 &&
-      (specifications.type === "add-size-and-color" ||
-        specifications.type === "add-size-only")
-    ) {
 
-      setSelectedSize(specifications.sizes[0]);
-      setCurrentColorArray(specifications.sizes[0].colors);
+    if(discountDetails.length !== 0 && discountDetails[0].active) {
+      setMainPrice(priceSale)
+      setCurrentPrice(priceSale)
+      updatePrice();
 
-      newPrice =
-        specifications.sizes[0].priceType === "+"
-          ? Number(price) + Number(specifications.sizes[0].price)
-          : Number(price) - Number(specifications.sizes[0].price);
-      updatePrice(newPrice);
-    } else if(specifications.type === "add-colors-only" && specifications.colors.length !== 0) {
-      const newColorsArr = [];
-      newColorsArr.push(specifications.colors[0])
-      setSelectedColor(specifications.colors[0]);
-      setCurrentColorArray(newColorsArr);
+      if (
+        specifications.sizes.length !== 0 &&
+        (specifications.type === "add-size-and-color" ||
+          specifications.type === "add-size-only")
+      ) {
+        // set default size
 
-      newPrice =
-        specifications.colors[0].priceType === "+"
-          ? Number(price) + Number(specifications.colors[0].price)
-          : Number(price) - Number(specifications.colors[0].price);
-      updatePrice(newPrice);
+        setSelectedSize(specifications.sizes[0]);
+        setCurrentColorArray(specifications.sizes[0].colors);
+  
+        newPrice =
+          specifications.sizes[0].priceType === "+"
+            ? Number(priceSale) + Number(specifications.sizes[0].price)
+            : Number(priceSale) - Number(specifications.sizes[0].price);
+        updatePrice(newPrice);
+      } else if (
+        specifications.type === "add-colors-only" &&
+        specifications.colors.length !== 0
+      ) {
+        setSelectedColor(specifications.colors[0]);
+        setCurrentColorArray(specifications.colors);
+  
+        newPrice =
+          specifications.colors[0].priceType === "+"
+            ? Number(priceSale) + Number(specifications.colors[0].price)
+            : Number(priceSale) - Number(specifications.colors[0].price);
+        updatePrice(newPrice);
+      } else {
+        setSelectedColor(null);
+        setCurrentColorArray([]);
+      }
     } else {
-      setSelectedColor([]);
-      setCurrentColorArray([]);
-    }
+      setMainPrice(price)
+      setCurrentPrice(price)
+      updatePrice();
 
-  }, [specifications]);
+      if (
+        specifications.sizes.length !== 0 &&
+        (specifications.type === "add-size-and-color" ||
+          specifications.type === "add-size-only")
+      ) {
+        setSelectedSize(specifications.sizes[0]);
+        setCurrentColorArray(specifications.sizes[0].colors);
+  
+        newPrice =
+          specifications.sizes[0].priceType === "+"
+            ? Number(price) + Number(specifications.sizes[0].price)
+            : Number(price) - Number(specifications.sizes[0].price);
+        updatePrice(newPrice);
+      } else if (
+        specifications.type === "add-colors-only" &&
+        specifications.colors.length !== 0
+      ) {
+        setSelectedColor(specifications.colors[0]);
+        setCurrentColorArray(specifications.colors);
+  
+        newPrice =
+          specifications.colors[0].priceType === "+"
+            ? Number(price) + Number(specifications.colors[0].price)
+            : Number(price) - Number(specifications.colors[0].price);
+        updatePrice(newPrice);
+      } else {
+        setSelectedColor(null);
+        setCurrentColorArray([]);
+      }
+    }   
+
+  }, [specifications, discountDetails]);
 
   const selectSize = (size) => {
     // setSelectedSize(size);
@@ -174,8 +224,6 @@ const ProductDetails = (props) => {
 
   //   updateStatus(color.colorStock > 0 ? "in-stock" : "out of stock");
   // };
-
-
 
   const addItemToCart = () => {
     const newPrice = quantity * currentPrice;
@@ -206,9 +254,9 @@ const ProductDetails = (props) => {
                 color: "#5b5b5b9c",
               }}
             >
-              N{currentPrice}
+              N{price}
             </del>
-            N{priceSale}
+            N{currentPrice}
           </span>
         ) : (
           currentPrice
@@ -236,9 +284,7 @@ const ProductDetails = (props) => {
                     selectedSize === size ? styles.active : styles.sizeContainer
                   }
                 >
-                  <h4 onClick={() => selectCurrentSize(size)}>
-                    {size.label}
-                  </h4>
+                  <h4 onClick={() => selectCurrentSize(size)}>{size.label}</h4>
                 </div>
               );
             })}
