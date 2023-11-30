@@ -18,6 +18,7 @@ import Link from "next/link";
 import axios from "axios";
 import ColorList from "../components/ColorList/ColorList";
 import Price from "./Components/Price/Price";
+import { isEmpty } from "../../../utils/helperFunctions";
 
 const ProductDetails = (props) => {
   const {
@@ -36,6 +37,8 @@ const ProductDetails = (props) => {
   } = props.product;
 
   console.log(props.product);
+
+  const user = useSelector(data => data.user)
 
 
   const dispatch = useDispatch();
@@ -58,10 +61,20 @@ const ProductDetails = (props) => {
   const [loadingContent, setLoadingContent] = useState(false);
   const [mainPrice, setMainPrice] = useState(price);
 
+
+  useEffect(() => {
+    updateStatus(available > 0 ? "in-stock" : "out of stock")
+  }, [updateStatus])
+
   const selectCurrentSize = (size) => {
     let newPrice;
 
     setCurrentColorArray(size.colors);
+    if(size.colors.length !== 0) {
+      setSelectedColor(size.colors[0]);
+    } else {
+      setSelectedColor(null)
+    }
     setSelectedSize(size);
     newPrice =
       size.priceType === "+"
@@ -110,9 +123,12 @@ const ProductDetails = (props) => {
     let oldPrice, newPrice;
 
     setSelectedColor(color);
+    if(specifications.type === "add-colors-only") {
+      setSelectedSize(null)
+    }
     newPrice = updateColorPrice(color, selectedSize);
     updatePrice(newPrice);
-    updateStatus(color.stock > 0 ? "in-stock" : "out of stock");
+    // updateStatus(color.stock > 0 ? "in-stock" : "out of stock");
   };
 
   const updatePrice = (input) => {
@@ -144,6 +160,10 @@ const ProductDetails = (props) => {
 
         setSelectedSize(specifications.sizes[0]);
         setCurrentColorArray(specifications.sizes[0].colors);
+        if(specifications.sizes[0].colors.length !== 0) {
+          setSelectedColor(specifications.sizes[0].colors[0]);
+        }
+
   
         newPrice =
           specifications.sizes[0].priceType === "+"
@@ -154,6 +174,7 @@ const ProductDetails = (props) => {
         specifications.type === "add-colors-only" &&
         specifications.colors.length !== 0
       ) {
+        setSelectedSize(null)
         setSelectedColor(specifications.colors[0]);
         setCurrentColorArray(specifications.colors);
   
@@ -178,7 +199,10 @@ const ProductDetails = (props) => {
       ) {
         setSelectedSize(specifications.sizes[0]);
         setCurrentColorArray(specifications.sizes[0].colors);
-  
+        if(specifications.sizes[0].colors.length !== 0) {
+          setSelectedColor(specifications.sizes[0].colors[0]);
+        }
+
         newPrice =
           specifications.sizes[0].priceType === "+"
             ? Number(price) + Number(specifications.sizes[0].price)
@@ -188,6 +212,7 @@ const ProductDetails = (props) => {
         specifications.type === "add-colors-only" &&
         specifications.colors.length !== 0
       ) {
+        setSelectedSize(null)
         setSelectedColor(specifications.colors[0]);
         setCurrentColorArray(specifications.colors);
   
@@ -232,13 +257,13 @@ const ProductDetails = (props) => {
     const cartDetails = {
       productId: _id,
       name: name,
-      price: newPrice,
+      price: mainPrice,
       imageUrl: imagesUrl[0],
       size: selectedSize,
       quantity: quantity,
       color: selectedColor,
       category: category,
-      user: null,
+      userId: !isEmpty(user) ? user._id : null,
     };
     dispatch(addToCart(cartDetails));
     dispatch(updateSubTotal());

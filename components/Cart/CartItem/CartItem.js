@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 const CartItem = (props) => {
-  const { productId, name, price, color, quantity, size, imageUrl } = props.item;
+  const { productId, name, price, color, quantity, size, imageUrl, userId } = props.item;
   const dispatch = useDispatch();
 
   const [editingMode, setEditingMode] = useState(false);
@@ -41,11 +41,11 @@ const CartItem = (props) => {
   }
 
   const renderColor = (color) => {
-    return color ? <span style={{ backgroundColor: color.colorCode, display: 'block', width: '15px', height: '15px', marginLeft: '.2rem', borderRadius: '100%' }}></span> : ''
+    return color ? <span style={{ backgroundColor: color.code, display: 'block', width: '15px', height: '15px', marginLeft: '.2rem', borderRadius: '100%' }}></span> : ''
   }
 
   const renderSize = (size) => {
-    return size ? size.sizeName : ''
+    return size ? size.label : ''
   }
 
   const renderSlash = (size, color) => {

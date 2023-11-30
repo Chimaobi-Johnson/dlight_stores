@@ -41,8 +41,8 @@ export const updateAppData = (state = initialState, action) => {
         function checkCart(cartArr) {
           return (
             cartArr.productId === action.payload.productId &&
-            (cartArr.size && action.payload.size ? cartArr.size.sizeName === action.payload.size.sizeName : true) &&
-            (cartArr.color && action.payload.color ? cartArr.color.colorCode === action.payload.color.colorCode: true)
+            (cartArr.size && action.payload.size ? cartArr.size.label === action.payload.size.label : true) &&
+            (cartArr.color && action.payload.color ? cartArr.color.code === action.payload.color.code: true)
           );
         }
         const isInArray = cartArr.some(checkCart);
@@ -108,8 +108,8 @@ export const updateAppData = (state = initialState, action) => {
       cartA.map((item) => {
         if (
           item.productId === action.payload.productId &&
-          (item.color && action.payload.color ? item.color.colorCode === action.payload.color.colorCode : true) &&
-          (item.size && action.payload.size ? item.size.sizeName === action.payload.size.sizeName : true)
+          (item.color && action.payload.color ? item.color.code === action.payload.color.code : true) &&
+          (item.size && action.payload.size ? item.size.label === action.payload.size.label : true)
         ) {
           item.quantity = action.payload.qty;
           item.price = action.payload.updatedPrice;
