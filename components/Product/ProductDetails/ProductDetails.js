@@ -36,9 +36,6 @@ const ProductDetails = (props) => {
   } = props.product;
 
   console.log(props.product);
-  if (!props.product || props.product.length === 0) {
-    return <h1 style={{ textAlign: "center" }}>Product not found</h1>;
-  }
 
 
   const dispatch = useDispatch();
@@ -287,6 +284,11 @@ const ProductDetails = (props) => {
       />
     </div>
   );
+
+  if (!props.product || props.product.length === 0) {
+    return <h1 style={{ textAlign: "center" }}>Product not found</h1>;
+  }
+
 
 
   return (
