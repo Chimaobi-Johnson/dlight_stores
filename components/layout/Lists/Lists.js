@@ -10,6 +10,7 @@ import { updateSingleProductPagination } from '../../../store/actions/products';
 const Lists = props => {
 
     const dispatch = useDispatch();
+    console.log(props)
 
     return (
         <div className={styles.wrapper}>
