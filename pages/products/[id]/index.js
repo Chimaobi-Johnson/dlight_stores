@@ -34,7 +34,7 @@ export async function getStaticProps(context) {
 
   const categoryId = context.params.id;
 
-  const response = await axios.get(process.env.BACKEND_URL + '/products/?id=' + categoryId)
+  const response = await axios.get(process.env.BACKEND_URL + '/products?id=' + categoryId)
   const response2 = await axios.get(process.env.BACKEND_URL + '/categories')
 
   return {
