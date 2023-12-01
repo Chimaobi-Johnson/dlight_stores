@@ -21,8 +21,6 @@ const Summary = (props) => {
       return group;
     }, {});
 
-    console.log(groupByName);
-
     for (const [key, value] of Object.entries(groupByName)) {
       itms.push({
         productName: key,
@@ -58,13 +56,13 @@ const Summary = (props) => {
               <ul>
                 {el.variants.map((x) => (
                   <li key={Math.random() * 18} >
-                    <span>Size:</span> {x.size ? x.size.sizeName : 'N/A'} - {" "}
+                    <span>Size:</span> {x.size ? x.size.label : 'N/A'} - {" "}
                     <span>Color:</span>
                       {x.color ? (
                       <>
                         <span
                           style={{
-                            backgroundColor: x.color.colorCode,
+                            backgroundColor: x.color.code,
                             width: "15px",
                             height: "15px",
                             display: "inline-block",

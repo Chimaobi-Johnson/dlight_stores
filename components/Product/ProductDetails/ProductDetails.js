@@ -257,7 +257,7 @@ const ProductDetails = (props) => {
     const cartDetails = {
       productId: _id,
       name: name,
-      price: mainPrice,
+      price: newPrice,
       imageUrl: imagesUrl[0],
       size: selectedSize,
       quantity: quantity,

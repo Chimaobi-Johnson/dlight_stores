@@ -4,7 +4,6 @@ import Button from "../../ui/Button/Button";
 import { useRouter } from "next/router";
 import axios from "axios";
 
-
 const PaystackPage = props => {
     const router = useRouter();
     const { amount, userId, cartItems, deliveryData } = props;

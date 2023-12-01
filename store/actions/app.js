@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  CLEAR_CART_ITEMS,
   INIT_CART,
   INIT_MOBILE_MENU,
   INIT_SEARCH_BAR,
@@ -26,6 +27,12 @@ export const removeCartItem = (productId) => (dispatch) => {
   dispatch({
     type: REMOVE_CART_ITEM,
     payload: productId,
+  });
+};
+
+export const clearCartItems = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_CART_ITEMS,
   });
 };
 

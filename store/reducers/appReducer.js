@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  CLEAR_CART_ITEMS,
   INIT_CART,
   INIT_MOBILE_MENU,
   INIT_SEARCH_BAR,
@@ -41,8 +42,12 @@ export const updateAppData = (state = initialState, action) => {
         function checkCart(cartArr) {
           return (
             cartArr.productId === action.payload.productId &&
-            (cartArr.size && action.payload.size ? cartArr.size.label === action.payload.size.label : true) &&
-            (cartArr.color && action.payload.color ? cartArr.color.code === action.payload.color.code: true)
+            (cartArr.size && action.payload.size
+              ? cartArr.size.label === action.payload.size.label
+              : true) &&
+            (cartArr.color && action.payload.color
+              ? cartArr.color.code === action.payload.color.code
+              : true)
           );
         }
         const isInArray = cartArr.some(checkCart);
@@ -102,14 +107,30 @@ export const updateAppData = (state = initialState, action) => {
       };
       return newState;
 
+    case CLEAR_CART_ITEMS:
+      newState = {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: [],
+          subTotal: null
+        },
+      };
+      return newState;
+
+
     case UPDATE_CART_QUANTITY:
       const cartA = [...state.cart.cartItems];
-      console.log(action.payload)
+      console.log(action.payload);
       cartA.map((item) => {
         if (
           item.productId === action.payload.productId &&
-          (item.color && action.payload.color ? item.color.code === action.payload.color.code : true) &&
-          (item.size && action.payload.size ? item.size.label === action.payload.size.label : true)
+          (item.color && action.payload.color
+            ? item.color.code === action.payload.color.code
+            : true) &&
+          (item.size && action.payload.size
+            ? item.size.label === action.payload.size.label
+            : true)
         ) {
           item.quantity = action.payload.qty;
           item.price = action.payload.updatedPrice;
