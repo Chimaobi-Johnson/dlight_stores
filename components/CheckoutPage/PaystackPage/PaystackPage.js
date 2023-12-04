@@ -11,7 +11,7 @@ const PaystackPage = props => {
 
     const config = {
         reference: (new Date()).getTime().toString(),
-        email: 'chimaobi@gmail.com',
+        email: 'chimaobi.dev@gmail.com',
         amount: amount, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
         publicKey: 'pk_test_42b22a74c63b11e8f3671571e83d0431f3932c0c',
     };

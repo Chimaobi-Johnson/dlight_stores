@@ -1,17 +1,25 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import * as styles from './Confirmation.module.css'
 import { useDispatch } from 'react-redux'
 import { clearCartItems } from '../../store/actions/app'
 
 const ConfirmationPage = () => {
+    const [confirmationMessage, setConfirmationMessage] = useState('Payment confirmed. Thank you for your purchase')
+    const urlParams = new URLSearchParams(window.location.search);
+    const param = urlParams.get('status');
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(clearCartItems())
+        if(param === 'success') {
+            setConfirmationMessage('Payment confirmed. Thank you for your purchase')
+            dispatch(clearCartItems())
+        } else {
+            setConfirmationMessage('Payment failed. Check connection or try again later')
+        }
     }, [dispatch])
 
     return (
         <div className={styles.wrapper}>
-            <p>Payment confirmed. Thank you for your purchase</p>
+            <p>{confirmationMessage}</p>
         </div>
     )
 }
