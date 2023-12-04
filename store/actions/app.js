@@ -5,10 +5,18 @@ import {
   INIT_MOBILE_MENU,
   INIT_SEARCH_BAR,
   REMOVE_CART_ITEM,
+  STORE_SITE_CONTENT,
   UPDATE_CART_QUANTITY,
   UPDATE_DELIVERY_DETAILS,
   UPDATE_SUBTOTAL,
 } from "../actionTypes";
+
+export const storeSiteContent = (data) => (dispatch) => {
+  dispatch({
+    type: STORE_SITE_CONTENT,
+    payload: data,
+  });
+};
 
 export const initCart = () => (dispatch) => {
   dispatch({

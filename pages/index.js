@@ -10,18 +10,19 @@ import { storeProducts } from "../store/actions/products";
 import axios from 'axios';
 
 import styles from "../styles/Home.module.css";
+import { storeSiteContent } from "../store/actions/app";
 
 
 function Home(props) {
 
-  const { products, categories } = props;
-  console.log(products)
+  const { products, categories, content } = props;
 
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(storeProducts(products))
-  }, [dispatch, products])
+    dispatch(storeSiteContent(content))
+  }, [dispatch, products, content])
 
   return (
     <BasicLayout
@@ -44,12 +45,15 @@ export async function getStaticProps() {
 
  const response = await axios.get(process.env.BACKEND_URL + '/products')
  const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
+ const response3 = await axios.get(process.env.BACKEND_URL + '/site-content ')
+
 
 
   return {
     props: {
       products: response.data.products,
       categories: response2.data.categories,
+      content: response3.data.document
     },
     revalidate: 1
   }

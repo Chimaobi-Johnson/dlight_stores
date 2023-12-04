@@ -5,6 +5,7 @@ import {
   INIT_MOBILE_MENU,
   INIT_SEARCH_BAR,
   REMOVE_CART_ITEM,
+  STORE_SITE_CONTENT,
   UPDATE_CART_QUANTITY,
   UPDATE_DELIVERY_DETAILS,
   UPDATE_SUBTOTAL,
@@ -17,6 +18,7 @@ const initialState = {
     cartItems: [],
     subTotal: null,
   },
+  content: null,
   deliveryData: null,
   mobileMenuInit: false,
   searchBarInit: false,
@@ -177,6 +179,12 @@ export const updateAppData = (state = initialState, action) => {
       newState = {
         ...state,
         deliveryData: action.payload,
+      };
+      return newState;
+    case STORE_SITE_CONTENT:
+      newState = {
+        ...state,
+        content: action.payload,
       };
       return newState;
     default:
