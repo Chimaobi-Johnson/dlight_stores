@@ -30,6 +30,7 @@ const Navigation = (props) => {
   const dispatch = useDispatch()
 
   const cart = useSelector(data => data.app.cart.cartItems)
+  const content = useSelector(data => data.app.content)
 
   const initExtendedMenu = () => {
     setActive(!active);
@@ -67,7 +68,7 @@ const Navigation = (props) => {
 
   return (
     <>
-    <Modal open={modal} openModal={openModal} />
+    <Modal open={modal} openModal={openModal}>{content.shippingInfo}</Modal>
     <header className={styles.wrapper}>
       <ExtendedMenu openModal={openModal} activate={active} />
       <MobileMenu />

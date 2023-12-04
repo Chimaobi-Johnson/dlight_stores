@@ -39,7 +39,7 @@ const ProductDetails = (props) => {
   console.log(props.product);
 
   const user = useSelector(data => data.user)
-
+  const content = useSelector(data => data.app.content)
 
   const dispatch = useDispatch();
   // const appData = useSelector((data) => data);
@@ -57,7 +57,6 @@ const ProductDetails = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
-  const [shippingInfo, setShippingInfo] = useState(null);
   const [loadingContent, setLoadingContent] = useState(false);
   const [mainPrice, setMainPrice] = useState(price);
 
@@ -387,9 +386,7 @@ const ProductDetails = (props) => {
           <div className={styles.shippingInfo}>
             <h3>Shipping Information</h3>
             <p>
-              {loadingContent
-                ? "Loading shipping information..."
-                : shippingInfo}
+              {content ? content.shippingInfo : 'loading...'}
             </p>
           </div>
         </div>
