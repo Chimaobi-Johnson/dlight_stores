@@ -36,6 +36,36 @@ const CheckoutPage = (props) => {
     document.getElementById('loginInfo').style.display = 'none'
   }
 
+  const renderRadioOptions = () => (
+    <div className={styles.deliveryMethodContainer}>
+    <h3>Delivery Type</h3>
+    <div>
+      <input
+        onChange={(e) => changeInputHandler(e)}
+        type="radio"
+        id="pickup"
+        checked={deliveryType === 'pickup'}
+        name="deliveryType"
+        value="pickup"
+      />
+      <label htmlFor="pickup">
+        Pick up - Order and pick up at our store any day you want
+      </label>
+      <br />
+      <input
+        onChange={(e) => changeInputHandler(e)}
+        type="radio"
+        id="delivery"
+        checked={deliveryType === 'delivery'}
+        name="deliveryType"
+        value="delivery"
+      />
+      <label htmlFor="delivery">Delivery</label>
+      <br />
+    </div>
+  </div>
+  )
+
   const OrderDetails = () => {
     return (
       <>
@@ -51,34 +81,9 @@ const CheckoutPage = (props) => {
               : "No item in cart"}
           </div>
           <h2>Total = N{subTotal ? subTotal : 0}</h2>
-          <div className={styles.deliveryMethodContainer}>
-            <h3>Delivery Type</h3>
-            <div>
-              <input
-                onChange={(e) => changeInputHandler(e)}
-                type="radio"
-                id="pickup"
-                defaultChecked
-                name="deliveryType"
-                value="pickup"
-              />
-              <label htmlFor="pickup">
-                Pick up - Order and pick up at our store any day you want
-              </label>
-              <br />
-              <input
-                onChange={(e) => changeInputHandler(e)}
-                type="radio"
-                id="delivery"
-                name="deliveryType"
-                value="delivery"
-              />
-              <label htmlFor="delivery">Delivery - (DHL)</label>
-              <br />
-            </div>
-          </div>
+          {renderRadioOptions()}
           <div className={styles.addressContainer}>
-            {deliveryType === "delivery" ? <AddressForm deliveryType={deliveryType} /> : <ShortForm deliveryType={deliveryType} />}
+            {deliveryType === "delivery" ? <AddressForm cartLength={cartItems.length} deliveryType={deliveryType} /> : deliveryType === "pickup" ? <ShortForm cartLength={cartItems.length} deliveryType={deliveryType} /> : ''}
           </div>
       </>
     )

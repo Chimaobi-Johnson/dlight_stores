@@ -34,8 +34,6 @@ const Summary = (props) => {
     setItems(itms);
   };
 
-  console.log(items)
-
   return (
     <div className={styles.wrapper}>
       <h3>Final Review</h3>

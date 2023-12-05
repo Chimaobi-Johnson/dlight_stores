@@ -23,6 +23,10 @@ const AddressForm = (props) => {
   };
 
   const submitFormHandler  = async (data) => {
+    if(props.cartLength === 0) {
+      alert('Cart is empty!')
+      return
+    }
     if(!shippingLocation) {
       alert('Please select your shipping location')
       return

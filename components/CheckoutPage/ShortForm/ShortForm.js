@@ -14,6 +14,10 @@ const ShortForm = (props) => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch()
     const submitForm = async (data) => {
+      if(props.cartLength === 0) {
+        alert('Cart is empty!')
+        return
+      }
         dispatch(updateDeliveryDetails({...data, deliveryType: props.deliveryType}))
         router.push('/order-summary')
     }
