@@ -68,7 +68,7 @@ const Navigation = (props) => {
 
   return (
     <>
-    <Modal open={modal} openModal={openModal}>{content.shippingInfo}</Modal>
+    <Modal open={modal} openModal={openModal}>{content ? content.shippingInfo : 'loading...'}</Modal>
     <header className={styles.wrapper}>
       <ExtendedMenu openModal={openModal} activate={active} />
       <MobileMenu />

@@ -57,7 +57,6 @@ const ProductDetails = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
-  const [loadingContent, setLoadingContent] = useState(false);
   const [mainPrice, setMainPrice] = useState(price);
 
 

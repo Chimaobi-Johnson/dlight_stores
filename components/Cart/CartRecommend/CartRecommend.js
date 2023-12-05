@@ -9,25 +9,25 @@ const CartRecommend = (props) => {
   const { category } = props.cartItem;
   const [product, setProduct] = useState(null)
 
-  useEffect(() => {
-    const getProductsByCategory = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/?id=${category}`
-        );
-        if (response.status === 200) {
-            // select a random product from existing array of products under same category
-          const randomNumber = Math.floor(Math.random() * response.data.products.length)
-          setProduct(response.data.products[randomNumber])
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  // useEffect(() => {
+    // const getProductsByCategory = async () => {
+    //   try {
+    //     const response = await axios.get(
+    //       `${process.env.NEXT_PUBLIC_BACKEND_URL}/products/?id=${category}`
+    //     );
+    //     if (response.status === 200) {
+    //         // select a random product from existing array of products under same category
+    //       const randomNumber = Math.floor(Math.random() * response.data.products.length)
+    //       setProduct(response.data.products[randomNumber])
+    //     }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
     // getProductsByCategory();
 
-  }, []);
+  // }, []);
 
   const renderComponent = () => {
     if(!product) {
