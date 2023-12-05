@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as styles from "./Summary.module.css";
 import Image from "next/image";
+import { NumericFormat } from "react-number-format";
 
 const Summary = (props) => {
   const { cartItems } = props;
@@ -72,7 +73,7 @@ const Summary = (props) => {
                     ) : (
                       "N/A"
                     )}
-                    <span style={{ marginLeft: '.8rem' }}>Price: {x.price} </span>
+                    <span style={{ marginLeft: '.8rem' }}>Price: <NumericFormat value={x.price} prefix="N" displayType="text" thousandSeparator="," /> </span>
                     <span style={{ marginLeft: '.8rem' }}>Qty:</span>{x.quantity} 
                   </li>
                 ))}

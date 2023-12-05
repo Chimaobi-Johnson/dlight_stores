@@ -6,6 +6,7 @@ import Button from "../ui/Button/Button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { isEmpty } from "../../utils/helperFunctions";
+import { NumericFormat } from "react-number-format";
 
 const OrderSummary = (props) => {
     const cartItems = useSelector((data) => data.app.cart.cartItems);
@@ -56,7 +57,7 @@ const OrderSummary = (props) => {
                     <Summary cartItems={cartItems} subTotal={subTotal} />
                     <div className={styles.totalContainer}>
 
-                        <h1>Total: {subTotal} {`(${totalQty} items)`}</h1>
+                        <h1>Total: <NumericFormat value={subTotal} prefix="N" displayType="text" thousandSeparator="," /> {`(${totalQty} items)`}</h1>
                     </div>
                 </div>
                 <div className={styles.contactInfo}>

@@ -1,9 +1,10 @@
 import * as styles from "./CheckoutPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../Cart/CartItem/CartItem";
-import { useState } from "react";
 import AddressForm from "./AddressForm/AddressForm";
 import PaystackPage from "./PaystackPage/PaystackPage";
+import { useState } from "react";
+import { NumericFormat } from 'react-number-format';
 import Link from "next/link";
 import ShortForm from "./ShortForm/ShortForm";
 import { isEmpty } from "../../utils/helperFunctions";
@@ -80,7 +81,7 @@ const CheckoutPage = (props) => {
                 })
               : "No item in cart"}
           </div>
-          <h2>Total = N{subTotal ? subTotal : 0}</h2>
+          <h2>Total = <NumericFormat value={subTotal ? subTotal : 0} prefix="N" displayType="text" thousandSeparator="," /></h2>
           {renderRadioOptions()}
           <div className={styles.addressContainer}>
             {deliveryType === "delivery" ? <AddressForm cartLength={cartItems.length} deliveryType={deliveryType} /> : deliveryType === "pickup" ? <ShortForm cartLength={cartItems.length} deliveryType={deliveryType} /> : ''}

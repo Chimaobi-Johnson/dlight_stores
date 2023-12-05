@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { removeCartItem, updateItemQty, updateSubTotal } from "../../../store/actions/app";
 import { useState } from "react";
 import Link from "next/link";
+import { NumericFormat } from "react-number-format";
 
 
 const CartItem = (props) => {
@@ -96,7 +97,7 @@ const CartItem = (props) => {
           src="/icons/close-icon.png"
           alt="_search"
         />
-        <p>N{price}</p>
+        <p><NumericFormat value={price} prefix="N" displayType="text" thousandSeparator="," /></p>
       </div>
     </div>
   );

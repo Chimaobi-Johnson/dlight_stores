@@ -1,3 +1,4 @@
+import { NumericFormat } from "react-number-format";
 import * as styles from "./Price.module.css";
 
 export default function Price({ discountDetails, price, currentPrice }) {
@@ -14,9 +15,9 @@ export default function Price({ discountDetails, price, currentPrice }) {
                   color: "#5b5b5b9c",
                 }}
               >
-                N{price}
+                <NumericFormat value={price} prefix="N" displayType="text" thousandSeparator="," />
               </del>
-              N{currentPrice}
+              <NumericFormat value={currentPrice} prefix="N" displayType="text" thousandSeparator="," />
             </span>
             <div
               className={styles.sale}
@@ -25,7 +26,7 @@ export default function Price({ discountDetails, price, currentPrice }) {
           <span className={styles.discountLabel}>~Discount applied~</span>
         </>
       ) : (
-        <p>{currentPrice}</p>
+        <p><NumericFormat value={currentPrice} prefix="N" displayType="text" thousandSeparator="," /></p>
       )}
     </div>
   );
