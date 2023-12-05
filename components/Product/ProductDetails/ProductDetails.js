@@ -142,7 +142,7 @@ const ProductDetails = (props) => {
   };
 
   useEffect(() => {
-    let newPrice, oldPrice;
+    let newPrice;
 
     if(discountDetails.length !== 0 && discountDetails[0].active) {
       setMainPrice(priceSale)
@@ -184,8 +184,10 @@ const ProductDetails = (props) => {
       } else {
         setSelectedColor(null);
         setCurrentColorArray([]);
+        updatePrice();
       }
     } else {
+      console.log('else')
       setMainPrice(price)
       setCurrentPrice(price)
       updatePrice();
@@ -222,6 +224,8 @@ const ProductDetails = (props) => {
       } else {
         setSelectedColor(null);
         setCurrentColorArray([]);
+        updatePrice();
+
       }
     }   
 

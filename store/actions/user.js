@@ -18,7 +18,7 @@ export const updateUserCart =
   (localItems, userCartItems) => async (dispatch) => {
     let counter = 0;
     let cartArr;
-    if ((userCartItems.length === 0 && localItems.length === 0) || (userCartItems.length === 0)) {
+    if ((userCartItems.length === 0 && localItems.length === 0) || (userCartItems.length === 0)) { // user cart is empty, update with local cart items
       const instance = axios.create({
         withCredentials: true,
       });
