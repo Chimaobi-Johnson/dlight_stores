@@ -30,7 +30,7 @@ export async function getStaticProps() {
  
    return {
      props: {
-       products: flatted.stringify(response.data.products),
+       products: response.data.products,
        categories: response2.data.categories
      },
      revalidate: 1

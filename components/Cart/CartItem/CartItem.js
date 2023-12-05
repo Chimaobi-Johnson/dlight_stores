@@ -21,6 +21,7 @@ const CartItem = (props) => {
     const initialPrice = price / quantity;
     const updatedPrice = initialPrice * currentQuantity;
     dispatch(updateItemQty(productId, color, size, currentQuantity, updatedPrice))
+    dispatch(updateSubTotal())
     setEditingMode(false)
   }
 
