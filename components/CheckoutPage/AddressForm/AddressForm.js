@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateDeliveryDetails } from "../../../store/actions/app";
 import { useEffect, useState } from "react";
 import { isEmpty, logoutHandler } from "../../../utils/helperFunctions";
+import { NumericFormat } from "react-number-format";
 
 const AddressForm = (props) => {
 
@@ -19,7 +20,7 @@ const AddressForm = (props) => {
   const [shippingLocation, setShippingLocation] = useState(null);
 
   const changeInputHandler = (e) => {
-    setShippingLocation(e.target.value);
+    setShippingLocation(JSON.parse(e.target.value));
   };
 
   const submitFormHandler  = async (data) => {
@@ -31,7 +32,8 @@ const AddressForm = (props) => {
       alert('Please select your shipping location')
       return
     }
-    dispatch(updateDeliveryDetails({...data, shippingLocation, deliveryType: props.deliveryType}))
+
+    dispatch(updateDeliveryDetails({...data, shippingLocation: shippingLocation, deliveryType: props.deliveryType}))
     router.push('/order-summary')
   }
   const loggedUser = useSelector((data) => data.user);
@@ -66,11 +68,11 @@ const AddressForm = (props) => {
                 type="radio"
                 id={item.locationName}
                 name="shippingLocation"
-                value={item}
+                value={JSON.stringify(item)}
                 onChange={(e) => changeInputHandler(e)}
               />
               <label htmlFor={item.locationName}>
-                {item.locationName} - N{item.locationPrice}
+                {item.locationName} - <span style={{ fontWeight: 'bold' }}><NumericFormat value={item.locationPrice} prefix="N" displayType="text" thousandSeparator="," /> </span>
               </label>
               <br />
           </div>

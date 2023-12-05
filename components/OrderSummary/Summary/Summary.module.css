@@ -9,7 +9,6 @@
 .itemsContainer {
   font-size: 0.9rem;
   overflow-y: scroll;
-  height: 100vh;
 }
 
 .itemsContainer::-webkit-scrollbar {

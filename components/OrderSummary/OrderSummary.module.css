@@ -95,9 +95,18 @@
     padding: .2rem .8rem;
 }
 
+.totalContainer p {
+  margin-bottom: 0;
+  background-color: #474747;
+  color: #fdfdfd;
+  font-weight: bold;
+  padding: 8px 15px;
+}
+
 .totalContainer h1 {
     padding-left: 1rem;
     font-weight: bold;
+    margin-top: 0;
 }
   
   @keyframes login-info-slide-down {

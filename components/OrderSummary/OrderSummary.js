@@ -13,6 +13,14 @@ const OrderSummary = (props) => {
     const subTotal = useSelector((data) => data.app.cart.subTotal);
     const deliveryData = useSelector((data) => data.app.deliveryData);
 
+    const [updatedSubTotal, setUpdatedSubtotal] = useState(subTotal)
+
+    useEffect(() => {
+        if(deliveryData.shippingLocation && deliveryData.deliveryType === 'delivery') {
+            setUpdatedSubtotal(Number(subTotal) + Number(deliveryData.shippingLocation.locationPrice))
+        }
+    }, [setUpdatedSubtotal, deliveryData, subTotal])
+
     const loggedUser = useSelector((data) => data.user);
 
     const qtyArr = cartItems.map(el => Number(el.quantity));
@@ -54,10 +62,12 @@ const OrderSummary = (props) => {
         <div id='contentWrapper2' className={styles.contentWrapper}>
             <div id='orderSummary' className={styles.orderSummary}>
                 <div className={styles.itemSummary}>
-                    <Summary cartItems={cartItems} subTotal={subTotal} />
+                    <Summary cartItems={cartItems} subTotal={updatedSubTotal} />
                     <div className={styles.totalContainer}>
-
-                        <h1>Total: <NumericFormat value={subTotal} prefix="N" displayType="text" thousandSeparator="," /> {`(${totalQty} items)`}</h1>
+                        {deliveryData.shippingLocation && deliveryData.deliveryType === 'delivery' ? (
+                        <p>+ <NumericFormat value={deliveryData.shippingLocation.locationPrice} prefix="N" displayType="text" thousandSeparator="," /> shipping fee ({deliveryData.shippingLocation.locationName})</p>
+                        ) : ''}
+                        <h1>Total: <NumericFormat value={updatedSubTotal} prefix="N" displayType="text" thousandSeparator="," /> {`(${totalQty} items)`}</h1>
                     </div>
                 </div>
                 <div className={styles.contactInfo}>
@@ -98,7 +108,7 @@ const OrderSummary = (props) => {
                 <h1>Payment Details</h1>
                 <p>Provide your payment details to complete your purchase</p>
                 <PaystackPage
-                    amount={subTotal * 100}
+                    amount={updatedSubTotal * 100}
                     cartItems={cartItems}
                     deliveryData={deliveryData}
                     userId={!isEmpty(loggedUser) ? loggedUser._id : null}
