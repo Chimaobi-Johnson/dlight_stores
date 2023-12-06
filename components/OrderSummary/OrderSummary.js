@@ -24,7 +24,7 @@ const OrderSummary = (props) => {
     const loggedUser = useSelector((data) => data.user);
 
     const qtyArr = cartItems.map(el => Number(el.quantity));
-    const totalQty = qtyArr.reduce(
+    const totalQty = qtyArr.length === 0 ? 0 : qtyArr.reduce(
         (accumulator, currentValue) => accumulator + currentValue
       )
     const initPaymentContainer = () => {
@@ -76,7 +76,7 @@ const OrderSummary = (props) => {
                             <ul>
                                 <li><span>First Name:</span> {deliveryData.firstName}</li>
                                 <li><span>Last Name:</span> {deliveryData.lastName}</li>
-                                <li><span>Email:</span> {deliveryData.email}</li>
+                                <li><span>Email:</span> {deliveryData.userEmail}</li>
                                 <li><span>Phone No:</span> {deliveryData.mobile}</li>
                                 <li><span>City:</span> {deliveryData.city}</li>
                                 <li><span>StreetName:</span> {deliveryData.streetname}</li>
@@ -84,13 +84,13 @@ const OrderSummary = (props) => {
                             </ul>
                         ) : (
                             <ul>
-                                <li>Email: {deliveryData.email}</li>
+                                <li>Email: {deliveryData.userEmail}</li>
                                 <li>Phone No: {deliveryData.mobile}</li>
 
                             </ul>
                         )}
                         <div className={styles.buttonContainer}>
-                            <Button variant="secondary" onClick={initPaymentContainer}>Looks good {'--->'}</Button>
+                            <Button variant="secondary" onClick={initPaymentContainer}>Proceed {'-->'}</Button>
                             <Link href={'/checkout'}><Button>Go back</Button></Link>
 
                         </div>

@@ -98,7 +98,7 @@ const AddressForm = (props) => {
           register={register}
           controlled
         />
-        <Input type="email*" label="Email" inputName="email" required
+        <Input type="email*" label="Email" inputName="userEmail" required
         controlled
         register={register} />
         <Input type="text" label="Mobile Number*" inputName="mobile" required

@@ -143,11 +143,10 @@ const ProductDetails = (props) => {
 
   useEffect(() => {
     let newPrice;
-
     if(discountDetails.length !== 0 && discountDetails[0].active) {
       setMainPrice(priceSale)
       setCurrentPrice(priceSale)
-      updatePrice();
+      updatePrice(priceSale);
 
       if (
         specifications.sizes.length !== 0 &&
@@ -184,10 +183,9 @@ const ProductDetails = (props) => {
       } else {
         setSelectedColor(null);
         setCurrentColorArray([]);
-        updatePrice();
+        updatePrice(priceSale);
       }
     } else {
-      console.log('else')
       setMainPrice(price)
       setCurrentPrice(price)
       updatePrice();
@@ -224,7 +222,7 @@ const ProductDetails = (props) => {
       } else {
         setSelectedColor(null);
         setCurrentColorArray([]);
-        updatePrice();
+        updatePrice(price);
 
       }
     }   

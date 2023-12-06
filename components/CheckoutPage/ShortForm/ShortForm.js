@@ -64,7 +64,7 @@ const ShortForm = (props) => {
           register={register}
           controlled
         />
-        <Input type="email" label="Email" inputName="email" register={register} controlled />
+        <Input type="email" label="Email" inputName="userEmail" register={register} controlled />
         <Input type="text" label="Mobile Number*" inputName="mobile" required register={register} controlled />
         <Button onClick={handleSubmit(submitForm)}>Continue</Button>
       </div>

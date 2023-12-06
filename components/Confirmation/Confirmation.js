@@ -12,8 +12,8 @@ const ConfirmationPage = () => {
     useEffect(() => {
         if(param === 'success') {
             setConfirmationMessage('Order placed, thanks! <br> Confirmation will be sent to your email')
-            dispatch(clearCartItems())
-            dispatch(updateUserCart([], [])) // clear user cart
+            // dispatch(clearCartItems())
+            // dispatch(updateUserCart([], [])) // clear user cart
         } else {
             setConfirmationMessage('Payment failed. Check connection or try again later')
         }
