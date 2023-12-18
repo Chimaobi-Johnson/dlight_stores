@@ -2,7 +2,6 @@ import * as styles from "./CheckoutPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../Cart/CartItem/CartItem";
 import AddressForm from "./AddressForm/AddressForm";
-import PaystackPage from "./PaystackPage/PaystackPage";
 import { useState } from "react";
 import { NumericFormat } from 'react-number-format';
 import Link from "next/link";

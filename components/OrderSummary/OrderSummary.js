@@ -81,6 +81,8 @@ const OrderSummary = (props) => {
                                 <li><span>City:</span> {deliveryData.city}</li>
                                 <li><span>StreetName:</span> {deliveryData.streetname}</li>
                                 <li><span>House No:</span> {deliveryData.houseno}</li>
+                                <li><span>Additional Info:</span> {deliveryData.additionalInfo}</li>
+
                             </ul>
                         ) : (
                             <ul>
