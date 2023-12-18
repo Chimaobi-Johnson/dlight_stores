@@ -7,25 +7,48 @@
 
 .contentContainer {
     height: 80%;
-    width: 25%;
+    width: 30%;
     background-color: white;
     position: absolute;
     left: 3%;
     top: 10%;
     padding: 2rem;
+    
+}
+
+.imageContainer {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 50px;
+    z-index: 1;
+}
+
+.imageContainer img {
+    border-bottom-left-radius: 80%;
+
 }
 
 .contentContainer span {
     font-size: .8rem;
 }
 
-.contentContainer h2 {
+.contentContainer h3 span {
+    font-size: 1rem;
+    color: #0087ff;
+}
+
+.contentContainer h3 {
     text-transform: uppercase;
 }
 
 .contentContainer p {
     line-height: .8cm;
     margin-bottom: 3rem;
+    font-size: 1rem;
+
 }
 
 
