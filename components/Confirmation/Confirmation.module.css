@@ -1,0 +1,25 @@
+.wrapper {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../public/site/confirmationimage.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.wrapper p {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper p span {
+    display: block;
+    font-size: 1rem;
+    
+}
