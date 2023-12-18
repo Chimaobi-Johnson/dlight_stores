@@ -18,13 +18,18 @@ import Modal from "../../ui/Modal/Modal";
 const Navigation = (props) => {
   const { user } = props 
 
+  const [ linkToLogin, setLinkToLogin ] = useState('auth/login')
+
   const router = useRouter()
   const currentPage = router.pathname.split('/')[1];
 
-  let linkToLogin = 'auth/login';
-  if(currentPage === 'checkout') {
-    linkToLogin = `auth/login?status=checkout`
-  }
+  useEffect(() => {
+    if(currentPage === 'checkout') {
+      setLinkToLogin(`auth/login?status=checkout`)
+    } 
+  }, [currentPage])
+
+
 
   const [active, setActive] = useState(false);
   const dispatch = useDispatch()

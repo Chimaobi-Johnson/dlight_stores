@@ -130,9 +130,19 @@
   
     .contentWrapper {
       width: 100%;
-      grid-template-columns: 1fr;
+      /* grid-template-columns: 1fr; */
     }
-  
+
+    .orderSummary {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+      /* padding-left: 3rem; */
+    }
+
+    .contactInfo {
+      padding-left: 0;
+  }
+
     .addressContainer {
       width: 100%;
       height: auto;

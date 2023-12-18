@@ -35,6 +35,7 @@
 
 .accountIcon {
     width: 100%;
+    cursor: pointer;
 }
 
 .cartIcon {

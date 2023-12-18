@@ -18,6 +18,14 @@
     font-size: .8rem;
 }
 
+.successInfo {
+    background-color: #ffb900;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 1px 5px;
+    margin: 1rem auto;
+}
+
 @media (max-width: 700px) {
 
     .contentContainer {
