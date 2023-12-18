@@ -15,7 +15,7 @@ const ProductInfo = (props) => {
     setCurrentSlide(0);
   }, []);
 
-  const nextSlide = () => {
+  const nextSlide = () => {    
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
   };
   const prevSlide = () => {
@@ -42,7 +42,10 @@ const ProductInfo = (props) => {
               </div>
               <div className={styles.media}>
                 <div className={styles.mediaContainer}>
-                  <Image width={450} height={400} src={el.image} alt="" />
+                  <video controls muted>
+                    <source src={el.image} type="video/mp4"  />
+                  </video>
+                  {/* <Image width={450} height={400} src={el.image} alt="" /> */}
                 </div>
               </div>
             </>
