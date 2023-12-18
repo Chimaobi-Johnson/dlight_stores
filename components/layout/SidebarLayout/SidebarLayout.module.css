@@ -25,12 +25,13 @@
     }
 }
 
-
-.header h1 {
+.headerTextContainer {
     position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    top: 60%;
+    left: 5%;
+}
+
+.headerTextContainer h1 {
     text-transform: uppercase;
     font-size: 2rem;
 }

@@ -58,7 +58,7 @@ export const productInfoData = [
     {
         type: 'Introducing',
         title: 'Quality laundry basket',
-        subText: 'High qulity and affordable laundry baskets at just N15,500. We have beautiful ash and white colors available . Size - 70 litre',
+        subText: 'High qulity and affordable laundry baskets at just N15,500. We have beautiful ash and white colors available. Visit our store for a better view of our products, bulk purchase is also available. Available Size - 70 litre',
         image: '/videos/baskets.mp4',
         buttonText: 'Product Page'
     }

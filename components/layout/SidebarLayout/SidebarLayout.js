@@ -15,7 +15,12 @@ const SidebarLayout = (props) => {
                 backgroundRepeat: "no-repeat",
                 }}
             >
-                <h1>Best sellers</h1>
+
+                <div className={styles.headerTextContainer}>
+                   <h1>Our Variety </h1>
+                   <p>~is the spice of life, surprise your love ones with something different~</p>
+                </div>
+                
             </div>
         </div>
             {props.children}
