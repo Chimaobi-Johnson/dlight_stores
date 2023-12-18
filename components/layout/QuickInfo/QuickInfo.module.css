@@ -13,7 +13,20 @@
     left: 3%;
     top: 10%;
     padding: 2rem;
-    
+    overflow-y: scroll;
+    padding-top: 3rem;
+}
+
+.contentContainer::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+.contentContainer::-webkit-scrollbar-track {
+    background: none;
+}
+
+.contentContainer::-webkit-scrollbar-thumb {
+    background: #c5c4c1; 
 }
 
 .imageContainer {
@@ -48,7 +61,7 @@
     line-height: .8cm;
     margin-bottom: 3rem;
     font-size: 1rem;
-
+    text-align: justify;
 }
 
 
@@ -62,6 +75,10 @@
         top: 50%;
         transform: translate(-50%, -50%);
         padding: 1rem;
+    }
+
+    .contentContainer p {
+        font-size: 0.8rem;
     }
 
 }
