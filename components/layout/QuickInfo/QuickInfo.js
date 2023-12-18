@@ -18,7 +18,7 @@ const QuickInfo = (props) => {
             <Image src="/site/heels.jpg" layout="fill" />
         </div>
         <span>~Random Fact~</span>
-        <h3>Did you know? - <span>High Heels Where Originally Men's Shoes</span></h3>
+        <h3>Did you know? - <span>High Heels Where Originally Mens Shoes</span></h3>
         <p>
           In the 10th Century Europe, it was discovered that your foot would stay
           more firmly in the stirrups if your shoe had a bit of a raised heel. By
