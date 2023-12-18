@@ -16,6 +16,8 @@ const OrderSummary = (props) => {
     const [updatedSubTotal, setUpdatedSubtotal] = useState(subTotal)
 
     useEffect(() => {
+        let mql = window.matchMedia("(max-width: 700px)");
+        console.log(mql)
         if(deliveryData.shippingLocation && deliveryData.deliveryType === 'delivery') {
             setUpdatedSubtotal(Number(subTotal) + Number(deliveryData.shippingLocation.locationPrice))
         }
@@ -28,33 +30,67 @@ const OrderSummary = (props) => {
         (accumulator, currentValue) => accumulator + currentValue
       )
     const initPaymentContainer = () => {
-        document.getElementById('orderSummary').style.opacity = 0;
-        setTimeout(() => {
-            document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr 1fr';
-        }, 1000);
-        setTimeout(() => {
-            document.getElementById('paystackContainer').style.opacity = 1;
-            document.getElementById('closeButtonPaystack').style.opacity = 1;
-             document.getElementById('orderSummary').style.gridTemplateColumns = '1fr';
-             document.getElementById('orderSummary').style.opacity = 1;
+        if(window.matchMedia("(max-width: 700px)").matches) {
+            document.getElementById('orderSummary').style.display = 'none';
+            setTimeout(() => {
+                document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr';
+                document.getElementById('paymentDetails').style.display = 'grid';
+            }, 1000);
+            setTimeout(() => {
+                document.getElementById('paystackContainer').style.opacity = 1;
+                document.getElementById('closeButtonPaystack').style.opacity = 1;
+                 document.getElementById('orderSummary').style.gridTemplateColumns = '1fr';
+                 document.getElementById('orderSummary').style.opacity = 1;
+    
+            }, 2000);
+        } else {
+            document.getElementById('orderSummary').style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr 1fr';
+            }, 1000);
+            setTimeout(() => {
+                document.getElementById('paystackContainer').style.opacity = 1;
+                document.getElementById('closeButtonPaystack').style.opacity = 1;
+                 document.getElementById('orderSummary').style.gridTemplateColumns = '1fr';
+                 document.getElementById('orderSummary').style.opacity = 1;
+    
+            }, 2000);
+        }
 
-        }, 2000);
 
     }
     const closePaymentContainer = () => {
-        document.getElementById('paystackContainer').style.opacity = 0;
-        document.getElementById('orderSummary').style.opacity = 0;
 
-        setTimeout(() => {
-            document.getElementById('contentWrapper2').style.gridTemplateColumns = '10fr 1fr';
+        if(window.matchMedia("(max-width: 700px)").matches) {
+            document.getElementById('paymentDetails').style.display = 'none';
 
-        }, 1000);
-        setTimeout(() => {
-            document.getElementById('orderSummary').style.gridTemplateColumns = '1fr 1fr';
-            document.getElementById('closeButtonPaystack').style.opacity = 0;
-            document.getElementById('orderSummary').style.opacity = 1;
+            setTimeout(() => {
+                document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr';
+                document.getElementById('orderSummary').style.display = 'block';
 
-        }, 2000);
+            }, 1000);
+            setTimeout(() => {
+                document.getElementById('orderSummary').style.gridTemplateColumns = '1fr';
+                document.getElementById('closeButtonPaystack').style.opacity = 0;
+                document.getElementById('orderSummary').style.opacity = 1;
+    
+            }, 2000);
+        } else {
+            document.getElementById('paystackContainer').style.opacity = 0;
+            document.getElementById('orderSummary').style.opacity = 0;
+    
+            setTimeout(() => {
+                document.getElementById('contentWrapper2').style.gridTemplateColumns = '10fr 1fr';
+    
+            }, 1000);
+            setTimeout(() => {
+                document.getElementById('orderSummary').style.gridTemplateColumns = '1fr 1fr';
+                document.getElementById('closeButtonPaystack').style.opacity = 0;
+                document.getElementById('orderSummary').style.opacity = 1;
+    
+            }, 2000);
+        }
+
 
     }
   return (
@@ -102,7 +138,7 @@ const OrderSummary = (props) => {
 
             </div>
 
-            <div className={styles.paymentDetails}>
+            <div id="paymentDetails" className={styles.paymentDetails}>
             <div id='closeButtonPaystack' className={styles.closeButton} onClick={closePaymentContainer}>x</div>
 
             <div id='paystackContainer' className={styles.paystackContainer}>
