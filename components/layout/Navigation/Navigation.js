@@ -18,6 +18,9 @@ import Modal from "../../ui/Modal/Modal";
 const Navigation = (props) => {
   const { user } = props 
 
+  console.log(props)
+  
+
   const [ linkToLogin, setLinkToLogin ] = useState('/auth/login')
 
   const router = useRouter()

@@ -31,6 +31,7 @@ const OrderSummary = (props) => {
       )
     const initPaymentContainer = () => {
         if(window.matchMedia("(max-width: 700px)").matches) {
+            window.scrollTo(0, 0);
             document.getElementById('orderSummary').style.display = 'none';
             setTimeout(() => {
                 document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr';
@@ -44,6 +45,7 @@ const OrderSummary = (props) => {
     
             }, 2000);
         } else {
+            window.scrollTo(0, 0);
             document.getElementById('orderSummary').style.opacity = 0;
             setTimeout(() => {
                 document.getElementById('contentWrapper2').style.gridTemplateColumns = '1fr 1fr';

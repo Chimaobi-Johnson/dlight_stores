@@ -18,11 +18,15 @@ const BasicLayout = (props) => {
 
     const loggedUser =  useSelector(data => data.user)
 
+    console.log(loggedUser)
+
     const dispatch = useDispatch()
   
     const localCartItems = useSelector(data => data.app.cart.cartItems);
 
     useEffect(() => {
+
+
 
       const getUser = () => {
   

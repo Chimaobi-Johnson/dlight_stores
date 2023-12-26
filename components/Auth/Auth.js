@@ -63,12 +63,13 @@ const Auth = props => {
           }
         }).catch(err => {
             setLoading(false)
-            setModal(true)
             if(err.response.status === 404) {
                 setResponseMessage('Email or Password Incorrect!')
             } else {
                 setResponseMessage('Error. check connection or try again later')
             }
+            setModal(true)
+
         })
     }
 
