@@ -34,7 +34,10 @@ const BasicLayout = (props) => {
 
       const getUser = () => {
   
-        axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+        const instance = axios.create({
+          withCredentials: true
+        });
+        instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
         .then(data => {
           console.log(data)
           if(!data.data.user) {

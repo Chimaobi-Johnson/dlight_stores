@@ -138,7 +138,11 @@ const ProductDetails = (props) => {
   };
 
   const selectQuantity = (e) => {
-    setQuantity(e.target.value);
+    if(e.target.value < 1) {
+      setQuantity(1)
+    } else {
+      setQuantity(e.target.value)
+    }
   };
 
   useEffect(() => {
