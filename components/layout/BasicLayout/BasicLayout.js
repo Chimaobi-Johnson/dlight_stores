@@ -21,7 +21,7 @@ const BasicLayout = (props) => {
 
 
     console.log(loggedUser)
-    console.log(loggedUser2 + 'second')
+    console.log(loggedUser2)
 
 
     const dispatch = useDispatch()
@@ -34,10 +34,7 @@ const BasicLayout = (props) => {
 
       const getUser = () => {
   
-        const instance = axios.create({
-          withCredentials: true
-        });
-        instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+        axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
         .then(data => {
           console.log(data)
           if(!data.data.user) {
