@@ -17,6 +17,8 @@ const BasicLayout = (props) => {
     const { meta } = props;
 
     const loggedUser =  useSelector(data => data.user)
+    const loggedUser2 =  useSelector(data => data)
+
 
     console.log(loggedUser)
 
@@ -35,6 +37,7 @@ const BasicLayout = (props) => {
         });
         instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
         .then(data => {
+          console.log(data)
           if(!data.data.user) {
             // clear redux state
             dispatch(storeLoggedInUser({}))
