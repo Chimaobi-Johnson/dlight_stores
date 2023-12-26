@@ -10,11 +10,15 @@ import axios from 'axios';
 
 import styles from './Auth.module.css';
 import Modal from '../ui/Modal/Modal';
+import { useDispatch } from 'react-redux';
+import { storeLoggedInUser } from '../../store/actions/user';
 
 
 const Auth = props => {
 
     const router = useRouter()
+
+    const dispatch = useDispatch();
 
     const [responseMessage, setResponseMessage] = useState('')
     const [modal, setModal] = useState(false)
@@ -46,6 +50,7 @@ const Auth = props => {
         instance.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/login', customData).then(data => {
             if(data.status === 200) {
                 localStorage.setItem('dlight_userId', data.data.user._id);
+                dispatch(storeLoggedInUser(data.data.user))
 
                           // set one hour expiration time
           const remainingMilliseconds = 60 * 60 * 1000;
