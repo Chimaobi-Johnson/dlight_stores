@@ -21,6 +21,8 @@ const BasicLayout = (props) => {
 
 
     console.log(loggedUser)
+    console.log(loggedUser2 + 'second')
+
 
     const dispatch = useDispatch()
   
