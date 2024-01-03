@@ -106,9 +106,9 @@ const Navigation = (props) => {
       <div className={styles.infoContainer}>
         <div className={styles.infoIcons}>
           <div className={styles.accountIcon}>
-            {isEmpty(user) ? (
+            {/* {isEmpty(user) ? (
               <Link href={linkToLogin}><Image width={100} height={100} src="/icons/user.png" alt="account" /></Link>
-            ): <UserIcon firstName={user.firstName} lastName={user.lastName} />}
+            ): <UserIcon firstName={user.firstName} lastName={user.lastName} />} */}
           </div>
           <div onClick={initCartHandler} className={styles.cartIcon}>
             {!cart || cart.length === 0 ? null : (

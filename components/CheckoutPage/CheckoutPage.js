@@ -91,9 +91,9 @@ const CheckoutPage = (props) => {
 
   return (
     <div className={styles.wrapper}>
-      {isEmpty(loggedUser) ? (
+      {/* {isEmpty(loggedUser) ? (
        <LoginInfo />
-      ) : ''}
+      ) : ''} */}
       <div className={styles.contentWrapper}>
         <div className={styles.orderSummary}>
             <OrderDetails />

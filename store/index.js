@@ -40,10 +40,6 @@ const appPersistConfig = {
   blacklist: ['cartInit', 'mobileMenuInit', 'searchBarInit']
 }
 
-// const productsPersistConfig = {
-//   key: 'products',
-//   storage,
-// }
 
 const rootReducer = combineReducers({
   app: persistReducer(appPersistConfig, AppData),
