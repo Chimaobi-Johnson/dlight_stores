@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { initMobileMenu } from '../../../../store/actions/app';
 import styles from './MobileMenu.module.css';
+import Link from 'next/link';
 
 const MobileMenu = props => {
 
@@ -25,13 +26,13 @@ const MobileMenu = props => {
                 </div>
             </div>
             <ul className={styles.menuItem}>
-                <li className={styles.shop}>
-                    Shop
-                </li>
-                <li>Care Guide</li>
-                <li>Blog</li>
-                <li>Reviews</li>
-            </ul>
+                <Link href={'/'}><li className={styles.shop}>
+                    Home
+                </li></Link>
+                <Link href={'/products'}><li>Products</li></Link>
+                <Link href={'/about'}><li>About Us</li></Link>
+                <Link href={'/reviews'}><li>Reviews</li></Link>
+          </ul>
         </div>
     )
 }
