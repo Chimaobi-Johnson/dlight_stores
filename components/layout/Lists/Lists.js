@@ -11,7 +11,6 @@ import { NumericFormat } from 'react-number-format';
 const Lists = props => {
 
     const dispatch = useDispatch();
-    console.log(props)
 
     return (
         <div className={styles.wrapper}>

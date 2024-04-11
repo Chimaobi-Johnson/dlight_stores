@@ -17,7 +17,6 @@ const OrderSummary = (props) => {
 
     useEffect(() => {
         let mql = window.matchMedia("(max-width: 700px)");
-        console.log(mql)
         if(deliveryData.shippingLocation && deliveryData.deliveryType === 'delivery') {
             setUpdatedSubtotal(Number(subTotal) + Number(deliveryData.shippingLocation.locationPrice))
         }

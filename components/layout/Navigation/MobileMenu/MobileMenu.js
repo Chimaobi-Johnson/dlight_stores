@@ -10,8 +10,6 @@ const MobileMenu = props => {
 
     const initMenu = useSelector(data => data.app.mobileMenuInit)
 
-    console.log(initMenu)
-
     return (
         <div id='wrapper' className={initMenu ? styles.wrapper : styles.closeMenu}>
             <div className={styles.header}>

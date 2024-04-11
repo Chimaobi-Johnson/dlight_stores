@@ -57,7 +57,6 @@ export const initSearchBar = () => (dispatch) => {
 };
 
 export const updateItemQty = (productId, color, size, qty, updatedPrice) => (dispatch) => {
-  console.log(color, size)
   dispatch({
     type: UPDATE_CART_QUANTITY,
     payload: {

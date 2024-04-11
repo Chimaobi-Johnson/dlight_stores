@@ -36,8 +36,6 @@ const ProductDetails = (props) => {
     discountDetails,
   } = props.product;
 
-  console.log(props.product);
-
   const user = useSelector(data => data.user)
   const content = useSelector(data => data.app.content)
 

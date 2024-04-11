@@ -19,11 +19,6 @@ const BasicLayout = (props) => {
     const loggedUser =  useSelector(data => data.user)
     const loggedUser2 =  useSelector(data => data)
 
-
-    console.log(loggedUser)
-    console.log(loggedUser2)
-
-
     const dispatch = useDispatch()
   
     const localCartItems = useSelector(data => data.app.cart.cartItems);
@@ -39,7 +34,6 @@ const BasicLayout = (props) => {
         });
         instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
         .then(data => {
-          console.log(data)
           if(!data.data.user) {
             // clear redux state
             dispatch(storeLoggedInUser({}))

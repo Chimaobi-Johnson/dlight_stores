@@ -123,7 +123,6 @@ export const updateAppData = (state = initialState, action) => {
 
     case UPDATE_CART_QUANTITY:
       const cartA = [...state.cart.cartItems];
-      console.log(action.payload);
       cartA.map((item) => {
         if (
           item.productId === action.payload.productId &&
