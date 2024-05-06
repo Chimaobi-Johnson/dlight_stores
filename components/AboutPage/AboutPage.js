@@ -7,7 +7,7 @@ const AboutPage = (props) => {
       <div className={styles.imageContainer}>
         <div className={styles.imageBackground}>
           <div className={styles.imageWrapper}>
-            <Image src="/site/uju2.jpg" alt="_image" layout="fill" />
+            <Image src="/site/uju_cartoon3.jpg" alt="_image" layout="fill" />
           </div>
         </div>
       </div>
@@ -15,6 +15,7 @@ const AboutPage = (props) => {
         <div className={styles.textWrapper}>
           <div className={styles.textContainer}>
             <h4>About Dlight Stores</h4>
+            <span className={styles.shortDash}></span>
             <p>
               Hi 😃 My name is Chibuike Obianuju Ifeoma I am the face behind
               Dlight homeware stores. We sell lovely Sourviners for weddings,
