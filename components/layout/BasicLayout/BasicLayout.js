@@ -23,37 +23,37 @@ const BasicLayout = (props) => {
   
     const localCartItems = useSelector(data => data.app.cart.cartItems);
 
-    useEffect(() => {
+    // useEffect(() => {
 
 
 
-      const getUser = () => {
+      // const getUser = () => {
   
-        const instance = axios.create({
-          withCredentials: true
-        });
-        instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
-        .then(data => {
-          if(!data.data.user) {
-            // clear redux state
-            dispatch(storeLoggedInUser({}))
-            // update local cart
+      //   const instance = axios.create({
+      //     withCredentials: true
+      //   });
+      //   instance.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/current_user')
+      //   .then(data => {
+      //     if(!data.data.user) {
+      //       // clear redux state
+      //       dispatch(storeLoggedInUser({}))
+      //       // update local cart
   
-          } else {
-            dispatch(storeLoggedInUser(data.data.user))
-            // update local cart
-            dispatch(updateUserCart(localCartItems, data.data.user.cart.items))
-          }
+      //     } else {
+      //       dispatch(storeLoggedInUser(data.data.user))
+      //       // update local cart
+      //       dispatch(updateUserCart(localCartItems, data.data.user.cart.items))
+      //     }
        
-        })
-        .catch(err => {
-          console.log(err)
-        })
-      }
+      //   })
+      //   .catch(err => {
+      //     console.log(err)
+      //   })
+      // }
   
-      getUser()
+      // getUser()
   
-    }, [])
+    // }, [])
 
   return (
     <div className={styles.wrapper}>

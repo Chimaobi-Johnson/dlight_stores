@@ -33,9 +33,10 @@ const PaystackPage = props => {
         paymentRef: reference,
         purchasedBy: userId ? userId : null
       }
-
       axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/store_payment_details`, data)
       .then(res => {
+        console.log(res)
+
         if(res.status === 200) {
             dispatch(clearCartItems())
             dispatch(updateUserCart([], [])) // clear user cart
