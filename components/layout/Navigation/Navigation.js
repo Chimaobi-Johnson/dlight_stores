@@ -45,21 +45,21 @@ const Navigation = (props) => {
     marginLeft: '2px',
   }
 
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/products')
-        if(response.status === 200) {
-          dispatch(storeProducts(response.data.products))
-        } 
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  // useEffect(() => {
+  //   const getProducts = async () => {
+  //     try {
+  //       const response = await axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + '/products')
+  //       if(response.status === 200) {
+  //         dispatch(storeProducts(response.data.products))
+  //       } 
+  //     } catch (error) {
+  //       // console.log(error)
+  //     }
+  //   }
 
-    getProducts()
+  //   getProducts()
 
-  }, [])
+  // }, [])
 
   const [modal, setModal] = useState(false)
 

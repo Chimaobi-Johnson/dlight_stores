@@ -34,7 +34,7 @@ const Recommended = props => {
                                  </div>
                                  <div className={styles.productDetails}>
                                     <h3>{truncate(product.name, 60)}</h3>
-                                    <p>from <span className={styles.price}><NumericFormat value={product.price} displayType="text" thousandSeparator="," /> naira</span></p>
+                                    <p>from <span className={styles.price}><NumericFormat value={product.price} onChange={() => {}} displayType="text" thousandSeparator="," /> naira</span></p>
                                  </div>
                             </div>
                         </Link>

@@ -6,7 +6,7 @@ export default function Price({ discountDetails, price, currentPrice }) {
     <div className={styles.wrapper}>
       {discountDetails.length !== 0 && discountDetails[0].active ? (
         <>
-          <p>
+          <div>
             <span>
               <del
                 style={{
@@ -15,18 +15,18 @@ export default function Price({ discountDetails, price, currentPrice }) {
                   color: "#5b5b5b9c",
                 }}
               >
-                <NumericFormat value={price} prefix="N" displayType="text" thousandSeparator="," />
+                <NumericFormat value={price} onChange={() => {}} prefix="N" displayType="text" thousandSeparator="," />
               </del>
-              <NumericFormat value={currentPrice} prefix="N" displayType="text" thousandSeparator="," />
+              <NumericFormat value={currentPrice} onChange={() => {}} prefix="N" displayType="text" thousandSeparator="," />
             </span>
             <div
               className={styles.sale}
             >{`${discountDetails[0].percentage}%`}</div>
-          </p>
+          </div>
           <span className={styles.discountLabel}>~Discount applied~</span>
         </>
       ) : (
-        <p><NumericFormat value={currentPrice} prefix="N" displayType="text" thousandSeparator="," /></p>
+        <div><NumericFormat value={currentPrice} prefix="N" displayType="text" thousandSeparator="," /></div>
       )}
     </div>
   );

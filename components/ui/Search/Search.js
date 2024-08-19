@@ -10,7 +10,7 @@ const Search = props => {
         <div className={init ? styles.wrapper : styles.closeSearchBar}>
             <p>Delight stores</p>
             <div className={styles.inputWrapper}>
-                <input placeholder="Search..." type="search" value="" />
+                <input placeholder="Search..." type="search" onChange={() => {}} value="" />
             </div>
         </div>
     )

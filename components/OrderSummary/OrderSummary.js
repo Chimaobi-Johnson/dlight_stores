@@ -102,7 +102,7 @@ const OrderSummary = (props) => {
                     <Summary cartItems={cartItems} subTotal={updatedSubTotal} />
                     <div className={styles.totalContainer}>
                         {deliveryData.shippingLocation && deliveryData.deliveryType === 'delivery' ? (
-                        <p>+ <NumericFormat value={deliveryData.shippingLocation.locationPrice} prefix="N" displayType="text" thousandSeparator="," /> shipping fee ({deliveryData.shippingLocation.locationName})</p>
+                        <p>+ <NumericFormat onChange={() => {}} value={deliveryData.shippingLocation.locationPrice} prefix="N" displayType="text" thousandSeparator="," /> shipping fee ({deliveryData.shippingLocation.locationName})</p>
                         ) : ''}
                         <h1>Total: <NumericFormat value={updatedSubTotal} prefix="N" displayType="text" thousandSeparator="," /> {`(${totalQty} items)`}</h1>
                     </div>

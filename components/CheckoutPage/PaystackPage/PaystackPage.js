@@ -35,7 +35,6 @@ const PaystackPage = props => {
       }
       axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/store_payment_details`, data)
       .then(res => {
-        console.log(res)
 
         if(res.status === 200) {
             dispatch(clearCartItems())
@@ -54,7 +53,7 @@ const PaystackPage = props => {
     // you can call this function anything
     const onClose = () => {
       // implementation for  whatever you want to do when the Paystack dialog closed.
-      console.log('closed')
+      // console.log('closed')
     }
 
     const PaystackHook = () => {

@@ -24,7 +24,7 @@ const Lists = props => {
                             <div onClick={(i) => dispatch(updateSingleProductPagination(index))} className={styles.item}>
                                 <Image src={item.imagesUrl[0]} alt="" width="230px" height="200px" />
                                 <h4>{item.name}</h4>
-                                <p>from <NumericFormat value={item.price} prefix="N" displayType="text" thousandSeparator="," /></p>
+                                <p>from <NumericFormat value={item.price} prefix="N" onChange={() => {}} displayType="text" thousandSeparator="," /></p>
                             </div>
                         </Link>
                     )
