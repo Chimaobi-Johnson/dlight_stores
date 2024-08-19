@@ -26,36 +26,20 @@ const PaystackPage = props => {
     const onSuccess = async (reference) => {
       // Implementation for whatever you want to do with reference and after success call.
       // delivery type issue *************
-      const data = {
-        ...deliveryData,
-        amount: amount,
-        products: cartItems,
-        paymentRef: reference,
-        purchasedBy: userId ? userId : null
-      }
-      const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/store_payment_details`;
-      try {
-        const response = await fetch(url, {
-          body: JSON.stringify(data),
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-          },
-        });
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-    
-        const json = await response.json();
-        dispatch(clearCartItems())
-          dispatch(updateUserCart([], [])) // clear user cart
-          router.push(`/payment?status=success`)
-        console.log(json);
-      } catch (error) {
-        console.error(error.message);
-        router.push(`/payment?status=datafail`)
 
-      }
+      dispatch(clearCartItems())
+      dispatch(updateUserCart([], [])) // clear user cart
+      router.push(`/payment?status=success`)
+
+      // STORE PAYMENT DETAILS 
+      // const data = {
+      //   ...deliveryData,
+      //   amount: amount,
+      //   products: cartItems,
+      //   paymentRef: reference,
+      //   purchasedBy: userId ? userId : null
+      // }
+
       // axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/store_payment_details`, data)
       // .then(res => {
       //   if(res.status === 200) {
