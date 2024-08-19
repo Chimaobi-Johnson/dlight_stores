@@ -20,7 +20,7 @@ const AddressForm = (props) => {
   const [shippingLocation, setShippingLocation] = useState(null);
 
   const changeInputHandler = (e) => {
-    setShippingLocation(JSON.parse(e.target.value));
+    setShippingLocation(e.target.value);
   };
 
   const submitFormHandler  = async (data) => {
@@ -68,7 +68,7 @@ const AddressForm = (props) => {
                 type="radio"
                 id={item.locationName}
                 name="shippingLocation"
-                value={JSON.stringify(item)}
+                value={item}
                 onChange={(e) => changeInputHandler(e)}
               />
               <label htmlFor={item.locationName}>
