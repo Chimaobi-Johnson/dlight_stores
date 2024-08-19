@@ -20,8 +20,24 @@ const AddressForm = (props) => {
   const [shippingLocation, setShippingLocation] = useState(null);
 
   const changeInputHandler = (e) => {
-    setShippingLocation(e.target.value);
+    setShippingLocation(JSON.parse(e.target.value));
   };
+
+  const formatJSON = (obj) => { // to prevent typeerror - converting circular structure to JSON
+    return JSON.stringify(obj, (key, value) => {
+      if (typeof value === 'object' && value !== null) {
+          if (value instanceof Array) {
+              return value.map(
+                  (item, index) => 
+                  (index === value.length - 1 ? 
+                      'circular reference' : item));
+          }
+          return { ...value, circular: 'circular reference' };
+      }
+      return value;
+  });
+  
+  }
 
   const submitFormHandler  = async (data) => {
     if(props.cartLength === 0) {
@@ -32,7 +48,7 @@ const AddressForm = (props) => {
       alert('Please select your shipping location')
       return
     }
-
+    console.log(data)
     dispatch(updateDeliveryDetails({...data, shippingLocation: shippingLocation, deliveryType: props.deliveryType}))
     router.push('/order-summary')
   }
@@ -68,7 +84,7 @@ const AddressForm = (props) => {
                 type="radio"
                 id={item.locationName}
                 name="shippingLocation"
-                value={item}
+                value={formatJSON(item)}
                 onChange={(e) => changeInputHandler(e)}
               />
               <label htmlFor={item.locationName}>
@@ -87,7 +103,7 @@ const AddressForm = (props) => {
           minLength={3}
           required
           register={register}
-          controlled
+          controlled={true}
         />
         <Input
           type="text"
@@ -96,13 +112,13 @@ const AddressForm = (props) => {
           minLength={3}
           required
           register={register}
-          controlled
+          controlled={true}
         />
         <Input type="email*" label="Email" inputName="userEmail" required
-        controlled
+        controlled={true}
         register={register} />
         <Input type="text" label="Mobile Number*" inputName="mobile" required
-        controlled
+        controlled={true}
         register={register} />
         <Input
           type="text"
@@ -111,10 +127,10 @@ const AddressForm = (props) => {
           defaultValue="Rivers"
           disabled
           register={register}
-          controlled
+          controlled={true}
         />
         <Input type="text" label="City*" inputName="city" required
-        controlled
+        controlled={true}
         register={register} />
         <Input
           type="text"
@@ -122,10 +138,10 @@ const AddressForm = (props) => {
           inputName="streetname"
           required
           register={register}
-          controlled
+          controlled={true}
         />
         <Input type="text" label="House No" inputName="houseno"
-        controlled
+        controlled={true}
         register={register} />
         {/* <label for="additionalInfo">Additional Info</label> */}
         <div className={styles.additionalInfo}>
@@ -136,7 +152,7 @@ const AddressForm = (props) => {
             id="additionalInfo"
             name="additionalInfo"
             {...register('additionalInfo')}
-            controlled
+            controlled={true}
           ></textarea>
         </div>
       </div>

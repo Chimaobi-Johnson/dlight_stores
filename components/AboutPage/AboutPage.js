@@ -7,7 +7,7 @@ const AboutPage = (props) => {
       <div className={styles.imageContainer}>
         <div className={styles.imageBackground}>
           <div className={styles.imageWrapper}>
-            <Image src="/site/uju_cartoon3.jpg" alt="_image" layout="fill" />
+            <Image src="/site/uju_cartoon3.jpg" alt="_image" priority layout="fill" />
           </div>
         </div>
       </div>
