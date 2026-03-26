@@ -2,9 +2,8 @@ import Lists from '../components/layout/Lists/Lists'
 import SidebarLayout from '../components/layout/SidebarLayout/SidebarLayout'
 // import { cookies } from 'next/headers';
 
-import axios from 'axios'
-
 import styles from '../styles/Home.module.css'
+import { apiGetProducts, apiGetCategories } from '../lib/storeApi';
 import { useDispatch } from 'react-redux';
 import { storeProducts } from '../store/actions/products';
 
@@ -25,8 +24,8 @@ export default function Products (props) {
 
 
 export async function getStaticProps() {
-  const response = await axios.get(process.env.BACKEND_URL + '/products')
-  const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
+  const response = await apiGetProducts()
+  const response2 = await apiGetCategories()
   
    return {
      props: {

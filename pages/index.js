@@ -7,9 +7,12 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { storeProducts } from "../store/actions/products";
 
-import axios from 'axios';
-
 import styles from "../styles/Home.module.css";
+import {
+  apiGetProducts,
+  apiGetCategories,
+  apiGetSiteContent,
+} from "../lib/storeApi";
 import { storeSiteContent } from "../store/actions/app";
 
 
@@ -43,9 +46,9 @@ function Home(props) {
 
 export async function getStaticProps() {
 
- const response = await axios.get(process.env.BACKEND_URL + '/products')
- const response2 = await axios.get(process.env.BACKEND_URL + '/categories ')
- const response3 = await axios.get(process.env.BACKEND_URL + '/site-content ')
+ const response = await apiGetProducts()
+ const response2 = await apiGetCategories()
+ const response3 = await apiGetSiteContent()
 
 
 

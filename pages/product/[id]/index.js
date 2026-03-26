@@ -5,9 +5,8 @@ import BasicLayout from "../../../components/layout/BasicLayout/BasicLayout";
 import QuickInfo from "../../../components/layout/QuickInfo/QuickInfo";
 import RelatedItems from "../../../components/layout/RelatedItems/RelatedItems";
 import Pagination from "../../../components/ui/Pagination/Pagination";
-import axios from 'axios';
-
 import { useSelector } from "react-redux";
+import { apiGetProductIds, apiGetProductById } from "../../../lib/storeApi";
 
 const Product = (props) => {
   
@@ -32,7 +31,7 @@ const Product = (props) => {
 
 export async function getStaticPaths() {
 
-  const response = await axios.get(process.env.BACKEND_URL + '/products/ids');
+  const response = await apiGetProductIds();
 
   return {
     fallback: false,
@@ -44,7 +43,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
 
   const productId = context.params.id;
-  const response = await axios.get(process.env.BACKEND_URL + '/product?id=' + productId)
+  const response = await apiGetProductById(productId)
   return {
     props: {
       product: response.data,

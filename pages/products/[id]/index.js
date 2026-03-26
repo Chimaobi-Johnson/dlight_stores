@@ -1,6 +1,10 @@
 import { useRouter } from "next/router";
 import axios from 'axios';
 import { useSelector } from "react-redux";
+import {
+  apiGetCategories,
+  apiGetProductsByCategory,
+} from "../../../lib/storeApi";
 import BasicLayout from "../../../components/layout/BasicLayout/BasicLayout";
 import Lists from "../../../components/layout/Lists/Lists";
 import SidebarLayout from "../../../components/layout/SidebarLayout/SidebarLayout";
